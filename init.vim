@@ -23,7 +23,9 @@ if dein#load_state(s:dein_dir)
   call dein#add('dhruvasagar/vim-table-mode') " use :TableModeToggle
   call dein#add('vim-airline/vim-airline') " cool status bar
   call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('scrooloose/nerdtree')
+  call dein#add('scrooloose/nerdtree') "file explore
+  call dein#add('tpope/vim-surround') "extends text object
+  call dein#add('mattn/emmet-vim') "tag creator
   call dein#add('suan/vim-instant-markdown') " markdown viewer out of order
   call dein#end()
   call dein#save_state()
@@ -37,17 +39,18 @@ filetype plugin indent on
 "------------------------
 
 " colors
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
+call togglebg#map('<F5>')
 syntax enable
 set background=dark
 colorscheme solarized
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"set termguicolors
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " appearance
 set number
-" set cursorline
+set cursorline
 set list
 set listchars=tab:»-
     " ,trail:*,eol:↲
