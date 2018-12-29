@@ -20,13 +20,12 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/deoplete.nvim') " auto complete
   call dein#add('t9md/vim-textmanip') " move text
   call dein#add('bronson/vim-trailing-whitespace') "FixWhitespace
-  call dein#add('dhruvasagar/vim-table-mode') " use :TableModeToggle
   call dein#add('vim-airline/vim-airline') " cool status bar
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('scrooloose/nerdtree') "file explore
   call dein#add('tpope/vim-surround') "extends text object
   call dein#add('mattn/emmet-vim') "tag creator
-  call dein#add('suan/vim-instant-markdown') " markdown viewer out of order
+  call dein#add('iwataka/minidown.vim') " markdown preview
   call dein#end()
   call dein#save_state()
 endif
@@ -39,12 +38,12 @@ filetype plugin indent on
 "------------------------
 
 " colors
-"let g:solarized_termcolors=256
 call togglebg#map('<F5>')
 syntax enable
 set background=dark
 colorscheme solarized
 "set termguicolors
+"let g:solarized_termcolors=256
 "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
@@ -72,6 +71,7 @@ set autoindent
 set smartindent
 set expandtab
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 
 " encoding
@@ -89,6 +89,9 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " clipboard
 set clipboard+=unnamedplus
 
+" buffer
+set hidden
+
 " remap/shortcut
 nnoremap j gj
 nnoremap k gk
@@ -101,11 +104,11 @@ xmap <M-l> <Plug>(textmanip-move-right)
 " for nerdtree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+" use netrw
+filetype plugin on
+
 " autocmd
 autocmd BufWritePre * :FixWhitespace
 
 " use deoplete
 let g:deoplete#eneble_at_startup = 1
-
-" use vim-table-mode
-let g:table_mode_corner = '|'
