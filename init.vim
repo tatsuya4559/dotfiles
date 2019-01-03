@@ -16,16 +16,20 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   " Add or remove your pllugins here:
   call dein#add('Shougo/dein.vim') " package manager
-  call dein#add('altercation/vim-colors-solarized') " color scheme
   call dein#add('Shougo/deoplete.nvim') " auto complete
-  call dein#add('t9md/vim-textmanip') " move text
-  call dein#add('bronson/vim-trailing-whitespace') "FixWhitespace
+  call dein#add('altercation/vim-colors-solarized') " color scheme
   call dein#add('vim-airline/vim-airline') " cool status bar
   call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('scrooloose/nerdtree') "file explore
-  call dein#add('tpope/vim-surround') "extends text object
-  call dein#add('mattn/emmet-vim') "tag creator
+  call dein#add('t9md/vim-textmanip') " move text
+  call dein#add('bronson/vim-trailing-whitespace') " FixWhitespace
+  call dein#add('scrooloose/nerdtree') " file explore
+  call dein#add('tpope/vim-surround') " extends text object
+  call dein#add('tpope/vim-abolish') " smart replace
+  call dein#add('nelstrom/vim-visual-star-search') " extends */# search
+
+  call dein#add('mattn/emmet-vim') " tag creator
   call dein#add('iwataka/minidown.vim') " markdown preview
+  call dein#add('aklt/plantuml-syntax') " plantuml sntax
   call dein#end()
   call dein#save_state()
 endif
