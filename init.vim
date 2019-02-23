@@ -14,14 +14,14 @@ if &compatible
 endif
 
 if !isdirectory(s:dein_repo_dir)
-    execute '!git clone git@github.com:Shougo/dein.vim.git' s:dein_repo_dir
+    execute '!git clone https://github.com/Shougo/dein.vim.git' s:dein_repo_dir
 endif
 
 execute 'set runtimepath^=' . s:dein_repo_dir
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-  " Add or remove your pllugins here:
+  " Add or remove your plugins here:
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/deoplete.nvim')
