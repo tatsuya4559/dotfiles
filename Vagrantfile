@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "archlinux/archlinux"
+  config.vm.box = "terrywang/archlinux"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
     # クリップボードの共有: 双方向
     vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
   end
-  GUI=false
+  GUI=true
   if GUI
     config.vm.provider "virtualbox" do |gui|
       # Display the VirtualBox GUI when booting the machine
