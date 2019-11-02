@@ -1,0 +1,32 @@
+" search
+set ignorecase
+set smartcase
+set hlsearch
+set wrapscan
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+set showmatch matchtime=1
+set cmdheight=2
+set laststatus=2
+set showcmd
+set display=lastline
+set clipboard+=unnamed
+set iminsert=2
+set surround
+
+" ideavim mappings
+nnoremap [idea] <Nop>
+nmap <C-j> [idea]
+nnoremap [idea]f :action SearchEverywhere<CR>
+nnoremap [idea]g :action FindInPath<CR>
+nnoremap [idea]o :action FileStructurePopup<CR>
+nnoremap [idea]h :action FindUsages<CR>
+nnoremap [idea]r :action RenameElement<CR>
+nnoremap <C-]> :action GotoDeclaration<CR>
+nnoremap <C-=> :action ReformatCode<CR>
+vnoremap <C-=> :action ReformatCode<CR>
+nnoremap <C-/> :action CommentByLineComment<CR>
+vnoremap <C-/> :action CommentByLineComment<CR>
+
+" common mapping
+source mappings.rc.vim
