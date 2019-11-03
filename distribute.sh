@@ -3,20 +3,25 @@
 DOTFILEDIR=$(cd $(dirname $0); pwd)
 
 # distribute dotfiles
-## init.vim
+## neovim
 if [ ! -e ~/.config/nvim ]; then
-	mkdir -p ~/.config/nvim
+    mkdir -p ~/.config/nvim
 fi
-if [ -e ~/.config/nvim/init.vim ]; then
-	rm -f ~/.config/nvim/init.vim
+if [ ! -e ~/.config/nvim/init.vim ]; then
+    ln -s $DOTFILEDIR/vim/init.vim ~/.config/nvim/init.vim
+    ln -s $DOTFILEDIR/vim/rc ~/.vim/rc
 fi
-ln -s $DOTFILEDIR/nvim/init.vim ~/.config/nvim/init.vim
+
+## ideavim
+if [ ! -e ~/.ideavimrc ]; then
+    ln -s $DOTFILEDIR/vim/ideavimrc ~/.ideavimrc
+fi
 
 ## terminator
-if [ ! -e ~/.config/terminator ]; then
-	mkdir -p ~/.config/terminator
-fi
-if [ -e ~/.config/terminator/config ]; then
-	rm -f ~/.config/terminator/config
-fi
-ln -s $DOTFILEDIR/terminator/config ~/.config/terminator/config
+#if [ ! -e ~/.config/terminator ]; then
+    #mkdir -p ~/.config/terminator
+#fi
+#if [ -e ~/.config/terminator/config ]; then
+    #rm -f ~/.config/terminator/config
+#fi
+#ln -s $DOTFILEDIR/terminator/config ~/.config/terminator/config

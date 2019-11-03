@@ -1,5 +1,6 @@
 [global_config]
   focus = system
+  title_font = Ricty Diminished 39
   title_inactive_bg_color = "#555753"
   title_transmit_bg_color = "#729fcf"
 [keybindings]
@@ -16,8 +17,10 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#2e3436"
+    background_color = "#002b36"
     cursor_blink = False
     cursor_color = "#c6c8d1"
-    foreground_color = "#d3d7cf"
+    font = Ricty Diminished 13
+    foreground_color = "#839496"
     palette = "#2a3158:#e27878:#89b8c2:#e4aa80:#84a0c6:#d1a8ad:#adc1cb:#c6c8d1:#444b71:#e2a478:#b4be82:#d8e599:#3e445e:#673e43:#686f9a:#d4d5db"
+    use_system_font = False

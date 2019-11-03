@@ -1,9 +1,13 @@
 #!/bin/bash
-# set fastest mirror
-sudo pacman-mirrors -f 0
-# update package
-sudo pacman -Syy
+################################################################################
+# Prepare for setting up
+################################################################################
+# set fastest mirror and update package
+sudo pacman-mirrors --fasttrack && sudo pacman -Syy
 
+################################################################################
+# Basic settings
+################################################################################
 # install japanese font
 sudo pacman -S --noconfirm otf-ipafont adobe-source-han-sans-jp-fonts
 pushd ~/Downloads/
@@ -37,32 +41,69 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 #gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
 
 # clone my dotfiles
+pushd ~
 git clone https://github.com/tatsuya4559/dotfiles.git
+popd
 
-# install pipenv, vagrant, ripgrep, xclip
-sudo pacman -S --noconfirm python-pipenv vagrant ripgrep xclip
+################################################################################
+# Install apps
+################################################################################
+# install by pacman
+## install vagrant, ripgrep, xclip, yay
+sudo pacman -S --noconfirm vagrant ripgrep xclip yay
 
-# install neovim, terminator
-sudo pacman -S --noconfirm neovim terminator
+## install neovim, terminator, gnumeric, synapse
+sudo pacman -S --noconfirm python-neovim terminator gnumeric synapse
+## for neovim
+sudo pip install neovim
+
+## install pipenv
+sudo pacman -S --noconfirm python-pipenv
+
+# install from AUR
+## install google-chrome
+pushd ~/Downloads/
+git clone https://aur.archlinux.org/google-chrome.git
+cd google-chrome/
+yes 'Y' | makepkg -s
+yes 'Y' | sudo pacman -U *.pkg.tar.xz
+popd
+
+## install dropbox
+pushd ~/Downloads/
+git clone https://aur.archlinux.org/dropbox.git
+cd dropbox
+gpg --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+yes | makepkg -s
+yes | sudo pacman -U *.pkg.tar.xz
+popd
+
+# install nice gtk/icon themes
+pushd ~/Downloads/
+## gtk theme
+git clone https://github.com/EliverLara/Nordic.git
+mkdir ~/.themes
+cp -r ~/Downloads/Nordic ~/.themes
+rm -rf ~/Downloads/Nordic
+
+## icon theme
+git clone https://github.com/numixproject/numix-icon-theme-circle.git
+mkdir ~/.icons
+cp -r ~/Downloads/numix-icon-theme-circle/Numix-Circle* .icons/
+rm -rf ~/Downloads/numix-icon-theme-circle
+popd
+
+# git settings
+git config --global user.name "tatsuya4559"
+git config --global user.email "tatsuya.k1029@gmail.com"
+git config --global core.editor "nvim"
 
 # realize pbcopy, pbpaste
 # (want to prepare .bashrc in dotfiles)
 echo "alias pbcopy='xclip -selection c'" >> ~/.bashrc
 echo "alias pbpaste='xclip -selection c -o'" >> ~/.bashrc
-
-# install google-chrome
-pushd ~/Downloads/
-git clone https://aur.archlinux.org/google-chrome.git
-cd google-chrome/
-makepkg -s
-yes 'Y' | sudo pacman -U *.pkg.tar.xz
-popd
-
-# install nordic gtk theme
-#dl zip from git
-#mkdir ~/.theme
-#unzip -d ~/.theme nordic.zip
-
+echo "alias vimdiff='nvim -d'" >> ~/.bashrc
+echo "set completion-ignore-case on" >> ~/.inputrc
 # uninstall some pre-install apps
 
 # upgrade packages

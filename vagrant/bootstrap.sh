@@ -32,25 +32,16 @@ sudo reflector --verbose --country 'Japan' -l 10 --sort rate --save /etc/pacman.
 sudo pacman -Rdd --noconfirm libxfont
 sudo pacman -Syu --noconfirm
 
-
-## =================powerpillインストール===================
-# gpg --recv-keys --keyserver hkp://pgp.mit.edu 1D1F0DC78F173680  # Dosn't work
-gpg --recv-keys 1D1F0DC78F173680
-yaourt -S --noconfirm powerpill  # Use powerpill instead of pacman. Bye pacman...
-
-### =================powerpillエラー出ないようにSigLevel書き換え===================
-sudo sed -ie 's/Required DatabaseOptional/PackageRequired/' /etc/pacman.conf
-
 # =================GUI環境===================
-sudo pacman -S --noconfirm xorg-xinit lightdm-gtk-greeter
-yes 'all' | sudo pacman -S --noconfirm xfce4 lightdm
-sudo systemctl enable lightdm.service
+#sudo pacman -S --noconfirm xorg-xinit lightdm-gtk-greeter
+#yes 'all' | sudo pacman -S --noconfirm xfce4 lightdm
+#sudo systemctl enable lightdm.service
 # /etc/systemd/system/default.targetのリンクをmulti-user.targetからgraphical.targetに変える
-sudo systemctl set-default graphical.target
+#sudo systemctl set-default graphical.target
 
 
 ## =================フォントとインプットメソッドのインストール===================
-yaourt -S --noconfirm otf-takao
+yaourt -S --noconfirm otf-ipafont adobe-source-han-sans-jp-fonts
 yes 'all' | sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-mozc
 
 sudo cat << 'EOF' > ${HOME}/.xprofile
@@ -68,7 +59,7 @@ sudo gpasswd -a vagrant autologin
 
 
 # =================その他好きなもの===================
-sudo pacman -S --noconfirm neovim git python-pipenv
+sudo pacman -S --noconfirm python-neovim git python-pipenv
 sudo pip install neovim
 
 # yaourt -S --noconfirm man-pages-ja-git gitflow-avh-git
