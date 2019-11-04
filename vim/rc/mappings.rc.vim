@@ -13,8 +13,6 @@ inoremap <C-a> <C-o>^
 inoremap <C-e> <C-o>$<Right>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
 inoremap <C-h> <BS>
 inoremap <C-d> <Del>
 inoremap <C-k> <C-o>D<Right>
@@ -28,12 +26,13 @@ vnoremap > >gv
 
 " ESC
 imap jk <Esc>
+tnoremap <silent> <Esc> <C-\><C-n>
 
 " ウィンドウ移動
-nnoremap <Left> <C-w>h
-nnoremap <Down> <C-w>j
-nnoremap <Up> <C-w>k
-nnoremap <Right> <C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 
 " Utility
 vnoremap <Leader>e :!sh<CR>

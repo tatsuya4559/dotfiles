@@ -13,7 +13,8 @@ set ignorecase
 set smartcase
 set hlsearch
 set wrapscan
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+set incsearch
+nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
 " tab
 set smartindent
@@ -27,3 +28,8 @@ set clipboard+=unnamedplus
 
 " buffer
 set hidden
+
+" terminal
+set sh=bash
+autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+autocmd TermOpen * setlocal nonumber

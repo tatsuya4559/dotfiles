@@ -1,3 +1,4 @@
+" vimscriptを使用してsourceしても読み込んでいないみたい
 let g:rc_dir = expand('~/.vim/rc')
 
 function! s:source_rc(rc_file_name)
