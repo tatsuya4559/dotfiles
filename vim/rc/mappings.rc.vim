@@ -1,9 +1,6 @@
 "================================================================================
 " key mappings
 "================================================================================
-" Leader
-let mapleader = "\<Space>"
-
 " カーソル移動系
 nnoremap H ^
 nnoremap L $
@@ -37,3 +34,4 @@ nnoremap <M-l> <C-w>l
 " Utility
 vnoremap <Leader>e :!sh<CR>
 nnoremap <Leader>e V:!sh<CR>
+nnoremap <CR> o<Esc>

@@ -28,9 +28,9 @@ call s:source_rc('plugins.rc.vim')
 " colorscheme and encoding
 "================================================================================
 "colors
-colorscheme desert
+colorscheme onedark
 let g:lightline = {
-    \ 'colorscheme': 'solarized',
+    \ 'colorscheme': 'onedark',
     \ }
 
 " encoding

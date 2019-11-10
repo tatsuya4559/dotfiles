@@ -7,6 +7,7 @@ set nowrap
 set breakindent
 set list
 set listchars=tab:»-,trail:-,nbsp:+
+set updatetime=100
 
 " search
 set ignorecase

@@ -49,16 +49,11 @@ popd
 # Install apps
 ################################################################################
 # install by pacman
-## install vagrant, ripgrep, xclip, yay
-sudo pacman -S --noconfirm vagrant ripgrep xclip yay
+## install CLI tools
+sudo pacman -S --noconfirm vagrant ripgrep xclip yay bat tig fzf neovim python-neovim python-pipenv
 
-## install neovim, terminator, gnumeric, synapse
-sudo pacman -S --noconfirm python-neovim terminator gnumeric synapse
-## for neovim
-sudo pip install neovim
-
-## install pipenv
-sudo pacman -S --noconfirm python-pipenv
+## install GUI tools
+sudo pacman -S --noconfirm terminator gnumeric synapse
 
 # install from AUR
 ## install google-chrome

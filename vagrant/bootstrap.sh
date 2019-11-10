@@ -60,7 +60,6 @@ sudo gpasswd -a vagrant autologin
 
 # =================その他好きなもの===================
 sudo pacman -S --noconfirm python-neovim git python-pipenv
-sudo pip install neovim
 
 # yaourt -S --noconfirm man-pages-ja-git gitflow-avh-git
 # man-page-ja-git: 日本語man
