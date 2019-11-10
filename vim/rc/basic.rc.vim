@@ -9,13 +9,24 @@ set list
 set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 
+"colors
+colorscheme onedark
+let g:lightline = {
+    \ 'colorscheme': 'onedark',
+    \ }
+
+" encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,sjis,cp932,euc-jp
+set fileformats=unix,dos,mac
+
 " search
 set ignorecase
 set smartcase
 set hlsearch
 set wrapscan
 set incsearch
-nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
 " tab
 set smartindent
@@ -34,3 +45,7 @@ set hidden
 set sh=bash
 autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
 autocmd TermOpen * setlocal nonumber
+
+" TODO:
+" * session util
+" * abbreviation

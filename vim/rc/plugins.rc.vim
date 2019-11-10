@@ -2,9 +2,6 @@
 " plugin settings
 "================================================================================
 
-" deoplete ----------------------------------------------------------------------
-let g:deoplete#eneble_at_startup = 1
-
 " FixWhitespace -----------------------------------------------------------------
 autocmd BufWritePre * :FixWhitespace
 
@@ -28,6 +25,21 @@ let g:ale_fixers = {
   \   'python': ['black'],
   \ }
 let g:ale_fix_on_save = 1
+
+" Coc ---------------------------------------------------------------------------
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " fugitive ----------------------------------------------------------------------
 nmap [fugitive] <Nop>

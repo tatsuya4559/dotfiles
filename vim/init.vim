@@ -19,26 +19,8 @@ function! s:source_rc(rc_file_name)
     endif
 endfunction
 
+
 call s:source_rc('dein.rc.vim')
 call s:source_rc('basic.rc.vim')
 call s:source_rc('mappings.rc.vim')
 call s:source_rc('plugins.rc.vim')
-
-"================================================================================
-" colorscheme and encoding
-"================================================================================
-"colors
-colorscheme onedark
-let g:lightline = {
-    \ 'colorscheme': 'onedark',
-    \ }
-
-" encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,sjis,cp932,euc-jp
-set fileformats=unix,dos,mac
-
-" TODO:
-" * session util
-" * abbreviation

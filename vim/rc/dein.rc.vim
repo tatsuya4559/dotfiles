@@ -8,13 +8,11 @@ if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim.git' s:dein_repo_dir
 endif
 
-execute 'set runtimepath^=' . s:dein_repo_dir
+execute 'set runtimepath+=' . s:dein_repo_dir
 
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     call dein#add(s:dein_repo_dir)
-    " Plugin manager
-    "call dein#add('Shougo/dein.vim')
 
     " Appearance
     call dein#add('altercation/vim-colors-solarized')
@@ -36,14 +34,16 @@ if dein#load_state(s:dein_dir)
     call dein#add('scrooloose/nerdtree')
 
     " Completion
-    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('neoclide/coc.nvim', {'branch': 'release'})
+
+    " Snippets
+    call dein#add('SirVer/ultisnips')
+    call dein#add('honza/vim-snippets')
 
     " Linter
     call dein#add('dense-analysis/ale')
 
-    call dein#add('thinca/vim-quickrun')
-
-    " git
+    " Git
     call dein#add('tpope/vim-fugitive')
     call dein#add('airblade/vim-gitgutter')
 
