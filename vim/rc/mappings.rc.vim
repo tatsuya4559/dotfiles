@@ -42,7 +42,6 @@ vnoremap <C-Up> "zx<Up>"zP`[V`]
 vnoremap <C-Down> "zx"zp`[V`]
 
 " ESC
-imap jk <Esc>
 tnoremap <silent> <Esc> <C-\><C-n>
 
 " ウィンドウ移動
@@ -52,8 +51,8 @@ nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
 " コマンドとして実行
-vnoremap <Leader>e :!sh<CR>
-nnoremap <Leader>e V:!sh<CR>
+vnoremap <Leader>x :!sh<CR>
+nnoremap <Leader>x V:!sh<CR>
 
 
 " 空行を追加
