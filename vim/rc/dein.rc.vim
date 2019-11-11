@@ -27,6 +27,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('nelstrom/vim-visual-star-search')
     call dein#add('machakann/vim-sandwich')
     call dein#add('mattn/emmet-vim')
+    call dein#add('jiangmiao/auto-pairs')
 
     " File explore
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
@@ -42,6 +43,9 @@ if dein#load_state(s:dein_dir)
 
     " Linter
     call dein#add('dense-analysis/ale')
+
+    " Terminal
+    call dein#add('kassio/neoterm')
 
     " Git
     call dein#add('tpope/vim-fugitive')
