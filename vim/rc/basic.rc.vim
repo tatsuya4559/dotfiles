@@ -38,6 +38,9 @@ set shiftwidth=4
 " clipboard
 set clipboard+=unnamedplus
 
+" mouse
+set mouse=a
+
 " buffer
 set hidden
 
@@ -46,6 +49,8 @@ set sh=bash
 autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
 autocmd TermOpen * setlocal nonumber
 
+" abbreviation
+ia bbash #!/bin/bash
+
 " TODO:
-" * session util
-" * abbreviation
+" * session util href="https://qiita.com/gorilla0513/items/838138004f86b66d5668"
