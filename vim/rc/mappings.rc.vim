@@ -10,12 +10,12 @@ nnoremap L $
 nnoremap j gj
 nnoremap k gk
 
-inoremap <C-a> <C-o>^
-inoremap <C-e> <C-o>$<Right>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-inoremap <C-h> <BS>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 inoremap <C-d> <Del>
+inoremap <C-h> <BS>
 inoremap <C-k> <C-o>D<Right>
 inoremap <C-w> <C-o>db
 
