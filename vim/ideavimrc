@@ -1,0 +1,96 @@
+"================================================================================
+" basic settings
+"================================================================================
+" search
+set ignorecase
+set smartcase
+set hlsearch
+set wrapscan
+set incsearch
+
+" tab
+set smartindent
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" clipboard
+set clipboard+=unnamedplus
+
+" mouse
+set mouse=a
+
+"================================================================================
+" key mappings
+"================================================================================
+" カーソル移動
+nnoremap h ^
+nnoremap l $
+nnoremap j gj
+nnoremap k gk
+
+inoremap <c-b> <left>
+inoremap <c-f> <right>
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+inoremap <c-d> <del>
+inoremap <c-h> <bs>
+inoremap <c-k> <c-o>d<right>
+inoremap <c-w> <c-o>db
+
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
+cnoremap <c-b> <left>
+cnoremap <c-f> <right>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-d> <del>
+
+" 選択系
+nnoremap vv v$h
+vnoremap < <gv
+vnoremap > >gv
+
+" 行を移動
+nnoremap <c-up> "zdd<up>"zp
+nnoremap <c-down> "zdd"zp
+" 複数行を移動
+vnoremap <c-up> "zx<up>"zp`[v`]
+vnoremap <c-down> "zx"zp`[v`]
+
+" ウィンドウ移動
+nnoremap <m-h> <c-w>h
+nnoremap <m-j> <c-w>j
+nnoremap <m-k> <c-w>k
+nnoremap <m-l> <c-w>l
+
+" 空行を追加
+nnoremap <cr> o<esc>
+" 再描画
+nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
+
+" ideavim固有の設定
+set showmatch matchtime=1
+set cmdheight=2
+set laststatus=2
+set showcmd
+set display=lastline
+set iminsert=2
+set surround
+
+" ideavim mappings
+nnoremap <space>f :action FindInPath<CR>
+nnoremap <S-C-o> :action FileStructurePopup<CR>
+nnoremap <S-C-r> :action RenameElement<CR>
+nnoremap <C-c> :action GoToAction<CR>
+nnoremap <C-p> :action GoToFile<CR>
+nnoremap <C-]> :action GotoDeclaration<CR>
+nnoremap <C-h> :action FindUsages<CR>
+nnoremap K :action QuickDocumentation<CR>
+
+nnoremap = :action ReformatCode<CR>
+vnoremap = :action ReformatCode<CR>
+
+nnoremap <C-/> :action CommentByLineComment<CR>
+vnoremap <C-/> :action CommentByLineComment<CR>

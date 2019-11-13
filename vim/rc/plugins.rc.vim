@@ -27,10 +27,8 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " Coc ---------------------------------------------------------------------------
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <C-]> <Plug>(coc-definition)
+nmap <silent> <C-h> <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
