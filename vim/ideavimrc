@@ -80,14 +80,18 @@ set iminsert=2
 set surround
 
 " ideavim mappings
-nnoremap <space>f :action FindInPath<CR>
+nnoremap <C-o> :<C-u>action Back<CR>
+nnoremap <C-i> :<C-u>action Forward<CR>
+
+nnoremap <C-c> :action GoToAction<CR>
+nnoremap <space>g :action FindInPath<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap K :action QuickDocumentation<CR>
+
 nnoremap <S-C-o> :action FileStructurePopup<CR>
 nnoremap <S-C-r> :action RenameElement<CR>
-nnoremap <C-c> :action GoToAction<CR>
-nnoremap <C-p> :action GoToFile<CR>
-nnoremap <C-]> :action GotoDeclaration<CR>
-nnoremap <C-h> :action FindUsages<CR>
-nnoremap K :action QuickDocumentation<CR>
 
 nnoremap = :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>

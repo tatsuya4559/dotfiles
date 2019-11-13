@@ -13,11 +13,11 @@ nnoremap <Leader>t :TagbarToggle<CR>
 
 " fzf ---------------------------------------------------------------------------
 nnoremap <silent> <C-p> :GFiles<CR>
-nnoremap <silent> <space>p :Files<CR>
+nnoremap <silent> <C-c> :Commands<CR>
+nnoremap <silent> <space>f :Files<CR>
 nnoremap <silent> <space>b :Buffers<CR>
 nnoremap <silent> <space>l :BLines<CR>
-nnoremap <silent> <space>f :Rg<CR>
-nnoremap <silent> <C-c> :Commands<CR>
+nnoremap <silent> <space>g :Rg<CR>
 
 " ALE ---------------------------------------------------------------------------
 let g:ale_fixers = {
@@ -27,8 +27,8 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " Coc ---------------------------------------------------------------------------
-nmap <silent> <C-]> <Plug>(coc-definition)
-nmap <silent> <C-h> <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
