@@ -14,14 +14,14 @@
 
 - name: Finderで不可視ファイルを表示
   osx_defaults:
-      domain: com.apple.finder
-      key: AppleShowAllFiles
-      type: string
-      value: YES
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    type: string
+    value: YES
 
 - name: バッテリーの％を表示
   osx_defaults:
-      domain: com.apple.menuextra.battery
-      key: ShowPercent
-      type: string
-      value: YES
+    domain: com.apple.menuextra.battery
+    key: ShowPercent
+    type: string
+    value: YES
