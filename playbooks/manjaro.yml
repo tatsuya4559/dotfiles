@@ -1,0 +1,6 @@
+---
+- hosts: targets
+  become: yes
+  roles:
+    - pacman_installation
+    - dotfiles_distribution

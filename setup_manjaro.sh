@@ -50,10 +50,10 @@ popd
 ################################################################################
 # install by pacman
 ## install CLI tools
-sudo pacman -S --noconfirm vagrant ripgrep xclip yay bat tig fzf neovim python-neovim python-pipenv
+#sudo pacman -S --noconfirm vagrant ripgrep xclip yay bat tig fzf neovim python-neovim python-pipenv
 
 ## install GUI tools
-sudo pacman -S --noconfirm terminator gnumeric synapse
+#sudo pacman -S --noconfirm terminator gnumeric synapse
 
 # install from AUR
 ## install google-chrome
