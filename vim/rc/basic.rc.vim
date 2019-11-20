@@ -10,9 +10,9 @@ set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 
 "colors
-colorscheme onedark
+colorscheme gruvbox
 let g:lightline = {
-    \ 'colorscheme': 'onedark',
+    \ 'colorscheme': 'gruvbox',
     \ }
 
 " encoding
