@@ -50,7 +50,7 @@ popd
 ################################################################################
 # install by pacman
 ## install CLI tools
-sudo pacman -S --noconfirm yay xclip ripgrep bat tig fzf neovim hub
+sudo pacman -S --noconfirm yay xclip ripgrep bat tig fzf neovim hub jq
 sudo pacman -S --noconfirm vagrant virtualbox docker docker-compose
 sudo pacman -S --noconfirm python-neovim python-pipenv
 
@@ -65,15 +65,6 @@ yay -S --noconfirm gitkraken google-chrome visual-studio-code-bin
 #cd google-chrome/
 #yes 'Y' | makepkg -s
 #yes 'Y' | sudo pacman -U *.pkg.tar.xz
-#popd
-
-## install dropbox
-#pushd ~/Downloads/
-#git clone https://aur.archlinux.org/dropbox.git
-#cd dropbox
-#gpg --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
-#yes | makepkg -s
-#yes | sudo pacman -U *.pkg.tar.xz
 #popd
 
 # install nice gtk/icon themes
