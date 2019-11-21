@@ -50,28 +50,31 @@ popd
 ################################################################################
 # install by pacman
 ## install CLI tools
-#sudo pacman -S --noconfirm vagrant ripgrep xclip yay bat tig fzf neovim python-neovim python-pipenv
+sudo pacman -S --noconfirm yay xclip ripgrep bat tig fzf neovim hub
+sudo pacman -S --noconfirm vagrant virtualbox docker docker-compose
+sudo pacman -S --noconfirm python-neovim python-pipenv
 
 ## install GUI tools
-#sudo pacman -S --noconfirm terminator gnumeric synapse
+sudo pacman -S --noconfirm terminator gnumeric synapse dbeaver
+yay -S --noconfirm gitkraken google-chrome visual-studio-code-bin
 
 # install from AUR
 ## install google-chrome
-pushd ~/Downloads/
-git clone https://aur.archlinux.org/google-chrome.git
-cd google-chrome/
-yes 'Y' | makepkg -s
-yes 'Y' | sudo pacman -U *.pkg.tar.xz
-popd
+#pushd ~/Downloads/
+#git clone https://aur.archlinux.org/google-chrome.git
+#cd google-chrome/
+#yes 'Y' | makepkg -s
+#yes 'Y' | sudo pacman -U *.pkg.tar.xz
+#popd
 
 ## install dropbox
-pushd ~/Downloads/
-git clone https://aur.archlinux.org/dropbox.git
-cd dropbox
-gpg --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
-yes | makepkg -s
-yes | sudo pacman -U *.pkg.tar.xz
-popd
+#pushd ~/Downloads/
+#git clone https://aur.archlinux.org/dropbox.git
+#cd dropbox
+#gpg --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+#yes | makepkg -s
+#yes | sudo pacman -U *.pkg.tar.xz
+#popd
 
 # install nice gtk/icon themes
 pushd ~/Downloads/
