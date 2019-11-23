@@ -16,8 +16,6 @@ if dein#load_state(s:dein_dir)
 
     " Appearance
     call dein#add('morhetz/gruvbox')
-    call dein#add('altercation/vim-colors-solarized')
-    call dein#add('joshdick/onedark.vim')
     call dein#add('itchyny/lightline.vim')
     call dein#add('Yggdroot/indentLine')
     call dein#add('majutsushi/tagbar')
@@ -44,9 +42,6 @@ if dein#load_state(s:dein_dir)
 
     " Linter
     call dein#add('dense-analysis/ale')
-
-    " Terminal
-    call dein#add('kassio/neoterm')
 
     " Git
     call dein#add('tpope/vim-fugitive')

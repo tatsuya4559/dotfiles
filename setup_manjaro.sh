@@ -92,6 +92,7 @@ git config --global core.editor "nvim"
 echo "alias pbcopy='xclip -selection c'" >> ~/.bashrc
 echo "alias pbpaste='xclip -selection c -o'" >> ~/.bashrc
 echo "alias vimdiff='nvim -d'" >> ~/.bashrc
+echo "alias vim='nvim'" >> ~/.bashrc
 echo "set completion-ignore-case on" >> ~/.inputrc
 # uninstall some pre-install apps
 

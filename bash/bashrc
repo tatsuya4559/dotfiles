@@ -1,0 +1,21 @@
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# PS1
+CURRENCT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null)
+NORMAL='\[\e[m\]'
+GREEN='\[\e[0;32m\]'
+RED='\[\e[0;31m\]'
+BLUE='\[\e[0;34m\]'
+export PS1="${GREEN}[\u@\h \w] \$ ${NORMAL}"
+
+alias vim='nvim'
+alias view='nvim -R'
+alias ls='ls -GF'
+alias la='ls -GFa'
+alias ll='ls -GFal'
+alias tree='tree -C'
+alias cb='git symbolic-ref --short HEAD'
+
+function col {
+  awk -v col=$1 '{print $col}'
+}

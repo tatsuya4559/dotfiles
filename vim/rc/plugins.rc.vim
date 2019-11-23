@@ -19,6 +19,12 @@ nnoremap <silent> <space>b :Buffers<CR>
 nnoremap <silent> <space>l :BLines<CR>
 nnoremap <silent> <space>g :Rg<CR>
 
+vnoremap <silent> <C-p> "zy:GFiles<CR><C-\><C-n>"zpi
+vnoremap <silent> <space>f "zy:Files<CR><C-\><C-n>"zpi
+vnoremap <silent> <space>b "zy:Buffers<CR><C-\><C-n>"zpi
+vnoremap <silent> <space>l "zy:BLines<CR><C-\><C-n>"zpi
+vnoremap <silent> <space>g "zy:Rg<CR><C-\><C-n>"zpi
+
 " ALE ---------------------------------------------------------------------------
 let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -44,11 +50,3 @@ nmap [fugitive] <Nop>
 map <Leader>g [fugitive]
 nmap <silent> [fugitive]s :<C-u>Gstatus<CR>
 nmap <silent> [fugitive]d :<C-u>Gvdiff<CR>
-
-" neoterm -----------------------------------------------------------------------
-let g:neoterm_default_mod='belowright'
-let g:neoterm_size=10
-let g:neoterm_autoscroll=1
-tnoremap <silent> <C-w> <C-\><C-n><C-w>
-nnoremap <silent> <C-x> :TREPLSendLine<CR>
-vnoremap <silent> <C-x> V:TREPLSendSelection<CR>

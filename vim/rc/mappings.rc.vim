@@ -5,10 +5,14 @@
 "================================================================================
 " カーソル移動
 "================================================================================
-nnoremap H ^
+nnoremap H 0
 nnoremap L $
 nnoremap j gj
 nnoremap k gk
+vnoremap H 0
+vnoremap L $
+vnoremap j gj
+vnoremap k gk
 
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
@@ -17,7 +21,6 @@ inoremap <C-e> <End>
 inoremap <C-d> <Del>
 inoremap <C-h> <BS>
 inoremap <C-k> <C-o>D<Right>
-inoremap <C-w> <C-o>db
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -56,7 +59,7 @@ nnoremap <Leader>x V:!sh<CR>
 
 
 " 空行を追加
-nnoremap <CR> o<Esc>
+nnoremap <space><CR> o<Esc>
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " visual mode でペーストしたときにヤンクしない
@@ -69,8 +72,8 @@ xnoremap <expr> p 'pgv"'.v:register.'y`>'
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 " カーソル下の単語をハイライトして置換
-nmap ' <Space><Space>:%s/<C-r>///g<Left><Left>
-xmap ' <Space>:%s/<C-r>///g<Left><Left>
+nmap ? <Space><Space>:%s/<C-r>///g<Left><Left>
+xmap ? <Space>:%s/<C-r>///g<Left><Left>
 function! s:set_vsearch()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
