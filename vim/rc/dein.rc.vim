@@ -27,6 +27,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('machakann/vim-sandwich')
     call dein#add('mattn/emmet-vim')
     call dein#add('jiangmiao/auto-pairs')
+    call dein#add('terryma/vim-expand-region')
 
     " File explore
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
