@@ -2,9 +2,7 @@
 " key mappings
 "================================================================================
 
-"================================================================================
 " カーソル移動
-"================================================================================
 nnoremap H 0
 nnoremap L $
 nnoremap j gj
@@ -30,9 +28,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 
-"================================================================================
 " 選択系
-"================================================================================
 nnoremap vv v$h
 vnoremap < <gv
 vnoremap > >gv
@@ -40,7 +36,6 @@ vnoremap > >gv
 " 行を移動
 nnoremap <C-Up> "zdd<Up>"zP
 nnoremap <C-Down> "zdd"zp
-" 複数行を移動
 vnoremap <C-Up> "zx<Up>"zP`[V`]
 vnoremap <C-Down> "zx"zp`[V`]
 
@@ -57,17 +52,18 @@ nnoremap <M-l> <C-w>l
 vnoremap <Leader>x :!sh<CR>
 nnoremap <Leader>x V:!sh<CR>
 
+" 行末までヤンク
+nnoremap Y y$
 
 " 空行を追加
 nnoremap <space><CR> o<Esc>
+
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
 " visual mode でペーストしたときにヤンクしない
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
-"================================================================================
-" ハイライト
-"================================================================================
 " カーソル下の単語をハイライト
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
