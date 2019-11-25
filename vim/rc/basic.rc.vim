@@ -15,7 +15,22 @@ let g:vim_json_syntax_conceal = 0
 colorscheme gruvbox
 let g:lightline = {
     \ 'colorscheme': 'gruvbox',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filepath', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'fugitive#head',
+    \   'filepath': 'FilePath'
+    \ },
     \ }
+function! FilePath()
+    if winwidth(0) > 90
+        return expand("%:s")
+    else
+        return expand("%:t")
+    endif
+endfunction
 
 " encoding
 set encoding=utf-8
