@@ -12,3 +12,5 @@
 	ss = stash save
 	sp = stash pop
 	br = branch
+[fetch]
+    prune = true

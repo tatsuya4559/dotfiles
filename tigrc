@@ -1,0 +1,36 @@
+# main viewにコミットIDを表示
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
+# Pager系の行数表示をon
+set pager-view  = line-number:yes,interval=1 text
+set stage-view  = line-number:yes,interval=1 text
+set log-view    = line-number:yes,interval=1 text
+set blob-view   = line-number:yes,interval=1 text
+set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+
+# 横分割に強制する
+set vertical-split = no
+
+# 検索時に大文字小文字を無視する (default: false)
+set ignore-case = true
+
+# 水平分割したウィンドウの下画面サイズを % で指定（行数指定も可）
+set split-view-height = 70%
+
+# マウスを有効にする
+set mouse = true
+
+# key bindings
+bind generic F !git fetch
+bind main F !git fetch
+bind branch L !git pull origin %(branch)
+bind branch M ?git merge %(branch)
+bind generic S !git stash save
+bind stash P !git stash pop %(stash)
+bind stash A !git stash apply %(stash)
+bind stash D ?git stash drop %(stash)
+
+bind main H ?git reset --hard %(commit)
+bind diff H ?git reset --hard %(commit)
+bind refs H ?git reset --hard %(branch)
+bind status H ?git reset --hard HEAD
