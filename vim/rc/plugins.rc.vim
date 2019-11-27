@@ -3,7 +3,7 @@
 "================================================================================
 
 " FixWhitespace -----------------------------------------------------------------
-autocmd BufWritePre * :FixWhitespace
+" autocmd BufWritePre * :FixWhitespace
 
 " NerdTree ----------------------------------------------------------------------
 nnoremap <Leader>e :NERDTreeToggle<CR>
