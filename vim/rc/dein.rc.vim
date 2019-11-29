@@ -34,7 +34,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
     call dein#add('scrooloose/nerdtree')
 
-    " Completion
+    " LSP
     call dein#add('neoclide/coc.nvim', {'branch': 'release'})
 
     " Snippets

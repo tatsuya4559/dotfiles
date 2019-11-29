@@ -33,8 +33,10 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " Coc ---------------------------------------------------------------------------
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <F12> <Plug>(coc-definition)
+nmap <silent> <S-F12> <Plug>(coc-references)
+nmap <silent> <F2> <Plug>(coc-rename)
+nmap <silent> <S-M-F> <Plug>(coc-format)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -50,3 +52,4 @@ nmap [fugitive] <Nop>
 map <Leader>g [fugitive]
 nmap <silent> [fugitive]s :<C-u>Gstatus<CR>
 nmap <silent> [fugitive]d :<C-u>Gvdiff<CR>
+nmap <silent> [fugitive]b :<C-u>Gblame<CR>
