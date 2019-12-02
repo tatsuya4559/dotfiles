@@ -3,12 +3,8 @@
 "================================================================================
 
 " カーソル移動
-nnoremap H 0
-nnoremap L $
 nnoremap j gj
 nnoremap k gk
-vnoremap H 0
-vnoremap L $
 vnoremap j gj
 vnoremap k gk
 
