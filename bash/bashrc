@@ -21,3 +21,5 @@ alias cb='git symbolic-ref --short HEAD'
 function col {
   awk -v col=$1 '{print $col}'
 }
+
+export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
