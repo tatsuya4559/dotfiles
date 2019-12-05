@@ -18,6 +18,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('morhetz/gruvbox')
     call dein#add('itchyny/lightline.vim')
     call dein#add('Yggdroot/indentLine')
+    call dein#add('elzr/vim-json')
     call dein#add('majutsushi/tagbar')
 
     " Text edit

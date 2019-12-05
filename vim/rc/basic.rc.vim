@@ -8,8 +8,6 @@ set breakindent
 set list
 set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
-set conceallevel=0
-let g:vim_json_syntax_conceal = 0
 
 "colors
 colorscheme gruvbox

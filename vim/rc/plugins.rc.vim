@@ -55,3 +55,6 @@ map <Leader>g [fugitive]
 nmap <silent> [fugitive]s :<C-u>Gstatus<CR>
 nmap <silent> [fugitive]d :<C-u>Gvdiff<CR>
 nmap <silent> [fugitive]b :<C-u>Gblame<CR>
+
+" json --------------------------------------------------------------------------
+let g:vim_json_syntax_conceal = 0
