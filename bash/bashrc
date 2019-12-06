@@ -1,4 +1,5 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export BAT_THEME='OneHalfDark'
 
 # PS1
 source /usr/local/etc/bash_completion.d/git-prompt.sh
@@ -18,8 +19,14 @@ alias ll='ls -GFal'
 alias tree='tree -C'
 alias cb='git symbolic-ref --short HEAD'
 
-function col {
+function col() {
   awk -v col=$1 '{print $col}'
+}
+
+function fvim() {
+  files=$(git ls-files) &&
+  selected_files=$(echo "$files" | fzf -m --preview 'bat -r:50 {}') &&
+  vim $selected_files
 }
 
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
