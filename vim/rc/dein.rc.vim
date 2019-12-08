@@ -16,6 +16,7 @@ if dein#load_state(s:dein_dir)
 
     " Appearance
     call dein#add('morhetz/gruvbox')
+    call dein#add('joshdick/onedark.vim')
     call dein#add('itchyny/lightline.vim')
     call dein#add('majutsushi/tagbar')
 

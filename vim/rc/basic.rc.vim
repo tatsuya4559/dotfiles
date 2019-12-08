@@ -10,9 +10,9 @@ set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 
 "colors
-colorscheme gruvbox
+colorscheme onedark
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
+    \ 'colorscheme': 'onedark',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filepath', 'modified' ] ]
