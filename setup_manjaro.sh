@@ -56,7 +56,7 @@ sudo pacman -S --noconfirm python-neovim python-pipenv
 
 ## install GUI tools
 sudo pacman -S --noconfirm terminator gnumeric synapse dbeaver
-yay -S --noconfirm gitkraken google-chrome visual-studio-code-bin
+yay -S --noconfirm gitkraken google-chrome visual-studio-code-bin #, meld
 
 # install from AUR
 ## install google-chrome
