@@ -40,16 +40,9 @@ vnoremap <silent> <space>b "zy:Buffers<CR><C-\><C-n>"zpi
 vnoremap <silent> <space>l "zy:BLines<CR><C-\><C-n>"zpi
 vnoremap <silent> <space>g "zy:Rg<CR><C-\><C-n>"zpi
 
-" ALE ---------------------------------------------------------------------------
-let g:ale_fixers = {
-  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \   'python': ['black'],
-  \ }
-let g:ale_fix_on_save = 1
-
 " Coc ---------------------------------------------------------------------------
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> <Nop> <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <Nop> <Plug>(coc-rename)
 nmap <silent> <Nop> <Plug>(coc-format)
 nnoremap <silent> <space>o  :<C-u>CocList outline<CR>

@@ -40,9 +40,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('SirVer/ultisnips')
     call dein#add('honza/vim-snippets')
 
-    " Linter
-    call dein#add('dense-analysis/ale')
-
     " Git
     call dein#add('tpope/vim-fugitive')
     call dein#add('airblade/vim-gitgutter')
