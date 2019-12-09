@@ -48,6 +48,10 @@ nnoremap <M-l> <C-w>l
 vnoremap <Leader>x :!sh<CR>
 nnoremap <Leader>x V:!sh<CR>
 
+" open
+nnoremap <silent> <Leader>o :<C-u>!open %<CR>
+vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
+
 " 行末までヤンク
 nnoremap Y y$
 
