@@ -9,7 +9,8 @@ set list
 set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 
-"colors
+" colors
+" lightline
 colorscheme onedark
 let g:lightline = {
     \ 'colorscheme': 'onedark',
@@ -21,6 +22,8 @@ let g:lightline = {
     \   'gitbranch': 'fugitive#head',
     \   'filepath': 'FilePath'
     \ },
+    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
     \ }
 function! FilePath()
     if winwidth(0) > 90
@@ -49,6 +52,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " clipboard
 set clipboard+=unnamedplus
@@ -65,7 +69,5 @@ autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
 autocmd TermOpen * setlocal nonumber
 
 " abbreviation
-ia bbash #!/bin/bash
+:iabbrev bbash #!/bin/bash
 
-" TODO:
-" * session util href="https://qiita.com/gorilla0513/items/838138004f86b66d5668"

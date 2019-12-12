@@ -28,24 +28,24 @@ command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <C-c> :Commands<CR>
-nnoremap <silent> <space>f :Files<CR>
-nnoremap <silent> <space>b :Buffers<CR>
-nnoremap <silent> <space>l :BLines<CR>
-nnoremap <silent> <space>g :Rg<CR>
-nnoremap <silent> <space>s :GFiles?<CR>
+nnoremap <silent> <Space>f :Files<CR>
+nnoremap <silent> <Space>b :Buffers<CR>
+nnoremap <silent> <Space>l :BLines<CR>
+nnoremap <silent> <Space>g :Rg<CR>
+nnoremap <silent> <Space>s :GFiles?<CR>
 
 vnoremap <silent> <C-p> "zy:GFiles<CR><C-\><C-n>"zpi
-vnoremap <silent> <space>f "zy:Files<CR><C-\><C-n>"zpi
-vnoremap <silent> <space>b "zy:Buffers<CR><C-\><C-n>"zpi
-vnoremap <silent> <space>l "zy:BLines<CR><C-\><C-n>"zpi
-vnoremap <silent> <space>g "zy:Rg<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>f "zy:Files<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>b "zy:Buffers<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>l "zy:BLines<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>g "zy:Rg<CR><C-\><C-n>"zpi
 
 " Coc ---------------------------------------------------------------------------
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <Nop> <Plug>(coc-rename)
 nmap <silent> <Nop> <Plug>(coc-format)
-nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
+nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()

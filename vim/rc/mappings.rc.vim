@@ -38,11 +38,20 @@ vnoremap <C-Down> "zx"zp`[V`]
 " ESC
 tnoremap <silent> <Esc> <C-\><C-n>
 
-" ウィンドウ移動
+" window
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
 nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
+
+" buffer
+nnoremap <Space>; :<C-u>bn<CR>
+nnoremap <Space>, :<C-u>bp<CR>
+
+" set current directory
+nnoremap <Leader>. :lcd %:p:h<CR>
 
 " コマンドとして実行
 vnoremap <Leader>x :!sh<CR>
@@ -56,7 +65,7 @@ vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
 nnoremap Y y$
 
 " 空行を追加
-nnoremap <space><CR> o<Esc>
+nnoremap <Space><CR> o<Esc>
 
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
