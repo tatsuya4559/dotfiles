@@ -8,6 +8,9 @@
 " NerdTree ----------------------------------------------------------------------
 nnoremap <Leader>e :NERDTreeToggle<CR>
 
+" ranger-explore ----------------------------------------------------------------
+nnoremap <silent> <C-e> :RangerOpenCurrentDir<CR>
+
 " Tag bar ----------------------------------------------------------------------
 nnoremap <Leader>t :TagbarToggle<CR>
 

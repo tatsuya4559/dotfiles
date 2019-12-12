@@ -33,6 +33,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
     call dein#add('scrooloose/nerdtree')
+    call dein#add('iberianpig/ranger-explorer.vim')
 
     " LSP
     call dein#add('neoclide/coc.nvim', {'branch': 'release'})
@@ -44,6 +45,8 @@ if dein#load_state(s:dein_dir)
     " Git
     call dein#add('tpope/vim-fugitive')
     call dein#add('airblade/vim-gitgutter')
+    call dein#add('iberianpig/tig-explorer.vim') "日本語表示に不具合あり。tig使うほうがいいかも
+    call dein#add('rbgrouleff/bclose.vim') "for tig-explore
 
     call dein#end()
     call dein#save_state()
