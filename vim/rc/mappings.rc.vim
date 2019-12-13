@@ -53,7 +53,7 @@ nnoremap <M-+> <C-w>+
 nnoremap <M--> <C-w>-
 
 " tab
-nnoremap <M-t> <C-w>T
+nnoremap <M-t> :<C-u>tab split<CR>
 nnoremap <M-]> gt
 nnoremap <M-[> gT
 
