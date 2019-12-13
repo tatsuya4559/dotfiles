@@ -53,19 +53,12 @@ popd
 sudo pacman -S --noconfirm yay xclip ripgrep bat tig fzf neovim hub jq
 sudo pacman -S --noconfirm vagrant virtualbox docker docker-compose
 sudo pacman -S --noconfirm python-neovim python-pipenv
+#neofetch
 
 ## install GUI tools
 sudo pacman -S --noconfirm terminator gnumeric synapse dbeaver
-yay -S --noconfirm gitkraken google-chrome visual-studio-code-bin #, meld
-
-# install from AUR
-## install google-chrome
-#pushd ~/Downloads/
-#git clone https://aur.archlinux.org/google-chrome.git
-#cd google-chrome/
-#yes 'Y' | makepkg -s
-#yes 'Y' | sudo pacman -U *.pkg.tar.xz
-#popd
+yay -S --noconfirm google-chrome visual-studio-code-bin meld
+#brackets
 
 # install nice gtk/icon themes
 pushd ~/Downloads/
@@ -82,17 +75,10 @@ cp -r ~/Downloads/numix-icon-theme-circle/Numix-Circle* .icons/
 rm -rf ~/Downloads/numix-icon-theme-circle
 popd
 
-# git settings
-git config --global user.name "tatsuya4559"
-git config --global user.email "tatsuya.k1029@gmail.com"
-git config --global core.editor "nvim"
-
 # realize pbcopy, pbpaste
 # (want to prepare .bashrc in dotfiles)
 echo "alias pbcopy='xclip -selection c'" >> ~/.bashrc
 echo "alias pbpaste='xclip -selection c -o'" >> ~/.bashrc
-echo "alias vimdiff='nvim -d'" >> ~/.bashrc
-echo "alias vim='nvim'" >> ~/.bashrc
 echo "set completion-ignore-case on" >> ~/.inputrc
 # uninstall some pre-install apps
 

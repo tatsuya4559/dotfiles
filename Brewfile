@@ -13,18 +13,22 @@ brew "fzf"
 brew "hub"
 brew "jq"
 brew "mas"
+brew "neofetch"
 brew "neovim", args: ["HEAD"]
 brew "node"
 brew "pipenv"
+brew "ranger"
 brew "ripgrep"
 brew "tig"
 brew "tree"
-brew "sanemat/font/ricty"
+brew "sanemat/font/ricty", args: ["with-powerline"]
+cask "brackets"
 cask "dbeaver-community"
 cask "eclipse-java"
 cask "firefox"
 cask "google-chrome"
 cask "google-japanese-ime"
+cask "graphiql"
 cask "iterm2"
 cask "java"
 cask "karabiner-elements"
@@ -32,8 +36,12 @@ cask "meld"
 cask "slack"
 cask "vagrant"
 cask "visual-studio-code"
+mas "Evernote", id: 406056744
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
+mas "Mini Calendar", id: 1088779979
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Todoist", id: 585829637
