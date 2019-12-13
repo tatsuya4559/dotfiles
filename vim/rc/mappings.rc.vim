@@ -54,8 +54,8 @@ nnoremap <M--> <C-w>-
 
 " tab
 nnoremap <M-t> <C-w>T
-nnoremap <M-[> gt
-nnoremap <M-]> gT
+nnoremap <M-]> gt
+nnoremap <M-[> gT
 
 " buffer
 nnoremap <Space>; :<C-u>bn<CR>
