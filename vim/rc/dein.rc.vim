@@ -18,23 +18,21 @@ if dein#load_state(s:dein_dir)
     call dein#add('morhetz/gruvbox')
     call dein#add('joshdick/onedark.vim')
     call dein#add('itchyny/lightline.vim')
+    call dein#add('mhinz/vim-startify')
     call dein#add('majutsushi/tagbar')
 
     " Text edit
-    call dein#add('bronson/vim-trailing-whitespace')
-    call dein#add('tpope/vim-abolish')
     call dein#add('nelstrom/vim-visual-star-search')
     call dein#add('machakann/vim-sandwich')
     call dein#add('mattn/emmet-vim')
-    call dein#add('jiangmiao/auto-pairs')
-    call dein#add('terryma/vim-expand-region')
+    call dein#add('tpope/vim-abolish')
+    call dein#add('bronson/vim-trailing-whitespace')
+    call dein#add('terryma/vim-multiple-cursors')
 
     " File explore
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
     call dein#add('scrooloose/nerdtree')
-    call dein#add('iberianpig/ranger-explorer.vim')
-    call dein#add('rbgrouleff/bclose.vim') "for ranger-explore
 
     " LSP
     call dein#add('neoclide/coc.nvim', {'branch': 'release'})
@@ -44,8 +42,13 @@ if dein#load_state(s:dein_dir)
     call dein#add('honza/vim-snippets')
 
     " Git
-    call dein#add('tpope/vim-fugitive')
     call dein#add('airblade/vim-gitgutter')
+    call dein#add('tpope/vim-fugitive')
+
+    " Utils
+    call dein#add('AndrewRadev/linediff.vim')
+    call dein#add('osyo-manga/vim-anzu')
+    call dein#add('tyru/capture.vim')
 
     call dein#end()
     call dein#save_state()

@@ -1,15 +1,26 @@
 "================================================================================
 " plugin settings
 "================================================================================
+" vim-multiple-cursors ----------------------------------------------------------
+let g:multi_cursor_use_default_mapping=0
+
+let g:multi_cursor_start_word_key      = '<M-d>'
+let g:multi_cursor_select_all_word_key = '<M-l>'
+let g:multi_cursor_next_key            = '<M-d>'
+let g:multi_cursor_skip_key            = '<M-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
+" anzu --------------------------------------------------------------------------
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
 
 " FixWhitespace -----------------------------------------------------------------
 " autocmd BufWritePre * :FixWhitespace
 
 " NerdTree ----------------------------------------------------------------------
 nnoremap <Leader>e :NERDTreeToggle<CR>
-
-" ranger-explore ----------------------------------------------------------------
-nnoremap <silent> <C-e> :RangerOpenCurrentDir<CR>
 
 " Tag bar ----------------------------------------------------------------------
 nnoremap <Leader>t :TagbarToggle<CR>
@@ -36,6 +47,7 @@ nnoremap <silent> <Space>b :Buffers<CR>
 nnoremap <silent> <Space>l :BLines<CR>
 nnoremap <silent> <Space>g :Rg<CR>
 nnoremap <silent> <Space>s :GFiles?<CR>
+nnoremap <silent> <Space>m :Marks<CR>
 
 vnoremap <silent> <C-p> "zy:GFiles<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>f "zy:Files<CR><C-\><C-n>"zpi
@@ -58,6 +70,13 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" for snippets
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " fugitive ----------------------------------------------------------------------
 nmap [fugitive] <Nop>
