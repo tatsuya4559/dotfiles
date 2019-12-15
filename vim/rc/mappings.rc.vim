@@ -39,29 +39,33 @@ vnoremap <C-Down> "zx"zp`[V`]
 tnoremap <silent> <Esc> <C-\><C-n>
 
 " window
-nnoremap <M-s> :<C-u>split<CR>
-nnoremap <M-v> :<C-u>vsplit<CR>
 nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
-nnoremap <M-=> <C-w>=
-nnoremap <M-r> <C-w>r
 nnoremap <M->> <C-w>>
 nnoremap <M-<> <C-w><
 nnoremap <M-+> <C-w>+
 nnoremap <M--> <C-w>-
+nnoremap ]w <C-w>w
+nnoremap [w <C-w>W
+" ウィンドウ操作リファレンス
+" <C-w> s
+" <C-w> v
+" <C-w> r
+" <C-w> =
+" <C-w> q
+" <C-w> o
+" <C-w> H,J,K,L
 
 " tab
 nnoremap <M-t> :<C-u>tab split<CR>
-nnoremap <M-]> gt
-nnoremap <M-[> gT
+nnoremap ]t gt
+nnoremap [t gT
 
 " buffer
-nnoremap <Space>; :<C-u>bn<CR>
-nnoremap <Space>, :<C-u>bp<CR>
-nnoremap <M-;> :<C-u>bn<CR>
-nnoremap <M-,> :<C-u>bp<CR>
+nnoremap ]b :<C-u>bn<CR>
+nnoremap [b :<C-u>bp<CR>
 command Q bd
 
 " set current directory
