@@ -70,6 +70,25 @@ nnoremap ]b :<C-u>bn<CR>
 nnoremap [b :<C-u>bp<CR>
 command Q bd
 
+" quickfix
+nnoremap ]q :<C-u>cn<CR>
+nnoremap [q :<C-u>cp<CR>
+
+if exists('g:__QUICKFIX_TOGGLE__')
+    finish
+endif
+let g:__QUICKFIX_TOGGLE__ = 1
+
+function! ToggleQuickfix()
+    let l:nr = winnr('$')
+    cwindow
+    let l:nr2 = winnr('$')
+    if l:nr == l:nr2
+        cclose
+    endif
+endfunction
+nnoremap <script> <silent> <F9> :call ToggleQuickfix()<CR>
+
 " set current directory
 nnoremap <Leader>. :lcd %:p:h<CR>
 

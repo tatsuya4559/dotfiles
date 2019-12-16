@@ -69,6 +69,27 @@ set sh=bash
 autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
 autocmd TermOpen * setlocal nonumber
 
+" persist undo
+if has('persistent_undo')
+  set undodir=./.vimundo,~/.vimundo
+  augroup SaveUndoFile
+    autocmd!
+    autocmd BufReadPre ~/* setlocal undofile
+  augroup END
+endif
+
+" qf
+augroup GrepCmd
+    autocmd!
+    autocmd QuickFixCmdPost vim,grep,make if len(getqflist()) != 0 | cwindow | endif
+augroup END
+
+" grep -> ripgrep
+if executable('rg')
+    let &grepprg = 'rg --vimgrep'
+    set grepformat=%f:%l:%c:%m
+endif
+
 " abbreviation
 :iabbrev bbash #!/bin/bash
 
