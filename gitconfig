@@ -23,3 +23,5 @@
     see = browse
 [fetch]
     prune = true
+[ghq]
+    root = ~/git

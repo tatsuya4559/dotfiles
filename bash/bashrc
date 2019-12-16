@@ -20,6 +20,8 @@ alias la='ls -GFa'
 alias ll='ls -GFal'
 alias tree='tree -C'
 alias cb='git symbolic-ref --short HEAD'
+alias g='cd $(ghq root)/$(ghq list | fzf)'
+alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
 function col() {
   awk -v col=$1 '{print $col}'
