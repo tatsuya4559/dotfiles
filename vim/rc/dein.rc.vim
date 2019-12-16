@@ -15,7 +15,8 @@ if dein#load_state(s:dein_dir)
     call dein#add(s:dein_repo_dir)
 
     " Appearance
-    call dein#add('morhetz/gruvbox')
+    call dein#add('sainnhe/gruvbox-material')
+    call dein#add('cocopon/iceberg.vim')
     call dein#add('joshdick/onedark.vim')
     call dein#add('itchyny/lightline.vim')
     call dein#add('mhinz/vim-startify')

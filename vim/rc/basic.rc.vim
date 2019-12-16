@@ -12,9 +12,9 @@ set updatetime=100
 
 " colors
 " lightline
-colorscheme gruvbox
+colorscheme iceberg
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
+    \ 'colorscheme': 'iceberg',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filepath', 'modified' ] ]
