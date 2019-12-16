@@ -11,7 +11,7 @@ RED='\[\e[0;31m\]'
 BLUE='\[\e[0;34m\]'
 PURPLE='\[\e[0;35m\]'
 CYAN='\[\e[0;36m\]'
-export PS1="${GREEN}[\u@\h \w${CYAN}"'$(__git_ps1)'"${GREEN}] \$ ${NORMAL}"
+export PS1="${GREEN}[\w${CYAN}"'$(__git_ps1)'"${GREEN}] \$ ${NORMAL}"
 
 alias vim='nvim'
 alias view='nvim -R'
