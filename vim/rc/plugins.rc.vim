@@ -84,3 +84,6 @@ map <Leader>g [fugitive]
 nmap <silent> [fugitive]s :<C-u>Gstatus<CR>
 nmap <silent> [fugitive]d :<C-u>Gvdiff<CR>
 nmap <silent> [fugitive]b :<C-u>Gblame<CR>
+
+" emmet -------------------------------------------------------------------------
+let g:user_emmet_leader_key='<C-m>'
