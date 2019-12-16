@@ -73,7 +73,7 @@ endfunction
 
 " for snippets
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_prev = '<C-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
@@ -86,4 +86,4 @@ nmap <silent> [fugitive]d :<C-u>Gvdiff<CR>
 nmap <silent> [fugitive]b :<C-u>Gblame<CR>
 
 " emmet -------------------------------------------------------------------------
-let g:user_emmet_leader_key='<C-m>'
+let g:user_emmet_leader_key='\,'
