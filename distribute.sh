@@ -2,26 +2,18 @@
 
 DOTFILEDIR=$(cd $(dirname $0); pwd)
 
-# distribute dotfiles
-## neovim
-if [ ! -e ~/.config/nvim ]; then
-    mkdir -p ~/.config/nvim
-fi
-if [ ! -e ~/.config/nvim/init.vim ]; then
-    ln -s $DOTFILEDIR/vim/init.vim ~/.config/nvim/init.vim
-    ln -s $DOTFILEDIR/vim/rc ~/.vim/rc
-fi
+function distribute() {
+    rm -f ~/.$1
+    ln -s $DOTFILEDIR/home/$1 ~/.$1
+}
 
-## ideavim
-if [ ! -e ~/.ideavimrc ]; then
-    ln -s $DOTFILEDIR/vim/ideavimrc ~/.ideavimrc
-fi
+# neovim
+rm -rf ~/.config/nvim
+mkdir -p ~/.config/nvim
+ln -s $DOTFILEDIR/vim/init.vim ~/.config/nvim/init.vim
+ln -s $DOTFILEDIR/vim/rc ~/.config/nvim/rc
 
-## terminator
-#if [ ! -e ~/.config/terminator ]; then
-    #mkdir -p ~/.config/terminator
-#fi
-#if [ -e ~/.config/terminator/config ]; then
-    #rm -f ~/.config/terminator/config
-#fi
-#ln -s $DOTFILEDIR/terminator/config ~/.config/terminator/config
+# bash, tig, git
+for file in $(ls $DOTFILEDIR/home/); do
+    distribute ${file}
+done

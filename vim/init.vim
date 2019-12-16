@@ -6,7 +6,7 @@
 
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
-let g:rc_dir = expand('~/.vim/rc')
+let g:rc_dir = expand('~/.config/nvim/rc')
 
 function! s:source_rc(rc_file_name)
     let rc_file = expand(g:rc_dir . '/' . a:rc_file_name)
