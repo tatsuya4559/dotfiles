@@ -10,8 +10,11 @@ set list
 set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 
-" colors
-" lightline
+" colors and lightline
+autocmd ColorScheme * hi Normal ctermbg=none
+autocmd ColorScheme * hi NonText ctermbg=none
+autocmd ColorScheme * hi LineNr ctermbg=none
+
 colorscheme iceberg
 let g:lightline = {
     \ 'colorscheme': 'iceberg',
