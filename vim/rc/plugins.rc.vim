@@ -87,3 +87,6 @@ nmap <silent> [fugitive]b :<C-u>Gblame<CR>
 
 " emmet -------------------------------------------------------------------------
 let g:user_emmet_leader_key='\,'
+
+" Async Run ---------------------------------------------------------------------
+let g:asyncrun_open = 8

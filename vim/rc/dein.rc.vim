@@ -19,7 +19,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('cocopon/iceberg.vim')
     call dein#add('itchyny/lightline.vim')
     call dein#add('mhinz/vim-startify')
-    call dein#add('majutsushi/tagbar')
 
     " Text edit
     call dein#add('nelstrom/vim-visual-star-search')
@@ -34,10 +33,9 @@ if dein#load_state(s:dein_dir)
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
     call dein#add('scrooloose/nerdtree')
 
-    " LSP
+    " Language support
     call dein#add('neoclide/coc.nvim', {'branch': 'release'})
-
-    " Snippets
+    call dein#add('majutsushi/tagbar')
     call dein#add('SirVer/ultisnips')
     call dein#add('honza/vim-snippets')
 
@@ -49,6 +47,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('AndrewRadev/linediff.vim')
     call dein#add('osyo-manga/vim-anzu')
     call dein#add('tyru/capture.vim')
+    call dein#add('skywind3000/asyncrun.vim')
 
     call dein#end()
     call dein#save_state()

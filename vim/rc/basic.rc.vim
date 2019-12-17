@@ -56,7 +56,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype html,css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " clipboard
 set clipboard+=unnamedplus
@@ -81,7 +81,7 @@ if has('persistent_undo')
   augroup END
 endif
 
-" qf
+" quickfix
 augroup GrepCmd
     autocmd!
     autocmd QuickFixCmdPost vim,grep,make if len(getqflist()) != 0 | cwindow | endif
