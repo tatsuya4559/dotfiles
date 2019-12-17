@@ -1,9 +1,11 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export BAT_THEME='OneHalfDark'
+export BAT_THEME='ansi-dark'
 
-# PS1
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
+source ~/.iterm2_shell_integration.bash
+
+# PS1
 GIT_PS1_SHOWDIRTYSTATE=true
 NORMAL='\[\e[m\]'
 GREEN='\[\e[0;32m\]'
@@ -11,7 +13,7 @@ RED='\[\e[0;31m\]'
 BLUE='\[\e[0;34m\]'
 PURPLE='\[\e[0;35m\]'
 CYAN='\[\e[0;36m\]'
-export PS1="${GREEN}[\w${CYAN}"'$(__git_ps1)'"${GREEN}] \$ ${NORMAL}"
+export PS1="${GREEN}[\w${RED}"'$(__git_ps1)'"${GREEN}] \$ ${NORMAL}"
 
 alias vim='nvim'
 alias view='nvim -R'
