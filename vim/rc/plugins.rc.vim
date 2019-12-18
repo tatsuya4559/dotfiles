@@ -5,7 +5,6 @@
 let g:multi_cursor_use_default_mapping=0
 
 let g:multi_cursor_start_word_key      = '<M-d>'
-let g:multi_cursor_select_all_word_key = '<M-l>'
 let g:multi_cursor_next_key            = '<M-d>'
 let g:multi_cursor_skip_key            = '<M-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
@@ -75,8 +74,7 @@ endfunction
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-" fugitive and rhubarb -----------------------------------------------------------------
-" TODO: キーマップ使いにくいから要検討
+" fugitive ---------------------------------------------------------------------
 nmap [fugitive] <Nop>
 map <Leader>g [fugitive]
 nnoremap [fugitive]s :<C-u>Gstatus<CR>
@@ -90,10 +88,10 @@ let g:user_emmet_leader_key='\,'
 
 " Async Run ---------------------------------------------------------------------
 let g:asyncrun_open = 8
-nnoremap <F3> :AsyncRun
+nnoremap <F3> :<C-u>AsyncRun
 " for bbt
-nnoremap <F4> :AsyncStop
-nnoremap <F5> :AsyncRun makers run bbtu
-nnoremap <F6> :AsyncRun makers test bbt.lp.
-nnoremap <F7> :AsyncRun black %
-nnoremap <F8> :AsyncRun flake8 %<CR>
+nnoremap <F4> :<C-u>AsyncStop
+nnoremap <F5> :<C-u>AsyncRun makers run bbtu
+nnoremap <F6> :<C-u>AsyncRun makers test bbt.lp.
+nnoremap <F7> :<C-u>AsyncRun black %
+nnoremap <F8> :<C-u>AsyncRun flake8 %<CR>

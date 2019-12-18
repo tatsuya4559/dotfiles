@@ -51,6 +51,7 @@ nnoremap <M-+> <C-w>+
 nnoremap <M--> <C-w>-
 nnoremap ]w <C-w>w
 nnoremap [w <C-w>W
+nnoremap Q <C-w>q
 " ウィンドウ操作リファレンス
 " <C-w> s
 " <C-w> v
@@ -123,3 +124,15 @@ function! s:set_vsearch()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
 endfunction
+
+
+" free
+" normal mode
+" <C-h>
+" <C-n>
+" <C-j>
+" <C-k>
+" S
+" X
+" -
+" _
