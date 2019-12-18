@@ -98,4 +98,4 @@ endif
 
 " abbreviation
 :iabbrev bbash #!/bin/bash
-
+:cabbrev sg silent grep!
