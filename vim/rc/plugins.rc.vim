@@ -26,6 +26,7 @@ nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>t :TagbarToggle<CR>
 
 " fzf ---------------------------------------------------------------------------
+" TODO: 便利なキーマップを専有しすぎているから要検討
 let g:fzf_layout = { 'up': '~60%' }
 
 command! -bang -nargs=? -complete=dir Files
@@ -56,10 +57,10 @@ vnoremap <silent> <Space>l "zy:BLines<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>g "zy:Rg<CR><C-\><C-n>"zpi
 
 " Coc ---------------------------------------------------------------------------
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <Nop> <Plug>(coc-rename)
-nmap <silent> <Nop> <Plug>(coc-format)
+nmap gd <Plug>(coc-definition)
+nmap gr <Plug>(coc-references)
+nmap <Nop> <Plug>(coc-rename)
+nmap <Nop> <Plug>(coc-format)
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -78,15 +79,24 @@ let g:coc_snippet_prev = '<C-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-" fugitive ----------------------------------------------------------------------
+" fugitive and rhubarb -----------------------------------------------------------------
+" TODO: キーマップ使いにくいから要検討
 nmap [fugitive] <Nop>
 map <Leader>g [fugitive]
-nmap <silent> [fugitive]s :<C-u>Gstatus<CR>
-nmap <silent> [fugitive]d :<C-u>Gvdiff<CR>
-nmap <silent> [fugitive]b :<C-u>Gblame<CR>
+nnoremap [fugitive]s :<C-u>Gstatus<CR>
+nnoremap [fugitive]d :<C-u>Gvdiff<CR>
+nnoremap [fugitive]b :<C-u>Gblame<CR>
+nnoremap [fugitive]w :<C-u>Gbrowse<CR>
+vnoremap [fugitive]w :Gbrowse<CR>
 
 " emmet -------------------------------------------------------------------------
 let g:user_emmet_leader_key='\,'
 
 " Async Run ---------------------------------------------------------------------
 let g:asyncrun_open = 8
+" for bbt
+nnoremap <F3> :AsyncRun black %
+nnoremap <F4> :AsyncRun flake8 %<CR>
+nnoremap <F5> :AsyncRun makers run bbtu
+nnoremap <F6> :AsyncRun makers test bbt.lp.
+nnoremap <F8> :AsyncStop

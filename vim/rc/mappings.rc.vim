@@ -24,7 +24,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 
-nnoremap <F3> :<C-u>setlocal relativenumber!<CR>
+nnoremap <F11> :<C-u>setlocal relativenumber!<CR>
 
 " 選択系
 nnoremap vv v$h
