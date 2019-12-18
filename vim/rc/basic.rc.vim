@@ -11,9 +11,13 @@ set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 
 " colors and lightline
-autocmd ColorScheme * hi Normal ctermbg=none
-autocmd ColorScheme * hi NonText ctermbg=none
-autocmd ColorScheme * hi LineNr ctermbg=none
+if exists('&termguicolors')
+    set termguicolors
+else
+    autocmd ColorScheme * hi Normal ctermbg=none guibg=none
+    autocmd ColorScheme * hi NonText ctermbg=none guibg=none
+    autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
+endif
 
 colorscheme iceberg
 let g:lightline = {
