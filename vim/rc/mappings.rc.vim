@@ -115,6 +115,7 @@ xnoremap <expr> p 'pgv"'.v:register.'y`>'
 " カーソル下の単語をハイライト
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
+
 " カーソル下の単語をハイライトして置換
 nmap ? <Space><Space>:%s/<C-r>///g<Left><Left>
 xmap ? <Space>:%s/<C-r>///g<Left><Left>

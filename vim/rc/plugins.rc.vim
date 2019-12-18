@@ -59,8 +59,8 @@ vnoremap <silent> <Space>g "zy:Rg<CR><C-\><C-n>"zpi
 " Coc ---------------------------------------------------------------------------
 nmap gd <Plug>(coc-definition)
 nmap gr <Plug>(coc-references)
-nmap <Nop> <Plug>(coc-rename)
-nmap <Nop> <Plug>(coc-format)
+"nmap <Nop> <Plug>(coc-rename)
+"nmap <Nop> <Plug>(coc-format)
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -71,10 +71,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" for snippets
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<C-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
