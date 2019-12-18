@@ -41,3 +41,4 @@ function profile_vim() {
 }
 
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
+export PATH=$PATH:/Users/tatsuya.kato/.cargo/bin
