@@ -1,0 +1,176 @@
+" appearance
+set number
+set relativenumber
+set nowrap
+set breakindent
+set list
+set listchars=tab:»-,trail:-,nbsp:+
+set updatetime=100
+
+" colors
+if exists('&termguicolors')
+    set termguicolors
+else
+    autocmd ColorScheme * hi Normal ctermbg=none guibg=none
+    autocmd ColorScheme * hi NonText ctermbg=none guibg=none
+    autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
+endif
+colorscheme desert
+
+" encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,sjis,cp932,euc-jp
+set fileformats=unix,dos,mac
+
+" search
+set ignorecase
+set smartcase
+set hlsearch
+set wrapscan
+set incsearch
+
+" tab
+set smartindent
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+autocmd Filetype html,css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" clipboard
+set clipboard+=unnamedplus
+
+" buffer
+set hidden
+
+" quickfix
+augroup GrepCmd
+    autocmd!
+    autocmd QuickFixCmdPost vim,grep,make if len(getqflist()) != 0 | cwindow | endif
+augroup END
+
+" grep -> ripgrep
+if executable('rg')
+    let &grepprg = 'rg --vimgrep'
+    set grepformat=%f:%l:%c:%m
+endif
+
+" abbreviation
+:iabbrev bbash #!/bin/bash
+:cabbrev sg silent grep!
+
+" カーソル移動
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Del>
+inoremap <C-h> <BS>
+inoremap <C-k> <C-o>D<Right>
+
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
+
+nnoremap <F11> :<C-u>setlocal relativenumber!<CR>
+
+" 選択系
+nnoremap vv v$h
+vnoremap < <gv
+vnoremap > >gv
+
+" 行を移動
+nnoremap <C-Up> "zdd<Up>"zP
+nnoremap <C-Down> "zdd"zp
+vnoremap <C-Up> "zx<Up>"zP`[V`]
+vnoremap <C-Down> "zx"zp`[V`]
+
+" ESC
+tnoremap <silent> <Esc> <C-\><C-n>
+
+" window
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
+nnoremap <M->> <C-w>>
+nnoremap <M-<> <C-w><
+nnoremap <M-+> <C-w>+
+nnoremap <M--> <C-w>-
+nnoremap ]w <C-w>w
+nnoremap [w <C-w>W
+nnoremap Q <C-w>q
+
+" tab
+nnoremap <M-t> :<C-u>tab split<CR>
+nnoremap ]t gt
+nnoremap [t gT
+
+" buffer
+nnoremap ]b :<C-u>bn<CR>
+nnoremap [b :<C-u>bp<CR>
+command Q bd
+
+" quickfix
+nnoremap ]q :<C-u>cn<CR>
+nnoremap [q :<C-u>cp<CR>
+
+if exists('g:__QUICKFIX_TOGGLE__')
+    finish
+endif
+let g:__QUICKFIX_TOGGLE__ = 1
+
+function! ToggleQuickfix()
+    let l:nr = winnr('$')
+    cwindow
+    let l:nr2 = winnr('$')
+    if l:nr == l:nr2
+        cclose
+    endif
+endfunction
+nnoremap <script> <silent> <F9> :call ToggleQuickfix()<CR>
+
+" set current directory
+nnoremap <Leader>. :lcd %:p:h<CR>
+
+" コマンドとして実行
+vnoremap <Leader>x :!sh<CR>
+nnoremap <Leader>x V:!sh<CR>
+
+" open
+nnoremap <silent> <Leader>o :<C-u>!open %<CR>
+vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
+
+" 行末までヤンク
+nnoremap Y y$
+
+" 空行を追加
+nnoremap <Space><CR> o<Esc>
+
+" 再描画
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" visual mode でペーストしたときにヤンクしない
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
+
+" カーソル下の単語をハイライト
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+xnoremap <silent> <Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
+
+" カーソル下の単語をハイライトして置換
+nmap ? <Space><Space>:%s/<C-r>///g<Left><Left>
+xmap ? <Space>:%s/<C-r>///g<Left><Left>
+function! s:set_vsearch()
+  silent normal gv"zy
+  let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
+endfunction
