@@ -27,12 +27,31 @@ let g:lightline = {
     \             [ 'gitbranch', 'readonly', 'filepath', 'modified' ] ]
     \ },
     \ 'component_function': {
-    \   'gitbranch': 'fugitive#head',
+    \   'gitbranch': 'Fugitive',
+    \   'readonly': 'Readonly',
     \   'filepath': 'FilePath'
     \ },
-    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+    "\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+    "\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+    \ 'separator': { 'left': "\ue0b4", 'right': "\ue0b6" },
+    \ 'subseparator': { 'left': "\ue0b5", 'right': "\ue0b7" }
     \ }
+
+function! Fugitive()
+  try
+    if &ft !~? 'nerdtree\|tagbar' && exists('*fugitive#head')
+      let _ = fugitive#head()
+      return strlen(_) ? "\ue725 "._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! Readonly()
+  return &ft !~? 'nerdtree\|tagbar' && &ro ? "\ue0a2" : ''
+endfunction
+
 function! FilePath()
     if winwidth(0) > 90
         return expand("%:s")
