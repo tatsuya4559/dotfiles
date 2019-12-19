@@ -2,6 +2,7 @@
 " basic settings
 "================================================================================
 " appearance
+set number
 set relativenumber
 set nowrap
 set breakindent
@@ -73,7 +74,7 @@ set hidden
 " terminal
 set sh=bash
 autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-autocmd TermOpen * setlocal norelativenumber
+autocmd TermOpen * setlocal norelativenumber nonumber
 
 " persist undo
 if has('persistent_undo')

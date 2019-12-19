@@ -19,6 +19,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('cocopon/iceberg.vim')
     call dein#add('itchyny/lightline.vim')
     call dein#add('mhinz/vim-startify')
+    call dein#add('ryanoasis/vim-devicons')
 
     " Text edit
     call dein#add('nelstrom/vim-visual-star-search')

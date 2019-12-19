@@ -56,8 +56,8 @@ vnoremap <silent> <Space>l "zy:BLines<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>g "zy:Rg<CR><C-\><C-n>"zpi
 
 " Coc ---------------------------------------------------------------------------
-nmap gd <Plug>(coc-definition)
-nmap gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 "nmap <Nop> <Plug>(coc-rename)
 "nmap <Nop> <Plug>(coc-format)
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
@@ -72,7 +72,7 @@ function! s:show_documentation()
 endfunction
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 " fugitive ---------------------------------------------------------------------
 nmap [fugitive] <Nop>
