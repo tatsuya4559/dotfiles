@@ -88,10 +88,10 @@ let g:user_emmet_leader_key='\,'
 
 " Async Run ---------------------------------------------------------------------
 let g:asyncrun_open = 8
-nnoremap <F3> :<C-u>AsyncRun
+nnoremap <Space>3 :<C-u>AsyncRun
 " for bbt
-nnoremap <F4> :<C-u>AsyncStop
-nnoremap <F5> :<C-u>AsyncRun makers run bbtu
-nnoremap <F6> :<C-u>AsyncRun makers test bbt.lp.
-nnoremap <F7> :<C-u>AsyncRun black %
-nnoremap <F8> :<C-u>AsyncRun flake8 %<CR>
+nnoremap <Space>4 :<C-u>AsyncStop
+nnoremap <Space>5 :<C-u>AsyncRun makers run bbtu
+nnoremap <Space>6 :<C-u>AsyncRun makers test bbt.lp.
+nnoremap <Space>7 :<C-u>AsyncRun black %
+nnoremap <Space>8 :<C-u>AsyncRun flake8 %<CR>

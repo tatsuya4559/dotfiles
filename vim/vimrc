@@ -82,7 +82,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 
-nnoremap <F11> :<C-u>setlocal relativenumber!<CR>
+nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
 
 " 選択系
 nnoremap vv v$h
@@ -138,7 +138,7 @@ function! ToggleQuickfix()
         cclose
     endif
 endfunction
-nnoremap <script> <silent> <F9> :call ToggleQuickfix()<CR>
+nnoremap <script> <silent> <Space>q :call ToggleQuickfix()<CR>
 
 " set current directory
 nnoremap <Leader>. :lcd %:p:h<CR>
