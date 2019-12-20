@@ -31,10 +31,8 @@ let g:lightline = {
     \   'readonly': 'Readonly',
     \   'filepath': 'FilePath'
     \ },
-    "\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    "\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-    \ 'separator': { 'left': "\ue0b4", 'right': "\ue0b6 " },
-    \ 'subseparator': { 'left': "\ue0b5", 'right': "\ue0b7" }
+    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
     \ }
 
 function! Fugitive()
