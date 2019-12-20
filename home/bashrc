@@ -16,6 +16,7 @@ CYAN='\[\e[0;36m\]'
 GITHUB=  #`printf "\uf113"`
 ARROW=  #`printf "\uf061"`
 export PS1="${BLUE} \w${CYAN}"'$(__git_ps1 " ${GITHUB} %s")'"${BLUE} ${ARROW}  ${NORMAL}"
+# for no-nerd-font environment
 #export PS1="${BLUE}[\w${CYAN}"'$(__git_ps1)'"${BLUE}] \$ ${NORMAL}"
 
 alias vim='nvim'
@@ -28,16 +29,14 @@ alias g='cd $(ghq root)/$(ghq list | fzf)'
 alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias activate='. venv/bin/activate'
 alias r='ranger'
+# for linux
+#alias pbcopy='xclip -selection c'
+#alias pbpaste='xclip -selection c -o'
 
 function col() {
   awk -v col=$1 '{print $col}'
 }
 
-function fvim() {
-  files=$(git ls-files) &&
-  selected_files=$(echo "$files" | fzf -m --preview 'bat -r:50 {}') &&
-  vim $selected_files
-}
 # デフォルトのneovimよりどのくらい遅くなっているか
 function profile_vim() {
     echo "scale=3; $(nvim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1) / $(nvim --noplugin --startuptime /tmp/stime_default.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_default.log | cut -d ' ' -f1)" | bc | xargs -I{} echo "{}x slower your NeoVim than the default."
