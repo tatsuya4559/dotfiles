@@ -40,25 +40,19 @@ localectl --no-convert set-x11-keymap us pc105 "" ctrl:swapcaps
 gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 #gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
 
-# clone my dotfiles
-pushd ~
-git clone https://github.com/tatsuya4559/dotfiles.git
-popd
-
 ################################################################################
 # Install apps
 ################################################################################
 # install by pacman
 ## install CLI tools
-sudo pacman -S --noconfirm yay xclip ripgrep bat tig fzf neovim hub jq
+sudo pacman -S --noconfirm yay xclip ripgrep bat ydiff tig fzf neovim hub jq ghq neofetch
 sudo pacman -S --noconfirm vagrant virtualbox docker docker-compose
 sudo pacman -S --noconfirm python-neovim python-pipenv
-#neofetch
+yay -S ttf-cica nerd-fonts-ricty
 
 ## install GUI tools
-sudo pacman -S --noconfirm terminator gnumeric synapse dbeaver
+sudo pacman -S --noconfirm synapse
 yay -S --noconfirm google-chrome visual-studio-code-bin meld
-#brackets
 
 # install nice gtk/icon themes
 pushd ~/Downloads/
@@ -74,13 +68,6 @@ mkdir ~/.icons
 cp -r ~/Downloads/numix-icon-theme-circle/Numix-Circle* .icons/
 rm -rf ~/Downloads/numix-icon-theme-circle
 popd
-
-# realize pbcopy, pbpaste
-# (want to prepare .bashrc in dotfiles)
-echo "alias pbcopy='xclip -selection c'" >> ~/.bashrc
-echo "alias pbpaste='xclip -selection c -o'" >> ~/.bashrc
-echo "set completion-ignore-case on" >> ~/.inputrc
-# uninstall some pre-install apps
 
 # upgrade packages
 sudo pacman -Syu
