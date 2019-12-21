@@ -40,28 +40,28 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
-nnoremap <silent> <C-p> :GFiles<CR>
-nnoremap <silent> <C-c> :Commands<CR>
-nnoremap <silent> <Space>f :Files<CR>
-nnoremap <silent> <Space>b :Buffers<CR>
-nnoremap <silent> <Space>l :BLines<CR>
-nnoremap <silent> <Space>g :Rg<CR>
-nnoremap <silent> <Space>s :GFiles?<CR>
-nnoremap <silent> <Space>m :Marks<CR>
+nnoremap <silent><C-p> :GFiles<CR>
+nnoremap <silent><C-c> :Commands<CR>
+nnoremap <silent><Space>f :Files<CR>
+nnoremap <silent><Space>b :Buffers<CR>
+nnoremap <silent><Space>l :BLines<CR>
+nnoremap <silent><Space>g :Rg<CR>
+nnoremap <silent><Space>s :GFiles?<CR>
+nnoremap <silent><Space>m :Marks<CR>
 
-vnoremap <silent> <C-p> "zy:GFiles<CR><C-\><C-n>"zpi
-vnoremap <silent> <Space>f "zy:Files<CR><C-\><C-n>"zpi
-vnoremap <silent> <Space>b "zy:Buffers<CR><C-\><C-n>"zpi
-vnoremap <silent> <Space>l "zy:BLines<CR><C-\><C-n>"zpi
-vnoremap <silent> <Space>g "zy:Rg<CR><C-\><C-n>"zpi
+vnoremap <silent><C-p> "zy:GFiles<CR><C-\><C-n>"zpi
+vnoremap <silent><Space>f "zy:Files<CR><C-\><C-n>"zpi
+vnoremap <silent><Space>b "zy:Buffers<CR><C-\><C-n>"zpi
+vnoremap <silent><Space>l "zy:BLines<CR><C-\><C-n>"zpi
+vnoremap <silent><Space>g "zy:Rg<CR><C-\><C-n>"zpi
 
 " Coc ---------------------------------------------------------------------------
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gr <Plug>(coc-references)
 "nmap <Nop> <Plug>(coc-rename)
 "nmap <Nop> <Plug>(coc-format)
-nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent><Space>o  :<C-u>CocList outline<CR>
+nnoremap <silent>K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -72,7 +72,7 @@ function! s:show_documentation()
 endfunction
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
+imap <silent><C-j> <Plug>(coc-snippets-expand-jump)
 
 " fugitive ---------------------------------------------------------------------
 nmap [fugitive] <Nop>
@@ -85,6 +85,9 @@ vnoremap [fugitive]w :Gbrowse<CR>
 
 " emmet -------------------------------------------------------------------------
 let g:user_emmet_leader_key='\,'
+
+" ranger ------------------------------------------------------------------------
+nnoremap <silent><Space>e :RangerOpenCurrentDir<CR>
 
 " Async Run ---------------------------------------------------------------------
 let g:asyncrun_open = 8

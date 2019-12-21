@@ -33,6 +33,8 @@ if dein#load_state(s:dein_dir)
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
     call dein#add('scrooloose/nerdtree')
+    call dein#add('iberianpig/ranger-explorer.vim')
+    call dein#add('rbgrouleff/bclose.vim')
 
     " Language support
     call dein#add('neoclide/coc.nvim', {'branch': 'release'})
