@@ -1,5 +1,8 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
+export PATH=$PATH:/Users/tatsuya.kato/.cargo/bin
 export BAT_THEME='ansi-dark'
+export PYTHONBREAKPOINT="pudb.set_trace"
 
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
@@ -43,5 +46,3 @@ function profile_vim() {
     rm /tmp/stime_with_plugin.log /tmp/stime_default.log
 }
 
-export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
-export PATH=$PATH:/Users/tatsuya.kato/.cargo/bin
