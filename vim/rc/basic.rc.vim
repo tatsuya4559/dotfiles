@@ -117,3 +117,4 @@ endif
 " abbreviation
 :iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
+:cabbrev ntf NERDTreeFind

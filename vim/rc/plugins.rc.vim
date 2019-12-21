@@ -19,10 +19,10 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " autocmd BufWritePre * :FixWhitespace
 
 " NerdTree ----------------------------------------------------------------------
-nnoremap <Leader>e :NERDTreeToggle<CR>
+nnoremap <Space>e :NERDTreeToggle<CR>
 
 " Tag bar ----------------------------------------------------------------------
-nnoremap <Leader>t :TagbarToggle<CR>
+nnoremap <Space>t :TagbarToggle<CR>
 
 " fzf ---------------------------------------------------------------------------
 " TODO: 便利なキーマップを専有しすぎているから要検討
@@ -42,18 +42,15 @@ command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 nnoremap <silent><C-p> :GFiles<CR>
 nnoremap <silent><C-c> :Commands<CR>
-nnoremap <silent><Space>f :Files<CR>
 nnoremap <silent><Space>b :Buffers<CR>
 nnoremap <silent><Space>l :BLines<CR>
-nnoremap <silent><Space>g :Rg<CR>
+nnoremap <silent><Space>f :Rg<CR>
 nnoremap <silent><Space>s :GFiles?<CR>
-nnoremap <silent><Space>m :Marks<CR>
 
 vnoremap <silent><C-p> "zy:GFiles<CR><C-\><C-n>"zpi
-vnoremap <silent><Space>f "zy:Files<CR><C-\><C-n>"zpi
 vnoremap <silent><Space>b "zy:Buffers<CR><C-\><C-n>"zpi
 vnoremap <silent><Space>l "zy:BLines<CR><C-\><C-n>"zpi
-vnoremap <silent><Space>g "zy:Rg<CR><C-\><C-n>"zpi
+vnoremap <silent><Space>f "zy:Rg<CR><C-\><C-n>"zpi
 
 " Coc ---------------------------------------------------------------------------
 nmap <silent>gd <Plug>(coc-definition)
@@ -76,7 +73,7 @@ imap <silent><C-j> <Plug>(coc-snippets-expand-jump)
 
 " fugitive ---------------------------------------------------------------------
 nmap [fugitive] <Nop>
-map <Leader>g [fugitive]
+map <Space>g [fugitive]
 nnoremap [fugitive]s :<C-u>Gstatus<CR>
 nnoremap [fugitive]d :<C-u>Gvdiff<CR>
 nnoremap [fugitive]b :<C-u>Gblame<CR>
@@ -85,9 +82,6 @@ vnoremap [fugitive]w :Gbrowse<CR>
 
 " emmet -------------------------------------------------------------------------
 let g:user_emmet_leader_key='\,'
-
-" ranger ------------------------------------------------------------------------
-nnoremap <silent><Space>e :RangerOpenCurrentDir<CR>
 
 " Async Run ---------------------------------------------------------------------
 let g:asyncrun_open = 8
