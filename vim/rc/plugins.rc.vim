@@ -55,7 +55,7 @@ vnoremap <silent><Space>f "zy:Rg<CR><C-\><C-n>"zpi
 " Coc ---------------------------------------------------------------------------
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gr <Plug>(coc-references)
-"nmap <Nop> <Plug>(coc-rename)
+nmap <F2> <Plug>(coc-rename)
 "nmap <Nop> <Plug>(coc-format)
 nnoremap <silent><Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent>K :call <SID>show_documentation()<CR>
