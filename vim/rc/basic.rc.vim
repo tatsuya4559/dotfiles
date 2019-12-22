@@ -77,7 +77,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-autocmd Filetype html,css,yaml,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype html,css,javascript,yaml,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " clipboard
 set clipboard+=unnamedplus
@@ -118,3 +118,4 @@ endif
 :iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
 :cabbrev ntf NERDTreeFind
+:cabbrev be bufdo e
