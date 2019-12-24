@@ -50,6 +50,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('osyo-manga/vim-anzu')
     call dein#add('tyru/capture.vim')
     call dein#add('skywind3000/asyncrun.vim')
+    call dein#add('kana/vim-submode')
 
     call dein#end()
     call dein#save_state()

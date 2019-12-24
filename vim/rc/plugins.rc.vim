@@ -15,6 +15,21 @@ nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 
+" submode -----------------------------------------------------------------------
+call submode#enter_with('window', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('window', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('window', 'n', '', '<C-w>+', '<C-w>+')
+call submode#enter_with('window', 'n', '', '<C-w>-', '<C-w>-')
+call submode#map('window', 'n', '', '>', '<C-w>>')
+call submode#map('window', 'n', '', '<', '<C-w><')
+call submode#map('window', 'n', '', '+', '<C-w>+')
+call submode#map('window', 'n', '', '-', '<C-w>-')
+
+call submode#enter_with('z', 'n', '', 'zl', 'zl')
+call submode#enter_with('z', 'n', '', 'zh', 'zh')
+call submode#map('z', 'n', '', 'l', 'zl')
+call submode#map('z', 'n', '', 'h', 'zh')
+
 " FixWhitespace -----------------------------------------------------------------
 " autocmd BufWritePre * :FixWhitespace
 

@@ -41,14 +41,10 @@ vnoremap <C-Down> "zx"zp`[V`]
 tnoremap <silent><Esc> <C-\><C-n>
 
 " window
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
-nnoremap <M->> <C-w>>
-nnoremap <M-<> <C-w><
-nnoremap <M-+> <C-w>+
-nnoremap <M--> <C-w>-
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
 nnoremap ]w <C-w>w
 nnoremap [w <C-w>W
 nnoremap Q <C-w>q
