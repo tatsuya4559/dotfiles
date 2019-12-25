@@ -32,6 +32,7 @@ alias tree='tree -C'
 alias g='cd $(ghq root)/$(ghq list | fzf)'
 alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias activate='. venv/bin/activate'
+alias lg='lazygit'
 alias r='ranger'
 alias t='tmuximum'
 # for linux
