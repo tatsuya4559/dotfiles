@@ -2,6 +2,7 @@
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 export PATH=$PATH:/Users/tatsuya.kato/.cargo/bin
 export BAT_THEME='ansi-dark'
+export MICRO_TRUECOLOR=1
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 source /usr/local/etc/bash_completion.d/git-prompt.sh
