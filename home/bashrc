@@ -1,6 +1,7 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 export PATH=$PATH:/Users/tatsuya.kato/.cargo/bin
+export EDITOR='nvim'
 export BAT_THEME='ansi-dark'
 export MICRO_TRUECOLOR=1
 export PYTHONBREAKPOINT="pudb.set_trace"
