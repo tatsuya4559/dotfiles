@@ -64,6 +64,9 @@ set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
 set fileformats=unix,dos,mac
 
+" backup
+set noswapfile
+
 " search
 set ignorecase
 set smartcase
