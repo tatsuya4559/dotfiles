@@ -45,8 +45,8 @@ nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
-nnoremap ]w <C-w>w
-nnoremap [w <C-w>W
+nnoremap <silent> ]w <C-w>w
+nnoremap <silent> [w <C-w>W
 nnoremap Q <C-w>q
 " ウィンドウ操作リファレンス
 " <C-w> s
@@ -59,8 +59,8 @@ nnoremap Q <C-w>q
 
 " tab
 nnoremap <M-t> :<C-u>tab split<CR>
-nnoremap ]t gt
-nnoremap [t gT
+nnoremap <silent> ]t gt
+nnoremap <silent> [t gT
 
 " buffer
 nnoremap <silent> ]b :<C-u>bn<CR>
@@ -68,8 +68,8 @@ nnoremap <silent> [b :<C-u>bp<CR>
 command Q bd
 
 " quickfix
-nnoremap ]q :<C-u>cn<CR>
-nnoremap [q :<C-u>cp<CR>
+nnoremap <silent> ]q :<C-u>cn<CR>
+nnoremap <silent> [q :<C-u>cp<CR>
 
 if exists('g:__QUICKFIX_TOGGLE__')
     finish
