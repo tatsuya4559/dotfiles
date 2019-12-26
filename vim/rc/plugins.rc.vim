@@ -96,7 +96,7 @@ nnoremap [fugitive]w :<C-u>Gbrowse<CR>
 vnoremap [fugitive]w :Gbrowse<CR>
 
 " emmet -------------------------------------------------------------------------
-let g:user_emmet_leader_key='\,'
+let g:user_emmet_leader_key='<C-t>'
 
 " Async Run ---------------------------------------------------------------------
 let g:asyncrun_open = 8
