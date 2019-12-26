@@ -9,6 +9,9 @@ let g:multi_cursor_next_key            = '<M-d>'
 let g:multi_cursor_skip_key            = '<M-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
+" commentary --------------------------------------------------------------------
+nnoremap <Space>c :<C-u>Commentary<CR>
+vnoremap <Space>c :Commentary<CR>
 " anzu --------------------------------------------------------------------------
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
