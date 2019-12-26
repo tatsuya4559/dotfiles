@@ -12,6 +12,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " commentary --------------------------------------------------------------------
 nnoremap <Space>c :<C-u>Commentary<CR>
 vnoremap <Space>c :Commentary<CR>
+
 " anzu --------------------------------------------------------------------------
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
@@ -58,25 +59,25 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
-nnoremap <silent><C-p> :GFiles<CR>
-nnoremap <silent><C-c> :Commands<CR>
-nnoremap <silent><Space>b :Buffers<CR>
-nnoremap <silent><Space>l :BLines<CR>
-nnoremap <silent><Space>f :Rg<CR>
-nnoremap <silent><Space>s :GFiles?<CR>
+nnoremap <silent> <C-p> :GFiles<CR>
+nnoremap <silent> <C-c> :Commands<CR>
+nnoremap <silent> <Space>b :Buffers<CR>
+nnoremap <silent> <Space>l :BLines<CR>
+nnoremap <silent> <Space>f :Rg<CR>
+nnoremap <silent> <Space>s :GFiles?<CR>
 
-vnoremap <silent><C-p> "zy:GFiles<CR><C-\><C-n>"zpi
-vnoremap <silent><Space>b "zy:Buffers<CR><C-\><C-n>"zpi
-vnoremap <silent><Space>l "zy:BLines<CR><C-\><C-n>"zpi
-vnoremap <silent><Space>f "zy:Rg<CR><C-\><C-n>"zpi
+vnoremap <silent> <C-p> "zy:GFiles<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>b "zy:Buffers<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>l "zy:BLines<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>f "zy:Rg<CR><C-\><C-n>"zpi
 
 " Coc ---------------------------------------------------------------------------
-nmap <silent>gd <Plug>(coc-definition)
-nmap <silent>gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
 "nmap <Nop> <Plug>(coc-format)
-nnoremap <silent><Space>o  :<C-u>CocList outline<CR>
-nnoremap <silent>K :call <SID>show_documentation()<CR>
+nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -87,7 +88,7 @@ function! s:show_documentation()
 endfunction
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <silent><C-j> <Plug>(coc-snippets-expand-jump)
+imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 " fugitive ---------------------------------------------------------------------
 nmap [fugitive] <Nop>

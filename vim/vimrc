@@ -96,7 +96,7 @@ vnoremap <C-Up> "zx<Up>"zP`[V`]
 vnoremap <C-Down> "zx"zp`[V`]
 
 " ESC
-tnoremap <silent><Esc> <C-\><C-n>
+tnoremap <silent> <Esc> <C-\><C-n>
 
 " window
 nnoremap <M-h> <C-w>h
@@ -138,14 +138,14 @@ function! ToggleQuickfix()
         cclose
     endif
 endfunction
-nnoremap <script> <silent><Space>q :call ToggleQuickfix()<CR>
+nnoremap <script> <silent> <Space>q :call ToggleQuickfix()<CR>
 
 " set current directory
 nnoremap <Leader>. :lcd %:p:h<CR>
 
 " open
-nnoremap <silent><Leader>o :<C-u>!open %<CR>
-vnoremap <silent><Leader>o "zy:<C-u>!open <C-r>z<CR>
+nnoremap <silent> <Leader>o :<C-u>!open %<CR>
+vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
 
 " 行末までヤンク
 nnoremap Y y$
@@ -154,14 +154,14 @@ nnoremap Y y$
 nnoremap <Space><CR> o<Esc>
 
 " 再描画
-nnoremap <silent><C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " visual mode でペーストしたときにヤンクしない
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 " カーソル下の単語をハイライト
-nnoremap <silent><Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-xnoremap <silent><Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+xnoremap <silent> <Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 
 " カーソル下の単語をハイライトして置換
 nmap ? <Space><Space>:%s/<C-r>///g<Left><Left>
