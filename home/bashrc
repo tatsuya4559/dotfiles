@@ -4,7 +4,6 @@ export PATH=$PATH:/Users/tatsuya.kato/.cargo/bin
 export EDITOR='nvim'
 export BAT_THEME='ansi-dark'
 export MICRO_TRUECOLOR=1
-export PYTHONBREAKPOINT="pudb.set_trace"
 
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
