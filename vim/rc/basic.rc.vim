@@ -24,12 +24,16 @@ let g:lightline = {
     \ 'colorscheme': 'iceberg',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filepath', 'modified' ] ]
+    \             [ 'gitbranch', 'readonly', 'filepath', 'modified' ] ],
+    \   'right': [ ['lineinfo'],
+    \            ['percent'],
+    \            ['fileformat', 'fileencoding', 'filetype'] ]
     \ },
     \ 'component_function': {
     \   'gitbranch': 'Fugitive',
     \   'readonly': 'Readonly',
-    \   'filepath': 'FilePath'
+    \   'filepath': 'FilePath',
+    \   'fileformat': 'FileFormat',
     \ },
     \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
     \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
@@ -55,6 +59,16 @@ function! FilePath()
         return expand("%:s")
     else
         return expand("%:t")
+    endif
+endfunction
+
+function! FileFormat()
+    if &ff == 'unix'
+        return 'LF'
+    elseif &ff == 'dos'
+        return 'CRLF'
+    else
+        return 'CR'
     endif
 endfunction
 
