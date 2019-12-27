@@ -44,7 +44,6 @@ nnoremap <Space>e :NERDTreeToggle<CR>
 nnoremap <Space>t :TagbarToggle<CR>
 
 " fzf ---------------------------------------------------------------------------
-" TODO: 便利なキーマップを専有しすぎているから要検討
 let g:fzf_layout = { 'up': '~60%' }
 
 command! -bang -nargs=? -complete=dir Files

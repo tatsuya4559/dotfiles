@@ -71,11 +71,6 @@ command Q bd
 nnoremap <silent> ]q :<C-u>cn<CR>
 nnoremap <silent> [q :<C-u>cp<CR>
 
-if exists('g:__QUICKFIX_TOGGLE__')
-    finish
-endif
-let g:__QUICKFIX_TOGGLE__ = 1
-
 function! ToggleQuickfix()
     let l:nr = winnr('$')
     cwindow
@@ -104,6 +99,8 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " visual mode でペーストしたときにヤンクしない
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
+
+nnoremap <Space>w viw
 
 " カーソル下の単語をハイライト
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
