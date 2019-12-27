@@ -23,23 +23,24 @@ colorscheme iceberg
 let g:lightline = {
     \ 'colorscheme': 'iceberg',
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filepath', 'modified' ] ],
-    \   'right': [ ['lineinfo'],
-    \            ['percent'],
-    \            ['fileformat', 'fileencoding', 'filetype'] ]
+    \   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonly', 'modified']],
+    \   'right': [['lineinfo'],[], ['fileformat', 'fileencoding', 'filetype']]
+    \ },
+    \ 'inactive': {
+    \   'left': [['filepath']],
+    \   'right': [['lineinfo'], ['percent']]
     \ },
     \ 'component_function': {
-    \   'gitbranch': 'Fugitive',
-    \   'readonly': 'Readonly',
-    \   'filepath': 'FilePath',
-    \   'fileformat': 'FileFormat',
+    \   'gitbranch': 'LightlineFugitive',
+    \   'filepath': 'LightlineFilepath',
+    \   'readonly': 'LightlineReadonly',
+    \   'fileformat': 'LightlineFileformat',
     \ },
     \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
     \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
     \ }
 
-function! Fugitive()
+function! LightlineFugitive()
   try
     if &ft !~? 'nerdtree\|tagbar' && exists('*fugitive#head')
       let _ = fugitive#head()
@@ -50,19 +51,15 @@ function! Fugitive()
   return ''
 endfunction
 
-function! Readonly()
+function! LightlineFilepath()
+    return expand("%:s")
+endfunction
+
+function! LightlineReadonly()
   return &ft !~? 'nerdtree\|tagbar' && &ro ? "\ue0a2" : ''
 endfunction
 
-function! FilePath()
-    if winwidth(0) > 90
-        return expand("%:s")
-    else
-        return expand("%:t")
-    endif
-endfunction
-
-function! FileFormat()
+function! LightlineFileformat()
     if &ff == 'unix'
         return 'LF'
     elseif &ff == 'dos'
