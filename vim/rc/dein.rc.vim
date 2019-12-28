@@ -29,6 +29,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('bronson/vim-trailing-whitespace')
     call dein#add('terryma/vim-multiple-cursors')
     call dein#add('tpope/vim-commentary')
+    call dein#add('cohama/lexima.vim')
 
     " File explore
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
