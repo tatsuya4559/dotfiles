@@ -9,6 +9,7 @@ set breakindent
 set list
 set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
+language C
 
 " colors and lightline
 if exists('&termguicolors')
