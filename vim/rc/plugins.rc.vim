@@ -9,9 +9,21 @@ let g:multi_cursor_next_key            = '<M-d>'
 let g:multi_cursor_skip_key            = '<M-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
+" vim-sandwitch -----------------------------------------------------------------
+vmap ' sa'
+vmap " sa"
+vmap ( sa(
+vmap ) sa)
+
 " commentary --------------------------------------------------------------------
 nnoremap <Space>c :<C-u>Commentary<CR>
 vnoremap <Space>c :Commentary<CR>
+
+" indentLine --------------------------------------------------------------------
+let g:indentLine_char = '▏'
+let g:indentLine_first_char = '▏'
+let g:indentLine_showFirstIndentLevel = 1
+let g:vim_json_syntax_conceal = 0
 
 " anzu --------------------------------------------------------------------------
 nmap n <Plug>(anzu-n-with-echo)

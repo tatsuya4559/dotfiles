@@ -15,11 +15,14 @@ if dein#load_state(s:dein_dir)
     call dein#add(s:dein_repo_dir)
 
     " Appearance
-    call dein#add('sainnhe/gruvbox-material')
     call dein#add('cocopon/iceberg.vim')
+    call dein#add('ayu-theme/ayu-vim')
+    call dein#add('haishanh/night-owl.vim')
     call dein#add('itchyny/lightline.vim')
     call dein#add('mhinz/vim-startify')
     call dein#add('ryanoasis/vim-devicons')
+    call dein#add('Yggdroot/indentLine')
+    call dein#add('elzr/vim-json') " indentLineでjsonのconcealが設定されてしまうのを上書く
 
     " Text edit
     call dein#add('nelstrom/vim-visual-star-search')

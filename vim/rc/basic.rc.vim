@@ -14,18 +14,27 @@ language C
 " colors and lightline
 if exists('&termguicolors')
     set termguicolors
+    autocmd ColorScheme * hi Conceal ctermbg=none guibg=none
+    autocmd ColorScheme * hi Comment ctermbg=none guibg=none gui=none
+    autocmd ColorScheme * hi shComment ctermbg=none guibg=none gui=none
+    autocmd ColorScheme * hi jsComment ctermbg=none guibg=none gui=none
+    autocmd ColorScheme * hi javaScriptLineComment ctermbg=none guibg=none gui=none
 else
     autocmd ColorScheme * hi Normal ctermbg=none guibg=none
     autocmd ColorScheme * hi NonText ctermbg=none guibg=none
     autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
 endif
 
-colorscheme iceberg
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" colorscheme ayu
+" colorscheme iceberg
+colorscheme night-owl
 let g:lightline = {
-    \ 'colorscheme': 'iceberg',
+    \ 'colorscheme': 'nightowl',
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonly', 'modified']],
-    \   'right': [['lineinfo'],[], ['fileformat', 'fileencoding', 'filetype']]
+    \   'right': [['fileformat', 'fileencoding', 'filetype', 'lineinfo']]
     \ },
     \ 'inactive': {
     \   'left': [['filepath']],
