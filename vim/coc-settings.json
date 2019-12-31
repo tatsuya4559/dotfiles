@@ -6,5 +6,13 @@
     ],
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
-    "python.formatting.provider": "none"
+    "python.formatting.provider": "none",
+    "tsserver.enableJavascript": true,
+    "eslint.filetypes": [
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "javascriptreact",
+        "typescript.tsx"
+    ]
 }
