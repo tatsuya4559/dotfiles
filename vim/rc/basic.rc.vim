@@ -25,13 +25,10 @@ else
     autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
 endif
 
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-" colorscheme ayu
-" colorscheme iceberg
-colorscheme night-owl
+" colorscheme night-owl
+colorscheme iceberg
 let g:lightline = {
-    \ 'colorscheme': 'nightowl',
+    \ 'colorscheme': 'iceberg',
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonly', 'modified']],
     \   'right': [['fileformat', 'fileencoding', 'filetype', 'lineinfo']]

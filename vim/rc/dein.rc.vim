@@ -16,7 +16,6 @@ if dein#load_state(s:dein_dir)
 
     " Appearance
     call dein#add('cocopon/iceberg.vim')
-    call dein#add('ayu-theme/ayu-vim')
     call dein#add('haishanh/night-owl.vim')
     call dein#add('itchyny/lightline.vim')
     call dein#add('mhinz/vim-startify')
