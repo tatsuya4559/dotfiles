@@ -31,7 +31,7 @@ let g:lightline = {
     \ 'colorscheme': 'iceberg',
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonly', 'modified']],
-    \   'right': [['fileformat', 'fileencoding', 'filetype', 'lineinfo']]
+    \   'right': [['lineinfo'],['filetype'],['fileformat', 'fileencoding']]
     \ },
     \ 'inactive': {
     \   'left': [['filepath']],
