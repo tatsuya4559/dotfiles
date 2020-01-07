@@ -98,6 +98,8 @@ function! s:show_documentation()
   endif
 endfunction
 
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 

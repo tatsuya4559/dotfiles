@@ -1,4 +1,5 @@
 {
+    "coc.preferences.formatOnType": true,
     "python.jediEnabled": false,
     "python.linting.flake8Args": [
         "--max-line-length=120",
