@@ -25,7 +25,8 @@ else
     autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
 endif
 
-" colorscheme night-owl
+" night-owl nightowl
+" gruvbox-material gruvbox_material
 colorscheme iceberg
 let g:lightline = {
     \ 'colorscheme': 'iceberg',

@@ -14,9 +14,13 @@ if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
     call dein#add(s:dein_repo_dir)
 
-    " Appearance
+    " Colorscheme
     call dein#add('cocopon/iceberg.vim')
     call dein#add('haishanh/night-owl.vim')
+    call dein#add('NLKNguyen/papercolor-theme')
+    call dein#add('sainnhe/gruvbox-material')
+
+    " Appearance
     call dein#add('itchyny/lightline.vim')
     call dein#add('mhinz/vim-startify')
     call dein#add('ryanoasis/vim-devicons')
