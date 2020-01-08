@@ -43,16 +43,19 @@ let g:lightline = {
     \   'filepath': 'LightlineFilepath',
     \   'readonly': 'LightlineReadonly',
     \   'fileformat': 'LightlineFileformat',
-    \ },
-    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
     \ }
+    \ }
+    " for powerline
+    " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+    " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
 
 function! LightlineFugitive()
   try
     if &ft !~? 'nerdtree\|tagbar' && exists('*fugitive#head')
-      let _ = fugitive#head()
-      return strlen(_) ? "\ue725 "._ : ''
+      " for nerdfont
+      " let _ = fugitive#head()
+      " return strlen(_) ? "\ue725 "._ : ''
+      return fugitive#head()
     endif
   catch
   endtry
@@ -64,7 +67,9 @@ function! LightlineFilepath()
 endfunction
 
 function! LightlineReadonly()
-  return &ft !~? 'nerdtree\|tagbar' && &ro ? "\ue0a2" : ''
+  " for nerdfont
+  " return &ft !~? 'nerdtree\|tagbar' && &ro ? "\ue0a2" : ''
+  return &ft !~? 'nerdtree\|tagbar' && &ro ? 'RO' : ''
 endfunction
 
 function! LightlineFileformat()
