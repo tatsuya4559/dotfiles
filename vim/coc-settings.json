@@ -9,6 +9,7 @@
     "python.linting.pylintEnabled": false,
     "python.formatting.provider": "none",
     "tsserver.enableJavascript": true,
+    "tsserver.formatOnType": false,
     "eslint.filetypes": [
         "javascript",
         "typescript",
