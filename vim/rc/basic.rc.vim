@@ -31,7 +31,7 @@ colorscheme iceberg
 let g:lightline = {
     \ 'colorscheme': 'iceberg',
     \ 'active': {
-    \   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'readonly', 'modified']],
+    \   'left': [['mode', 'paste'], ['gitbranch', 'filepath', 'readonly', 'modified']],
     \   'right': [['lineinfo'],['filetype'],['fileformat', 'fileencoding']]
     \ },
     \ 'inactive': {
@@ -68,7 +68,7 @@ endfunction
 
 function! LightlineReadonly()
   " for nerdfont
-  " return &ft !~? 'nerdtree\|tagbar' && &ro ? "\ue0a2" : ''
+  " return &ft !~? 'nerdtree\|tagbar' && &ro ? '\ue0a2' : ''
   return &ft !~? 'nerdtree\|tagbar' && &ro ? 'RO' : ''
 endfunction
 
