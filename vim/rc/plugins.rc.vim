@@ -56,28 +56,59 @@ nnoremap <Space>e :NERDTreeToggle<CR>
 nnoremap <Space>t :TagbarToggle<CR>
 
 " fzf ---------------------------------------------------------------------------
-let g:fzf_layout = { 'up': '~60%' }
+if has('nvim')
+  let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
+
+  function! FloatingFZF()
+    let width = float2nr(&columns * 0.9)
+    let height = float2nr(&lines * 0.6)
+    let opts = { 'relative': 'editor',
+               \ 'row': (&lines - height) / 2,
+               \ 'col': (&columns - width) / 2,
+               \ 'width': width,
+               \ 'height': height }
+    let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+  endfunction
+
+  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+else
+  let g:fzf_layout = { 'up': '~60%' }
+endif
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, spec, a:fullscreen)
+endfunction
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 function! RipgrepPreview(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --smart-case %s || true'
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
-command! -nargs=* -bang Rgp call RipgrepPreview(<q-args>, <bang>0)
+command! -nargs=* -bang RgP call RipgrepPreview(<q-args>, <bang>0)
 
 nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <C-c> :Commands<CR>
 nnoremap <silent> <Space>b :Buffers<CR>
 nnoremap <silent> <Space>l :BLines<CR>
+nnoremap <silent> <Space>L :Lines<CR>
 nnoremap <silent> <Space>f :Rg<CR>
+nnoremap <silent> <Space>F :RgP<CR>
 nnoremap <silent> <Space>s :GFiles?<CR>
 
 vnoremap <silent> <C-p> "zy:GFiles<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>b "zy:Buffers<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>l "zy:BLines<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>L "zy:Lines<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>f "zy:Rg<CR><C-\><C-n>"zpi
+vnoremap <silent> <Space>F "zy:RgP<CR><C-\><C-n>"zpi
 
 " Coc ---------------------------------------------------------------------------
 nmap <silent> gd <Plug>(coc-definition)
