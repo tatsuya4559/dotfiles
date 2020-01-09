@@ -104,7 +104,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-autocmd Filetype html,css,javascript,yaml,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype vim,html,css,javascript,yaml,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " clipboard
 set clipboard+=unnamedplus
