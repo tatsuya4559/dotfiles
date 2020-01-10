@@ -41,6 +41,11 @@ call submode#map('window', 'n', '', '<', '<C-w><')
 call submode#map('window', 'n', '', '+', '<C-w>+')
 call submode#map('window', 'n', '', '-', '<C-w>-')
 
+call submode#enter_with('resize', 'n', '', '>>', '>>')
+call submode#enter_with('resize', 'n', '', '<<', '<<')
+call submode#map('resize', 'n', '', '>', '>>')
+call submode#map('resize', 'n', '', '<', '<<')
+
 call submode#enter_with('z', 'n', '', 'zl', 'zl')
 call submode#enter_with('z', 'n', '', 'zh', 'zh')
 call submode#map('z', 'n', '', 'l', 'zl')
