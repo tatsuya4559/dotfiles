@@ -1,5 +1,5 @@
 {
-    "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnType": false,
     "python.jediEnabled": false,
     "python.linting.flake8Args": [
         "--max-line-length=120",
@@ -9,7 +9,6 @@
     "python.linting.pylintEnabled": false,
     "python.formatting.provider": "none",
     "tsserver.enableJavascript": true,
-    "tsserver.formatOnType": false,
     "eslint.filetypes": [
         "javascript",
         "typescript",
