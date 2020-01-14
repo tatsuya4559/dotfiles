@@ -21,7 +21,6 @@ if dein#load_state(s:dein_dir)
     " Appearance
     call dein#add('itchyny/lightline.vim')
     call dein#add('mhinz/vim-startify')
-    call dein#add('ryanoasis/vim-devicons')
 
     " Text edit
     call dein#add('nelstrom/vim-visual-star-search')
@@ -35,7 +34,6 @@ if dein#load_state(s:dein_dir)
     " File explore
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-    call dein#add('scrooloose/nerdtree')
 
     " Language support
     call dein#add('neoclide/coc.nvim', {'branch': 'release'})

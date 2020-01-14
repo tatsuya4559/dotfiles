@@ -54,9 +54,6 @@ call submode#map('z', 'n', '', 'h', 'zh')
 " FixWhitespace -----------------------------------------------------------------
 " autocmd BufWritePre * :FixWhitespace
 
-" NerdTree ----------------------------------------------------------------------
-nnoremap <Space>e :NERDTreeToggle<CR>
-
 " Tag bar ----------------------------------------------------------------------
 nnoremap <Space>t :TagbarToggle<CR>
 
@@ -122,6 +119,7 @@ nmap <F2> <Plug>(coc-rename)
 "nmap <Nop> <Plug>(coc-format)
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <Space>e :<C-u>CocCommand explorer --toggle --sources=buffer+,file+<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
