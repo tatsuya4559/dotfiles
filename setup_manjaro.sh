@@ -48,7 +48,7 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 sudo pacman -S --noconfirm yay xclip ripgrep bat ydiff tig fzf neovim hub jq ghq neofetch
 sudo pacman -S --noconfirm vagrant virtualbox docker docker-compose
 sudo pacman -S --noconfirm python-neovim python-pipenv
-yay -S ttf-cica nerd-fonts-ricty
+yay -S ttf-cica
 
 ## install GUI tools
 sudo pacman -S --noconfirm synapse
