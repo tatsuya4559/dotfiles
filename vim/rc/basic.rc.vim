@@ -40,16 +40,23 @@ let g:lightline = {
     \   'right': [['lineinfo'], ['percent']]
     \ },
     \ 'component_function': {
+    \   'mode': 'LightlineMode',
     \   'gitbranch': 'LightlineFugitive',
     \   'filepath': 'LightlineFilepath',
     \   'readonly': 'LightlineReadonly',
+    \   'filetype': 'LightlineFiletype',
     \   'fileformat': 'LightlineFileformat',
+    \   'fileencoding': 'LightlineFileencoding',
     \ }
     \ }
 
+function! LightlineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
 function! LightlineFugitive()
   try
-    if &ft !~? 'tagbar' && exists('*fugitive#head')
+    if &ft !~? 'coc-explorer\|tagbar' && exists('*fugitive#head')
       return fugitive#head()
     endif
   catch
@@ -58,21 +65,38 @@ function! LightlineFugitive()
 endfunction
 
 function! LightlineFilepath()
-    return expand("%:s")
+  if &ft =~? 'coc-explorer\|tagbar'
+    return ''
+  endif
+  return winwidth(0) > 70 ? expand("%:s") : expand("%:t")
 endfunction
 
 function! LightlineReadonly()
-  return &ft !~? 'tagbar' && &ro ? 'RO' : ''
+  return &ft !~? 'coc-explorer\|tagbar' && &ro ? 'RO' : ''
 endfunction
 
 function! LightlineFileformat()
-    if &ff == 'unix'
-        return 'LF'
-    elseif &ff == 'dos'
-        return 'CRLF'
-    else
-        return 'CR'
-    endif
+  if winwidth(0) < 81
+    return ''
+  endif
+  if &ff == 'unix'
+      return 'LF'
+  elseif &ff == 'dos'
+      return 'CRLF'
+  else
+      return 'CR'
+  endif
+endfunction
+
+function! LightlineFileencoding()
+  return winwidth(0) > 80 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightlineFiletype()
+  if &ft =~? 'coc-explorer\|tagbar'
+    return &ft
+  endif
+  return winwidth(0) > 80 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
 " encoding
