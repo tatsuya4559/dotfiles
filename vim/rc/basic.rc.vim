@@ -14,11 +14,11 @@ language C
 " colors and lightline
 if exists('&termguicolors')
     set termguicolors
-    autocmd ColorScheme * hi Conceal ctermbg=none guibg=none
+    " autocmd ColorScheme * hi Conceal ctermbg=none guibg=none
     autocmd ColorScheme * hi Comment ctermbg=none guibg=none gui=none
-    autocmd ColorScheme * hi shComment ctermbg=none guibg=none gui=none
-    autocmd ColorScheme * hi jsComment ctermbg=none guibg=none gui=none
-    autocmd ColorScheme * hi javaScriptLineComment ctermbg=none guibg=none gui=none
+    " autocmd ColorScheme * hi shComment ctermbg=none guibg=none gui=none
+    " autocmd ColorScheme * hi jsComment ctermbg=none guibg=none gui=none
+    " autocmd ColorScheme * hi javaScriptLineComment ctermbg=none guibg=none gui=none
 else
     autocmd ColorScheme * hi Normal ctermbg=none guibg=none
     autocmd ColorScheme * hi NonText ctermbg=none guibg=none
@@ -46,16 +46,10 @@ let g:lightline = {
     \   'fileformat': 'LightlineFileformat',
     \ }
     \ }
-    " for powerline
-    " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
 
 function! LightlineFugitive()
   try
-    if &ft !~? 'nerdtree\|tagbar' && exists('*fugitive#head')
-      " for nerdfont
-      " let _ = fugitive#head()
-      " return strlen(_) ? "\ue725 "._ : ''
+    if &ft !~? 'tagbar' && exists('*fugitive#head')
       return fugitive#head()
     endif
   catch
@@ -68,9 +62,7 @@ function! LightlineFilepath()
 endfunction
 
 function! LightlineReadonly()
-  " for nerdfont
-  " return &ft !~? 'nerdtree\|tagbar' && &ro ? '\ue0a2' : ''
-  return &ft !~? 'nerdtree\|tagbar' && &ro ? 'RO' : ''
+  return &ft !~? 'tagbar' && &ro ? 'RO' : ''
 endfunction
 
 function! LightlineFileformat()
@@ -145,5 +137,4 @@ endif
 " abbreviation
 :iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
-:cabbrev ntf NERDTreeFind
 :cabbrev be bufdo e
