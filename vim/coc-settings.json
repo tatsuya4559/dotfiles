@@ -1,6 +1,6 @@
 {
     "coc.preferences.formatOnType": false,
-    "explorer.icon.enableNerdfont": true,
+    "explorer.file.column.indent.indentLine": true,
     "python.jediEnabled": false,
     "python.linting.flake8Args": [
         "--max-line-length=120",
