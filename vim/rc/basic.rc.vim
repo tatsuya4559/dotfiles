@@ -25,10 +25,12 @@ else
     autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
 endif
 
-" gruvbox-material gruvbox_material
-colorscheme iceberg
+" colorscheme iceberg
+colorscheme gruvbox-material
+set background=light
+let g:gruvbox_material_background = 'medium'
 let g:lightline = {
-    \ 'colorscheme': 'iceberg',
+    \ 'colorscheme': 'gruvbox_material',
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filepath', 'readonly', 'modified']],
     \   'right': [['lineinfo'],['filetype'],['fileformat', 'fileencoding']]
