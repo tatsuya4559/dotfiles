@@ -120,6 +120,7 @@ nmap <F2> <Plug>(coc-rename)
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <Space>e :<C-u>CocCommand explorer --toggle --sources=buffer+,file+<CR>
+nnoremap <silent> <space>t  :<C-u>CocList -I symbols<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
