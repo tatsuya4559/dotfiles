@@ -45,7 +45,7 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 ################################################################################
 # install by pacman
 ## install CLI tools
-sudo pacman -S --noconfirm yay xclip ripgrep bat ydiff tig fzf neovim hub jq ghq neofetch
+sudo pacman -S --noconfirm yay xclip ripgrep bat tig fzf neovim hub jq ghq neofetch
 sudo pacman -S --noconfirm vagrant virtualbox docker docker-compose
 sudo pacman -S --noconfirm python-neovim python-pipenv
 yay -S ttf-cica
