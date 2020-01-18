@@ -25,7 +25,6 @@ else
     autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
 endif
 
-" colorscheme iceberg
 colorscheme gruvbox-material
 set background=light
 let g:gruvbox_material_background = 'medium'
@@ -65,10 +64,7 @@ function! LightlineFugitive()
 endfunction
 
 function! LightlineFilepath()
-  if &ft =~? 'coc-explorer\|tagbar'
-    return ''
-  endif
-  return winwidth(0) > 70 ? expand("%:s") : expand("%:t")
+  return &ft !~? 'coc-explorer\|tagbar' ? expand("%:t") : ''
 endfunction
 
 function! LightlineReadonly()
