@@ -32,6 +32,10 @@ bind branch M ?git merge %(branch)
 bind status D !git difftool %(file)
 bind status c !git commit -m "%(prompt Enter commit message: )"
 
+# refs
+bind refs c !git checkout -b "%(prompt Enter branch name: )"
+bind refs b !git checkout -b "%(prompt Enter new branch name: )"
+
 # stash
 bind stash P !git stash pop %(stash)
 bind stash A !git stash apply %(stash)
