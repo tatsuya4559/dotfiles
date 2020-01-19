@@ -20,16 +20,19 @@ set split-view-height = 70%
 # マウスを有効にする
 set mouse = true
 
-# key bindings
+# generic
 bind generic F !git fetch %(remote)
 bind generic L !git pull %(remote)
-bind generic C !git commit
 bind generic P ?git push origin HEAD
 
 bind generic S !git stash save
 bind branch M ?git merge %(branch)
-bind status D !git difftool %(file)
 
+# status
+bind status D !git difftool %(file)
+bind status c !git commit -m "%(prompt Enter commit message: )"
+
+# stash
 bind stash P !git stash pop %(stash)
 bind stash A !git stash apply %(stash)
 bind stash D ?git stash drop %(stash)
