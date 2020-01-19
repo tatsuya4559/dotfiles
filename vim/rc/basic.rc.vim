@@ -15,7 +15,7 @@ language C
 if exists('&termguicolors')
     set termguicolors
     " autocmd ColorScheme * hi Conceal ctermbg=none guibg=none
-    autocmd ColorScheme * hi Comment ctermbg=none guibg=none gui=none
+    " autocmd ColorScheme * hi Comment ctermbg=none guibg=none gui=none
     " autocmd ColorScheme * hi shComment ctermbg=none guibg=none gui=none
     " autocmd ColorScheme * hi jsComment ctermbg=none guibg=none gui=none
     " autocmd ColorScheme * hi javaScriptLineComment ctermbg=none guibg=none gui=none
@@ -25,11 +25,10 @@ else
     autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
 endif
 
-colorscheme gruvbox-material
-set background=light
-let g:gruvbox_material_background = 'medium'
+colorscheme iceberg
+" let g:gruvbox_material_background = 'medium'
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox_material',
+    \ 'colorscheme': 'iceberg',
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filepath', 'readonly', 'modified']],
     \   'right': [['lineinfo'],['filetype'],['fileformat', 'fileencoding']]
