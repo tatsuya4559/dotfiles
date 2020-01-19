@@ -21,16 +21,15 @@ set split-view-height = 70%
 set mouse = true
 
 # key bindings
-bind status D !git difftool %(file)
-
-bind generic F !git fetch
-bind main F !git fetch
-
-bind branch L !git pull origin %(branch)
-
-bind branch M ?git merge %(branch)
+bind generic F !git fetch %(remote)
+bind generic L !git pull %(remote)
+bind generic C !git commit
+bind generic P ?git push origin HEAD
 
 bind generic S !git stash save
+bind branch M ?git merge %(branch)
+bind status D !git difftool %(file)
+
 bind stash P !git stash pop %(stash)
 bind stash A !git stash apply %(stash)
 bind stash D ?git stash drop %(stash)
