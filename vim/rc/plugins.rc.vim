@@ -150,7 +150,6 @@ let g:user_emmet_leader_key='<C-t>'
 " Async Run ---------------------------------------------------------------------
 let g:asyncrun_open = 8
 nnoremap <Space>3 :<C-u>AsyncRun
-" for bbt
 nnoremap <Space>4 :<C-u>AsyncStop
 nnoremap <Space>7 :<C-u>AsyncRun black %
 nnoremap <Space>8 :<C-u>AsyncRun flake8 %<CR>
