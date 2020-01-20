@@ -1,6 +1,3 @@
-# main viewにコミットIDを表示
-set main-view = id date author:email-user commit-title:graph=yes,refs=yes
-
 # Pager系の行数表示をon
 set pager-view  = line-number:yes,interval=1 text
 set stage-view  = line-number:yes,interval=1 text
