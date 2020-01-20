@@ -18,26 +18,25 @@ set split-view-height = 70%
 set mouse = true
 
 # bindが必要な普段遣いのコマンド
-# git co
-# git co -b
 # git add -u
 # git add --all
 # git pull origin $(branch)
 
 # generic
-bind generic F !git fetch %(remote)
 bind generic L !git pull %(remote)
-bind generic S !git stash save
-bind branch M ?git merge %(branch)
 
 # status
 bind status D !git difftool %(file)
 bind status c !git commit -m "%(prompt Enter commit message: )"
 bind status P ?git push origin HEAD
+bind status S !git stash save
 
 # refs
-bind refs c !git checkout -b "%(prompt Enter branch name: )"
+bind refs c !git checkout %(branch)
+bind refs C !git checkout "%(prompt Enter branch name: )"
 bind refs b !git checkout -b "%(prompt Enter new branch name: )"
+bind refs M ?git merge %(branch)
+bind refs F !git fetch %(remote)
 
 # stash
 bind stash P !git stash pop %(stash)
