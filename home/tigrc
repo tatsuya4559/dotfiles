@@ -20,7 +20,6 @@ set mouse = true
 # bindが必要な普段遣いのコマンド
 # git add -u
 # git add --all
-# git pull origin $(branch)
 
 # generic
 bind generic L !git pull %(remote)
