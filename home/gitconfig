@@ -29,6 +29,8 @@
     di = diff
     dt = difftool
     see = browse
+    sw = switch
+    re = restore
 [fetch]
     prune = true
 [ghq]
