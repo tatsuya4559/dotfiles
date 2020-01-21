@@ -1,6 +1,9 @@
 "================================================================================
 " plugin settings
 "================================================================================
+" ultisnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+
 " vim-multiple-cursors ----------------------------------------------------------
 let g:multi_cursor_use_default_mapping=0
 
