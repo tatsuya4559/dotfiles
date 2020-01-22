@@ -58,7 +58,7 @@ call submode#map('z', 'n', '', 'h', 'zh')
 " autocmd BufWritePre * :FixWhitespace
 
 " Tag bar ----------------------------------------------------------------------
-nnoremap <Space>g :TagbarToggle<CR>
+nnoremap <Space>O :TagbarToggle<CR>
 
 " fzf ---------------------------------------------------------------------------
 if has('nvim')
