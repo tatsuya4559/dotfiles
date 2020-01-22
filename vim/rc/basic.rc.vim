@@ -26,7 +26,6 @@ else
 endif
 
 colorscheme iceberg
-" let g:gruvbox_material_background = 'medium'
 let g:lightline = {
     \ 'colorscheme': 'iceberg',
     \ 'active': {

@@ -17,8 +17,8 @@ if dein#load_state(s:dein_dir)
     " Colorscheme
     call dein#add('cocopon/iceberg.vim')
     call dein#add('sainnhe/gruvbox-material')
-    call dein#add('altercation/vim-colors-solarized')
-    call dein#add('icymind/NeoSolarized')
+    call dein#add('cormacrelf/vim-colors-github')
+    call dein#add('MaxMEllon/vim-jsx-pretty')
 
     " Appearance
     call dein#add('itchyny/lightline.vim')
