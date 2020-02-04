@@ -12,12 +12,6 @@ let g:multi_cursor_next_key            = '<M-d>'
 let g:multi_cursor_skip_key            = '<M-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-" vim-sandwitch -----------------------------------------------------------------
-vmap ' sa'
-vmap " sa"
-vmap ( sa(
-vmap ) sa)
-
 " commentary --------------------------------------------------------------------
 nnoremap <Space>c :<C-u>Commentary<CR>
 vnoremap <Space>c :Commentary<CR>
