@@ -133,13 +133,23 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Git ---------------------------------------------------------------------
-nmap [fugitive] <Nop>
-map <Space>g [fugitive]
-nnoremap [fugitive]s :<C-u>TigStatus<CR>
-nnoremap [fugitive]d :<C-u>Gvdiff<CR>
-nnoremap [fugitive]b :<C-u>Gblame<CR>
-nnoremap [fugitive]w :<C-u>Gbrowse<CR>
-vnoremap [fugitive]w :Gbrowse<CR>
+nmap [git] <Nop>
+map <Space>g [git]
+nnoremap [git]s :<C-u>TigStatus<CR>
+nnoremap [git]p :<C-u>call <SID>async_git_pull()<CR>
+nnoremap [git]P :<C-u>call <SID>async_git_push()<CR>
+nnoremap [git]d :<C-u>Gvdiff<CR>
+nnoremap [git]b :<C-u>Gblame<CR>
+nnoremap [git]w :<C-u>Gbrowse<CR>
+vnoremap [git]w :Gbrowse<CR>
+
+function! s:async_git_pull()
+  execute 'AsyncRun git pull origin ' . fugitive#head()
+endfunction
+
+function! s:async_git_push()
+  execute 'AsyncRun git pull HEAD'
+endfunction
 
 " ranger ------------------------------------------------------------------------
 map <Space>r [ranger]
@@ -151,7 +161,14 @@ let g:user_emmet_leader_key='<C-t>'
 
 " Async Run ---------------------------------------------------------------------
 let g:asyncrun_open = 8
-nnoremap <Space>3 :<C-u>AsyncRun
-nnoremap <Space>4 :<C-u>AsyncStop
-nnoremap <Space>7 :<C-u>AsyncRun black %
-nnoremap <Space>8 :<C-u>AsyncRun flake8 %<CR>
+
+" for python
+function! s:async_black()
+  execute 'AsyncRun black %'
+endfunction
+command! Black call s:async_black()
+
+function! s:async_flake8()
+  execute 'AsyncRun flake8 %'
+endfunction
+command! Flake8 call s:async_flake8()
