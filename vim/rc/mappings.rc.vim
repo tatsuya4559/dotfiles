@@ -43,6 +43,7 @@ vnoremap <C-Down> "zx"zp`[V`]
 tnoremap <silent> <Esc> <C-c>
 
 " window
+map s <Nop>
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
