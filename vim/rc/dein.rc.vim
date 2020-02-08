@@ -16,8 +16,8 @@ if dein#load_state(s:dein_dir)
 
     " Colorscheme
     call dein#add('cocopon/iceberg.vim')
-    call dein#add('sainnhe/gruvbox-material')
-    call dein#add('cormacrelf/vim-colors-github')
+    call dein#add('chriskempson/base16-vim')
+    call dein#add('mike-hearn/base16-vim-lightline')
     call dein#add('MaxMEllon/vim-jsx-pretty')
 
     " Appearance

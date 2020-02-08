@@ -11,23 +11,13 @@ set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 language C
 
-" colors and lightline
+" colors
 if exists('&termguicolors')
     set termguicolors
-    " autocmd ColorScheme * hi Conceal ctermbg=none guibg=none
-    " autocmd ColorScheme * hi Comment ctermbg=none guibg=none gui=none
-    " autocmd ColorScheme * hi shComment ctermbg=none guibg=none gui=none
-    " autocmd ColorScheme * hi jsComment ctermbg=none guibg=none gui=none
-    " autocmd ColorScheme * hi javaScriptLineComment ctermbg=none guibg=none gui=none
-else
-    autocmd ColorScheme * hi Normal ctermbg=none guibg=none
-    autocmd ColorScheme * hi NonText ctermbg=none guibg=none
-    autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
 endif
 
-colorscheme iceberg
+    " \ 'colorscheme': 'iceberg',
 let g:lightline = {
-    \ 'colorscheme': 'iceberg',
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filepath', 'readonly', 'modified']],
     \   'right': [['lineinfo'],['filetype'],['fileformat', 'fileencoding']]
@@ -46,6 +36,13 @@ let g:lightline = {
     \   'fileencoding': 'LightlineFileencoding',
     \ }
     \ }
+
+" colorscheme iceberg
+" base16でcolorschemeとlightline themeを設定する
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
