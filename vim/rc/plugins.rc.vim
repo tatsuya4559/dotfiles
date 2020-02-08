@@ -148,7 +148,7 @@ function! s:async_git_pull()
 endfunction
 
 function! s:async_git_push()
-  execute 'AsyncRun git pull HEAD'
+  execute 'AsyncRun git push origin HEAD'
 endfunction
 
 " ranger ------------------------------------------------------------------------
