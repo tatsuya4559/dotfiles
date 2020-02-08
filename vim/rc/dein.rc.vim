@@ -35,8 +35,7 @@ if dein#load_state(s:dein_dir)
     " File explore
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-    call dein#add('iberianpig/ranger-explorer.vim')
-    call dein#add('rbgrouleff/bclose.vim')
+    call dein#add('iberianpig/ranger-explorer.vim') " depends on bclose.vim
 
     " Language support
     call dein#add('neoclide/coc.nvim', {'branch': 'release'})
@@ -48,7 +47,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('airblade/vim-gitgutter')
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
-    call dein#add('iberianpig/tig-explorer.vim')
+    call dein#add('iberianpig/tig-explorer.vim') " depends on bclose.vim
 
     " Utils
     call dein#add('AndrewRadev/linediff.vim')
@@ -56,6 +55,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('tyru/capture.vim')
     call dein#add('skywind3000/asyncrun.vim')
     call dein#add('kana/vim-submode')
+    call dein#add('rbgrouleff/bclose.vim')
 
     call dein#end()
     call dein#save_state()
