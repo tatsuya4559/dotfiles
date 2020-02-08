@@ -158,3 +158,8 @@ endif
 :cabbrev be bufdo e
 :cabbrev recache call dein#recache_runtimepath()
 :cabbrev coc call coc#util#install()
+:cabbrev ar AsyncRun
+:cabbrev as AsyncStop
+
+" 最近開いたファイルを絞り込んで表示
+:cabbrev mru <C-u>browse filter // oldfiles<left><left><left><left><left><left><left><left><left><left>
