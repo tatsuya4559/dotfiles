@@ -156,3 +156,5 @@ endif
 :iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
 :cabbrev be bufdo e
+:cabbrev recache call dein#recache_runtimepath()
+:cabbrev coc call coc#util#install()
