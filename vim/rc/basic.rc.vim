@@ -16,7 +16,6 @@ if exists('&termguicolors')
     set termguicolors
 endif
 
-    " \ 'colorscheme': 'iceberg',
 let g:lightline = {
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filepath', 'readonly', 'modified']],
@@ -37,11 +36,13 @@ let g:lightline = {
     \ }
     \ }
 
-" colorscheme iceberg
-" base16でcolorschemeとlightline themeを設定する
-if filereadable(expand("~/.vimrc_background"))
+let usebase16=0
+if usebase16 && filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
+else
+  colorscheme iceberg
+  let g:lightline = {'colorscheme': 'iceberg'}
 endif
 
 function! LightlineMode()
