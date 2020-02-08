@@ -132,14 +132,19 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
-" fugitive ---------------------------------------------------------------------
+" Git ---------------------------------------------------------------------
 nmap [fugitive] <Nop>
 map <Space>g [fugitive]
-nnoremap [fugitive]s :<C-u>Gstatus<CR>
+nnoremap [fugitive]s :<C-u>TigStatus<CR>
 nnoremap [fugitive]d :<C-u>Gvdiff<CR>
 nnoremap [fugitive]b :<C-u>Gblame<CR>
 nnoremap [fugitive]w :<C-u>Gbrowse<CR>
 vnoremap [fugitive]w :Gbrowse<CR>
+
+" ranger ------------------------------------------------------------------------
+map <Space>r [ranger]
+nnoremap [ranger]c :RangerOpenCurrentDir<CR>
+nnoremap [ranger]r :RangerOpenProjectRootDir<CR>
 
 " emmet -------------------------------------------------------------------------
 let g:user_emmet_leader_key='<C-t>'
