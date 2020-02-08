@@ -157,6 +157,7 @@ nnoremap [ranger]c :RangerOpenCurrentDir<CR>
 nnoremap [ranger]r :RangerOpenProjectRootDir<CR>
 
 " emmet -------------------------------------------------------------------------
+let g:user_emmet_mode='i'
 let g:user_emmet_leader_key='<C-t>'
 
 " Async Run ---------------------------------------------------------------------
