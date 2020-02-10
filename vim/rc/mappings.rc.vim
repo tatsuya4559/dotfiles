@@ -43,14 +43,14 @@ vnoremap <C-Down> "zx"zp`[V`]
 tnoremap <silent> <Esc> <C-c>
 
 " window
-map s <Nop>
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap <silent> ]w <C-w>w
-nnoremap <silent> [w <C-w>W
-nnoremap Q <C-w>q
+nmap s <C-w>
+" map s <Nop>
+" nnoremap sh <C-w>h
+" nnoremap sj <C-w>j
+" nnoremap sk <C-w>k
+" nnoremap sl <C-w>l
+" nnoremap Q <C-w>q
+
 " ウィンドウ操作リファレンス
 " <C-w> s
 " <C-w> v
