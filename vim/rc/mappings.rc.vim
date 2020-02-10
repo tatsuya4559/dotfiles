@@ -44,21 +44,6 @@ tnoremap <silent> <Esc> <C-c>
 
 " window
 nmap s <C-w>
-" map s <Nop>
-" nnoremap sh <C-w>h
-" nnoremap sj <C-w>j
-" nnoremap sk <C-w>k
-" nnoremap sl <C-w>l
-" nnoremap Q <C-w>q
-
-" ウィンドウ操作リファレンス
-" <C-w> s
-" <C-w> v
-" <C-w> r
-" <C-w> =
-" <C-w> q
-" <C-w> o
-" <C-w> H,J,K,L
 
 " tab
 nnoremap <M-t> :<C-u>tab split<CR>
