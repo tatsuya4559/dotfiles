@@ -29,7 +29,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('mattn/emmet-vim')
     call dein#add('tpope/vim-abolish')
     call dein#add('bronson/vim-trailing-whitespace')
-    call dein#add('terryma/vim-multiple-cursors')
     call dein#add('tpope/vim-commentary')
 
     " File explore

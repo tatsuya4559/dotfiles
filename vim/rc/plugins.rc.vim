@@ -4,14 +4,6 @@
 " ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
-" vim-multiple-cursors ----------------------------------------------------------
-let g:multi_cursor_use_default_mapping=0
-
-let g:multi_cursor_start_word_key      = '<M-d>'
-let g:multi_cursor_next_key            = '<M-d>'
-let g:multi_cursor_skip_key            = '<M-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-
 " commentary --------------------------------------------------------------------
 nnoremap <Space>c :<C-u>Commentary<CR>
 vnoremap <Space>c :Commentary<CR>
@@ -38,10 +30,10 @@ call submode#map('window', 'n', '', '<', '<C-w><')
 call submode#map('window', 'n', '', '+', '<C-w>+')
 call submode#map('window', 'n', '', '-', '<C-w>-')
 
-call submode#enter_with('resize', 'n', '', '>>', '>>')
-call submode#enter_with('resize', 'n', '', '<<', '<<')
-call submode#map('resize', 'n', '', '>', '>>')
-call submode#map('resize', 'n', '', '<', '<<')
+call submode#enter_with('indent', 'n', '', '>>', '>>')
+call submode#enter_with('indent', 'n', '', '<<', '<<')
+call submode#map('indent', 'n', '', '>', '>>')
+call submode#map('indent', 'n', '', '<', '<<')
 
 call submode#enter_with('z', 'n', '', 'zl', 'zl')
 call submode#enter_with('z', 'n', '', 'zh', 'zh')
@@ -56,7 +48,7 @@ nnoremap <Space>O :TagbarToggle<CR>
 
 " fzf ---------------------------------------------------------------------------
 if has('nvim')
-  let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
+  let $FZF_DEFAULT_OPTS .= ' --reverse --border --margin=0,2'
 
   function! FloatingFZF()
     let width = float2nr(&columns * 0.9)
@@ -100,7 +92,7 @@ nnoremap <silent> <Space>l :BLines<CR>
 nnoremap <silent> <Space>L :Lines<CR>
 nnoremap <silent> <Space>f :Rg<CR>
 nnoremap <silent> <Space>F :RgP<CR>
-nnoremap <silent> <Space>s :GFiles?<CR>
+nnoremap <silent> <Space>h :History<CR>
 
 vnoremap <silent> <C-p> "zy:GFiles<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>b "zy:Buffers<CR><C-\><C-n>"zpi
