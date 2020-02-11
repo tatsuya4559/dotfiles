@@ -80,7 +80,8 @@ vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
 nnoremap Y y$
 
 " 空行を追加
-nnoremap <Space><CR> o<Esc>
+nnoremap - o<Esc>
+nnoremap _ O<Esc>
 
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
@@ -91,12 +92,12 @@ xnoremap <expr> p 'pgv"'.v:register.'y`>'
 nnoremap <Space>w viw
 
 " カーソル下の単語をハイライト
-nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-xnoremap <silent> <Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
+nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 
 " カーソル下の単語をハイライトして置換
-nmap ? <Space><Space>:%s/<C-r>///g<Left><Left>
-xmap ? <Space>:%s/<C-r>///g<Left><Left>
+nmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
+xmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
 function! s:set_vsearch()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
@@ -105,11 +106,7 @@ endfunction
 
 " free
 " normal mode
-" <C-h>
-" <C-n>
 " <C-j>
 " <C-k>
 " S
 " X
-" -
-" _
