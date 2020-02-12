@@ -53,7 +53,6 @@ nnoremap <silent> [t gT
 " buffer
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
-command Q bd
 
 " quickfix
 nnoremap <silent> ]q :<C-u>cn<CR>

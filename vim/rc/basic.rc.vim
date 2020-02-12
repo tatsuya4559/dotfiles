@@ -155,6 +155,6 @@ endif
 :cabbrev sg silent grep!
 :cabbrev be bufdo e
 :cabbrev recache call dein#recache_runtimepath()
-:cabbrev coc call coc#util#install()
+:cabbrev cocui call coc#util#install()
 :cabbrev ar AsyncRun
 :cabbrev as AsyncStop
