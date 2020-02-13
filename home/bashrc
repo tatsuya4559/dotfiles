@@ -13,7 +13,6 @@ export MICRO_TRUECOLOR=1
 
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
-source ~/.iterm2_shell_integration.bash
 
 # PS1
 GIT_PS1_SHOWDIRTYSTATE=true
