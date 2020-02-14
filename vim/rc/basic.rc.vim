@@ -17,6 +17,7 @@ if exists('&termguicolors')
 endif
 
 let g:lightline = {
+    \ 'colorscheme': 'iceberg',
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filepath', 'readonly', 'modified']],
     \   'right': [['lineinfo'],['filetype'],['fileformat', 'fileencoding']]
@@ -42,7 +43,6 @@ if usebase16 && filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 else
   colorscheme iceberg
-  let g:lightline = {'colorscheme': 'iceberg'}
 endif
 
 function! LightlineMode()
