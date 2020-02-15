@@ -20,6 +20,10 @@ nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 
+" nerdtree ----------------------------------------------------------------------
+nnoremap <silent> <Space>e :<C-u>NERDTreeToggle<CR>
+nnoremap <silent> <Space>nf :<C-u>NERDTreeFind<CR>
+
 " submode -----------------------------------------------------------------------
 call submode#enter_with('window', 'n', '', '<C-w>>', '<C-w>>')
 call submode#enter_with('window', 'n', '', '<C-w><', '<C-w><')
@@ -108,7 +112,6 @@ nmap <F2> <Plug>(coc-rename)
 "nmap <Nop> <Plug>(coc-format)
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <Space>e :<C-u>CocCommand explorer --toggle --sources=buffer+,file+<CR>
 nnoremap <silent> <Space>t  :<C-u>CocList -I symbols<CR>
 
 function! s:show_documentation()

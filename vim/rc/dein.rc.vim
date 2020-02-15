@@ -35,6 +35,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
     call dein#add('iberianpig/ranger-explorer.vim', { 'depends': 'bclose.vim' })
+    call dein#add('preservim/nerdtree')
 
     " Language support
     call dein#add('neoclide/coc.nvim', { 'rev': 'release' })
@@ -55,6 +56,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('skywind3000/asyncrun.vim')
     call dein#add('kana/vim-submode')
     call dein#add('rbgrouleff/bclose.vim')
+    " call dein#add('pandysong/ghost-text.vim')
 
     call dein#end()
     call dein#save_state()
