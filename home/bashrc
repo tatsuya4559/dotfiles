@@ -6,10 +6,10 @@
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
-export PATH=$PATH:/Users/tatsuya.kato/.cargo/bin
 export EDITOR='nvim'
 export BAT_THEME='ansi-dark'
 export MICRO_TRUECOLOR=1
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
 
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
@@ -17,12 +17,15 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # PS1
 GIT_PS1_SHOWDIRTYSTATE=true
 NORMAL='\[\e[m\]'
-GREEN='\[\e[0;32m\]'
 RED='\[\e[0;31m\]'
+GREEN='\[\e[0;32m\]'
+BROWN='\[\e[0;33m\]'
 BLUE='\[\e[0;34m\]'
 PURPLE='\[\e[0;35m\]'
 CYAN='\[\e[0;36m\]'
-export PS1="${BLUE}\w${CYAN}"'$(__git_ps1)'"${BLUE} -> ${NORMAL}"
+LIGHT_GRAY='\[\e[0;37m\]'
+GRAY='\[\e[1;37m\]'
+export PS1="${BLUE}\w${BROWN}"'$(__git_ps1)'"${BLUE} -> ${NORMAL}"
 
 alias vim='nvim'
 alias view='nvim -R'
