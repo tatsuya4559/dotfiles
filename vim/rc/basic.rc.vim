@@ -51,7 +51,7 @@ endfunction
 
 function! LightlineFugitive()
   try
-    if &ft !~? 'coc-explorer\|tagbar' && exists('*fugitive#head')
+    if &ft !~? 'nerdtree\|tagbar' && exists('*fugitive#head')
       return fugitive#head()
     endif
   catch
@@ -60,11 +60,11 @@ function! LightlineFugitive()
 endfunction
 
 function! LightlineFilepath()
-  return &ft !~? 'coc-explorer\|tagbar' ? expand("%:t") : ''
+  return &ft !~? 'nerdtree\|tagbar' ? expand("%:t") : ''
 endfunction
 
 function! LightlineReadonly()
-  return &ft !~? 'coc-explorer\|tagbar' && &ro ? 'RO' : ''
+  return &ft !~? 'nerdtree\|tagbar' && &ro ? 'RO' : ''
 endfunction
 
 function! LightlineFileformat()
@@ -85,7 +85,7 @@ function! LightlineFileencoding()
 endfunction
 
 function! LightlineFiletype()
-  if &ft =~? 'coc-explorer\|tagbar'
+  if &ft =~? 'nerdtree\|tagbar'
     return &ft
   endif
   return winwidth(0) > 80 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
