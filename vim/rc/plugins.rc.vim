@@ -139,6 +139,7 @@ nnoremap [git]d :<C-u>Gvdiff<CR>
 nnoremap [git]b :<C-u>Gblame<CR>
 nnoremap [git]w :<C-u>Gbrowse<CR>
 vnoremap [git]w :Gbrowse<CR>
+nnoremap [git]l :<C-u>Lazygit<CR>
 
 function! s:async_git_pull()
   execute 'AsyncRun git pull origin ' . fugitive#head()
@@ -170,3 +171,4 @@ function! s:async_flake8()
   execute 'AsyncRun flake8 %'
 endfunction
 command! Flake8 call s:async_flake8()
+
