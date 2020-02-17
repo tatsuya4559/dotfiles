@@ -51,8 +51,8 @@ endfunction
 
 function! LightlineFugitive()
   try
-    if &ft !~? 'nerdtree\|tagbar' && exists('*fugitive#head')
-      return fugitive#head()
+    if &ft !~? 'nerdtree\|tagbar'
+      return fugitive#Head()
     endif
   catch
   endtry
