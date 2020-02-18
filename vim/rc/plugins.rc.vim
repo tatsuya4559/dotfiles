@@ -172,6 +172,11 @@ function! s:async_flake8()
 endfunction
 command! Flake8 call s:async_flake8()
 
+function! s:async_pylint()
+  execute 'AsyncRun pylint --disable=C,R,E1101 %'
+endfunction
+command! Pylint call s:async_pylint()
+
 " Quick Run ---------------------------------------------------------------------
 nnoremap <Leader>r :QuickRun<CR>
 let g:quickrun_config = get(g:, 'quickrun_config', {})
@@ -182,3 +187,5 @@ let g:quickrun_config._ = {
       \ 'outputter/buffer/split'  : ':rightbelow 8sp',
       \ 'outputter/buffer/close_on_empty' : 1,
       \ }
+
+let g:ghost_darwin_app = 'iTerm2'
