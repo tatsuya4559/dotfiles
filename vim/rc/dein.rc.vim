@@ -58,7 +58,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('kana/vim-submode')
     call dein#add('rbgrouleff/bclose.vim')
     call dein#add('thinca/vim-quickrun')
-    " call dein#add('pandysong/ghost-text.vim')
+    call dein#add('raghur/vim-ghost')
 
     call dein#end()
     call dein#save_state()
