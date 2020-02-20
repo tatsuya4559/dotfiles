@@ -12,9 +12,6 @@ set laststatus=2
 language C
 
 " colors
-if exists('&termguicolors')
-    set termguicolors
-endif
 colorscheme desert
 syntax on
 
@@ -66,7 +63,7 @@ augroup END
 " grep
 set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
 set grepformat=%f:%l:%c:%m
-nnoremap gG :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 3\|else\|ccl\|endif\|cc<CR>
+nnoremap gG :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 8\|else\|ccl\|endif\|cc<CR>
 
 " abbreviation
 :cabbrev sg silent grep!
