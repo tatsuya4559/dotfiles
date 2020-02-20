@@ -12,7 +12,7 @@ set laststatus=2
 language C
 
 " colors
-colorscheme desert
+colorscheme default
 syntax on
 
 " encoding
