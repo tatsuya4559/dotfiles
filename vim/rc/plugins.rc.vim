@@ -26,6 +26,10 @@ nnoremap <silent> <Space>nf :<C-u>NERDTreeFind<CR>
 let g:NERDTreeMapOpenVSplit = '<C-v>'
 let g:NERDTreeMapOpenSplit = '<C-s>'
 
+" Vaffle ------------------------------------------------------------------------
+nnoremap <Space>v :<C-u>Vaffle .<CR>
+nnoremap <Space>V :<C-u>Vaffle %:h<CR>
+
 " submode -----------------------------------------------------------------------
 call submode#enter_with('window', 'n', '', '<C-w>>', '<C-w>>')
 call submode#enter_with('window', 'n', '', '<C-w><', '<C-w><')
