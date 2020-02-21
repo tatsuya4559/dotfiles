@@ -18,7 +18,7 @@ autocmd FileType * setlocal formatoptions-=ro
 if exists('&termguicolors')
     set termguicolors
 endif
-
+colorscheme iceberg
 let g:lightline = {
     \ 'colorscheme': 'iceberg',
     \ 'active': {
@@ -39,14 +39,6 @@ let g:lightline = {
     \   'fileencoding': 'LightlineFileencoding',
     \ }
     \ }
-
-let usebase16=0
-if usebase16 && filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-else
-  colorscheme iceberg
-endif
 
 function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''

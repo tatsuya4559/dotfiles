@@ -102,11 +102,3 @@ function! s:set_vsearch()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
 endfunction
-
-
-" free
-" normal mode
-" <C-j>
-" <C-k>
-" S
-" X

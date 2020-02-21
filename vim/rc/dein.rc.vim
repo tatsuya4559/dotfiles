@@ -16,8 +16,6 @@ if dein#load_state(s:dein_dir)
 
     " Colorscheme
     call dein#add('cocopon/iceberg.vim')
-    call dein#add('chriskempson/base16-vim')
-    call dein#add('mike-hearn/base16-vim-lightline')
     call dein#add('MaxMEllon/vim-jsx-pretty')
 
     " Appearance
@@ -34,7 +32,6 @@ if dein#load_state(s:dein_dir)
     " File explore
     call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
     call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-    call dein#add('iberianpig/ranger-explorer.vim', { 'depends': 'bclose.vim' })
     call dein#add('preservim/nerdtree')
     call dein#add('cocopon/vaffle.vim')
 

@@ -153,11 +153,6 @@ function! s:async_git_push()
   execute 'AsyncRun git push origin HEAD'
 endfunction
 
-" ranger ------------------------------------------------------------------------
-map <Space>r [ranger]
-nnoremap [ranger]c :RangerOpenCurrentDir<CR>
-nnoremap [ranger]r :RangerOpenProjectRootDir<CR>
-
 " emmet -------------------------------------------------------------------------
 let g:user_emmet_mode='i'
 let g:user_emmet_leader_key='<C-t>'
