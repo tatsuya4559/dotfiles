@@ -1,3 +1,5 @@
+filetype plugin indent on
+
 " appearance
 set number
 set relativenumber
@@ -6,22 +8,21 @@ set breakindent
 set list
 set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
+set laststatus=2
+language C
 
 " colors
-if exists('&termguicolors')
-    set termguicolors
-else
-    autocmd ColorScheme * hi Normal ctermbg=none guibg=none
-    autocmd ColorScheme * hi NonText ctermbg=none guibg=none
-    autocmd ColorScheme * hi LineNr ctermbg=none guibg=none
-endif
-colorscheme desert
+colorscheme default
+syntax on
 
 " encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
 set fileformats=unix,dos,mac
+
+" backup
+set noswapfile
 
 " search
 set ignorecase
@@ -36,7 +37,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-autocmd Filetype html,css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype vim,html,css,javascript,yaml,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " clipboard
 set clipboard+=unnamedplus
@@ -44,20 +45,27 @@ set clipboard+=unnamedplus
 " buffer
 set hidden
 
+" persist undo
+if has('persistent_undo')
+  set undodir=./.vimundo,~/.vimundo
+  augroup SaveUndoFile
+    autocmd!
+    autocmd BufReadPre ~/* setlocal undofile
+  augroup END
+endif
+
 " quickfix
 augroup GrepCmd
     autocmd!
     autocmd QuickFixCmdPost vim,grep,make if len(getqflist()) != 0 | cwindow | endif
 augroup END
 
-" grep -> ripgrep
-if executable('rg')
-    let &grepprg = 'rg --vimgrep'
-    set grepformat=%f:%l:%c:%m
-endif
+" grep
+set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
+set grepformat=%f:%l:%c:%m
+nnoremap gG :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 8\|else\|ccl\|endif\|cc<CR>
 
 " abbreviation
-:iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
 
 " カーソル移動
@@ -99,27 +107,15 @@ vnoremap <C-Down> "zx"zp`[V`]
 tnoremap <silent> <Esc> <C-\><C-n>
 
 " window
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
-nnoremap <M->> <C-w>>
-nnoremap <M-<> <C-w><
-nnoremap <M-+> <C-w>+
-nnoremap <M--> <C-w>-
-nnoremap <silent> ]w <C-w>w
-nnoremap <silent> [w <C-w>W
-nnoremap Q <C-w>q
+nmap s <C-w>
 
 " tab
-nnoremap <M-t> :<C-u>tab split<CR>
 nnoremap <silent> ]t gt
 nnoremap <silent> [t gT
 
 " buffer
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
-command Q bd
 
 " quickfix
 nnoremap <silent> ]q :<C-u>cn<CR>
@@ -143,15 +139,14 @@ nnoremap <script> <silent> <Space>q :call ToggleQuickfix()<CR>
 " set current directory
 nnoremap <Leader>. :lcd %:p:h<CR>
 
-" open
-nnoremap <silent> <Leader>o :<C-u>!open %<CR>
-vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
+" netrw
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_preview=1
+nnoremap <Space>e :<C-u>Ex<CR>
 
 " 行末までヤンク
 nnoremap Y y$
-
-" 空行を追加
-nnoremap <Space><CR> o<Esc>
 
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
@@ -160,13 +155,17 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 " カーソル下の単語をハイライト
-nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-xnoremap <silent> <Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
+nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 
 " カーソル下の単語をハイライトして置換
-nmap ? <Space><Space>:%s/<C-r>///g<Left><Left>
-xmap ? <Space>:%s/<C-r>///g<Left><Left>
+nmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
+xmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
 function! s:set_vsearch()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
 endfunction
+
+" fzf風ファイルサーチ
+nnoremap <C-p> :<C-u>e **/*
+nnoremap <Space>b :<C-u>b *

@@ -11,6 +11,9 @@ set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 language C
 
+" コメント行から改行したときに自動コメントアウトしない
+autocmd FileType * setlocal formatoptions-=ro
+
 " colors
 if exists('&termguicolors')
     set termguicolors

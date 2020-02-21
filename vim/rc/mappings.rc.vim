@@ -75,6 +75,9 @@ nnoremap <Leader>. :lcd %:p:h<CR>
 nnoremap <silent> <Leader>o :<C-u>!open %<CR>
 vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
 
+" save as superuser
+cmap w!! w !sudo tee > /dev/null %
+
 " 行末までヤンク
 nnoremap Y y$
 
@@ -87,8 +90,6 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " visual mode でペーストしたときにヤンクしない
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
-
-nnoremap <Space>w viw
 
 " カーソル下の単語をハイライト
 nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
