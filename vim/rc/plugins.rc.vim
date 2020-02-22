@@ -27,8 +27,8 @@ let g:NERDTreeMapOpenVSplit = '<C-v>'
 let g:NERDTreeMapOpenSplit = '<C-s>'
 
 " Vaffle ------------------------------------------------------------------------
-nnoremap <Space>v :<C-u>Vaffle .<CR>
-nnoremap <Space>V :<C-u>Vaffle %:h<CR>
+nnoremap <Leader>e :<C-u>Vaffle .<CR>
+nnoremap <Leader>c :<C-u>Vaffle %:h<CR>
 
 " submode -----------------------------------------------------------------------
 call submode#enter_with('window', 'n', '', '<C-w>>', '<C-w>>')
@@ -95,7 +95,7 @@ function! RipgrepPreview(query, fullscreen)
 endfunction
 command! -nargs=* -bang RgP call RipgrepPreview(<q-args>, <bang>0)
 
-nnoremap <silent> <C-p> :GFiles<CR>
+nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-c> :Commands<CR>
 nnoremap <silent> <Space>b :Buffers<CR>
 nnoremap <silent> <Space>l :BLines<CR>
@@ -104,7 +104,7 @@ nnoremap <silent> <Space>f :Rg<CR>
 nnoremap <silent> <Space>F :RgP<CR>
 nnoremap <silent> <Space>h :History<CR>
 
-vnoremap <silent> <C-p> "zy:GFiles<CR><C-\><C-n>"zpi
+vnoremap <silent> <C-p> "zy:Files<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>b "zy:Buffers<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>l "zy:BLines<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>L "zy:Lines<CR><C-\><C-n>"zpi
@@ -116,9 +116,18 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
 "nmap <Nop> <Plug>(coc-format)
+" nnoremap <Leader>f :<C-u>CocCommand prettier.formatFile<CR>
+nnoremap <Leader>f :call <SID>format_document()<CR>
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <Space>t  :<C-u>CocList -I symbols<CR>
+
+function! s:format_document()
+  if &ft =~? 'javascript\|typescript'
+    execute 'CocCommand prettier.formatFile'
+  elseif &ft =~? 'python'
+  endif
+endfunction
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -175,16 +184,5 @@ function! s:async_pylint()
   execute 'AsyncRun pylint --disable=C,R,E1101 %'
 endfunction
 command! Pylint call s:async_pylint()
-
-" Quick Run ---------------------------------------------------------------------
-nnoremap <Leader>r :QuickRun<CR>
-let g:quickrun_config = get(g:, 'quickrun_config', {})
-let g:quickrun_config._ = {
-      \ 'outputter' : 'error',
-      \ 'outputter/error/success' : 'buffer',
-      \ 'outputter/error/error'   : 'quickfix',
-      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
-      \ 'outputter/buffer/close_on_empty' : 1,
-      \ }
 
 let g:ghost_darwin_app = 'iTerm2'
