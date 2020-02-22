@@ -46,7 +46,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
     call dein#add('iberianpig/tig-explorer.vim', { 'depends': 'bclose.vim' })
-    call dein#add('tatsuya4559/lazygit.vim', { 'depends': 'bclose.vim' })
 
     " Utils
     call dein#add('AndrewRadev/linediff.vim')
