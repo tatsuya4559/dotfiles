@@ -54,7 +54,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('skywind3000/asyncrun.vim')
     call dein#add('kana/vim-submode')
     call dein#add('rbgrouleff/bclose.vim')
-    call dein#add('thinca/vim-quickrun')
     call dein#add('raghur/vim-ghost')
 
     call dein#end()
