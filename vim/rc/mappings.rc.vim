@@ -75,9 +75,6 @@ nnoremap <Leader>. :lcd %:p:h<CR>
 nnoremap <silent> <Leader>o :<C-u>!open %<CR>
 vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
 
-" save as superuser
-cmap w!! w !sudo tee > /dev/null %
-
 " 行末までヤンク
 nnoremap Y y$
 

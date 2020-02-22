@@ -153,3 +153,5 @@ endif
 :cabbrev cocui call coc#util#install()
 :cabbrev ar AsyncRun
 :cabbrev as AsyncStop
+:cabbrev w!! w !sudo tee > /dev/null %
+
