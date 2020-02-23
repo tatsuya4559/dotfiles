@@ -9,6 +9,9 @@ set breakindent
 set list
 set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
+set scrolloff=8
+set sidescroll=1
+set sidescrolloff=16
 language C
 
 " コメント行から改行したときに自動コメントアウトしない
