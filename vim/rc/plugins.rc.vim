@@ -112,6 +112,19 @@ vnoremap <silent> <Space>f "zy:Rg<CR><C-\><C-n>"zpi
 vnoremap <silent> <Space>F "zy:RgP<CR><C-\><C-n>"zpi
 
 " Coc ---------------------------------------------------------------------------
+let g:coc_global_extensions = [
+  \   'coc-pairs',
+  \   'coc-snippets',
+  \   'coc-prettier',
+  \   'coc-html',
+  \   'coc-css',
+  \   'coc-tsserver',
+  \   'coc-python',
+  \   'coc-java',
+  \   'coc-go',
+  \   'coc-json',
+  \   'coc-yaml',
+  \ ]
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
