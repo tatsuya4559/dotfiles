@@ -7,14 +7,15 @@ function distribute() {
     ln -s $DOTFILEDIR/home/$1 ~/.$1
 }
 
-# neovim
+# config
 rm -rf ~/.config/nvim
 mkdir -p ~/.config/nvim
-ln -s $DOTFILEDIR/vim/init.vim ~/.config/nvim/init.vim
-ln -s $DOTFILEDIR/vim/rc ~/.config/nvim/rc
-ln -s $DOTFILEDIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json
+for file in $(ls $DOTFILEDIR/config/); do
+    rm -rf ~/.config/${file}
+    ln -s $DOTFILEDIR/config/${file} ~/.config/${file}
+done
 
-# bash, tig, git
+# home
 for file in $(ls $DOTFILEDIR/home/); do
     distribute ${file}
 done
