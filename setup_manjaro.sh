@@ -10,13 +10,6 @@ sudo pacman-mirrors --fasttrack && sudo pacman -Syy
 ################################################################################
 # install japanese font
 sudo pacman -S --noconfirm otf-ipafont adobe-source-han-sans-jp-fonts
-pushd ~/Downloads/
-git clone https://github.com/edihbrandon/RictyDiminished.git
-sudo mkdir /usr/share/fonts/TTF/RictyDiminished
-sudo mv RictyDiminished/*.ttf /usr/share/fonts/TTF/RictyDiminished/
-sudo fc-cache -fv
-rm -rf RictyDiminished
-popd
 
 # enable japanese IME(needs GUI setting and reboot)
 yes | sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-mozc
