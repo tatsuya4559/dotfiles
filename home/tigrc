@@ -29,11 +29,12 @@ bind status D !git difftool %(file)
 bind status c !git commit -m "%(prompt Enter commit message: )"
 bind status P ?git push origin HEAD
 bind status S !git stash save
+bind status d ?git clean -f -- %(file)
 
 # refs
 bind refs c !git checkout %(branch)
 bind refs C !git checkout "%(prompt Enter branch name: )"
-bind refs b !git checkout -b "%(prompt Enter new branch name: )"
+bind refs B !git checkout -b "%(prompt Enter new branch name: )"
 bind refs M ?git merge %(branch)
 bind refs F !git fetch %(remote)
 bind refs P ?git push origin HEAD
