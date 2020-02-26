@@ -79,8 +79,7 @@ vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
 nnoremap Y y$
 
 " 空行を追加
-nnoremap - o<Esc>
-nnoremap _ O<Esc>
+nnoremap <Space><CR> o<Esc>
 
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
