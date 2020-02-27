@@ -142,7 +142,6 @@ nnoremap <Leader>. :lcd %:p:h<CR>
 " netrw
 let g:netrw_liststyle=3
 let g:netrw_banner=0
-let g:netrw_preview=1
 nnoremap <Space>e :<C-u>Ex<CR>
 
 " 行末までヤンク
