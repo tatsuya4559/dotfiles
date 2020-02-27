@@ -9,6 +9,8 @@ set list
 set listchars=tab:»-,trail:-,nbsp:+
 set updatetime=100
 set laststatus=2
+set sidescroll=1
+set sidescrolloff=16
 language C
 
 " colors
