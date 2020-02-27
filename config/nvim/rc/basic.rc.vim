@@ -147,6 +147,8 @@ if executable('rg')
     let &grepprg = 'rg --vimgrep'
     set grepformat=%f:%l:%c:%m
 endif
+" grep 'pattern' path/ -i -tpy
+" grep 'regex' -g src/*.py
 
 " abbreviation
 :iabbrev bbash #!/bin/bash
