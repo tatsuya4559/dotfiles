@@ -3,7 +3,6 @@ export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 export EDITOR='nvim'
 export BAT_THEME='ansi-dark'
 export MICRO_TRUECOLOR=1
-export JAVA_HOME=`/usr/libexec/java_home -v 11`
 
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
