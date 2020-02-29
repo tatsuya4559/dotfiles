@@ -3,7 +3,6 @@
 "================================================================================
 " appearance
 set number
-set relativenumber
 set nowrap
 set breakindent
 set list
