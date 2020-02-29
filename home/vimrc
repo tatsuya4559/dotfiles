@@ -13,7 +13,7 @@ set sidescrolloff=16
 language C
 
 " colors
-colorscheme default
+colorscheme desert
 syntax on
 
 " encoding
