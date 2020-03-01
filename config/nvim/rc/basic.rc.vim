@@ -22,9 +22,16 @@ autocmd FileType * setlocal formatoptions-=ro
 if exists('&termguicolors')
     set termguicolors
 endif
-colorscheme iceberg
+
+let s:color_scheme = 'desert'
+let s:lightline_color_scheme = 'default'
+if has('mac')
+  let s:color_scheme = 'iceberg'
+  let s:lightline_color_scheme = 'iceberg'
+endif
+execute 'colorscheme ' . s:color_scheme
 let g:lightline = {
-    \ 'colorscheme': 'iceberg',
+    \ 'colorscheme': s:lightline_color_scheme,
     \ 'active': {
     \   'left': [['mode', 'paste'], ['gitbranch', 'filepath', 'readonly', 'modified']],
     \   'right': [['lineinfo'],['filetype'],['fileformat', 'fileencoding']]
