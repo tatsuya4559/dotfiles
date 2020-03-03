@@ -161,6 +161,7 @@ endif
 " abbreviation
 :iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
+:cabbrev ag AsyncRun rg --vimgrep
 :cabbrev be bufdo e
 :cabbrev recache call dein#recache_runtimepath()
 :cabbrev cocui call coc#util#install()

@@ -5,8 +5,8 @@
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
 " commentary --------------------------------------------------------------------
-nnoremap <Space>c :<C-u>Commentary<CR>
-vnoremap <Space>c :Commentary<CR>
+nnoremap <Leader>\ :<C-u>Commentary<CR>
+vnoremap <Leader>\ :Commentary<CR>
 
 " indentLine --------------------------------------------------------------------
 let g:indentLine_char = '▏'
@@ -96,7 +96,7 @@ endfunction
 command! -nargs=* -bang RgP call RipgrepPreview(<q-args>, <bang>0)
 
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-c> :Commands<CR>
+nnoremap <silent> <Space>c :Commands<CR>
 nnoremap <silent> <Space>b :Buffers<CR>
 nnoremap <silent> <Space>l :BLines<CR>
 nnoremap <silent> <Space>L :Lines<CR>
