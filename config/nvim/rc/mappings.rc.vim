@@ -1,7 +1,3 @@
-"================================================================================
-" key mappings
-"================================================================================
-
 " カーソル移動
 nnoremap j gj
 nnoremap k gk
@@ -68,9 +64,6 @@ function! ToggleQuickfix()
 endfunction
 nnoremap <script> <silent> <Space>q :call ToggleQuickfix()<CR>
 
-" set current directory
-nnoremap <Leader>. :lcd %:p:h<CR>
-
 " open
 nnoremap <silent> <Leader>o :<C-u>!open %<CR>
 vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
@@ -83,9 +76,6 @@ nnoremap <Space><CR> o<Esc>
 
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-" visual mode でペーストしたときにヤンクしない
-xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 " カーソル下の単語をハイライト
 nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
