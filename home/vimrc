@@ -137,9 +137,6 @@ function! ToggleQuickfix()
 endfunction
 nnoremap <script> <silent> <Space>q :call ToggleQuickfix()<CR>
 
-" set current directory
-nnoremap <Leader>. :lcd %:p:h<CR>
-
 " netrw
 let g:netrw_liststyle=3
 let g:netrw_banner=0
@@ -150,9 +147,6 @@ nnoremap Y y$
 
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-" visual mode でペーストしたときにヤンクしない
-xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 " カーソル下の単語をハイライト
 nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
