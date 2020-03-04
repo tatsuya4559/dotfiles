@@ -12,7 +12,7 @@ set updatetime=100
 " set scrolloff=8
 set sidescroll=1
 set sidescrolloff=16
-" set cursorline
+set cursorline
 language C
 
 " コメント行から改行したときに自動コメントアウトしない
@@ -164,8 +164,5 @@ endif
 :cabbrev ag AsyncRun rg --vimgrep
 :cabbrev be bufdo e
 :cabbrev recache call dein#recache_runtimepath()
-:cabbrev cocui call coc#util#install()
 :cabbrev ar AsyncRun
 :cabbrev as AsyncStop
-:cabbrev w!! w !sudo tee > /dev/null %
-
