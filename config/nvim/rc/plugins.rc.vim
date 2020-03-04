@@ -50,9 +50,6 @@ call submode#enter_with('z', 'n', '', 'zh', 'zh')
 call submode#map('z', 'n', '', 'l', 'zl')
 call submode#map('z', 'n', '', 'h', 'zh')
 
-" FixWhitespace -----------------------------------------------------------------
-" autocmd BufWritePre * :FixWhitespace
-
 " Tag bar ----------------------------------------------------------------------
 nnoremap <Space>O :TagbarToggle<CR>
 
@@ -121,15 +118,12 @@ let g:coc_global_extensions = [
   \   'coc-tsserver',
   \   'coc-python',
   \   'coc-java',
-  \   'coc-go',
   \   'coc-json',
   \   'coc-yaml',
   \ ]
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
-"nmap <Nop> <Plug>(coc-format)
-" nnoremap <Leader>f :<C-u>CocCommand prettier.formatFile<CR>
 nnoremap <Leader>f :call <SID>format_document()<CR>
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -139,6 +133,7 @@ function! s:format_document()
   if &ft =~? 'javascript\|typescript'
     execute 'CocCommand prettier.formatFile'
   elseif &ft =~? 'python'
+    " TODO: blackのフォーマットができるようにする
   endif
 endfunction
 
@@ -197,5 +192,3 @@ function! s:async_pylint()
   execute 'AsyncRun pylint --disable=C,R,E1101 %'
 endfunction
 command! Pylint call s:async_pylint()
-
-let g:ghost_darwin_app = 'iTerm2'
