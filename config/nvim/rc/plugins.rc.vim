@@ -14,6 +14,9 @@ let g:indentLine_first_char = '▏'
 let g:indentLine_showFirstIndentLevel = 1
 let g:vim_json_syntax_conceal = 0
 
+" lightline ---------------------------------------------------------------------
+nnoremap <Leader>l :call lightline#toggle()<CR>
+
 " anzu --------------------------------------------------------------------------
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
