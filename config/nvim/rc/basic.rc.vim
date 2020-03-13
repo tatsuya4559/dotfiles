@@ -23,9 +23,10 @@ if exists('&termguicolors')
     set termguicolors
 endif
 
-let s:theme = 'dark'
+let s:theme = 'light'
 if s:theme == 'dark'
   autocmd ColorScheme * highlight Comment gui=NONE
+  let g:clap_theme = { 'current_selection': {'guibg': '#36363A', 'ctermbg': '237'} }
   let g:falcon_background = 0
   let g:falcon_inactive = 1
   let g:falcon_lightline = 1

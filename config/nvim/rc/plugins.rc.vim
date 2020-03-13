@@ -62,7 +62,7 @@ let g:clap_layout = {
   \ 'col': '17%'
   \}
 let g:clap_insert_mode_only = 1
-nnoremap <silent> <Space>f :Clap files<CR>
+nnoremap <silent> <C-p> :Clap files<CR>
 nnoremap <silent> <Space>c :Clap command<CR>
 nnoremap <silent> <Space>b :Clap buffers<CR>
 nnoremap <silent> <Space>l :Clap blines<CR>
@@ -71,7 +71,7 @@ nnoremap <silent> <Space>g :Clap grep<CR>
 nnoremap <silent> <Space>y :Clap yanks<CR>
 nnoremap <silent> <Space>h :Clap history<CR>
 
-vnoremap <silent> <Space>f :Clap files ++query=@visual<CR>
+vnoremap <silent> <C-p> :Clap files ++query=@visual<CR>
 vnoremap <silent> <Space>c :Clap command ++query=@visual<CR>
 vnoremap <silent> <Space>b :Clap buffers ++query=@visual<CR>
 vnoremap <silent> <Space>l :Clap blines ++query=@visual<CR>
