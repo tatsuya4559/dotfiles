@@ -32,6 +32,7 @@ alias activate='. venv/bin/activate'
 alias lg='lazygit'
 alias r='ranger'
 alias t='tmuximum'
+alias l='exa -F'
 # for linux
 #alias pbcopy='xclip -selection c'
 #alias pbpaste='xclip -selection c -o'
