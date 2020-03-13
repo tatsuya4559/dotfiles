@@ -4,6 +4,11 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+nnoremap H ^
+nnoremap L g_
+vnoremap H ^
+vnoremap L g_
+
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-a> <Home>
