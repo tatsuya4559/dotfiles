@@ -23,11 +23,20 @@ if exists('&termguicolors')
     set termguicolors
 endif
 
-let s:color_scheme = 'desert'
-let s:lightline_color_scheme = 'default'
-if has('mac')
+let s:theme = 'falcon'
+if s:theme == 'falcon'
+  autocmd ColorScheme * highlight Comment gui=NONE
+  let g:falcon_background = 0
+  let g:falcon_inactive = 1
+  let g:falcon_lightline = 1
+  let s:color_scheme = 'falcon'
+  let s:lightline_color_scheme = 'falcon'
+elseif s:theme == 'github'
   let s:color_scheme = 'github'
   let s:lightline_color_scheme = 'github'
+else
+  let s:color_scheme = 'desert'
+  let s:lightline_color_scheme = 'default'
 endif
 execute 'colorscheme ' . s:color_scheme
 let g:lightline = {
