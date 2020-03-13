@@ -39,9 +39,9 @@ vnoremap <C-Up> "zx<Up>"zP`[V`]
 vnoremap <C-Down> "zx"zp`[V`]
 
 " ESC
-" tnoremap <silent> <Esc> <C-\><C-n>
+tnoremap <silent> <Esc> <C-\><C-n>
 " terminalの挙動は上のが正しいけど、fzfをEscで終了するために下のようにする
-tnoremap <silent> <Esc> <C-c>
+" tnoremap <silent> <Esc> <C-c>
 
 " window
 nmap s <C-w>
