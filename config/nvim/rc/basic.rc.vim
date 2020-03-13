@@ -26,8 +26,8 @@ endif
 let s:color_scheme = 'desert'
 let s:lightline_color_scheme = 'default'
 if has('mac')
-  let s:color_scheme = 'iceberg'
-  let s:lightline_color_scheme = 'iceberg'
+  let s:color_scheme = 'github'
+  let s:lightline_color_scheme = 'github'
 endif
 execute 'colorscheme ' . s:color_scheme
 let g:lightline = {
