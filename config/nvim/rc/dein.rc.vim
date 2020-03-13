@@ -27,13 +27,9 @@ if dein#load_state(s:dein_dir)
     call dein#add('nelstrom/vim-visual-star-search')
     call dein#add('machakann/vim-sandwich')
     call dein#add('mattn/emmet-vim')
-    call dein#add('tpope/vim-abolish')
-    call dein#add('bronson/vim-trailing-whitespace')
     call dein#add('tpope/vim-commentary')
 
     " File explore
-    call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-    call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
     call dein#add('liuchengxu/vim-clap')
     call dein#add('preservim/nerdtree')
     call dein#add('cocopon/vaffle.vim')

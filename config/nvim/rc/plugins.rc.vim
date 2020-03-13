@@ -73,6 +73,8 @@ nnoremap <silent> <Space>L :Clap lines<CR>
 nnoremap <silent> <Space>g :Clap grep<CR>
 nnoremap <silent> <Space>y :Clap yanks<CR>
 nnoremap <silent> <Space>h :Clap history<CR>
+nnoremap <silent> <Space>r :Clap registers<CR>
+nnoremap <silent> <Space>f :Clap filer<CR>
 
 vnoremap <silent> <C-p> :Clap files ++query=@visual<CR>
 vnoremap <silent> <Space>c :Clap command ++query=@visual<CR>
@@ -80,8 +82,6 @@ vnoremap <silent> <Space>b :Clap buffers ++query=@visual<CR>
 vnoremap <silent> <Space>l :Clap blines ++query=@visual<CR>
 vnoremap <silent> <Space>L :Clap lines ++query=@visual<CR>
 vnoremap <silent> <Space>g :Clap grep ++query=@visual<CR>
-vnoremap <silent> <Space>y :Clap yanks ++query=@visual<CR>
-vnoremap <silent> <Space>h :Clap history ++query=@visual<CR>
 
 " Coc ---------------------------------------------------------------------------
 let g:coc_global_extensions = [

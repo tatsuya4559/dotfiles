@@ -82,6 +82,9 @@ nnoremap <Space><CR> o<Esc>
 " 再描画
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+" Fix trailing whitespaces
+command! FixWhitespaces :%s/\s\+$//g
+
 " カーソル下の単語をハイライト
 nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
