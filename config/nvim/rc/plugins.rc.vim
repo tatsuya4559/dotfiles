@@ -61,7 +61,7 @@ let g:clap_layout = {
   \ 'relative': 'editor',
   \ 'width': '67%',
   \ 'height': '33%',
-  \ 'row': '5%',
+  \ 'row': '10%',
   \ 'col': '17%'
   \}
 let g:clap_insert_mode_only = 1

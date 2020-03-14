@@ -12,7 +12,7 @@ set updatetime=100
 " set scrolloff=8
 set sidescroll=1
 set sidescrolloff=16
-set cursorline
+" set cursorline
 language C
 
 " コメント行から改行したときに自動コメントアウトしない
@@ -23,8 +23,8 @@ if exists('&termguicolors')
     set termguicolors
 endif
 
-let s:theme = 'dark'
-if s:theme == 'dark'
+let s:theme = 'iceberg'
+if s:theme == 'falcon'
   autocmd ColorScheme * highlight Comment gui=NONE
   let g:clap_theme = { 'current_selection': {'guibg': '#36363A', 'ctermbg': '237', 'cterm': 'bold', 'gui': 'bold'} }
   let g:falcon_background = 0
@@ -32,6 +32,9 @@ if s:theme == 'dark'
   let g:falcon_lightline = 1
   let s:color_scheme = 'falcon'
   let s:lightline_color_scheme = 'falcon'
+elseif s:theme == 'iceberg'
+  let s:color_scheme = 'iceberg'
+  let s:lightline_color_scheme = 'iceberg'
 elseif s:theme == 'light'
   let s:color_scheme = 'shirotelin'
   let s:lightline_color_scheme = 'falcon'
