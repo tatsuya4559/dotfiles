@@ -121,7 +121,7 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 " Git {{{
 nmap [git] <Nop>
 map <Space>g [git]
-nnoremap [git]s :<C-u>Gstatus<CR>
+nnoremap [git]s :<C-u>tab Gstatus<CR>
 nnoremap [git]p :<C-u>call <SID>async_git_pull()<CR>
 nnoremap [git]P :<C-u>call <SID>async_git_push()<CR>
 nnoremap [git]d :<C-u>Gdiffsplit<CR>
