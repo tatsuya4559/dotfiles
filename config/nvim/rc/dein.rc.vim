@@ -36,7 +36,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('airblade/vim-gitgutter')
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
-    call dein#add('lambdalisue/gina.vim')
 
     " Utils
     call dein#add('AndrewRadev/linediff.vim')

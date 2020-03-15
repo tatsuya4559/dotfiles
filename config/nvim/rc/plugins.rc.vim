@@ -121,10 +121,10 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 " Git {{{
 nmap [git] <Nop>
 map <Leader>g [git]
-nnoremap [git]s :<C-u>Gina status<CR>
+nnoremap [git]s :<C-u>Gstatus<CR>
 nnoremap [git]p :<C-u>call <SID>async_git_pull()<CR>
 nnoremap [git]P :<C-u>call <SID>async_git_push()<CR>
-nnoremap [git]d :<C-u>Gina compare<CR>
+nnoremap [git]d :<C-u>Gdiffsplit<CR>
 nnoremap [git]b :<C-u>Gblame<CR>
 nnoremap [git]w :<C-u>Gbrowse<CR>
 vnoremap [git]w :Gbrowse<CR>
@@ -136,17 +136,6 @@ endfunction
 function! s:async_git_push()
   execute 'AsyncRun git push origin HEAD'
 endfunction
-
-call gina#custom#mapping#nmap(
-            \ 'status', 'C',
-            \ ':<C-u>Gina commit<CR>',
-            \ {'noremap': 1, 'silent': 1},
-            \)
-call gina#custom#mapping#nmap(
-            \ 'status', 'dp',
-            \ ':call gina#action#call(''diff:preview:top'')<CR>',
-            \ {'noremap': 1, 'silent': 1},
-            \)
 " }}}
 
 " emmet {{{
