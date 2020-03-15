@@ -137,9 +137,16 @@ function! s:async_git_push()
   execute 'AsyncRun git push origin HEAD'
 endfunction
 
-call gina#custom#action#alias(
-  \ '/.*', 'dp', 'diff:preview:top'
-  \)
+call gina#custom#mapping#nmap(
+            \ 'status', 'C',
+            \ ':<C-u>Gina commit<CR>',
+            \ {'noremap': 1, 'silent': 1},
+            \)
+call gina#custom#mapping#nmap(
+            \ 'status', 'dp',
+            \ ':call gina#action#call(''diff:preview:top'')<CR>',
+            \ {'noremap': 1, 'silent': 1},
+            \)
 " }}}
 
 " emmet {{{
