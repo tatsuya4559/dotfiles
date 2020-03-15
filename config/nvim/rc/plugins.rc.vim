@@ -14,9 +14,6 @@ let g:indentLine_first_char = '▏'
 let g:indentLine_showFirstIndentLevel = 1
 let g:vim_json_syntax_conceal = 0
 
-" lightline ---------------------------------------------------------------------
-nnoremap <Leader>l :call lightline#toggle()<CR>
-
 " anzu --------------------------------------------------------------------------
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
@@ -28,10 +25,6 @@ nnoremap <silent> <Space>e :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> <Space>nf :<C-u>NERDTreeFind<CR>
 let g:NERDTreeMapOpenVSplit = '<C-v>'
 let g:NERDTreeMapOpenSplit = '<C-s>'
-
-" Vaffle ------------------------------------------------------------------------
-nnoremap <Leader>e :<C-u>Vaffle .<CR>
-nnoremap <Leader>c :<C-u>Vaffle %:h<CR>
 
 " submode -----------------------------------------------------------------------
 call submode#enter_with('window', 'n', '', '<C-w>>', '<C-w>>')

@@ -20,9 +20,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('fenetikm/falcon')
     call dein#add('cocopon/iceberg.vim')
 
-    " Appearance
-    call dein#add('itchyny/lightline.vim')
-
     " Text edit
     call dein#add('nelstrom/vim-visual-star-search')
     call dein#add('machakann/vim-sandwich')
@@ -32,7 +29,6 @@ if dein#load_state(s:dein_dir)
     " File explore
     call dein#add('liuchengxu/vim-clap')
     call dein#add('preservim/nerdtree')
-    call dein#add('cocopon/vaffle.vim')
 
     " Language support
     call dein#add('neoclide/coc.nvim', { 'rev': 'release' })
@@ -44,7 +40,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('airblade/vim-gitgutter')
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
-    call dein#add('iberianpig/tig-explorer.vim', { 'depends': 'bclose.vim' })
     call dein#add('lambdalisue/gina.vim')
 
     " Utils
@@ -53,8 +48,6 @@ if dein#load_state(s:dein_dir)
     call dein#add('tyru/capture.vim')
     call dein#add('skywind3000/asyncrun.vim')
     call dein#add('kana/vim-submode')
-    call dein#add('rbgrouleff/bclose.vim')
-    call dein#add('raghur/vim-ghost')
 
     call dein#end()
     call dein#save_state()

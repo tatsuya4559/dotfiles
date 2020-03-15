@@ -29,86 +29,15 @@ if s:theme == 'falcon'
   let g:clap_theme = { 'current_selection': {'guibg': '#36363A', 'ctermbg': '237', 'cterm': 'bold', 'gui': 'bold'} }
   let g:falcon_background = 0
   let g:falcon_inactive = 1
-  let g:falcon_lightline = 1
   let s:color_scheme = 'falcon'
-  let s:lightline_color_scheme = 'falcon'
 elseif s:theme == 'iceberg'
   let s:color_scheme = 'iceberg'
-  let s:lightline_color_scheme = 'iceberg'
 elseif s:theme == 'light'
   let s:color_scheme = 'shirotelin'
-  let s:lightline_color_scheme = 'falcon'
 else
   let s:color_scheme = 'desert'
-  let s:lightline_color_scheme = 'default'
 endif
 execute 'colorscheme ' . s:color_scheme
-let g:lightline = {
-    \ 'colorscheme': s:lightline_color_scheme,
-    \ 'active': {
-    \   'left': [['mode', 'paste'], ['gitbranch', 'filepath', 'readonly', 'modified']],
-    \   'right': [['lineinfo'],['filetype'],['fileformat', 'fileencoding']]
-    \ },
-    \ 'inactive': {
-    \   'left': [['filepath']],
-    \   'right': [['lineinfo'], ['percent']]
-    \ },
-    \ 'component_function': {
-    \   'mode': 'LightlineMode',
-    \   'gitbranch': 'LightlineFugitive',
-    \   'filepath': 'LightlineFilepath',
-    \   'readonly': 'LightlineReadonly',
-    \   'filetype': 'LightlineFiletype',
-    \   'fileformat': 'LightlineFileformat',
-    \   'fileencoding': 'LightlineFileencoding',
-    \ }
-    \ }
-
-function! LightlineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightlineFugitive()
-  try
-    if &ft !~? 'nerdtree\|tagbar'
-      return fugitive#Head()
-    endif
-  catch
-  endtry
-  return ''
-endfunction
-
-function! LightlineFilepath()
-  return &ft !~? 'nerdtree\|tagbar' ? expand("%:t") : ''
-endfunction
-
-function! LightlineReadonly()
-  return &ft !~? 'nerdtree\|tagbar' && &ro ? 'RO' : ''
-endfunction
-
-function! LightlineFileformat()
-  if winwidth(0) < 81
-    return ''
-  endif
-  if &ff == 'unix'
-      return 'LF'
-  elseif &ff == 'dos'
-      return 'CRLF'
-  else
-      return 'CR'
-  endif
-endfunction
-
-function! LightlineFileencoding()
-  return winwidth(0) > 80 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightlineFiletype()
-  if &ft =~? 'nerdtree\|tagbar'
-    return &ft
-  endif
-  return winwidth(0) > 80 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
 
 " encoding
 set encoding=utf-8
