@@ -1,6 +1,3 @@
-"================================================================================
-" dein settings
-"================================================================================
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -17,7 +14,6 @@ if dein#load_state(s:dein_dir)
     " Colorscheme
     call dein#add('MaxMEllon/vim-jsx-pretty')
     call dein#add('yasukotelin/shirotelin')
-    call dein#add('fenetikm/falcon')
     call dein#add('cocopon/iceberg.vim')
 
     " Text edit
@@ -48,6 +44,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('tyru/capture.vim')
     call dein#add('skywind3000/asyncrun.vim')
     call dein#add('kana/vim-submode')
+    call dein#add('vim-jp/vimdoc-ja')
 
     call dein#end()
     call dein#save_state()
