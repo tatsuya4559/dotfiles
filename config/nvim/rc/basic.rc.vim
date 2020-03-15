@@ -32,7 +32,7 @@ set tabstop=4 " タブの表示幅
 set softtabstop=4 " <Tab>で挿入されるスペースの数
 set shiftwidth=4 " 自動インデントのサイズ
 
-" ファイルタイプ別のインデント設定 {{{
+" ファイルタイプ別のインデント設定
 augroup FiletypeIndent
     autocmd!
     au Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
