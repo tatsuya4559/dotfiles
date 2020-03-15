@@ -161,4 +161,5 @@ endif
 :cabbrev recache call dein#recache_runtimepath()
 :cabbrev ar AsyncRun
 :cabbrev as AsyncStop
+:cabbrev cm Git commit -m
 " }}}
