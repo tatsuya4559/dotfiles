@@ -97,19 +97,19 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <Space>t  :<C-u>CocList -I symbols<CR>
 
 function! s:format_document()
-  if &ft =~? 'javascript\|typescript'
-    execute 'CocCommand prettier.formatFile'
-  elseif &ft =~? 'python'
-    " TODO: blackのフォーマットができるようにする
-  endif
+    if &ft =~? 'javascript\|typescript'
+        execute 'CocCommand prettier.formatFile'
+    elseif &ft =~? 'python'
+        " TODO: blackのフォーマットができるようにする
+    endif
 endfunction
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -130,11 +130,11 @@ nnoremap [git]w :<C-u>Gbrowse<CR>
 vnoremap [git]w :Gbrowse<CR>
 
 function! s:async_git_pull()
-  execute 'AsyncRun git pull origin ' . fugitive#head()
+    execute 'AsyncRun git pull origin ' . fugitive#head()
 endfunction
 
 function! s:async_git_push()
-  execute 'AsyncRun git push origin HEAD'
+    execute 'AsyncRun git push origin HEAD'
 endfunction
 " }}}
 
@@ -149,17 +149,17 @@ let g:asyncrun_open = 8
 
 " Python向けコマンド定義 {{{
 function! s:async_black()
-  execute 'AsyncRun black %'
+    execute 'AsyncRun black %'
 endfunction
 command! Black call s:async_black()
 
 function! s:async_flake8()
-  execute 'AsyncRun flake8 %'
+    execute 'AsyncRun flake8 %'
 endfunction
 command! Flake8 call s:async_flake8()
 
 function! s:async_pylint()
-  execute 'AsyncRun pylint --disable=C,R,E1101 %'
+    execute 'AsyncRun pylint --disable=C,R,E1101 %'
 endfunction
 command! Pylint call s:async_pylint()
 " }}}

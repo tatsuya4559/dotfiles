@@ -112,7 +112,7 @@ xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 nmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
 xmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
 function! s:set_vsearch()
-  silent normal gv"zy
-  let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
+    silent normal gv"zy
+    let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
 endfunction
 " }}}
