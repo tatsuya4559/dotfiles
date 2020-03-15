@@ -84,7 +84,7 @@ let g:coc_global_extensions = [
             \   'coc-tsserver',
             \   'coc-python',
             \   'coc-java',
-            \   'coc-rsl',
+            \   'coc-rls',
             \   'coc-json',
             \   'coc-yaml',
             \ ]
