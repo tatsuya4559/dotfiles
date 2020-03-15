@@ -14,6 +14,8 @@ set sidescroll=1
 set sidescrolloff=16
 " set cursorline
 language C
+set laststatus=2
+set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %=[%{&fenc!=''?&fenc:&enc}]%)
 
 " コメント行から改行したときに自動コメントアウトしない
 autocmd FileType * setlocal formatoptions-=ro
@@ -107,6 +109,4 @@ endif
 :cabbrev recache call dein#recache_runtimepath()
 :cabbrev ar AsyncRun
 :cabbrev as AsyncStop
-:cabbrev gst Gina status
-:cabbrev gcm Gina commit
 :cabbrev gi Gina
