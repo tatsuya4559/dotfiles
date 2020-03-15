@@ -1,26 +1,27 @@
-"================================================================================
-" plugin settings
-"================================================================================
-" ultisnips
+" ultisnips {{{
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+" }}}
 
-" commentary --------------------------------------------------------------------
+" commentary {{{
 nnoremap <Leader>\ :<C-u>Commentary<CR>
 vnoremap <Leader>\ :Commentary<CR>
+" }}}
 
-" anzu --------------------------------------------------------------------------
+" anzu {{{
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
+" }}}
 
-" nerdtree ----------------------------------------------------------------------
+" nerdtree {{{
 nnoremap <silent> <Space>e :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> _ :<C-u>NERDTreeFind<CR>
 let g:NERDTreeMapOpenVSplit = '<C-v>'
 let g:NERDTreeMapOpenSplit = '<C-s>'
+" }}}
 
-" submode -----------------------------------------------------------------------
+" submode {{{
 call submode#enter_with('window', 'n', '', '<C-w>>', '<C-w>>')
 call submode#enter_with('window', 'n', '', '<C-w><', '<C-w><')
 call submode#enter_with('window', 'n', '', '<C-w>+', '<C-w>+')
@@ -39,18 +40,20 @@ call submode#enter_with('z', 'n', '', 'zl', 'zl')
 call submode#enter_with('z', 'n', '', 'zh', 'zh')
 call submode#map('z', 'n', '', 'l', 'zl')
 call submode#map('z', 'n', '', 'h', 'zh')
+" }}}
 
-" Tag bar ----------------------------------------------------------------------
+" Tag bar {{{
 nnoremap <Space>O :TagbarToggle<CR>
+" }}}
 
-" clap --------------------------------------------------------------------------
+" clap {{{
 let g:clap_layout = {
-  \ 'relative': 'editor',
-  \ 'width': '67%',
-  \ 'height': '33%',
-  \ 'row': '10%',
-  \ 'col': '17%'
-  \}
+            \ 'relative': 'editor',
+            \ 'width': '67%',
+            \ 'height': '33%',
+            \ 'row': '10%',
+            \ 'col': '17%'
+            \}
 let g:clap_insert_mode_only = 1
 nnoremap <silent> <C-p> :Clap files<CR>
 nnoremap <silent> <Space>c :Clap command<CR>
@@ -69,21 +72,22 @@ vnoremap <silent> <Space>b :Clap buffers ++query=@visual<CR>
 vnoremap <silent> <Space>l :Clap blines ++query=@visual<CR>
 vnoremap <silent> <Space>L :Clap lines ++query=@visual<CR>
 vnoremap <silent> <Space>g :Clap grep ++query=@visual<CR>
+" }}}
 
-" Coc ---------------------------------------------------------------------------
+" Coc {{{
 let g:coc_global_extensions = [
-  \   'coc-pairs',
-  \   'coc-snippets',
-  \   'coc-prettier',
-  \   'coc-html',
-  \   'coc-css',
-  \   'coc-tsserver',
-  \   'coc-python',
-  \   'coc-java',
-  \   'coc-rsl',
-  \   'coc-json',
-  \   'coc-yaml',
-  \ ]
+            \   'coc-pairs',
+            \   'coc-snippets',
+            \   'coc-prettier',
+            \   'coc-html',
+            \   'coc-css',
+            \   'coc-tsserver',
+            \   'coc-python',
+            \   'coc-java',
+            \   'coc-rsl',
+            \   'coc-json',
+            \   'coc-yaml',
+            \ ]
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
@@ -112,8 +116,9 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
+" }}}
 
-" Git ---------------------------------------------------------------------
+" Git {{{
 nmap [git] <Nop>
 map <Leader>g [git]
 nnoremap [git]s :<C-u>Gina status<CR>
@@ -132,19 +137,21 @@ function! s:async_git_push()
   execute 'AsyncRun git push origin HEAD'
 endfunction
 
-" Gina --------------------------------------------------------------------------
 call gina#custom#action#alias(
   \ '/.*', 'dp', 'diff:preview:top'
   \)
+" }}}
 
-" emmet -------------------------------------------------------------------------
+" emmet {{{
 let g:user_emmet_mode='i'
 let g:user_emmet_leader_key='<C-t>'
+" }}}
 
-" Async Run ---------------------------------------------------------------------
+" Async Run {{{
 let g:asyncrun_open = 8
+" }}}
 
-" for python
+" Python向けコマンド定義 {{{
 function! s:async_black()
   execute 'AsyncRun black %'
 endfunction
@@ -159,3 +166,4 @@ function! s:async_pylint()
   execute 'AsyncRun pylint --disable=C,R,E1101 %'
 endfunction
 command! Pylint call s:async_pylint()
+" }}}

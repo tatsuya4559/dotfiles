@@ -1,4 +1,4 @@
-" カーソル移動
+" カーソル移動 {{{
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -24,41 +24,46 @@ cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
+" }}}
 
-nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
 
-" 選択系
+" vvで行末まで選択 {{{
 nnoremap vv v$h
+" }}}
+
+" <, >で連続してインデント調整できるようにする {{{
 vnoremap < <gv
 vnoremap > >gv
+" }}}
 
-" 行を移動
+" 行を移動 {{{
 nnoremap <C-Up> "zdd<Up>"zP
 nnoremap <C-Down> "zdd"zp
 vnoremap <C-Up> "zx<Up>"zP`[V`]
 vnoremap <C-Down> "zx"zp`[V`]
+" }}}
 
-" ESC
-tnoremap <silent> <Esc> <C-\><C-n>
-" terminalの挙動は上のが正しいけど、fzfをEscで終了するために下のようにする
-" tnoremap <silent> <Esc> <C-c>
-
-" window
+" ウィンドウ操作のprefixをsに割り当てる {{{
 nmap s <C-w>
+" }}}
 
-" tab
+" タブ移動 {{{
 nnoremap <M-t> :<C-u>tab split<CR>
 nnoremap <silent> ]t gt
 nnoremap <silent> [t gT
+" }}}
 
-" buffer
+" バッファ移動 {{{
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
+" }}}
 
-" quickfix
+" QuickFix移動 {{{
 nnoremap <silent> ]q :<C-u>cn<CR>
 nnoremap <silent> [q :<C-u>cp<CR>
+" }}}
 
+" QuickFixをトグル {{{
 function! ToggleQuickfix()
     let l:nr = winnr('$')
     cwindow
@@ -68,24 +73,38 @@ function! ToggleQuickfix()
     endif
 endfunction
 nnoremap <script> <silent> <Space>q :call ToggleQuickfix()<CR>
+" }}}
 
-" open
+" URLなどを開く {{{
 nnoremap <silent> <Leader>o :<C-u>!open %<CR>
 vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
+" }}}
 
-" 行末までヤンク
+" 行末までヤンク {{{
 nnoremap Y y$
+" }}}
 
-" 空行を追加
+" 空行を追加 {{{
 nnoremap <Space><CR> o<Esc>
+" }}}
 
-" 再描画
+" 再描画 {{{
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+" }}}
 
-" Fix trailing whitespaces
+" TERMINALモード時にEscでNORMALに復帰する {{{
+tnoremap <silent> <Esc> <C-\><C-n>
+" }}}
+
+" 行末の空白を削除 {{{
 command! FixWhitespaces :%s/\s\+$//g
+" }}}
 
-" カーソル下の単語をハイライト
+" 行番号の相対表示をトグル {{{
+nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
+" }}}
+
+" カーソル下の単語をハイライト {{{
 nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 
@@ -96,3 +115,4 @@ function! s:set_vsearch()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
 endfunction
+" }}}
