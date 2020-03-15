@@ -163,3 +163,35 @@ endif
 :cabbrev as AsyncStop
 :cabbrev cm Git commit -m
 " }}}
+
+" smooth scroll {{{
+let s:scroll_time_ms = 100
+let s:scroll_precision = 8
+function! SmoothScroll(dir, windiv, factor)
+  let cl = &cursorline
+  let cc = &cursorcolumn
+  set nocursorline nocursorcolumn
+  let height = winheight(0) / a:windiv
+  let n = height / s:scroll_precision
+  if n <= 0
+    let n = 1
+  endif
+  let wait_per_one_move_ms = s:scroll_time_ms / s:scroll_precision * a:factor
+  let i = 0
+  let scroll_command = a:dir == "down" ?
+        \ "normal! " . n . "\<C-E>" . n ."j" :
+        \ "normal! " . n . "\<C-Y>" . n ."k"
+  while i < s:scroll_precision
+    let i = i + 1
+    execute scroll_command
+    execute "sleep " . wait_per_one_move_ms . "m"
+    redraw
+  endwhile
+  let &cursorline = cl
+  let &cursorcolumn = cc
+endfunction
+nnoremap <silent><expr> <C-d> v:count == 0 ? ":call SmoothScroll('down', 2, 1)\<CR>" : "\<C-d>"
+nnoremap <silent><expr> <C-u> v:count == 0 ? ":call SmoothScroll('up', 2, 1)\<CR>" : "\<C-u>"
+nnoremap <silent><expr> <C-f> v:count == 0 ? ":call SmoothScroll('down', 1, 2)\<CR>" : "\<C-f>"
+nnoremap <silent><expr> <C-b> v:count == 0 ? ":call SmoothScroll('up', 1, 2)\<CR>" : "\<C-b>"
+" }}}
