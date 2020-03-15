@@ -8,12 +8,6 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 nnoremap <Leader>\ :<C-u>Commentary<CR>
 vnoremap <Leader>\ :Commentary<CR>
 
-" indentLine --------------------------------------------------------------------
-let g:indentLine_char = '▏'
-let g:indentLine_first_char = '▏'
-let g:indentLine_showFirstIndentLevel = 1
-let g:vim_json_syntax_conceal = 0
-
 " anzu --------------------------------------------------------------------------
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
@@ -22,7 +16,7 @@ nmap # <Plug>(anzu-sharp-with-echo)
 
 " nerdtree ----------------------------------------------------------------------
 nnoremap <silent> <Space>e :<C-u>NERDTreeToggle<CR>
-nnoremap <silent> <Space>nf :<C-u>NERDTreeFind<CR>
+nnoremap <silent> _ :<C-u>NERDTreeFind<CR>
 let g:NERDTreeMapOpenVSplit = '<C-v>'
 let g:NERDTreeMapOpenSplit = '<C-s>'
 
@@ -86,6 +80,7 @@ let g:coc_global_extensions = [
   \   'coc-tsserver',
   \   'coc-python',
   \   'coc-java',
+  \   'coc-rsl',
   \   'coc-json',
   \   'coc-yaml',
   \ ]
@@ -121,7 +116,7 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 " Git ---------------------------------------------------------------------
 nmap [git] <Nop>
 map <Leader>g [git]
-nnoremap [git]s :<C-u>TigStatus<CR>
+nnoremap [git]s :<C-u>Gina status<CR>
 nnoremap [git]p :<C-u>call <SID>async_git_pull()<CR>
 nnoremap [git]P :<C-u>call <SID>async_git_push()<CR>
 nnoremap [git]d :<C-u>Gina compare<CR>
