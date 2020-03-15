@@ -105,7 +105,7 @@ set nowrap
 " }}}
 
 " スクロール設定 {{{
-" set scrolloff=8
+set scrolloff=8
 set sidescroll=1
 set sidescrolloff=16
 " }}}

@@ -60,18 +60,18 @@ nnoremap <silent> <Space>c :Clap command<CR>
 nnoremap <silent> <Space>b :Clap buffers<CR>
 nnoremap <silent> <Space>l :Clap blines<CR>
 nnoremap <silent> <Space>L :Clap lines<CR>
-nnoremap <silent> <Space>g :Clap grep<CR>
+nnoremap <silent> <Space>f :Clap grep<CR>
 nnoremap <silent> <Space>y :Clap yanks<CR>
 nnoremap <silent> <Space>h :Clap history<CR>
 nnoremap <silent> <Space>r :Clap registers<CR>
-nnoremap <silent> <Space>f :Clap filer<CR>
+nnoremap <silent> <Space>i :Clap filer<CR>
 
 vnoremap <silent> <C-p> :Clap files ++query=@visual<CR>
 vnoremap <silent> <Space>c :Clap command ++query=@visual<CR>
 vnoremap <silent> <Space>b :Clap buffers ++query=@visual<CR>
 vnoremap <silent> <Space>l :Clap blines ++query=@visual<CR>
 vnoremap <silent> <Space>L :Clap lines ++query=@visual<CR>
-vnoremap <silent> <Space>g :Clap grep ++query=@visual<CR>
+vnoremap <silent> <Space>f :Clap grep ++query=@visual<CR>
 " }}}
 
 " Coc {{{
@@ -120,7 +120,7 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Git {{{
 nmap [git] <Nop>
-map <Leader>g [git]
+map <Space>g [git]
 nnoremap [git]s :<C-u>Gstatus<CR>
 nnoremap [git]p :<C-u>call <SID>async_git_pull()<CR>
 nnoremap [git]P :<C-u>call <SID>async_git_push()<CR>
