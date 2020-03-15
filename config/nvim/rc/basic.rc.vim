@@ -23,7 +23,7 @@ if exists('&termguicolors')
     set termguicolors
 endif
 
-let s:theme = 'iceberg'
+let s:theme = 'light'
 if s:theme == 'falcon'
   autocmd ColorScheme * highlight Comment gui=NONE
   let g:clap_theme = { 'current_selection': {'guibg': '#36363A', 'ctermbg': '237', 'cterm': 'bold', 'gui': 'bold'} }
@@ -174,8 +174,10 @@ endif
 " abbreviation
 :iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
-:cabbrev ag AsyncRun rg --vimgrep
 :cabbrev be bufdo e
 :cabbrev recache call dein#recache_runtimepath()
 :cabbrev ar AsyncRun
 :cabbrev as AsyncStop
+:cabbrev gst Gina status
+:cabbrev gcm Gina commit
+:cabbrev gi Gina

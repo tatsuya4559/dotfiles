@@ -131,11 +131,10 @@ map <Leader>g [git]
 nnoremap [git]s :<C-u>TigStatus<CR>
 nnoremap [git]p :<C-u>call <SID>async_git_pull()<CR>
 nnoremap [git]P :<C-u>call <SID>async_git_push()<CR>
-nnoremap [git]d :<C-u>Gvdiff<CR>
+nnoremap [git]d :<C-u>Gina compare<CR>
 nnoremap [git]b :<C-u>Gblame<CR>
 nnoremap [git]w :<C-u>Gbrowse<CR>
 vnoremap [git]w :Gbrowse<CR>
-nnoremap [git]l :<C-u>Lazygit<CR>
 
 function! s:async_git_pull()
   execute 'AsyncRun git pull origin ' . fugitive#head()
@@ -144,6 +143,11 @@ endfunction
 function! s:async_git_push()
   execute 'AsyncRun git push origin HEAD'
 endfunction
+
+" Gina --------------------------------------------------------------------------
+call gina#custom#action#alias(
+  \ '/.*', 'dp', 'diff:preview:top'
+  \)
 
 " emmet -------------------------------------------------------------------------
 let g:user_emmet_mode='i'
