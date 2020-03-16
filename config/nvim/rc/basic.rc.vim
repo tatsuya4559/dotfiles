@@ -155,7 +155,7 @@ endif
 :iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
 :cabbrev be bufdo e
-:cabbrev recache call dein#recache_runtimepath()
+:cabbrev windi windo diffthis
 :cabbrev ar AsyncRun
 :cabbrev as AsyncStop
 :cabbrev cm Git commit -m
