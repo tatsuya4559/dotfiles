@@ -4,6 +4,9 @@
 "/_/  /_/\_, / /_/_//_/_/\__(_)___/_/_/_/_/
 "       /___/
 
+set encoding=utf-8
+scriptencoding utf-8
+
 let g:python_host_prog = '/usr/bin/python'
 if has('mac')
   let g:python3_host_prog = '/usr/local/bin/python3'
