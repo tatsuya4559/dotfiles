@@ -26,6 +26,11 @@ cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 " }}}
 
+" 誤爆するキーを無効化 {{{
+nnoremap Q <Nop>
+nnoremap <F1> <Nop>
+" }}}
+
 
 " vvで行末まで選択 {{{
 nnoremap vv v$h
