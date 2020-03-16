@@ -31,6 +31,7 @@ if dein#load_state(s:dein_dir)
     call dein#add('majutsushi/tagbar')
     call dein#add('SirVer/ultisnips')
     call dein#add('honza/vim-snippets')
+    call dein#add('pechorin/any-jump.vim')
 
     " Git
     call dein#add('airblade/vim-gitgutter')

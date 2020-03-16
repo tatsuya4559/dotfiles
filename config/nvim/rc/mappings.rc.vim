@@ -104,6 +104,10 @@ command! FixWhitespaces :%s/\s\+$//g
 nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
 " }}}
 
+" 選択範囲に.で繰り返しコマンド実行する {{{
+vnoremap . :normal .<CR>
+" }}}
+
 " カーソル下の単語をハイライト {{{
 nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z

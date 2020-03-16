@@ -143,6 +143,13 @@ let g:user_emmet_mode='i'
 let g:user_emmet_leader_key='<C-t>'
 " }}}
 
+" AnyJump {{{
+let g:any_jump_disable_default_keybindings = 1
+nnoremap <Space>j :AnyJump<CR>
+xnoremap <Space>j :AnyJumpVisual<CR>
+nnoremap <Space>al :AnyJumpLastResults<CR>
+" }}}
+
 " Async Run {{{
 let g:asyncrun_open = 8
 " }}}
