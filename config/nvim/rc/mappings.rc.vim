@@ -49,7 +49,7 @@ vnoremap <C-Down> "zx"zp`[V`]
 " }}}
 
 " ウィンドウ操作のprefixをsに割り当てる {{{
-nmap s <C-w>
+nnoremap s <C-w>
 " }}}
 
 " タブ移動 {{{
@@ -77,7 +77,7 @@ function! ToggleQuickfix()
         cclose
     endif
 endfunction
-nnoremap <script> <silent> <Space>q :call ToggleQuickfix()<CR>
+nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
 " }}}
 
 " URLなどを開く {{{
