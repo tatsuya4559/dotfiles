@@ -35,7 +35,7 @@ augroup FiletypeIndent
     au Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype yaml,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au Filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au Filetype toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 augroup END
 " }}}
@@ -141,11 +141,14 @@ augroup END
 
 " 外部grepをripgrepにする {{{
 if executable('rg')
-    let &grepprg = 'rg --vimgrep'
+    set grepprg =rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+elseif executable('git')
+    set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
     set grepformat=%f:%l:%c:%m
 endif
 " #############################
-" 使い方:
+" ripgrepの使い方:
 " :grep 'pattern' path/ -i -tpy
 " :grep 'regex' -g src/*.py
 " #############################
