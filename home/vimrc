@@ -1,79 +1,139 @@
-filetype plugin indent on
+" minimal settings
+set encoding=utf-8
+scriptencoding utf-8
 
-" appearance
-set number
-set nowrap
-set breakindent
-set list
-set listchars=tab:»-,trail:-,nbsp:+
-set updatetime=100
-set laststatus=2
-set sidescroll=1
-set sidescrolloff=16
-language C
-
-" colors
-colorscheme desert
-syntax on
-
-" encoding
+" 文字コード {{{
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
 set fileformats=unix,dos,mac
+" }}}
 
-" backup
-set noswapfile
+" ステータスライン設定 {{{
+set laststatus=2
+set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %=[%{&fenc!=''?&fenc:&enc}]%)
+" }}}
 
-" search
+" カーソル行をハイライト {{{
+" set cursorline
+" }}}
+
+" カラースキーム {{{
+colorscheme desert
+filetype plugin indent on
+syntax enable
+" }}}
+
+" タブ設定 {{{
+set smartindent
+set breakindent
+set expandtab " タブでスペース挿入
+set tabstop=4 " タブの表示幅
+set softtabstop=4 " <Tab>で挿入されるスペースの数
+set shiftwidth=4 " 自動インデントのサイズ
+
+" ファイルタイプ別のインデント設定
+augroup FiletypeIndent
+    autocmd!
+    au Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+augroup END
+" }}}
+
+" 検索設定 {{{
+set incsearch
 set ignorecase
 set smartcase
 set hlsearch
 set wrapscan
-set incsearch
+" }}}
 
-" tab
-set smartindent
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-autocmd Filetype vim,html,css,javascript,yaml,toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-" clipboard
+" クリップボードを共有 {{{
 set clipboard+=unnamedplus
+" }}}
 
-" buffer
+" バックスペースとCtrl+hで削除を有効にする {{{
+set backspace=2
+" }}}
+
+" wildmenu有効化 {{{
+set wildmenu
+" }}}
+
+" 描画改善 {{{
+set updatetime=100
+" }}}
+
+" ミュート {{{
+set belloff=all
+" }}}
+
+" 不可視文字の表示 {{{
+set list
+set listchars=tab:»-,trail:-,nbsp:+,extends:»,precedes:«
+" }}}
+
+" スワップファイルを作成しない {{{
+set noswapfile
+" }}}
+
+" ウィンドウサイズの自動調整を無効化 {{{
+set noequalalways
+" }}}
+
+" 行番号を表示 {{{
+set number
+set relativenumber
+" }}}
+
+" テキストを折り返さない {{{
+set nowrap
+" }}}
+
+" スクロール設定 {{{
+" set scrolloff=8
+set sidescroll=1
+set sidescrolloff=16
+" }}}
+
+" バッファを保存しなくても切り替えられるようにする {{{
 set hidden
+" }}}
 
-" persist undo
-if has('persistent_undo')
-  set undodir=./.vimundo,~/.vimundo
-  augroup SaveUndoFile
-    autocmd!
-    autocmd BufReadPre ~/* setlocal undofile
-  augroup END
-endif
-
-" quickfix
+" grep結果をQuickFixに送る {{{
 augroup GrepCmd
     autocmd!
-    autocmd QuickFixCmdPost vim,grep,make if len(getqflist()) != 0 | cwindow | endif
+    au QuickFixCmdPost vim,grep if len(getqflist()) != 0 | cwindow | endif
 augroup END
+" }}}
 
-" grep
-set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
-set grepformat=%f:%l:%c:%m
-nnoremap gG :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 8\|else\|ccl\|endif\|cc<CR>
+" 外部grepをripgrepにする {{{
+if executable('rg')
+    set grepprg =rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+elseif executable('git')
+    set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
+    set grepformat=%f:%l:%c:%m
+endif
+nnoremap <Space>j :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 8\|else\|ccl\|endif\|cc<CR>
+" }}}
 
-" abbreviation
+" abbreviations {{{
 :cabbrev sg silent grep!
+:cabbrev windi windo diffthis
+" }}}
 
-" カーソル移動
+" カーソル移動 {{{
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+nnoremap H ^
+nnoremap L g_
+vnoremap H ^
+vnoremap L g_
 
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
@@ -90,43 +150,50 @@ cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
+" }}}
 
-nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
+" 誤爆するキーを無効化 {{{
+nnoremap Q <Nop>
+nnoremap <F1> <Nop>
+" }}}
 
-" 選択系
+" vvで行末まで選択 {{{
 nnoremap vv v$h
+" }}}
+
+" <, >で連続してインデント調整できるようにする {{{
 vnoremap < <gv
 vnoremap > >gv
+" }}}
 
-" 行を移動
+" 行を移動 {{{
 nnoremap <C-Up> "zdd<Up>"zP
 nnoremap <C-Down> "zdd"zp
 vnoremap <C-Up> "zx<Up>"zP`[V`]
 vnoremap <C-Down> "zx"zp`[V`]
+" }}}
 
-" ESC
-tnoremap <silent> <Esc> <C-\><C-n>
+" ウィンドウ操作のprefixをsに割り当てる {{{
+nnoremap s <C-w>
+" }}}
 
-" window
-nmap s <C-w>
-
-" tab
+" タブ移動 {{{
+nnoremap <M-t> :<C-u>tab split<CR>
 nnoremap <silent> ]t gt
 nnoremap <silent> [t gT
+" }}}
 
-" buffer
+" バッファ移動 {{{
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
+" }}}
 
-" quickfix
+" QuickFix移動 {{{
 nnoremap <silent> ]q :<C-u>cn<CR>
 nnoremap <silent> [q :<C-u>cp<CR>
+" }}}
 
-if exists('g:__QUICKFIX_TOGGLE__')
-    finish
-endif
-let g:__QUICKFIX_TOGGLE__ = 1
-
+" QuickFixをトグル {{{
 function! ToggleQuickfix()
     let l:nr = winnr('$')
     cwindow
@@ -135,20 +202,38 @@ function! ToggleQuickfix()
         cclose
     endif
 endfunction
-nnoremap <script> <silent> <Space>q :call ToggleQuickfix()<CR>
+nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
+" }}}
 
-" netrw
-let g:netrw_liststyle=3
-let g:netrw_banner=0
-nnoremap <Space>e :<C-u>Ex<CR>
-
-" 行末までヤンク
+" 行末までヤンク {{{
 nnoremap Y y$
+" }}}
 
-" 再描画
+" 空行を追加 {{{
+nnoremap <Space><CR> o<Esc>
+" }}}
+
+" 再描画 {{{
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+" }}}
 
-" カーソル下の単語をハイライト
+" TERMINALモード時にEscでNORMALに復帰する {{{
+tnoremap <silent> <Esc> <C-\><C-n>
+" }}}
+
+" 行末の空白を削除 {{{
+command! FixWhitespaces :%s/\s\+$//g
+" }}}
+
+" 行番号の相対表示をトグル {{{
+nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
+" }}}
+
+" 選択範囲に.で繰り返しコマンド実行する {{{
+vnoremap . :normal .<CR>
+" }}}
+
+" カーソル下の単語をハイライト {{{
 nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 
@@ -156,10 +241,13 @@ xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 nmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
 xmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
 function! s:set_vsearch()
-  silent normal gv"zy
-  let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
+    silent normal gv"zy
+    let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
 endfunction
+" }}}
 
-" fzf風ファイルサーチ
+" ファイルサーチ {{{
 nnoremap <C-p> :<C-u>e **/*
 nnoremap <Space>b :<C-u>b *
+nnoremap <Space>e :Ex<CR>
+" }}}
