@@ -179,8 +179,8 @@ function! SmoothScroll(dir, windiv, factor)
   let wait_per_one_move_ms = s:scroll_time_ms / s:scroll_precision * a:factor
   let i = 0
   let scroll_command = a:dir == "down" ?
-        \ "normal! " . n . "\<C-E>" . n ."j" :
-        \ "normal! " . n . "\<C-Y>" . n ."k"
+        \ "normal! " . n . "\<C-e>" . n ."j" :
+        \ "normal! " . n . "\<C-y>" . n ."k"
   while i < s:scroll_precision
     let i = i + 1
     execute scroll_command
