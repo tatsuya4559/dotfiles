@@ -51,10 +51,7 @@ set wrapscan
 " UNDO設定 {{{
 set undolevels=1000
 if has('persistent_undo')
-    if !isdirectory('~/.vim/undo')
-        call mkdir('~/.vim/undo', 'p')
-    endif
-    set undodir=~/.vim/undo
+    set undodir=./.vim/undo,~/.vim/undo
     augroup SaveUndoFile
         autocmd!
         autocmd BufReadPre ~/* setlocal undofile
@@ -87,13 +84,9 @@ set list
 set listchars=tab:»-,trail:-,nbsp:+,extends:»,precedes:«
 " }}}
 
-" スワップファイル設定 {{{
-if !isdirectory('~/.vim/swap')
-  call mkdir('~/.vim/swap', 'p')
-endif
-set swapfile
-set directory=~/.vim/swap
-"}}}
+" スワップファイルを作成しない {{{
+set noswapfile
+" }}}
 
 " ウィンドウサイズの自動調整を無効化 {{{
 set noequalalways
