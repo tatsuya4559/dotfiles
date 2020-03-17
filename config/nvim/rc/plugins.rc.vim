@@ -16,6 +16,7 @@ nmap # <Plug>(anzu-sharp-with-echo)
 
 " nerdtree {{{
 nnoremap <silent> - :<C-u>NERDTreeToggle<CR>
+nnoremap <silent> <Space>e :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> _ :<C-u>NERDTreeFind<CR>
 let g:NERDTreeMapOpenVSplit = '<C-v>'
 let g:NERDTreeMapOpenSplit = '<C-s>'
