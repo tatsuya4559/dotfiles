@@ -94,7 +94,7 @@ set noequalalways
 
 " 行番号を表示 {{{
 set number
-set relativenumber
+" set relativenumber
 " }}}
 
 " テキストを折り返さない {{{
@@ -128,7 +128,6 @@ set sh=bash
 augroup Term
     autocmd!
     au WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-    au TermOpen * setlocal norelativenumber nonumber
 augroup END
 " }}}
 

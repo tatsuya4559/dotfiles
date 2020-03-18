@@ -1,9 +1,12 @@
-let s:vimplug_file = expand('~/.local/share/nvim/site/autoload/plug.vim')
+let s:vimplug_file = has('nvim')
+            \ ? expand('~/.local/share/nvim/site/autoload/plug.vim')
+            \ : expand('~/.vim/autoload/plug.vim')
 if !filereadable(s:vimplug_file)
-    execute 'curl -fLo ' .
+    execute 'silent !curl -fLo ' .
                 \ s:vimplug_file .
                 \ ' --create-dirs' .
                 \ ' https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 else
     call plug#begin('~/.local/share/nvim/plugged')
 
@@ -19,7 +22,10 @@ else
     Plug 'tpope/vim-commentary'
 
     " File explore
-    Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
+    if has('nvim-0.4.2') || has('patch-8.1.2114')
+        Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
+        Plug 'pechorin/any-jump.vim'
+    endif
     Plug 'preservim/nerdtree'
 
     " Language support
@@ -27,7 +33,6 @@ else
     Plug 'majutsushi/tagbar'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'pechorin/any-jump.vim'
 
     " Git
     Plug 'airblade/vim-gitgutter'
