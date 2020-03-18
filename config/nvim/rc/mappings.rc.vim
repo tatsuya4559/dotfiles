@@ -101,10 +101,6 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 tnoremap <silent> <Esc> <C-\><C-n>
 " }}}
 
-" 行末の空白を削除 {{{
-command! FixWhitespaces :%s/\s\+$//g
-" }}}
-
 " 行番号の相対表示をトグル {{{
 nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
 " }}}

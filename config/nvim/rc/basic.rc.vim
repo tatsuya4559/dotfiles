@@ -130,6 +130,15 @@ augroup Term
 augroup END
 " }}}
 
+" 行末の空白を削除 {{{
+command! FixWhitespaces :%s/\s\+$//g
+" }}}
+
+" ファイルパスをコピー {{{
+command! CopyPath :let @" = expand('%:p')
+command! CopyFilename :let @" = expand('%:t')
+" }}}
+
 " grep結果をQuickFixに送る {{{
 augroup GrepCmd
     autocmd!
