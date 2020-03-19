@@ -131,7 +131,7 @@ augroup END
 " }}}
 
 " 行末の空白を削除 {{{
-command! FixWhitespaces :%s/\s\+$//g
+command! -range=% FixWhitespaces :<line1>,<line2>s/\s\+$//g
 " }}}
 
 " ファイルパスをコピー {{{
