@@ -145,6 +145,11 @@ let g:user_emmet_mode='i'
 let g:user_emmet_leader_key='<C-t>'
 " }}}
 
+" quickhl {{{
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+" }}}
+
 " AnyJump {{{
 let g:any_jump_disable_default_keybindings = 1
 nnoremap <Space>j :AnyJump<CR>

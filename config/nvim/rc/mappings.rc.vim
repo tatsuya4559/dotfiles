@@ -94,7 +94,7 @@ nnoremap <Space><CR> o<Esc>
 " }}}
 
 " 再描画 {{{
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR><Plug>(quickhl-manual-reset)
 " }}}
 
 " TERMINALモード時にEscでNORMALに復帰する {{{
