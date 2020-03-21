@@ -4,6 +4,10 @@ set fileencodings=utf-8,sjis,cp932,euc-jp
 set fileformats=unix,dos,mac
 " }}}
 
+" 記号の表示崩れを防ぐ {{{
+set ambiwidth=double
+" }}}
+
 " ステータスライン設定 {{{
 set laststatus=2
 set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %=[%{&fenc!=''?&fenc:&enc}]%)
