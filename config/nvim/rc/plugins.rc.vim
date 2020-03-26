@@ -101,8 +101,8 @@ nnoremap <silent> <Space>t  :<C-u>CocList -I symbols<CR>
 function! s:format_document()
     if &ft =~? 'javascript\|typescript'
         execute 'CocCommand prettier.formatFile'
-    elseif &ft =~? 'python'
-        " TODO: blackのフォーマットができるようにする
+    else
+        call CocAction('format')
     endif
 endfunction
 

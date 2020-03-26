@@ -1,5 +1,5 @@
 {
-    "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnType": false,
     "coc.preferences.formatOnSaveFiletypes": [
         "rust"
     ],
@@ -9,8 +9,8 @@
         "--ignore=E203,E231,W391,W503,W504"
     ],
     "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": false,
-    "python.formatting.provider": "none",
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
     "tsserver.enableJavascript": true,
     "eslint.filetypes": [
         "javascript",
