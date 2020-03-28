@@ -22,18 +22,12 @@ else
     Plug 'tpope/vim-commentary'
 
     " File explore
-    if has('nvim-0.4.2') || has('patch-8.1.2114')
-        Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
-    endif
+    Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
     Plug 'preservim/nerdtree'
 
     " Language support
-    if executable('node')
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    endif
-    if executable('rg') && (has('nvim-0.4') || has('vim-8.2'))
-        Plug 'pechorin/any-jump.vim'
-    endif
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'pechorin/any-jump.vim'
     Plug 'majutsushi/tagbar'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
