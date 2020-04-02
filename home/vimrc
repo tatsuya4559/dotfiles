@@ -18,7 +18,7 @@ set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %=[%{&fenc!=''?&fenc:&enc}]%)
 " }}}
 
 " カラースキーム {{{
-colorscheme desert
+colorscheme delek
 filetype plugin indent on
 syntax enable
 " }}}
