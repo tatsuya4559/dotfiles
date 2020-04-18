@@ -14,6 +14,7 @@ else
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'yasukotelin/shirotelin'
     Plug 'cocopon/iceberg.vim'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 
     " Text edit
     Plug 'nelstrom/vim-visual-star-search'

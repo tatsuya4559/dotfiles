@@ -22,6 +22,7 @@ if exists('&termguicolors')
     set termguicolors
 endif
 colorscheme shirotelin
+let g:dracula_italic = 0
 " }}}
 
 " タブ設定 {{{
