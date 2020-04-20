@@ -21,8 +21,9 @@ set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %=[%{&fenc!=''?&fenc:&enc}]%)
 if exists('&termguicolors')
     set termguicolors
 endif
-colorscheme shirotelin
 let g:dracula_italic = 0
+let g:gruvbox_material_disable_italic_comment = 1
+colorscheme shirotelin
 " }}}
 
 " タブ設定 {{{
