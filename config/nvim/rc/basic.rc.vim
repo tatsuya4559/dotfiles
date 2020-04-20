@@ -40,6 +40,7 @@ augroup FiletypeIndent
     au Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au Filetype typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au Filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au Filetype toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 augroup END
