@@ -12,6 +12,7 @@ else
 
     " Colorscheme
     Plug 'MaxMEllon/vim-jsx-pretty'
+    Plug 'peitalin/vim-jsx-typescript'
     Plug 'yasukotelin/shirotelin'
     Plug 'cocopon/iceberg.vim'
     Plug 'dracula/vim', { 'as': 'dracula' }
