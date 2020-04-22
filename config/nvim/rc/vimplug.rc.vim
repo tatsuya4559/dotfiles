@@ -16,7 +16,6 @@ else
     Plug 'yasukotelin/shirotelin'
     Plug 'cocopon/iceberg.vim'
     Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'sainnhe/gruvbox-material'
 
     " Text edit
     Plug 'nelstrom/vim-visual-star-search'
