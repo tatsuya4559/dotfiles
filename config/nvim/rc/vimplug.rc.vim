@@ -1,6 +1,4 @@
-let s:vimplug_file = has('nvim')
-            \ ? expand('~/.local/share/nvim/site/autoload/plug.vim')
-            \ : expand('~/.vim/autoload/plug.vim')
+let s:vimplug_file = expand('~/.local/share/nvim/site/autoload/plug.vim')
 if !filereadable(s:vimplug_file)
     execute 'silent !curl -fLo ' .
                 \ s:vimplug_file .
