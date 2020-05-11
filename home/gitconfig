@@ -5,20 +5,15 @@
     editor = nvim
 [diff]
     tool = nvimdiff
-    guitool = meld
 [difftool]
     prompt = false
 [difftool "nvimdiff"]
     cmd = "nvim -Rdc \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
-[difftool "meld"]
-    cmd = "meld $LOCAL $REMOTE"
 [merge]
     tool = nvimdiff
-    guitool = meld
+    ff = false
 [mergetool "nvimdiff"]
     cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
-[mergetool "meld"]
-    cmd = "meld $LOCAL $BASE $REMOTE --auto-merge"
 [alias]
     st = status
     co = checkout
@@ -35,3 +30,5 @@
     prune = true
 [ghq]
     root = ~/git
+[pull]
+    ff = only
