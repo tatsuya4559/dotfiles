@@ -13,7 +13,6 @@ else
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'yasukotelin/shirotelin'
     Plug 'cocopon/iceberg.vim'
-    Plug 'jacoborus/tender.vim'
 
     " Text edit
     Plug 'nelstrom/vim-visual-star-search'
