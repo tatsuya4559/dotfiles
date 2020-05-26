@@ -21,6 +21,11 @@ let g:NERDTreeMapOpenVSplit = '<C-v>'
 let g:NERDTreeMapOpenSplit = '<C-s>'
 " }}}
 
+" vaffle {{{
+nnoremap <Space>v :<C-u>Vaffle<CR>
+nnoremap <Leader>v :<C-u>Vaffle %:h<CR>
+" }}}
+
 " submode {{{
 call submode#enter_with('window', 'n', '', '<C-w>>', '<C-w>>')
 call submode#enter_with('window', 'n', '', '<C-w><', '<C-w><')
