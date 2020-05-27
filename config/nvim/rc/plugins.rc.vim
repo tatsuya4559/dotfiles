@@ -19,10 +19,6 @@ nnoremap <Space>v :<C-u>Vaffle<CR>
 nnoremap <Leader>v :<C-u>Vaffle %:h<CR>
 " }}}
 
-" Tag bar {{{
-nnoremap <Space>O :TagbarToggle<CR>
-" }}}
-
 " clap {{{
 let g:clap_layout = {
             \ 'relative': 'editor',

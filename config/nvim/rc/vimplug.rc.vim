@@ -28,7 +28,6 @@ else
     " Language support
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'pechorin/any-jump.vim'
-    Plug 'majutsushi/tagbar'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
 
