@@ -19,27 +19,6 @@ nnoremap <Space>v :<C-u>Vaffle<CR>
 nnoremap <Leader>v :<C-u>Vaffle %:h<CR>
 " }}}
 
-" submode {{{
-call submode#enter_with('window', 'n', '', '<C-w>>', '<C-w>>')
-call submode#enter_with('window', 'n', '', '<C-w><', '<C-w><')
-call submode#enter_with('window', 'n', '', '<C-w>+', '<C-w>+')
-call submode#enter_with('window', 'n', '', '<C-w>-', '<C-w>-')
-call submode#map('window', 'n', '', '>', '<C-w>>')
-call submode#map('window', 'n', '', '<', '<C-w><')
-call submode#map('window', 'n', '', '+', '<C-w>+')
-call submode#map('window', 'n', '', '-', '<C-w>-')
-
-call submode#enter_with('indent', 'n', '', '>>', '>>')
-call submode#enter_with('indent', 'n', '', '<<', '<<')
-call submode#map('indent', 'n', '', '>', '>>')
-call submode#map('indent', 'n', '', '<', '<<')
-
-call submode#enter_with('z', 'n', '', 'zl', 'zl')
-call submode#enter_with('z', 'n', '', 'zh', 'zh')
-call submode#map('z', 'n', '', 'l', 'zl')
-call submode#map('z', 'n', '', 'h', 'zh')
-" }}}
-
 " Tag bar {{{
 nnoremap <Space>O :TagbarToggle<CR>
 " }}}
@@ -93,7 +72,6 @@ nmap <F2> <Plug>(coc-rename)
 nnoremap <Leader>f :call <SID>format_document()<CR>
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <Space>t  :<C-u>CocList -I symbols<CR>
 
 function! s:format_document()
     if &ft =~? 'javascript\|typescript'

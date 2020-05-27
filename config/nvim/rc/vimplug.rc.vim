@@ -42,7 +42,6 @@ else
     Plug 'markonm/traces.vim'
     Plug 'tyru/capture.vim'
     Plug 'skywind3000/asyncrun.vim'
-    Plug 'kana/vim-submode'
     Plug 'vim-jp/vimdoc-ja'
     Plug 't9md/vim-quickhl'
 
