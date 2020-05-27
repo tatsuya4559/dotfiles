@@ -56,15 +56,6 @@ sudo pacman -S --noconfirm virtualbox
 sudo pacman -S --noconfirm docker
 sudo pacman -S --noconfirm docker-compose
 
-sudo pacman -S --noconfirm nmap
-sudo pacman -S --noconfirm aircrack-ng
-sudo pacman -S --noconfirm john
-sudo pacman -S --noconfirm traceroute
-sudo pacman -S --noconfirm bind-tools
-sudo pacman -S --noconfirm tcpdump
-sudo pacman -S --noconfirm wireshark-qt
-yay -S crunch
-
 sudo pacman -S --noconfirm python-neovim python-pipenv
 yay -S ttf-cica
 
