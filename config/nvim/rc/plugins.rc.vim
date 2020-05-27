@@ -7,13 +7,6 @@ nnoremap <Leader>\ :<C-u>Commentary<CR>
 vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
-" anzu {{{
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
-" }}}
-
 " nerdtree {{{
 nnoremap <silent> <Space>e :<C-u>NERDTreeToggle<CR>
 nnoremap <silent> _ :<C-u>NERDTreeFind<CR>

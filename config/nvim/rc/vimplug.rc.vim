@@ -39,7 +39,7 @@ else
 
     " Utils
     Plug 'AndrewRadev/linediff.vim'
-    Plug 'osyo-manga/vim-anzu'
+    Plug 'markonm/traces.vim'
     Plug 'tyru/capture.vim'
     Plug 'skywind3000/asyncrun.vim'
     Plug 'kana/vim-submode'
