@@ -33,7 +33,7 @@ nnoremap <silent> <Space>c :Clap command<CR>
 nnoremap <silent> <Space>b :Clap buffers<CR>
 nnoremap <silent> <Space>l :Clap blines<CR>
 nnoremap <silent> <Space>L :Clap lines<CR>
-nnoremap <silent> <Space>f :Clap grep2<CR>
+nnoremap <silent> <Space>f :Clap!! grep2<CR>
 nnoremap <silent> <Space>y :Clap yanks<CR>
 nnoremap <silent> <Space>h :Clap history<CR>
 nnoremap <silent> <Space>r :Clap registers<CR>
@@ -44,7 +44,7 @@ vnoremap <silent> <Space>c :Clap command ++query=@visual<CR>
 vnoremap <silent> <Space>b :Clap buffers ++query=@visual<CR>
 vnoremap <silent> <Space>l :Clap blines ++query=@visual<CR>
 vnoremap <silent> <Space>L :Clap lines ++query=@visual<CR>
-vnoremap <silent> <Space>f :Clap grep2 ++query=@visual<CR>
+vnoremap <silent> <Space>f :Clap!! grep2 ++query=@visual<CR>
 " }}}
 
 " Coc {{{
