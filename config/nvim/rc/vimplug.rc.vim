@@ -15,7 +15,7 @@ else
     Plug 'cocopon/iceberg.vim'
 
     " Text edit
-    Plug 'nelstrom/vim-visual-star-search'
+    Plug 'bronson/vim-visual-star-search'
     Plug 'machakann/vim-sandwich'
     Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-commentary'
