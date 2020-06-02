@@ -15,8 +15,8 @@ let g:NERDTreeMapOpenSplit = '<C-s>'
 " }}}
 
 " vaffle {{{
-nnoremap <Space>v :<C-u>Vaffle<CR>
-nnoremap <Leader>v :<C-u>Vaffle %:h<CR>
+nnoremap <Space>; :<C-u>Vaffle<CR>
+nnoremap <Space>' :<C-u>Vaffle %:h<CR>
 " }}}
 
 " clap {{{
