@@ -22,7 +22,6 @@ else
 
     " File explore
     Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
-    Plug 'preservim/nerdtree'
     Plug 'cocopon/vaffle.vim'
 
     " Language support

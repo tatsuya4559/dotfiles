@@ -7,13 +7,6 @@ nnoremap <Leader>\ :<C-u>Commentary<CR>
 vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
-" nerdtree {{{
-nnoremap <silent> <Space>e :<C-u>NERDTreeToggle<CR>
-nnoremap <silent> _ :<C-u>NERDTreeFind<CR>
-let g:NERDTreeMapOpenVSplit = '<C-v>'
-let g:NERDTreeMapOpenSplit = '<C-s>'
-" }}}
-
 " vaffle {{{
 nnoremap <Space>v :<C-u>Vaffle<CR>
 nnoremap <Space>n :<C-u>Vaffle %:h<CR>
