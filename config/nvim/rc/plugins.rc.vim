@@ -54,6 +54,7 @@ let g:coc_global_extensions = [
             \   'coc-json',
             \   'coc-yaml',
             \   'coc-vimlsp',
+            \   'coc-tailwindcss',
             \ ]
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)

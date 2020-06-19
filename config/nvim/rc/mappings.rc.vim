@@ -114,8 +114,8 @@ nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 
 " カーソル下の単語をハイライトして置換
-nmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
-xmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
+nmap <M-h> <C-h>:%s/<C-r>///g<Left><Left>
+xmap <M-h> <C-h>:%s/<C-r>///g<Left><Left>
 function! s:set_vsearch()
     silent normal gv"zy
     let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')

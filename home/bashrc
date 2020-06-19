@@ -31,6 +31,9 @@ alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias activate='. venv/bin/activate'
 alias r='ranger'
 alias t='tmuximum'
+function tn() {
+  echo -ne "\e]1;"$1"\a"
+}
 # for linux
 #alias pbcopy='xclip -selection c'
 #alias pbpaste='xclip -selection c -o'
