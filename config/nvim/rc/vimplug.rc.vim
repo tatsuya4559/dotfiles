@@ -21,6 +21,7 @@ else
     Plug 'mattn/emmet-vim'
     Plug 'tpope/vim-commentary'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'AndrewRadev/tagalong.vim'
 
     " File explore
     Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
