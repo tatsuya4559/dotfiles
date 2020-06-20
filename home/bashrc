@@ -32,8 +32,13 @@ alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias activate='. venv/bin/activate'
 alias r='ranger'
 alias t='tmuximum'
+alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develop$" | xargs -I % git branch -d %'
 function tn() {
-  echo -ne "\e]1;"$1"\a"
+  if [ -z $TMUX ] ; then
+    echo -ne "\033]0;"$@"\007"
+  else
+   tmux rename-window "$@"
+  fi
 }
 # for linux
 #alias pbcopy='xclip -selection c'
