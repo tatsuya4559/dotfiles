@@ -20,11 +20,12 @@ LIGHT_GRAY='\[\e[0;37m\]'
 GRAY='\[\e[1;37m\]'
 export PS1="${BLUE}\w${YELLOW}"'$(__git_ps1)'"${BLUE} -> ${NORMAL}"
 
+alias vm='nvim'
 alias vim='nvim'
 alias view='nvim -R'
 alias ls='ls -GF'
 alias la='ls -GFa'
-alias ll='ls -GFal'
+alias ll='ls -GFalh'
 alias tree='tree -C'
 alias g='cd $(ghq root)/$(ghq list | fzf)'
 alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
