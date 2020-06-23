@@ -14,6 +14,7 @@ else
     Plug 'evanleck/vim-svelte'
     Plug 'yasukotelin/shirotelin'
     Plug 'cocopon/iceberg.vim'
+    Plug 'lifepillar/vim-solarized8'
 
     " Text edit
     Plug 'bronson/vim-visual-star-search'
