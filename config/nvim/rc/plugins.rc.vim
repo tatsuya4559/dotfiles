@@ -107,6 +107,12 @@ endfunction
 function! s:async_git_push()
     execute 'AsyncRun git push origin HEAD'
 endfunction
+
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '✖'
+let g:gitgutter_sign_removed_first_line = '✖'
+let g:gitgutter_sign_modified_removed = '✖'
 " }}}
 
 " emmet {{{
