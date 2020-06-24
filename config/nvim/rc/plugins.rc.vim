@@ -12,6 +12,10 @@ nnoremap <Space>v :<C-u>Vaffle<CR>
 nnoremap <Space>n :<C-u>Vaffle %:h<CR>
 " }}}
 
+" NERDTree {{{
+nnoremap <Space>e :<C-u>NERDTreeToggle<CR>
+" }}}
+
 " clap {{{
 let g:clap_layout = {
             \ 'relative': 'editor',
