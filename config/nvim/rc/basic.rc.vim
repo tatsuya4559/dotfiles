@@ -10,7 +10,7 @@ set ambiwidth=double
 
 " ステータスライン設定 {{{
 set laststatus=2
-set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %=[%{&fenc!=''?&fenc:&enc}]%)
+set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %)
 " }}}
 
 " カーソル行をハイライト {{{
