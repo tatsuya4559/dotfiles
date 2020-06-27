@@ -10,7 +10,6 @@ set fileformats=unix,dos,mac
 
 " ステータスライン設定 {{{
 set laststatus=2
-set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %=[%{&fenc!=''?&fenc:&enc}]%)
 " }}}
 
 " カーソル行をハイライト {{{
@@ -18,7 +17,7 @@ set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %=[%{&fenc!=''?&fenc:&enc}]%)
 " }}}
 
 " カラースキーム {{{
-colorscheme delek
+colorscheme desert
 filetype plugin indent on
 syntax enable
 " }}}
@@ -27,18 +26,9 @@ syntax enable
 set smartindent
 set breakindent
 set expandtab " タブでスペース挿入
-set tabstop=4 " タブの表示幅
-set softtabstop=4 " <Tab>で挿入されるスペースの数
-set shiftwidth=4 " 自動インデントのサイズ
-
-" ファイルタイプ別のインデント設定
-augroup FiletypeIndent
-    autocmd!
-    au Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-augroup END
-" }}}
+set tabstop=2 " タブの表示幅
+set softtabstop=2 " <Tab>で挿入されるスペースの数
+set shiftwidth=2 " 自動インデントのサイズ
 
 " 検索設定 {{{
 set incsearch
@@ -177,7 +167,6 @@ nnoremap s <C-w>
 " }}}
 
 " タブ移動 {{{
-nnoremap <M-t> :<C-u>tab split<CR>
 nnoremap <silent> ]t gt
 nnoremap <silent> [t gT
 " }}}
@@ -221,7 +210,7 @@ tnoremap <silent> <Esc> <C-\><C-n>
 " }}}
 
 " 行末の空白を削除 {{{
-command! FixWhitespaces :%s/\s\+$//g
+command! -range=% FixWhitespaces :<line1>,<line2>s/\s\+$//g
 " }}}
 
 " 行番号の相対表示をトグル {{{
