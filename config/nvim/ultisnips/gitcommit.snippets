@@ -1,0 +1,15 @@
+snippet ft "feature"
+feat #`git symbolic-ref --short HEAD | sed -e 's/iss//'` $1
+endsnippet
+
+snippet fix "fix"
+fix #`git symbolic-ref --short HEAD | sed -e 's/iss//'` $1
+endsnippet
+
+snippet test "test"
+test #`git symbolic-ref --short HEAD | sed -e 's/iss//'` $1
+endsnippet
+
+snippet ref "refactoring"
+refactor #`git symbolic-ref --short HEAD | sed -e 's/iss//'` $1
+endsnippet
