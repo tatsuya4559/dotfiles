@@ -51,14 +51,14 @@ let g:coc_global_extensions = [
             \   'coc-prettier',
             \   'coc-html',
             \   'coc-css',
+            \   'coc-tailwindcss',
             \   'coc-tsserver',
             \   'coc-python',
             \   'coc-java',
             \   'coc-rls',
+            \   'coc-vimlsp',
             \   'coc-json',
             \   'coc-yaml',
-            \   'coc-vimlsp',
-            \   'coc-tailwindcss',
             \ ]
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
@@ -118,11 +118,6 @@ let g:gitgutter_sign_modified_removed = '✖'
 " emmet {{{
 let g:user_emmet_mode='i'
 let g:user_emmet_leader_key='<C-t>'
-" }}}
-
-" quickhl {{{
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
 " }}}
 
 " AnyJump {{{

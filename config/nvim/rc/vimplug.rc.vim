@@ -33,7 +33,6 @@ else
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'pechorin/any-jump.vim'
     Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
 
     " Git
     Plug 'airblade/vim-gitgutter'
@@ -46,7 +45,6 @@ else
     Plug 'tyru/capture.vim'
     Plug 'skywind3000/asyncrun.vim'
     Plug 'vim-jp/vimdoc-ja'
-    Plug 't9md/vim-quickhl'
 
     call plug#end()
 endif

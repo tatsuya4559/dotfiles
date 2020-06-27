@@ -21,3 +21,36 @@ class Test$1(DjangoTest):
     def test_ok(self):
         pass
 endsnippet
+
+snippet ase "assertEqual"
+self.assertEqual($1)
+endsnippet
+
+snippet ast "assertTrue"
+self.assertTrue($1)
+endsnippet
+
+snippet asf "assertFalse"
+self.assertFalse($1)
+endsnippet
+
+snippet asr "assertRaises"
+with self.assertRaises($1):
+    $2
+endsnippet
+
+snippet asin "assertIsNone"
+self.assertIsNone($1)
+endsnippet
+
+snippet asinn "assertIsNotNone"
+self.assertIsNotNone($1)
+endsnippet
+
+snippet asi "assertIn"
+self.assertIn($1)
+endsnippet
+
+snippet asni "assertNotIn"
+self.assertNotIn($1)
+endsnippet

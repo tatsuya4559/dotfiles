@@ -4,7 +4,7 @@ snippet /** "typedoc"
  */
 endsnippet
 
-snippet rfc "react arrow function component with export."
+snippet fc "react arrow function component with export."
 import React from 'react';
 
 type Props = {
@@ -23,6 +23,10 @@ snippet imp "import"
 import ${2:module} from '${1:path}';
 endsnippet
 
+snippet icm "import css modules"
+import styles from './`!p snip.rv = snip.basename`.module.css'
+endsnippet
+
 snippet exd "export default"
 export default ${1:module};
 endsnippet
@@ -31,6 +35,22 @@ snippet caf "const arrow function"
 const ${1:func} = (${2:args}) => {
   $3
 };
+endsnippet
+
+snippet fn "function"
+function $1($2) {
+  $3
+}
+endsnippet
+
+snippet afn "arrow function"
+($1) => {
+  $2
+}
+endsnippet
+
+snippet cn "className"
+className=
 endsnippet
 
 snippet ust "useState"

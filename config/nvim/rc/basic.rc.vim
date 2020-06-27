@@ -168,7 +168,6 @@ endif
 " }}}
 
 " abbreviations {{{
-:iabbrev bbash #!/bin/bash
 :cabbrev sg silent grep!
 :cabbrev be bufdo e
 :cabbrev windi windo diffthis
