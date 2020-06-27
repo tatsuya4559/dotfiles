@@ -53,7 +53,6 @@ nnoremap s <C-w>
 " }}}
 
 " タブ移動 {{{
-nnoremap <M-t> :<C-u>tab split<CR>
 nnoremap <silent> ]t gt
 nnoremap <silent> [t gT
 " }}}
@@ -61,6 +60,9 @@ nnoremap <silent> [t gT
 " バッファ移動 {{{
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
+nnoremap <silent> <Right> :<C-u>bn<CR>
+nnoremap <silent> <Left> :<C-u>bp<CR>
+nnoremap <Space>b :<C-u>b<Space>
 " }}}
 
 " QuickFix移動 {{{

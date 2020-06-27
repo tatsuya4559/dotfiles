@@ -2,6 +2,11 @@
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 " }}}
 
+" buftabline {{{
+let g:buftabline_show=1
+let g:buftabline_numbers=1
+" }}}
+
 " commentary {{{
 nnoremap <Leader>\ :<C-u>Commentary<CR>
 vnoremap <Leader>\ :Commentary<CR>
