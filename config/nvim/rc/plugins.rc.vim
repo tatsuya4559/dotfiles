@@ -27,7 +27,6 @@ let g:clap_layout = {
 let g:clap_insert_mode_only = 1
 nnoremap <silent> <C-p> :Clap files<CR>
 nnoremap <silent> <Space>c :Clap command<CR>
-nnoremap <silent> <Space>b :Clap buffers<CR>
 nnoremap <silent> <Space>l :Clap blines<CR>
 nnoremap <silent> <Space>L :Clap lines<CR>
 nnoremap <silent> <Space>f :Clap grep<CR>
@@ -38,7 +37,6 @@ nnoremap <silent> <Space>i :Clap filer<CR>
 
 vnoremap <silent> <C-p> :Clap files ++query=@visual<CR>
 vnoremap <silent> <Space>c :Clap command ++query=@visual<CR>
-vnoremap <silent> <Space>b :Clap buffers ++query=@visual<CR>
 vnoremap <silent> <Space>l :Clap blines ++query=@visual<CR>
 vnoremap <silent> <Space>L :Clap lines ++query=@visual<CR>
 vnoremap <silent> <Space>f :Clap grep ++query=@visual<CR>
