@@ -18,9 +18,9 @@ set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %)
 " }}}
 
 " カラースキーム {{{
-" if exists('&termguicolors')
-"     set termguicolors
-" endif
+if exists('&termguicolors')
+    set termguicolors
+endif
 colorscheme shirotelin
 " }}}
 
