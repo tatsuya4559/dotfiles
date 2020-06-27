@@ -25,7 +25,8 @@ else
     Plug 'AndrewRadev/tagalong.vim'
 
     " File explore
-    Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
     Plug 'cocopon/vaffle.vim'
     Plug 'preservim/nerdtree'
     Plug 'ap/vim-buftabline'

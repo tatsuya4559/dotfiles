@@ -21,30 +21,13 @@ nnoremap <Space>n :<C-u>Vaffle %:h<CR>
 nnoremap <Space>e :<C-u>NERDTreeToggle<CR>
 " }}}
 
-" clap {{{
-let g:clap_layout = {
-            \ 'relative': 'editor',
-            \ 'width': '67%',
-            \ 'height': '33%',
-            \ 'row': '10%',
-            \ 'col': '17%'
-            \}
-let g:clap_insert_mode_only = 1
-nnoremap <silent> <C-p> :Clap files<CR>
-nnoremap <silent> <Space>c :Clap command<CR>
-nnoremap <silent> <Space>l :Clap blines<CR>
-nnoremap <silent> <Space>L :Clap lines<CR>
-nnoremap <silent> <Space>f :Clap grep<CR>
-nnoremap <silent> <Space>y :Clap yanks<CR>
-nnoremap <silent> <Space>h :Clap history<CR>
-nnoremap <silent> <Space>r :Clap registers<CR>
-nnoremap <silent> <Space>i :Clap filer<CR>
-
-vnoremap <silent> <C-p> :Clap files ++query=@visual<CR>
-vnoremap <silent> <Space>c :Clap command ++query=@visual<CR>
-vnoremap <silent> <Space>l :Clap blines ++query=@visual<CR>
-vnoremap <silent> <Space>L :Clap lines ++query=@visual<CR>
-vnoremap <silent> <Space>f :Clap grep ++query=@visual<CR>
+" fzf {{{
+nnoremap <silent> <C-p> :<C-u>GFiles<CR>
+nnoremap <silent> <Space>c :<C-u>Commands<CR>
+nnoremap <silent> <Space>l :<C-u>Blines<CR>
+nnoremap <silent> <Space>L :<C-u>Lines<CR>
+nnoremap <silent> <Space>f :<C-u>Rg<CR>
+nnoremap <silent> <Space>h :<C-u>History<CR>
 " }}}
 
 " Coc {{{
