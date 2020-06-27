@@ -171,8 +171,6 @@ endif
 :cabbrev sg silent grep!
 :cabbrev be bufdo e
 :cabbrev windi windo diffthis
-:cabbrev ar AsyncRun
-:cabbrev as AsyncStop
 " }}}
 
 " smooth scroll {{{
