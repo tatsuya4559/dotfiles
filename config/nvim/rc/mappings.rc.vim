@@ -62,7 +62,7 @@ nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
 nnoremap <silent> <Right> :<C-u>bn<CR>
 nnoremap <silent> <Left> :<C-u>bp<CR>
-nnoremap <Space>b :<C-u>b<Space>
+nnoremap <Space>b :<C-u>b *
 " }}}
 
 " QuickFix移動 {{{
