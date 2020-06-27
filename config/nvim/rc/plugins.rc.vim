@@ -95,21 +95,10 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 " Git {{{
 nmap [git] <Nop>
 map <Space>g [git]
-nnoremap [git]s :<C-u>tab Gstatus<CR>
-nnoremap [git]p :<C-u>call <SID>async_git_pull()<CR>
-nnoremap [git]P :<C-u>call <SID>async_git_push()<CR>
 nnoremap [git]d :<C-u>Gdiffsplit<CR>
 nnoremap [git]b :<C-u>Gblame<CR>
 nnoremap [git]w :<C-u>Gbrowse<CR>
 vnoremap [git]w :Gbrowse<CR>
-
-function! s:async_git_pull()
-    execute 'AsyncRun git pull origin ' . fugitive#head()
-endfunction
-
-function! s:async_git_push()
-    execute 'AsyncRun git push origin HEAD'
-endfunction
 
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '◾'

@@ -173,7 +173,6 @@ endif
 :cabbrev windi windo diffthis
 :cabbrev ar AsyncRun
 :cabbrev as AsyncStop
-:cabbrev cm Git commit -m
 " }}}
 
 " smooth scroll {{{
