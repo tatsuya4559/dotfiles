@@ -1,6 +1,0 @@
----
-- hosts: targets
-  roles:
-    - brew_installation
-    - dotfiles_distribution
-    - defaults_write
