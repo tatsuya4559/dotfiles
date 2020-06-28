@@ -28,20 +28,16 @@ colorscheme shirotelin
 set smartindent
 set breakindent
 set expandtab " タブでスペース挿入
-set tabstop=4 " タブの表示幅
-set softtabstop=4 " <Tab>で挿入されるスペースの数
-set shiftwidth=4 " 自動インデントのサイズ
+set tabstop=2 " タブの表示幅
+set softtabstop=2 " <Tab>で挿入されるスペースの数
+set shiftwidth=2 " 自動インデントのサイズ
 
 " ファイルタイプ別のインデント設定
 augroup FiletypeIndent
     autocmd!
-    au Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype typescript.tsx setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au Filetype toml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    au Filetype java setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    au Filetype sql setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
 " }}}
 
