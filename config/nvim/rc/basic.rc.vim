@@ -88,6 +88,11 @@ set listchars=tab:»-,trail:-,nbsp:+,extends:»,precedes:«
 " スワップファイルを作成しない {{{
 set noswapfile
 " }}}
+"
+" バックアップを作成しない {{{
+set nobackup
+set nowritebackup
+" }}}
 
 " ウィンドウサイズの自動調整を無効化 {{{
 set noequalalways

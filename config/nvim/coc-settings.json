@@ -1,15 +1,17 @@
 {
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "yank.highlight.enable": false,
+  "html.autoClosingTags": true,
   "python.jediEnabled": false,
+  "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": [
     "--max-line-length=120",
     "--ignore=E203,E231,E302,W391,W503,W504"
   ],
-  "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": true,
   "python.formatting.provider": "black",
-  "tsserver.enableJavascript": true,
+  "tsserver.formatOnType": false,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["typescript"]

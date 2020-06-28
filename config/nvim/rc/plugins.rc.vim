@@ -34,6 +34,7 @@ nnoremap <silent> <Space>h :<C-u>History<CR>
 " Coc {{{
 let g:coc_global_extensions = [
             \   'coc-pairs',
+            \   'coc-yank',
             \   'coc-snippets',
             \   'coc-prettier',
             \   'coc-html',
@@ -47,21 +48,14 @@ let g:coc_global_extensions = [
             \   'coc-json',
             \   'coc-yaml',
             \ ]
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
-nnoremap <Leader>f :call <SID>format_document()<CR>
+nnoremap <silent> <Space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:format_document()
-    if &ft =~? 'javascript\|typescript'
-        execute 'CocCommand prettier.formatFile'
-    else
-        call CocAction('format')
-    endif
-endfunction
-
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
@@ -70,7 +64,25 @@ function! s:show_documentation()
     endif
 endfunction
 
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" vmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+nnoremap <Leader>f :call <SID>format_document()<CR>
+function! s:format_document()
+    if &ft =~? 'javascript\|typescript'
+        execute 'CocCommand prettier.formatFile'
+    else
+        call CocAction('format')
+    endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>ac  <Plug>(coc-codeaction)
+" nmap <leader>qf  <Plug>(coc-fix-current)
+
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
