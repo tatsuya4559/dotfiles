@@ -65,8 +65,6 @@ function! s:show_documentation()
     endif
 endfunction
 
-" vmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
 nnoremap <Leader>f :call <SID>format_document()<CR>
 function! s:format_document()
     if &ft =~? 'javascript\|typescript'
