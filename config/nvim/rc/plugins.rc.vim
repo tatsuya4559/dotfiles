@@ -93,7 +93,6 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 nmap [git] <Nop>
 map <Space>g [git]
 nnoremap [git]d :<C-u>Gdiffsplit<CR>
-nnoremap [git]b :<C-u>Gblame<CR>
 nnoremap [git]w :<C-u>Gbrowse<CR>
 vnoremap [git]w :Gbrowse<CR>
 " }}}
