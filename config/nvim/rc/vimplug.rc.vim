@@ -48,5 +48,9 @@ else
     Plug 'markonm/traces.vim'
     Plug 'vim-jp/vimdoc-ja'
 
+    " DB
+    Plug 'tpope/vim-dadbod'
+    Plug 'kristijanhusak/vim-dadbod-ui'
+
     call plug#end()
 endif
