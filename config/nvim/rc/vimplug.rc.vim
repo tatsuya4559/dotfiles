@@ -45,7 +45,6 @@ else
     Plug 'AndrewRadev/linediff.vim'
     Plug 'markonm/traces.vim'
     Plug 'tyru/capture.vim'
-    Plug 'skywind3000/asyncrun.vim'
     Plug 'vim-jp/vimdoc-ja'
 
     call plug#end()
