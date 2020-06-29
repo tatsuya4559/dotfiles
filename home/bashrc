@@ -7,7 +7,7 @@ export MICRO_TRUECOLOR=1
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
-# PS1
+# PS1 {{{
 GIT_PS1_SHOWDIRTYSTATE=true
 NORMAL='\[\e[m\]'
 RED='\[\e[0;31m\]'
@@ -19,20 +19,51 @@ CYAN='\[\e[0;36m\]'
 LIGHT_GRAY='\[\e[0;37m\]'
 GRAY='\[\e[1;37m\]'
 export PS1="${BLUE}\w${YELLOW}"'$(__git_ps1)'"${BLUE} -> ${NORMAL}"
+# }}}
 
+
+# alias {{{
+# 安全系
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# vim系
 alias vm='nvim'
 alias vim='nvim'
 alias view='nvim -R'
+
+# ls系
 alias ls='ls -GF'
 alias la='ls -GFa'
 alias ll='ls -GFalh'
 alias tree='tree -C'
+
+# cd系
 alias g='cd $(ghq root)/$(ghq list | fzf)'
 alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
+
+# git系
+alias st='git status'
+alias cm='git commit'
+alias pull="git pull origin `git symbolic-ref --short HEAD`"
+alias push='git push origin HEAD'
+alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develop$" | xargs -I % git branch -d %'
+
+# その他
+alias h='clear && tldr'
 alias activate='. venv/bin/activate'
 alias r='ranger'
 alias t='tmuximum'
-alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develop$" | xargs -I % git branch -d %'
+
+# for linux
+#alias pbcopy='xclip -selection c'
+#alias pbpaste='xclip -selection c -o'
+# }}}
+
+
+# 関数 {{{
+# iterm2のタブ名を変更する
 function tn() {
   if [ -z $TMUX ] ; then
     echo -ne "\033]0;"$@"\007"
@@ -40,10 +71,8 @@ function tn() {
    tmux rename-window "$@"
   fi
 }
-# for linux
-#alias pbcopy='xclip -selection c'
-#alias pbpaste='xclip -selection c -o'
 
+# awkめんどい
 function col() {
   awk -v col=$1 '{print $col}'
 }
@@ -53,4 +82,4 @@ function profile_vim() {
     echo "scale=3; $(nvim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1) / $(nvim --noplugin --startuptime /tmp/stime_default.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_default.log | cut -d ' ' -f1)" | bc | xargs -I{} echo "{}x slower your NeoVim than the default."
     rm /tmp/stime_with_plugin.log /tmp/stime_default.log
 }
-
+# }}}
