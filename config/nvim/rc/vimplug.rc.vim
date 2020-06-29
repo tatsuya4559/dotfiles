@@ -17,6 +17,8 @@ else
     Plug 'lifepillar/vim-solarized8'
 
     " Text edit
+    Plug 'kana/vim-operator-user'
+    Plug 'kana/vim-operator-replace'
     Plug 'bronson/vim-visual-star-search'
     Plug 'machakann/vim-sandwich'
     Plug 'mattn/emmet-vim'

@@ -1,3 +1,7 @@
+" operator-replace {{{
+map -  <Plug>(operator-replace)
+" }}}
+
 " ultisnips {{{
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 " }}}
