@@ -95,12 +95,6 @@ nnoremap [git]d :<C-u>Gdiffsplit<CR>
 nnoremap [git]b :<C-u>Gblame<CR>
 nnoremap [git]w :<C-u>Gbrowse<CR>
 vnoremap [git]w :Gbrowse<CR>
-
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '◾'
-let g:gitgutter_sign_removed = '✖'
-let g:gitgutter_sign_removed_first_line = '✖'
-let g:gitgutter_sign_modified_removed = '✖'
 " }}}
 
 " emmet {{{
