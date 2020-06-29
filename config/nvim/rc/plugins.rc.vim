@@ -28,6 +28,7 @@ nnoremap <silent> <Space>c :<C-u>Commands<CR>
 nnoremap <silent> <Space>l :<C-u>BLines<CR>
 nnoremap <silent> <Space>L :<C-u>Lines<CR>
 nnoremap <silent> <Space>f :<C-u>Rg<CR>
+nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand("<cword>")<CR><CR>
 nnoremap <silent> <Space>h :<C-u>History<CR>
 " }}}
 
