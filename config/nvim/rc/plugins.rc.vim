@@ -78,23 +78,10 @@ endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>ac  <Plug>(coc-codeaction)
-" nmap <leader>qf  <Plug>(coc-fix-current)
-
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
-" }}}
-
-" Git {{{
-nmap [git] <Nop>
-map <Space>g [git]
-nnoremap [git]d :<C-u>Gdiffsplit<CR>
-nnoremap [git]w :<C-u>Gbrowse<CR>
-vnoremap [git]w :Gbrowse<CR>
 " }}}
 
 " emmet {{{

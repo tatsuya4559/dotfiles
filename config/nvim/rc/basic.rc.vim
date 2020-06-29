@@ -172,6 +172,9 @@ endif
 :cabbrev sg silent grep!
 :cabbrev be bufdo e
 :cabbrev windi windo diffthis
+:cabbrev gd Gvdiffsplit
+:cabbrev gb Gbrowse
+:cabbrev ld Linediff
 " }}}
 
 " smooth scroll {{{
