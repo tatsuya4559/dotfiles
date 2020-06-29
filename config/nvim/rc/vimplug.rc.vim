@@ -44,7 +44,6 @@ else
     " Utils
     Plug 'AndrewRadev/linediff.vim'
     Plug 'markonm/traces.vim'
-    Plug 'tyru/capture.vim'
     Plug 'vim-jp/vimdoc-ja'
 
     call plug#end()
