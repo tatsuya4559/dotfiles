@@ -170,7 +170,6 @@ endif
 
 " abbreviations {{{
 :cabbrev sg silent grep!
-:cabbrev be bufdo e
 :cabbrev windi windo diffthis
 :cabbrev gd Gvdiffsplit
 :cabbrev gb Gbrowse

@@ -27,9 +27,8 @@ nnoremap <silent> <C-p> :<C-u>GFiles<CR>
 nnoremap <silent> <Space>c :<C-u>Commands<CR>
 nnoremap <silent> <Space>l :<C-u>BLines<CR>
 nnoremap <silent> <Space>L :<C-u>Lines<CR>
-nnoremap <silent> <Space>f :<C-u>Rg<CR>
-nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand("<cword>")<CR><CR>
-nnoremap <silent> <Space>h :<C-u>History<CR>
+nnoremap <Space>f :<C-u>Rg<Space>
+nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
 " }}}
 
 " Coc {{{

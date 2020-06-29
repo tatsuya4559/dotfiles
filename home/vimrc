@@ -105,7 +105,7 @@ elseif executable('git')
     set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
     set grepformat=%f:%l:%c:%m
 endif
-nnoremap <Space>j :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 8\|else\|ccl\|endif\|cc<CR>
+nnoremap <Space>* :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 8\|else\|ccl\|endif\|cc<CR>
 " }}}
 
 " abbreviations {{{

@@ -123,3 +123,7 @@ function! s:set_vsearch()
     let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
 endfunction
 " }}}
+
+" grep(お試し) {{{
+nnoremap <Space>sg :<C-u>silent grep!<Space>
+" }}}
