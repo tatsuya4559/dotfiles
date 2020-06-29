@@ -205,3 +205,12 @@ nnoremap <silent><expr> <C-u> v:count == 0 ? ":call SmoothScroll('up', 2, 1)\<CR
 nnoremap <silent><expr> <C-f> v:count == 0 ? ":call SmoothScroll('down', 1, 2)\<CR>" : "\<C-f>"
 nnoremap <silent><expr> <C-b> v:count == 0 ? ":call SmoothScroll('up', 1, 2)\<CR>" : "\<C-b>"
 " }}}
+
+" EscしたときにIMEをオフにする {{{
+if has('mac')
+  set ttimeoutlen=1
+  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
+  inoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
+  nnoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
+endif
+" }}}
