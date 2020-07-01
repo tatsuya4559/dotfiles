@@ -46,6 +46,7 @@ alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 # git系
 alias st='git status'
 alias cm='git commit'
+alias co='git checkout'
 alias pull="git pull origin `git symbolic-ref --short HEAD`"
 alias push='git push origin HEAD'
 alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develop$" | xargs -I % git branch -d %'
@@ -55,6 +56,7 @@ alias h='clear && tldr'
 alias activate='. venv/bin/activate'
 alias r='ranger'
 alias t='tmuximum'
+alias C='pbcopy'
 
 # for linux
 #alias pbcopy='xclip -selection c'
