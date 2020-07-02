@@ -38,6 +38,7 @@ augroup FiletypeIndent
     au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
     au Filetype java setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
     au Filetype sql setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    au Filetype rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
 " }}}
 
