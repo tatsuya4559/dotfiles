@@ -13,8 +13,7 @@ else
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'evanleck/vim-svelte'
     Plug 'yasukotelin/shirotelin'
-    Plug 'cocopon/iceberg.vim'
-    Plug 'lifepillar/vim-solarized8'
+    Plug 'arcticicestudio/nord-vim'
 
     " Text edit
     Plug 'kana/vim-operator-user'

@@ -21,7 +21,7 @@ set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %)
 if exists('&termguicolors')
     set termguicolors
 endif
-colorscheme shirotelin
+colorscheme nord
 " }}}
 
 " タブ設定 {{{
