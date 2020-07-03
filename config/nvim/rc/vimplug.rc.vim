@@ -11,19 +11,17 @@ else
     " Colorscheme
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'peitalin/vim-jsx-typescript'
-    Plug 'evanleck/vim-svelte'
     Plug 'yasukotelin/shirotelin'
     Plug 'arcticicestudio/nord-vim'
 
     " Text edit
     Plug 'kana/vim-operator-user'
     Plug 'kana/vim-operator-replace'
-    Plug 'bronson/vim-visual-star-search'
+    Plug 'markonm/traces.vim'
     Plug 'machakann/vim-sandwich'
-    Plug 'mattn/emmet-vim'
-    Plug 'tpope/vim-commentary'
+    Plug 'bronson/vim-visual-star-search'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'AndrewRadev/tagalong.vim'
+    Plug 'tpope/vim-commentary'
 
     " File explore
     Plug 'junegunn/fzf'
@@ -36,6 +34,8 @@ else
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'pechorin/any-jump.vim'
     Plug 'SirVer/ultisnips'
+    Plug 'mattn/emmet-vim'
+    Plug 'AndrewRadev/tagalong.vim'
 
     " Git
     Plug 'airblade/vim-gitgutter'
@@ -44,7 +44,6 @@ else
 
     " Utils
     Plug 'AndrewRadev/linediff.vim'
-    Plug 'markonm/traces.vim'
     Plug 'vim-jp/vimdoc-ja'
 
     " DB
