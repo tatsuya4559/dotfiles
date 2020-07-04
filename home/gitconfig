@@ -23,6 +23,7 @@
     br = branch
     di = diff
     dt = difftool
+    mt = mergetool
     see = browse
     sw = switch
     re = restore
@@ -30,5 +31,3 @@
     prune = true
 [ghq]
     root = ~/git
-[pull]
-    ff = only

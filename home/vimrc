@@ -39,7 +39,7 @@ set wrapscan
 " }}}
 
 " クリップボードを共有 {{{
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 " }}}
 
 " バックスペースとCtrl+hで削除を有効にする {{{
