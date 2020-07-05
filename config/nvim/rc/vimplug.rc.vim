@@ -45,6 +45,7 @@ else
     " Utils
     Plug 'AndrewRadev/linediff.vim'
     Plug 'vim-jp/vimdoc-ja'
+    Plug 'christoomey/vim-tmux-navigator'
 
     " DB
     Plug 'tpope/vim-dadbod'
