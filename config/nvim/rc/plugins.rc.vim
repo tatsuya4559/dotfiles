@@ -37,7 +37,6 @@ nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
 
 " Coc {{{
 let g:coc_global_extensions = [
-            \   'coc-pairs',
             \   'coc-yank',
             \   'coc-snippets',
             \   'coc-prettier',

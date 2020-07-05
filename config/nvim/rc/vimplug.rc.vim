@@ -21,6 +21,7 @@ else
     Plug 'machakann/vim-sandwich'
     Plug 'bronson/vim-visual-star-search'
     Plug 'tpope/vim-commentary'
+    Plug 'jiangmiao/auto-pairs'
 
     " File explore
     Plug 'junegunn/fzf'
