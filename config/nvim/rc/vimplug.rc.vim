@@ -20,7 +20,6 @@ else
     Plug 'markonm/traces.vim'
     Plug 'machakann/vim-sandwich'
     Plug 'bronson/vim-visual-star-search'
-    Plug 'terryma/vim-multiple-cursors'
     Plug 'tpope/vim-commentary'
 
     " File explore
