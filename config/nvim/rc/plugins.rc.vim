@@ -83,11 +83,13 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
+
+nnoremap <Leader>r :<C-u>RustRun<CR>
 " }}}
 
 " emmet {{{
 let g:user_emmet_mode='i'
-let g:user_emmet_leader_key='<C-t>'
+let g:user_emmet_leader_key='<C-s>'
 " }}}
 
 " AnyJump {{{

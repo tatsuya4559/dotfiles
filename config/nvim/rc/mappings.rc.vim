@@ -13,7 +13,6 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-inoremap <C-d> <Del>
 inoremap <C-h> <BS>
 inoremap <C-k> <C-o>D<Right>
 
@@ -23,7 +22,6 @@ cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-cnoremap <C-d> <Del>
 " }}}
 
 " 誤爆するキーを無効化 {{{
