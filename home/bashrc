@@ -47,7 +47,6 @@ alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias st='git status'
 alias cm='git commit'
 alias co='git checkout'
-alias pull="git pull origin `git symbolic-ref --short HEAD`"
 alias push='git push origin HEAD'
 alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develop$" | xargs -I % git branch -d %'
 
