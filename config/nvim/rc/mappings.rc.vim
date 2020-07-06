@@ -108,11 +108,14 @@ vnoremap . :normal .<CR>
 " }}}
 
 " カーソル下の単語をハイライト {{{
-nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nnoremap <silent> <C-h> :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
+" }}}
 
-" カーソル下の単語をハイライトして置換
-nmap <C-s> <C-h>:%s/<C-r>///g<Left><Left>
+" 置換 {{{
+" nnoremap gs :%s/\v//<Left><Left>
+nnoremap <Space>s :%s/\v//<Left><Left>
+nnoremap <C-s> :<C-u>%s/\V\<<C-r>=expand('<cword>')<CR>\>//<Left>
 xmap <C-s> <C-h>:%s/<C-r>///g<Left><Left>
 function! s:set_vsearch()
     silent normal gv"zy
@@ -121,5 +124,5 @@ endfunction
 " }}}
 
 " grep(お試し) {{{
-nnoremap <Space>sg :<C-u>silent grep!<Space>
+nnoremap <Space>F :<C-u>silent grep!<Space>
 " }}}
