@@ -210,6 +210,7 @@ nnoremap <silent><expr> <C-b> v:count == 0 ? ":call SmoothScroll('up', 1, 2)\<CR
 " }}}
 
 " EscしたときにIMEをオフにする {{{
+" FIXME: オフにしてくれるのはいいけどESCのレスポンスが遅くなって困る
 if has('mac')
   set ttimeoutlen=1
   let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'

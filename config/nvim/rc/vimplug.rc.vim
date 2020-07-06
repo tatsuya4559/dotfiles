@@ -20,8 +20,8 @@ else
     Plug 'markonm/traces.vim'
     Plug 'machakann/vim-sandwich'
     Plug 'bronson/vim-visual-star-search'
-    Plug 'terryma/vim-multiple-cursors'
     Plug 'tpope/vim-commentary'
+    Plug 'jiangmiao/auto-pairs'
 
     " File explore
     Plug 'junegunn/fzf'
@@ -45,6 +45,7 @@ else
     " Utils
     Plug 'AndrewRadev/linediff.vim'
     Plug 'vim-jp/vimdoc-ja'
+    Plug 'christoomey/vim-tmux-navigator'
 
     " DB
     Plug 'tpope/vim-dadbod'

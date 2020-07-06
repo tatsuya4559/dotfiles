@@ -11,9 +11,7 @@ vnoremap L g_
 
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-inoremap <C-a> <Home>
 inoremap <C-e> <End>
-inoremap <C-d> <Del>
 inoremap <C-h> <BS>
 inoremap <C-k> <C-o>D<Right>
 
@@ -21,9 +19,7 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
-cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-cnoremap <C-d> <Del>
 " }}}
 
 " 誤爆するキーを無効化 {{{
@@ -116,8 +112,8 @@ nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 
 " カーソル下の単語をハイライトして置換
-nmap <M-h> <C-h>:%s/<C-r>///g<Left><Left>
-xmap <M-h> <C-h>:%s/<C-r>///g<Left><Left>
+nmap <C-s> <C-h>:%s/<C-r>///g<Left><Left>
+xmap <C-s> <C-h>:%s/<C-r>///g<Left><Left>
 function! s:set_vsearch()
     silent normal gv"zy
     let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')

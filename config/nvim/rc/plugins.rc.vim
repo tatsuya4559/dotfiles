@@ -37,7 +37,6 @@ nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
 
 " Coc {{{
 let g:coc_global_extensions = [
-            \   'coc-pairs',
             \   'coc-yank',
             \   'coc-snippets',
             \   'coc-prettier',
@@ -83,11 +82,13 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
+
+nnoremap <Leader>r :<C-u>RustRun<CR>
 " }}}
 
 " emmet {{{
 let g:user_emmet_mode='i'
-let g:user_emmet_leader_key='<C-t>'
+let g:user_emmet_leader_key='<C-s>'
 " }}}
 
 " AnyJump {{{
@@ -95,4 +96,12 @@ let g:any_jump_disable_default_keybindings = 1
 nnoremap <Space>j :AnyJump<CR>
 xnoremap <Space>j :AnyJumpVisual<CR>
 nnoremap <Space>al :AnyJumpLastResults<CR>
+" }}}
+
+" Tmux Navigator {{{
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <M-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <M-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <M-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <M-l> :TmuxNavigateRight<CR>
 " }}}
