@@ -1,33 +1,35 @@
 [user]
-    name = tatsuya4559
-    email = tatsuya.k1029@gmail.com
+  name = tatsuya4559
+  email = tatsuya.k1029@gmail.com
 [core]
-    editor = nvim
+  editor = nvim
 [diff]
-    tool = nvimdiff
+  tool = nvimdiff
 [difftool]
-    prompt = false
+  prompt = false
 [difftool "nvimdiff"]
-    cmd = "nvim -Rdc \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+  cmd = "nvim -Rdc \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
 [merge]
-    tool = nvimdiff
-    ff = false
+  tool = nvimdiff
+  ff = false
 [mergetool "nvimdiff"]
-    cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
+  cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [alias]
-    st = status
-    co = checkout
-    cm = commit
-    fe = fetch
-    pop = stash pop
-    br = branch
-    di = diff
-    dt = difftool
-    mt = mergetool
-    see = browse
-    sw = switch
-    re = restore
+  st = status
+  co = checkout
+  cm = commit
+  fe = fetch
+  pop = stash pop
+  br = branch
+  di = diff
+  dt = difftool
+  mt = mergetool
+  see = browse
+  sw = switch
+  re = restore
 [fetch]
-    prune = true
+  prune = true
+[pull]
+  ff = only
 [ghq]
-    root = ~/git
+  root = ~/git
