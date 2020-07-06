@@ -12,13 +12,13 @@ vnoremap L g_
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-e> <End>
-inoremap <C-h> <BS>
-inoremap <C-k> <C-o>D<Right>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
+cnoremap <C-d> <Del>
+cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 " }}}
 
