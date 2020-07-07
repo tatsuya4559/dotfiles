@@ -129,5 +129,5 @@ endfunction
 " }}}
 
 " grep(お試し) {{{
-nnoremap <Space>F :<C-u>silent grep!<Space>
+nnoremap sg :<C-u>silent grep!<Space>
 " }}}
