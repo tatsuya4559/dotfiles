@@ -113,10 +113,15 @@ xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 " }}}
 
 " 置換 {{{
-" nnoremap gs :%s/\v//<Left><Left>
-nnoremap <Space>s :%s/\v//<Left><Left>
-nnoremap <C-s> :<C-u>%s/\V\<<C-r>=expand('<cword>')<CR>\>//<Left>
-xmap <C-s> <C-h>:%s/<C-r>///g<Left><Left>
+noremap [substitute] <Nop>
+map gs [substitute]
+nnoremap [substitute]s :%s/\v//<Left><Left>
+nnoremap [substitute]. :s/\v//<Left><Left>
+nnoremap [substitute]* :<C-u>%s/\V\<<C-r>=expand('<cword>')<CR>\>//<Left>
+
+xnoremap [substitute]s :s/\v//<Left><Left>
+xmap [substitute]* <C-h>:%s/<C-r>///g<Left><Left>
+
 function! s:set_vsearch()
     silent normal gv"zy
     let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
