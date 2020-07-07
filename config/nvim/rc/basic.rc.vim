@@ -150,7 +150,7 @@ command! CopyFilename :let @+ = expand('%:t')
 " grep結果をQuickFixに送る {{{
 augroup GrepCmd
     autocmd!
-    au QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow | endif
+    au QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow 5 | endif
 augroup END
 " }}}
 

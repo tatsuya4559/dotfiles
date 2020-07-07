@@ -69,7 +69,7 @@ nnoremap <silent> [q :<C-u>cp<CR>
 " QuickFixをトグル {{{
 function! ToggleQuickfix()
     let l:nr = winnr('$')
-    cwindow
+    cwindow 5
     let l:nr2 = winnr('$')
     if l:nr == l:nr2
         cclose
