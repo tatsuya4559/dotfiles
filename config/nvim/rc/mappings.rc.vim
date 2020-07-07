@@ -88,7 +88,7 @@ nnoremap Y y$
 " }}}
 
 " 空行を追加 {{{
-nnoremap <Space><CR> o<Esc>
+nnoremap <Space><CR> mzo<Esc>`z
 " }}}
 
 " 再描画 {{{
