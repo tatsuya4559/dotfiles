@@ -95,7 +95,6 @@ let g:user_emmet_leader_key='<C-s>'
 let g:any_jump_disable_default_keybindings = 1
 nnoremap <Space>j :AnyJump<CR>
 xnoremap <Space>j :AnyJumpVisual<CR>
-nnoremap <Space>al :AnyJumpLastResults<CR>
 " }}}
 
 " Tmux Navigator {{{
