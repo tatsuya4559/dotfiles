@@ -48,11 +48,6 @@ vnoremap <C-Down> "zx"zp`[V`]
 nnoremap s <C-w>
 " }}}
 
-" タブ移動 {{{
-nnoremap <silent> ]t gt
-nnoremap <silent> [t gT
-" }}}
-
 " バッファ移動 {{{
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
