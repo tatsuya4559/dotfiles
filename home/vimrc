@@ -12,10 +12,6 @@ set fileformats=unix,dos,mac
 set laststatus=2
 " }}}
 
-" カーソル行をハイライト {{{
-" set cursorline
-" }}}
-
 " カラースキーム {{{
 colorscheme desert
 filetype plugin indent on
@@ -73,17 +69,10 @@ set noequalalways
 
 " 行番号を表示 {{{
 set number
-" set relativenumber
 " }}}
 
 " テキストを折り返さない {{{
 set nowrap
-" }}}
-
-" スクロール設定 {{{
-" set scrolloff=8
-set sidescroll=1
-set sidescrolloff=16
 " }}}
 
 " バッファを保存しなくても切り替えられるようにする {{{
@@ -93,7 +82,7 @@ set hidden
 " grep結果をQuickFixに送る {{{
 augroup GrepCmd
     autocmd!
-    au QuickFixCmdPost vim,grep if len(getqflist()) != 0 | cwindow 5 | endif
+    au QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow 5 | endif
 augroup END
 " }}}
 
@@ -110,7 +99,6 @@ nnoremap <Space>* :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen
 
 " abbreviations {{{
 :cabbrev sg silent grep!
-:cabbrev windi windo diffthis
 " }}}
 
 " カーソル移動 {{{
@@ -132,11 +120,6 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 " }}}
 
-" 誤爆するキーを無効化 {{{
-nnoremap Q <Nop>
-nnoremap <F1> <Nop>
-" }}}
-
 " vvで行末まで選択 {{{
 nnoremap vv v$h
 " }}}
@@ -144,22 +127,6 @@ nnoremap vv v$h
 " <, >で連続してインデント調整できるようにする {{{
 vnoremap < <gv
 vnoremap > >gv
-" }}}
-
-" 行を移動 {{{
-nnoremap <C-Up> "zdd<Up>"zP
-nnoremap <C-Down> "zdd"zp
-vnoremap <C-Up> "zx<Up>"zP`[V`]
-vnoremap <C-Down> "zx"zp`[V`]
-" }}}
-
-" ウィンドウ操作のprefixをsに割り当てる {{{
-nnoremap s <C-w>
-" }}}
-
-" タブ移動 {{{
-nnoremap <silent> ]t gt
-nnoremap <silent> [t gT
 " }}}
 
 " バッファ移動 {{{
@@ -188,10 +155,6 @@ nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
 nnoremap Y y$
 " }}}
 
-" 空行を追加 {{{
-nnoremap <Space><CR> o<Esc>
-" }}}
-
 " 再描画 {{{
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " }}}
@@ -204,25 +167,8 @@ tnoremap <silent> <Esc> <C-\><C-n>
 command! -range=% FixWhitespaces :<line1>,<line2>s/\s\+$//g
 " }}}
 
-" 行番号の相対表示をトグル {{{
-nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
-" }}}
-
 " 選択範囲に.で繰り返しコマンド実行する {{{
 vnoremap . :normal .<CR>
-" }}}
-
-" カーソル下の単語をハイライト {{{
-nnoremap <silent> <C-h> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
-
-" カーソル下の単語をハイライトして置換
-nmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
-xmap <C-n> <C-h>:%s/<C-r>///g<Left><Left>
-function! s:set_vsearch()
-    silent normal gv"zy
-    let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
-endfunction
 " }}}
 
 " ファイルサーチ {{{
