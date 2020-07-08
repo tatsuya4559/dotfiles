@@ -46,7 +46,6 @@ alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 # git系
 alias st='git status'
 alias cm='git commit'
-alias co='git checkout'
 alias push='git push origin HEAD'
 alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develop$" | xargs -I % git branch -d %'
 
@@ -64,15 +63,6 @@ alias C='pbcopy'
 
 
 # 関数 {{{
-# iterm2のタブ名を変更する
-function tn() {
-  if [ -z $TMUX ] ; then
-    echo -ne "\033]0;"$@"\007"
-  else
-   tmux rename-window "$@"
-  fi
-}
-
 # awkめんどい
 function col() {
   awk -v col=$1 '{print $col}'
