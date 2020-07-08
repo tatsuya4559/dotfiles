@@ -1,3 +1,7 @@
+" auto pairs {{{
+let g:AutoPairsShortcutFastWrap = '<C-l>'
+" }}}
+
 " operator-replace {{{
 map -  <Plug>(operator-replace)
 " }}}
