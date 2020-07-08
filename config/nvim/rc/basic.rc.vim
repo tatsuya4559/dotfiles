@@ -110,8 +110,8 @@ set nowrap
 
 " スクロール設定 {{{
 " set scrolloff=8
+" set sidescrolloff=16
 set sidescroll=1
-set sidescrolloff=16
 " }}}
 
 " 日本語表示を抑制 {{{
