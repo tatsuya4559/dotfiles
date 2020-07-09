@@ -67,8 +67,10 @@ set clipboard=
 " mappingなんだけどお試しだからわかりやすくここで設定する
 noremap <Space>p "+p
 noremap <Space>P "+P
+noremap! <C-r><C-r> <C-r>"
+noremap! <C-r><Space> <C-r>+
 
-augroup vimrc
+augroup YankToClipboard
   if exists('##TextYankPost')
     autocmd TextYankPost * call <SID>copyUnnamedToPlus(v:event.operator)
   endif
