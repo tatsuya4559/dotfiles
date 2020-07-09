@@ -13,7 +13,7 @@ set laststatus=2
 " }}}
 
 " カラースキーム {{{
-colorscheme desert
+colorscheme default
 filetype plugin indent on
 syntax enable
 " }}}
