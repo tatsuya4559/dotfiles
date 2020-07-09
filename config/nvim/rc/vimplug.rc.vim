@@ -15,8 +15,6 @@ else
     Plug 'arcticicestudio/nord-vim'
 
     " Text edit
-    Plug 'kana/vim-operator-user'
-    Plug 'kana/vim-operator-replace'
     Plug 'markonm/traces.vim'
     Plug 'machakann/vim-sandwich'
     Plug 'bronson/vim-visual-star-search'

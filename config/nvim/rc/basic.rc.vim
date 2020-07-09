@@ -62,7 +62,24 @@ endif
 " }}}
 
 " クリップボードを共有 {{{
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
+set clipboard=
+" mappingなんだけどお試しだからわかりやすくここで設定する
+noremap <Space>p "+p
+noremap <Space>P "+P
+
+augroup vimrc
+  if exists('##TextYankPost')
+    autocmd TextYankPost * call <SID>copyUnnamedToPlus(v:event.operator)
+  endif
+augroup END
+
+function! s:copyUnnamedToPlus(opr)
+  " yank 操作のときのみ， + レジスタに内容を移す（delete のときはしない）
+  if a:opr ==# 'y'
+    let @+ = @"
+  endif
+endfunction
 " }}}
 
 " バックスペースとCtrl+hで削除を有効にする {{{
