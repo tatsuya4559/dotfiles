@@ -71,9 +71,8 @@ noremap! <C-r><C-r> <C-r>"
 noremap! <C-r><Space> <C-r>+
 
 augroup YankToClipboard
-  if exists('##TextYankPost')
-    autocmd TextYankPost * call <SID>copyUnnamedToPlus(v:event.operator)
-  endif
+  autocmd!
+  autocmd TextYankPost * call <SID>copyUnnamedToPlus(v:event.operator)
 augroup END
 
 function! s:copyUnnamedToPlus(opr)
