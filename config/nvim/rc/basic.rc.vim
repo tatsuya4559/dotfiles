@@ -149,6 +149,14 @@ set mouse=a
 set hidden
 " }}}
 
+" ファイルの変更を自動読込 {{{
+set autoread
+augroup AutoReadChecktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
+" }}}
+
 " terminal設定 {{{
 set sh=bash
 augroup Term
