@@ -25,10 +25,6 @@ nnoremap <Space>v :<C-u>Vaffle<CR>
 nnoremap <Space>n :<C-u>Vaffle %:h<CR>
 " }}}
 
-" NERDTree {{{
-nnoremap <Space>e :<C-u>NERDTreeToggle<CR>
-" }}}
-
 " fzf {{{
 let g:fzf_preview_window = ''
 nnoremap <silent> <C-p> :<C-u>GFiles<CR>
