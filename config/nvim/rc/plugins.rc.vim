@@ -88,7 +88,7 @@ nnoremap <Leader>r :<C-u>RustRun<CR>
 
 " emmet {{{
 let g:user_emmet_mode='i'
-let g:user_emmet_leader_key='<C-s>'
+let g:user_emmet_leader_key='<C-k>'
 " }}}
 
 " AnyJump {{{
