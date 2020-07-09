@@ -21,6 +21,8 @@ vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
 " vaffle {{{
+nmap <Space><Space> <Plug>(vaffle-toggle-current)
+vmap <Space><Space> <Plug>(vaffle-toggle-current)
 nnoremap <Space>v :<C-u>Vaffle<CR>
 nnoremap <Space>n :<C-u>Vaffle %:h<CR>
 " }}}
