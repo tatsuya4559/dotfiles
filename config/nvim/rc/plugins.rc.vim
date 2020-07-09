@@ -41,6 +41,7 @@ nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
 
 " Coc {{{
 let g:coc_global_extensions = [
+            \   'coc-actions',
             \   'coc-yank',
             \   'coc-snippets',
             \   'coc-prettier',
@@ -70,6 +71,7 @@ function! s:show_documentation()
         call CocAction('doHover')
     endif
 endfunction
+nnoremap <silent> <Leader>a :CocCommand actions.open<CR>
 
 nnoremap <Leader>f :call <SID>format_document()<CR>
 function! s:format_document()
