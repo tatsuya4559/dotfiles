@@ -55,7 +55,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
@@ -63,10 +63,10 @@ function! s:show_documentation()
         call CocAction('doHover')
     endif
 endfunction
-nnoremap <silent> <Leader>a :CocCommand actions.open<CR>
+nnoremap <silent> <Leader>a :<C-u>CocCommand actions.open<CR>
 
-nnoremap <Leader>f :call <SID>format_document()<CR>
-function! s:format_document()
+nnoremap <Leader>f :<C-u>call FormatDocument()<CR>
+function! FormatDocument()
     if &ft =~? 'javascript\|typescript'
         execute 'CocCommand prettier.formatFile'
     else
@@ -81,7 +81,6 @@ augroup END
 
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
-" Use <C-j> for both expand and jump (make expand higher priority.)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 nnoremap <Leader>r :<C-u>RustRun<CR>
@@ -94,14 +93,14 @@ let g:user_emmet_leader_key='<C-k>'
 
 " AnyJump {{{
 let g:any_jump_disable_default_keybindings = 1
-nnoremap <Space>j :AnyJump<CR>
+nnoremap <Space>j :<C-u>AnyJump<CR>
 xnoremap <Space>j :AnyJumpVisual<CR>
 " }}}
 
 " Tmux Navigator {{{
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <M-h> :TmuxNavigateLeft<CR>
-nnoremap <silent> <M-j> :TmuxNavigateDown<CR>
-nnoremap <silent> <M-k> :TmuxNavigateUp<CR>
-nnoremap <silent> <M-l> :TmuxNavigateRight<CR>
+nnoremap <silent> <M-h> :<C-u>TmuxNavigateLeft<CR>
+nnoremap <silent> <M-j> :<C-u>TmuxNavigateDown<CR>
+nnoremap <silent> <M-k> :<C-u>TmuxNavigateUp<CR>
+nnoremap <silent> <M-l> :<C-u>TmuxNavigateRight<CR>
 " }}}
