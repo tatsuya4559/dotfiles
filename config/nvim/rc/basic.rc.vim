@@ -135,6 +135,10 @@ language C
 set mouse=a
 " }}}
 
+" コマンドラインからコマンドラインウィンドウを開く {{{
+execute 'set cedit=\<C-c>'
+" }}}
+
 " バッファを保存しなくても切り替えられるようにする {{{
 set hidden
 " }}}
