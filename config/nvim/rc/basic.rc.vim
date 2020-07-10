@@ -117,13 +117,17 @@ set nowritebackup
 set noequalalways
 " }}}
 
+" 右にsplitする {{{
+set splitright
+" }}}
+
 " 行番号を表示 {{{
 set number
 " set relativenumber
 " }}}
 
 " テキストを折り返さない {{{
-set nowrap
+" set nowrap
 " }}}
 
 " スクロール設定 {{{
