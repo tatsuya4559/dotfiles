@@ -76,7 +76,10 @@ function! s:format_document()
     endif
 endfunction
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup Coc
+  autocmd!
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
 
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
