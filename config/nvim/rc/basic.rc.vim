@@ -62,6 +62,7 @@ endif
 " }}}
 
 " クリップボードを共有 {{{
+" thanks to monaqa
 " set clipboard+=unnamedplus
 set clipboard=
 " mappingなんだけどお試しだからわかりやすくここで設定する
@@ -207,6 +208,7 @@ endif
 " }}}
 
 " smooth scroll {{{
+" thanks to cohama
 let s:scroll_time_ms = 100
 let s:scroll_precision = 8
 function! SmoothScroll(dir, windiv, factor)
