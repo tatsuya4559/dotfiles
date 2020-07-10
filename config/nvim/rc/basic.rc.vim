@@ -13,10 +13,6 @@ set laststatus=2
 set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %)
 " }}}
 
-" カーソル行をハイライト {{{
-" set cursorline
-" }}}
-
 " カラースキーム {{{
 if exists('&termguicolors')
     set termguicolors
