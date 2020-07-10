@@ -17,8 +17,10 @@ vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
 " vaffle {{{
-nmap <Space><Space> <Plug>(vaffle-toggle-current)
-vmap <Space><Space> <Plug>(vaffle-toggle-current)
+augroup VaffleMap
+  autocmd!
+  autocmd FileType vaffle map <buffer><nowait> <Space> <Plug>(vaffle-toggle-current)
+augroup END
 nnoremap <Space>vv :<C-u>Vaffle<CR>
 nnoremap <Space>v. :<C-u>Vaffle %:h<CR>
 " }}}
