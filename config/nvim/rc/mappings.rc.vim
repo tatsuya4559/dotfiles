@@ -21,8 +21,8 @@ nnoremap Q <Nop>
 nnoremap <F1> <Nop>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
+noremap s <Nop>
 " }}}
-
 
 " vvで行末まで選択 {{{
 nnoremap vv v$h
