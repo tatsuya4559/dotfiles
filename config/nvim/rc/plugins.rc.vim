@@ -36,7 +36,6 @@ nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
 " Coc {{{
 let g:coc_global_extensions = [
             \   'coc-actions',
-            \   'coc-yank',
             \   'coc-snippets',
             \   'coc-prettier',
             \   'coc-html',
@@ -55,7 +54,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
-nnoremap <silent> <Space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
