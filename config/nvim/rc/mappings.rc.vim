@@ -25,6 +25,8 @@ cnoremap <C-e> <End>
 " 誤爆するキーを無効化 {{{
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
 " }}}
 
 
