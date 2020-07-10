@@ -1,25 +1,19 @@
 " カーソル移動 {{{
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+noremap j gj
+noremap k gk
 
-nnoremap H ^
-nnoremap L g_
-vnoremap H ^
-vnoremap L g_
+noremap H ^
+noremap L g_
 
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
-inoremap <C-e> <End>
+noremap! <C-b> <Left>
+noremap! <C-f> <Right>
+noremap! <C-e> <End>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
 " }}}
 
 " 誤爆するキーを無効化 {{{
