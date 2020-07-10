@@ -41,6 +41,11 @@ nnoremap <Space>f :<C-u>Rg<Space>
 nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
 " }}}
 
+" CocFzf {{{
+nnoremap <silent> <Space>o  :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <Space>g  :<C-u>CocFzfList diagnostics --current-buf<CR>
+" }}}
+
 " Coc {{{
 let g:coc_global_extensions = [
       \   'coc-actions',
@@ -62,7 +67,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <F2> <Plug>(coc-rename)
-nnoremap <silent> <Space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -71,7 +75,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-nnoremap <silent> <Leader>a :<C-u>CocCommand actions.open<CR>
+nnoremap <silent> <Space>a :<C-u>CocCommand actions.open<CR>
 
 nnoremap <Leader>f :<C-u>call FormatDocument()<CR>
 function! FormatDocument()
