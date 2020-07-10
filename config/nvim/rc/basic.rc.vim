@@ -136,10 +136,6 @@ set sidescroll=1
 language C
 " }}}
 
-" コメント行から改行したときに自動コメントアウトしない {{{
-" autocmd FileType * setlocal formatoptions-=ro
-" }}}
-
 " マウスを有効化 {{{
 set mouse=a
 " }}}
@@ -192,11 +188,6 @@ elseif executable('git')
     set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
     set grepformat=%f:%l:%c:%m
 endif
-" #############################
-" ripgrepの使い方:
-" :grep 'pattern' path/ -i -tpy
-" :grep 'regex' -g src/*.py
-" #############################
 " }}}
 
 " abbreviations {{{
