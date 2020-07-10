@@ -59,12 +59,12 @@ nnoremap <silent> [q :<C-u>cp<CR>
 
 " QuickFixをトグル {{{
 function! ToggleQuickfix()
-    let l:nr = winnr('$')
-    cwindow 5
-    let l:nr2 = winnr('$')
-    if l:nr == l:nr2
-        cclose
-    endif
+  let l:nr = winnr('$')
+  cwindow 5
+  let l:nr2 = winnr('$')
+  if l:nr == l:nr2
+    cclose
+  endif
 endfunction
 nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
 " }}}
@@ -114,8 +114,8 @@ xnoremap [substitute]s :s/\v//<Left><Left>
 xmap [substitute]* <C-h>:%s/<C-r>///g<Left><Left>
 
 function! s:set_vsearch()
-    silent normal gv"zy
-    let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
+  silent normal gv"zy
+  let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
 endfunction
 " }}}
 

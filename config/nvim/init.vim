@@ -12,10 +12,10 @@ let g:python3_host_prog = has('mac') ? '/usr/local/bin/python3' : '/usr/bin/pyth
 let s:rc_dir = expand('~/.config/nvim/rc')
 
 function! s:source_rc(rc_file_name)
-    let rc_file = expand(s:rc_dir . '/' . a:rc_file_name)
-    if filereadable(rc_file)
-        execute 'source' rc_file
-    endif
+  let rc_file = expand(s:rc_dir . '/' . a:rc_file_name)
+  if filereadable(rc_file)
+    execute 'source' rc_file
+  endif
 endfunction
 
 call s:source_rc('vimplug.rc.vim')

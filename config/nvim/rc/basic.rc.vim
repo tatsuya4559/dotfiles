@@ -15,7 +15,7 @@ set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %)
 
 " カラースキーム {{{
 if exists('&termguicolors')
-    set termguicolors
+  set termguicolors
 endif
 colorscheme nord
 " }}}
@@ -30,11 +30,10 @@ set shiftwidth=2 " 自動インデントのサイズ
 
 " ファイルタイプ別のインデント設定
 augroup FiletypeIndent
-    autocmd!
-    au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-    au Filetype java setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-    au Filetype sql setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-    au Filetype rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  autocmd!
+  autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  autocmd Filetype java setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  autocmd Filetype rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
 " }}}
 
@@ -49,11 +48,11 @@ set wrapscan
 " UNDO設定 {{{
 set undolevels=1000
 if has('persistent_undo')
-    set undodir=./.vim/undo,~/.vim/undo
-    augroup SaveUndoFile
-        autocmd!
-        autocmd BufReadPre ~/* setlocal undofile
-    augroup END
+  set undodir=./.vim/undo,~/.vim/undo
+  augroup SaveUndoFile
+    autocmd!
+    autocmd BufReadPre ~/* setlocal undofile
+  augroup END
 endif
 " }}}
 
@@ -155,8 +154,8 @@ augroup END
 " terminal設定 {{{
 set sh=bash
 augroup Term
-    autocmd!
-    au WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+  autocmd!
+  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 " }}}
 
@@ -171,18 +170,18 @@ command! CopyFilename :let @+ = expand('%:t')
 
 " grep結果をQuickFixに送る {{{
 augroup GrepCmd
-    autocmd!
-    au QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow 5 | endif
+  autocmd!
+  autocmd QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow 5 | endif
 augroup END
 " }}}
 
 " 外部grepをripgrepにする {{{
 if executable('rg')
-    set grepprg =rg\ --vimgrep
-    set grepformat=%f:%l:%c:%m
+  set grepprg=rg\ --vimgrep
+  set grepformat=%f:%l:%c:%m
 elseif executable('git')
-    set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
-    set grepformat=%f:%l:%c:%m
+  set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
+  set grepformat=%f:%l:%c:%m
 endif
 " }}}
 
