@@ -69,10 +69,10 @@ noremap! <C-r><Space> <C-r>+
 
 augroup YankToClipboard
   autocmd!
-  autocmd TextYankPost * call <SID>copyUnnamedToPlus(v:event.operator)
+  autocmd TextYankPost * call <SID>copy_unnamed_to_plus(v:event.operator)
 augroup END
 
-function! s:copyUnnamedToPlus(opr)
+function! s:copy_unnamed_to_plus(opr)
   " yank 操作のときのみ， + レジスタに内容を移す（delete のときはしない）
   if a:opr ==# 'y'
     let @+ = @"
