@@ -101,23 +101,29 @@ vnoremap . :normal .<CR>
 " }}}
 
 " カーソル下の単語をハイライト {{{
-nnoremap <silent> <C-h> :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
-xnoremap <silent> <C-h> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
+nnoremap <silent> <C-h> :call <SID>set_cword_to_search_reg()<CR>:set hlsearch<CR>
+vnoremap <silent> <C-h> mz:call <SID>set_visual_to_search_reg()<CR>:set hlsearch<CR>`z
 " }}}
 
 " 置換 {{{
+nnoremap cgw :call <SID>set_cword_to_search_reg()<CR>cgn
+
 noremap [substitute] <Nop>
 map gs [substitute]
 nnoremap [substitute]s :%s/\v//<Left><Left>
 nnoremap [substitute]. :s/\v//<Left><Left>
 nnoremap [substitute]* :<C-u>%s/\V\<<C-r>=expand('<cword>')<CR>\>//<Left>
 
-xnoremap [substitute]s :s/\v//<Left><Left>
-xmap [substitute]* <C-h>:%s/<C-r>///g<Left><Left>
+vnoremap [substitute]s :s/\v//<Left><Left>
+vnoremap [substitute]* :call <SID>set_visual_to_search_reg()<CR>:%s/<C-r>///g<Left><Left>
 
-function! s:set_vsearch()
+function! s:set_visual_to_search_reg()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
+endfunction
+
+function! s:set_cword_to_search_reg()
+  let @/ = '\V\<' . expand('<cword>') . '\>'
 endfunction
 " }}}
 
