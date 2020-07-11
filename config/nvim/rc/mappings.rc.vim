@@ -117,16 +117,36 @@ nnoremap [substitute]* :<C-u>%s/\V\<<C-r>=expand('<cword>')<CR>\>//<Left>
 vnoremap [substitute]s :s/\v//<Left><Left>
 vnoremap [substitute]* :call <SID>set_visual_to_search_reg()<CR>:%s/<C-r>///g<Left><Left>
 
+function! s:set_cword_to_search_reg()
+  let @/ = '\V\<' . expand('<cword>') . '\>'
+endfunction
+
 function! s:set_visual_to_search_reg()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
-endfunction
-
-function! s:set_cword_to_search_reg()
-  let @/ = '\V\<' . expand('<cword>') . '\>'
 endfunction
 " }}}
 
 " grep(お試し) {{{
 nnoremap sg :<C-u>silent grep!<Space>
+" }}}
+
+" tigを開く {{{
+function! OpenTig()
+  let tig_buf_name = bufname('term://*tig')
+  if tig_buf_name == ''
+    execute 'terminal tig'
+  else
+    execute ':b ' . tig_buf_name
+  endif
+
+  " Qでtigを閉じずにもとのバッファに戻る
+  tnoremap <buffer> Q <C-\><C-n><C-^>
+
+  setlocal nonumber
+  setlocal norelativenumber
+  startinsert
+endfunction
+
+nnoremap <Space>t :<C-u>call OpenTig()<CR>
 " }}}
