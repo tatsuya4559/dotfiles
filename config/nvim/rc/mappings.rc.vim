@@ -133,7 +133,7 @@ function! s:set_visual_to_search_reg()
 endfunction
 " }}}
 
-" grep(お試し) {{{
+" grep {{{
 nnoremap sg :<C-u>silent grep!<Space>
 " }}}
 
