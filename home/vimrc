@@ -101,9 +101,9 @@ nnoremap <Space>* :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen
 noremap j gj
 noremap k gk
 
-noremap <C-b> <Left>
-noremap <C-f> <Right>
-noremap <C-e> <End>
+noremap! <C-b> <Left>
+noremap! <C-f> <Right>
+noremap! <C-e> <End>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
