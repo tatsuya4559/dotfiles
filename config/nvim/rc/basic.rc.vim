@@ -66,7 +66,7 @@ augroup YankToClipboard
 augroup END
 
 function! s:copy_unnamed_to_plus(opr)
-  " yank 操作のときのみ， + レジスタに内容を移す（delete のときはしない）
+  " yank操作のときのみ+レジスタに内容を移す
   if a:opr ==# 'y'
     let @+ = @"
   endif
