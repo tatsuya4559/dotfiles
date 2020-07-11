@@ -142,15 +142,13 @@ function! OpenTig()
   let tig_buf_name = bufname('term://*tig')
   if tig_buf_name == ''
     execute 'terminal tig'
+    setlocal nonumber
+    setlocal norelativenumber
+    " Qでtigを閉じずにもとのバッファに戻る
+    tnoremap <buffer> Q <C-\><C-n><C-^>
   else
     execute ':b ' . tig_buf_name
   endif
-
-  " Qでtigを閉じずにもとのバッファに戻る
-  tnoremap <buffer> Q <C-\><C-n><C-^>
-
-  setlocal nonumber
-  setlocal norelativenumber
   startinsert
 endfunction
 
