@@ -99,10 +99,6 @@ nnoremap <Space><CR> mzo<Esc>`z
 nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR>
 " }}}
 
-" TERMINALモード時にEscでNORMALに復帰する {{{
-tnoremap <silent> <Esc> <C-\><C-n>
-" }}}
-
 " 行番号の相対表示をトグル {{{
 nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
 " }}}
