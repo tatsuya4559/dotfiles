@@ -20,6 +20,7 @@ else
   Plug 'bronson/vim-visual-star-search'
   Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'thinca/vim-qfreplace'
 
   " File explore
   Plug 'junegunn/fzf'
