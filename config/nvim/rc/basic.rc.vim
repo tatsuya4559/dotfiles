@@ -141,11 +141,7 @@ set hidden
 set autoread
 augroup AutoReadChecktime
   autocmd!
-  if exists('##FocusGained')
-    autocmd FocusGained * checktime
-  else
-    autocmd WinEnter * checktime
-  endif
+  autocmd FocusGained * checktime
 augroup END
 " }}}
 
