@@ -17,11 +17,6 @@ vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
 " vaffle {{{
-augroup VaffleMap
-  autocmd!
-  " <Space>で遅延無しで選択できるようにする
-  autocmd FileType vaffle map <buffer><nowait> <Space> <Plug>(vaffle-toggle-current)
-augroup END
 nnoremap <Space>vv :<C-u>Vaffle<CR>
 nnoremap <Space>v. :<C-u>Vaffle %:h<CR>
 " }}}
