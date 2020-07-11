@@ -21,7 +21,11 @@ nnoremap Q <Nop>
 nnoremap <F1> <Nop>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
+" }}}
+
+" prefixにするキーを無効化 {{{
 noremap s <Nop>
+noremap <Space> <Nop>
 " }}}
 
 " vvで行末まで選択 {{{
