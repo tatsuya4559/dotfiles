@@ -78,7 +78,7 @@ set hidden
 " grep結果をQuickFixに送る {{{
 augroup GrepCmd
     autocmd!
-    au QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow 5 | endif
+    au QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow | endif
 augroup END
 " }}}
 
@@ -128,7 +128,7 @@ nnoremap <silent> [q :<C-u>cp<CR>
 " QuickFixをトグル {{{
 function! ToggleQuickfix()
     let l:nr = winnr('$')
-    cwindow 5
+    cwindow
     let l:nr2 = winnr('$')
     if l:nr == l:nr2
         cclose
