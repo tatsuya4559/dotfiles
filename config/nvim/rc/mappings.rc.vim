@@ -11,7 +11,6 @@ noremap! <C-e> <End>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <C-a> <Home>
 " }}}
