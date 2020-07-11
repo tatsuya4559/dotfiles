@@ -1,3 +1,5 @@
+setlocal cursorline
+
 " pでqfからカーソルを動かさずにファイルを開く
 noremap <buffer> p  <CR>zz<C-w>p
 
