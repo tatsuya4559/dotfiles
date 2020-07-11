@@ -27,11 +27,6 @@ nnoremap <Space>v. :<C-u>Vaffle %:h<CR>
 " }}}
 
 " fzf {{{
-augroup FzfMap
-  autocmd!
-  " <Esc>でfzfから抜けられるようにする
-  autocmd FileType fzf tnoremap <buffer> <Esc> <C-c>
-augroup END
 let g:fzf_preview_window = ''
 nnoremap <silent> <C-p> :<C-u>GFiles<CR>
 nnoremap <silent> <Space>c :<C-u>Commands<CR>
