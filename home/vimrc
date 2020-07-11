@@ -63,10 +63,6 @@ set listchars=tab:»-,trail:-,nbsp:+,extends:»,precedes:«
 set noswapfile
 " }}}
 
-" ウィンドウサイズの自動調整を無効化 {{{
-set noequalalways
-" }}}
-
 " 行番号を表示 {{{
 set number
 " }}}
@@ -102,31 +98,21 @@ nnoremap <Space>* :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen
 " }}}
 
 " カーソル移動 {{{
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+noremap j gj
+noremap k gk
 
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
-inoremap <C-e> <End>
+noremap <C-b> <Left>
+noremap <C-f> <Right>
+noremap <C-e> <End>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
 " }}}
 
 " vvで行末まで選択 {{{
 nnoremap vv v$h
-" }}}
-
-" <, >で連続してインデント調整できるようにする {{{
-vnoremap < <gv
-vnoremap > >gv
 " }}}
 
 " バッファ移動 {{{
@@ -157,10 +143,6 @@ nnoremap Y y$
 
 " 再描画 {{{
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-" }}}
-
-" TERMINALモード時にEscでNORMALに復帰する {{{
-tnoremap <silent> <Esc> <C-\><C-n>
 " }}}
 
 " 選択範囲に.で繰り返しコマンド実行する {{{
