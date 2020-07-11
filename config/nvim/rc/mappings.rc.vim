@@ -139,8 +139,6 @@ nnoremap sg :<C-u>silent grep!<Space>
 " }}}
 
 " tigを開く {{{
-" FIXME: tig内でvimを起動するとinsertから抜けられない
-" (tnoremap <ESC>をやめればいいんだけど)
 function! OpenTig()
   let tig_buf_name = bufname('term://*tig')
   if tig_buf_name == ''
