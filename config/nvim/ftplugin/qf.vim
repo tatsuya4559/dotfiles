@@ -1,5 +1,7 @@
-" quickfixリストの削除とundoを実現する
+" pでqfからカーソルを動かさずにファイルを開く
+noremap <buffer> p  <CR>zz<C-w>p
 
+" quickfixリストの削除とundoを実現する
 nnoremap <silent> <buffer> dd :call <SID>del_entry()<CR>
 vnoremap <silent> <buffer> d :call <SID>del_entry()<CR>
 nnoremap <silent> <buffer> u :<C-u>call <SID>undo_entry()<CR>
