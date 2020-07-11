@@ -37,8 +37,8 @@ else
 
   " Git
   Plug 'airblade/vim-gitgutter'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-rhubarb'
+  Plug 'tpope/vim-fugitive' " rhubarbが依存しているから
+  Plug 'tpope/vim-rhubarb' " hub browseしか使ってない
 
   " Utils
   Plug 'AndrewRadev/linediff.vim'
