@@ -17,6 +17,7 @@
 [alias]
   st = status
   co = checkout
+  cof = !git branch | fzf | xargs git checkout
   cm = commit
   fe = fetch
   pop = stash pop
@@ -24,6 +25,7 @@
   di = diff
   dt = difftool
   mt = mergetool
+  graph = log --graph --decorate --oneline
   see = browse
   sw = switch
   re = restore
