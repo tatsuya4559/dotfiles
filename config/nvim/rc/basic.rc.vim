@@ -58,13 +58,7 @@ endif
 
 " クリップボードを共有 {{{
 " thanks to monaqa
-" set clipboard+=unnamedplus
 set clipboard=
-" mappingなんだけどお試しだからわかりやすくここで設定する
-noremap <Space>p "+p
-noremap <Space>P "+P
-noremap! <C-r><C-r> <C-r>"
-noremap! <C-r><Space> <C-r>+
 
 augroup YankToClipboard
   autocmd!

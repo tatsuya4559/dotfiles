@@ -80,6 +80,13 @@ vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
 nnoremap Y y$
 " }}}
 
+" ペースト系 {{{
+noremap <Space>p "+p
+noremap <Space>P "+P
+noremap! <C-r><C-r> <C-r>"
+noremap! <C-r><Space> <C-r>+
+" }}}
+
 " 空行を追加 {{{
 nnoremap <Space><CR> mzo<Esc>`z
 " }}}
