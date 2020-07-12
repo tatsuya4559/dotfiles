@@ -179,16 +179,17 @@ endfunction
 " }}}
 
 " tigを開く {{{
+let s:tig_bufnr = -1
 function! OpenTig()
-  let tig_buf_name = bufname('term://*tig')
-  if tig_buf_name == ''
+  if bufexists(s:tig_bufnr)
+    execute s:tig_bufnr 'buffer'
+  else
     execute 'terminal tig'
+    let s:tig_bufnr = bufnr('%')
     setlocal nonumber
     setlocal norelativenumber
     " Qでtigを閉じずにもとのバッファに戻る
     tnoremap <buffer> Q <C-\><C-n><C-^>
-  else
-    execute ':b ' . tig_buf_name
   endif
   startinsert
 endfunction
