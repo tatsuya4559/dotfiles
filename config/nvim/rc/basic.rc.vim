@@ -20,18 +20,9 @@ set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %)
 " インデント設定 {{{
 set smartindent
 set breakindent
-set expandtab " タブでスペース挿入
-set tabstop=2 " タブの表示幅
-set softtabstop=2 " <Tab>で挿入されるスペースの数
-set shiftwidth=2 " 自動インデントのサイズ
-
-" TODO: ftpluginへの移動を検討する
-augroup FiletypeIndent
-  autocmd!
-  autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd Filetype java setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd Filetype rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-augroup END
+set expandtab
+set tabstop=2
+set shiftwidth=2
 " }}}
 
 " 検索設定 {{{
