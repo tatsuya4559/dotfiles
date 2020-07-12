@@ -182,7 +182,12 @@ endfunction
 let s:tig_bufnr = -1
 function! OpenTig()
   if bufexists(s:tig_bufnr)
-    execute s:tig_bufnr 'buffer'
+    let tig_winnr = bufwinnr(s:tig_bufnr)
+    if tig_winnr >= 0
+      execute tig_winnr . 'wincmd w'
+    else
+      execute s:tig_bufnr 'buffer'
+    endif
   else
     execute 'terminal tig'
     let s:tig_bufnr = bufnr('%')
@@ -190,6 +195,7 @@ function! OpenTig()
     setlocal norelativenumber
     " Qでtigを閉じずにもとのバッファに戻る
     tnoremap <buffer> Q <C-\><C-n><C-^>
+    tnoremap <buffer> <C-w> <C-\><C-n><C-w>
   endif
   startinsert
 endfunction
