@@ -107,10 +107,10 @@ endfunction
 nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
 " }}}
 
-" grep結果をQuickFixに送る {{{
-augroup GrepCmd
+" grep, makeのの実行後にQuickFixを開く {{{
+augroup QfCmd
   autocmd!
-  autocmd QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow 8 | endif
+  autocmd QuickFixCmdPost vimgrep,grep,make if len(getqflist()) != 0 | cwindow 8 | endif
 augroup END
 " }}}
 
