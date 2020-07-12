@@ -88,8 +88,6 @@ augroup END
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
-
-nnoremap <Leader>r :<C-u>RustRun<CR>
 " }}}
 
 " emmet {{{
