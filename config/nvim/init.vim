@@ -21,4 +21,4 @@ endfunction
 call s:source_rc('packages.rc.vim')
 call s:source_rc('plugins.rc.vim')
 call s:source_rc('basic.rc.vim')
-call s:source_rc('mappings.rc.vim')
+call s:source_rc('user.rc.vim')
