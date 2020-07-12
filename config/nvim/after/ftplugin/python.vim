@@ -5,7 +5,7 @@ setlocal shiftwidth=4
 " }}}
 
 " format & lint {{{
-nnoremap <buffer> <Leader>b :<C-u>!black %<CR>
+nnoremap <buffer> <Leader>b :<C-u>update | !black %<CR>
 nnoremap <buffer> <Leader>l :silent make!<CR>
 setlocal makeprg=pylint\ --reports=n\ --msg-template=\"{path}:{line}:\ {msg_id}\ {symbol},\ {obj}\ {msg}\"\ %:p
 setlocal errorformat=%f:%l:\ %m
