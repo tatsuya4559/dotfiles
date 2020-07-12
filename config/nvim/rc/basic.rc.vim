@@ -1,3 +1,7 @@
+"==========================================
+" デフォルト値の変更
+"==========================================
+
 " 文字コード {{{
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
@@ -13,28 +17,12 @@ set laststatus=2
 set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %)
 " }}}
 
-" カラースキーム {{{
-if exists('&termguicolors')
-  set termguicolors
-endif
-colorscheme nord
-" }}}
-
-" タブ設定 {{{
+" インデント設定 {{{
 set smartindent
 set breakindent
-set expandtab " タブでスペース挿入
-set tabstop=2 " タブの表示幅
-set softtabstop=2 " <Tab>で挿入されるスペースの数
-set shiftwidth=2 " 自動インデントのサイズ
-
-" ファイルタイプ別のインデント設定
-augroup FiletypeIndent
-  autocmd!
-  autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd Filetype java setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd Filetype rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-augroup END
+set expandtab
+set tabstop=2
+set shiftwidth=2
 " }}}
 
 " 検索設定 {{{
@@ -45,34 +33,6 @@ set hlsearch
 set wrapscan
 " }}}
 
-" UNDO設定 {{{
-set undolevels=1000
-if has('persistent_undo')
-  set undodir=./.vim/undo,~/.vim/undo
-  augroup SaveUndoFile
-    autocmd!
-    autocmd BufReadPre ~/* setlocal undofile
-  augroup END
-endif
-" }}}
-
-" クリップボードを共有 {{{
-" thanks to monaqa
-set clipboard=
-
-augroup YankToClipboard
-  autocmd!
-  autocmd TextYankPost * call <SID>copy_unnamed_to_plus(v:event.operator)
-augroup END
-
-function! s:copy_unnamed_to_plus(opr)
-  " yank操作のときのみ+レジスタに内容を移す
-  if a:opr ==# 'y'
-    let @+ = @"
-  endif
-endfunction
-" }}}
-
 " バックスペースとCtrl+hで削除を有効にする {{{
 set backspace=2
 " }}}
@@ -81,7 +41,7 @@ set backspace=2
 set wildmenu
 " }}}
 
-" 描画改善 {{{
+" アイドル状態になる時間 {{{
 set updatetime=100
 " }}}
 
@@ -153,79 +113,14 @@ augroup Term
 augroup END
 " }}}
 
-" 行末の空白を削除 {{{
-command! -range=% FixWhitespaces :<line1>,<line2>s/\s\+$//g
-" }}}
-
-" ファイルパスをコピー {{{
-command! CopyPath :let @+ = expand('%:p')
-command! CopyFilename :let @+ = expand('%:t')
-" }}}
-
-" grep結果をQuickFixに送る {{{
-augroup GrepCmd
-  autocmd!
-  autocmd QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow 8 | endif
-augroup END
-" }}}
-
-" 外部grepをripgrepにする {{{
-if executable('rg')
-  set grepprg=rg\ --vimgrep
-  set grepformat=%f:%l:%c:%m
-elseif executable('git')
-  set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
-  set grepformat=%f:%l:%c:%m
+" undo設定 {{{
+set undolevels=1000
+if has('persistent_undo')
+  set undodir=./.vim/undo,~/.vim/undo
+  augroup SaveUndoFile
+    autocmd!
+    autocmd BufReadPre ~/* setlocal undofile
+  augroup END
 endif
 " }}}
 
-" abbreviations {{{
-:cabbrev sg silent grep!
-:cabbrev windi windo diffthis
-:cabbrev gd Gvdiffsplit
-:cabbrev gb Gbrowse
-:cabbrev ld Linediff
-" }}}
-
-" smooth scroll {{{
-" thanks to cohama
-let s:scroll_time_ms = 100
-let s:scroll_precision = 8
-function! SmoothScroll(dir, windiv, factor)
-  let cl = &cursorline
-  let cc = &cursorcolumn
-  set nocursorline nocursorcolumn
-  let height = winheight(0) / a:windiv
-  let n = height / s:scroll_precision
-  if n <= 0
-    let n = 1
-  endif
-  let wait_per_one_move_ms = s:scroll_time_ms / s:scroll_precision * a:factor
-  let i = 0
-  let scroll_command = a:dir == "down" ?
-        \ "normal! " . n . "\<C-e>" . n ."j" :
-        \ "normal! " . n . "\<C-y>" . n ."k"
-  while i < s:scroll_precision
-    let i = i + 1
-    execute scroll_command
-    execute "sleep " . wait_per_one_move_ms . "m"
-    redraw
-  endwhile
-  let &cursorline = cl
-  let &cursorcolumn = cc
-endfunction
-nnoremap <silent><expr> <C-d> v:count == 0 ? ":call SmoothScroll('down', 2, 1)\<CR>" : "\<C-d>"
-nnoremap <silent><expr> <C-u> v:count == 0 ? ":call SmoothScroll('up', 2, 1)\<CR>" : "\<C-u>"
-nnoremap <silent><expr> <C-f> v:count == 0 ? ":call SmoothScroll('down', 1, 2)\<CR>" : "\<C-f>"
-nnoremap <silent><expr> <C-b> v:count == 0 ? ":call SmoothScroll('up', 1, 2)\<CR>" : "\<C-b>"
-" }}}
-
-" EscしたときにIMEをオフにする {{{
-" FIXME: オフにしてくれるのはいいけどESCのレスポンスが遅くなって困る
-if has('mac')
-  set ttimeoutlen=1
-  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
-  inoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
-  nnoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
-endif
-" }}}
