@@ -1,3 +1,19 @@
+"==========================================
+" ユーザ定義マッピング・コマンド
+"==========================================
+
+" 誤爆するキーを無効化 {{{
+nnoremap Q <Nop>
+nnoremap <F1> <Nop>
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+" }}}
+
+" prefixにするキーを無効化 {{{
+noremap s <Nop>
+noremap <Space> <Nop>
+" }}}
+
 " カーソル移動 {{{
 noremap j gj
 noremap k gk
@@ -15,16 +31,33 @@ cnoremap <C-d> <Del>
 cnoremap <C-a> <Home>
 " }}}
 
-" 誤爆するキーを無効化 {{{
-nnoremap Q <Nop>
-nnoremap <F1> <Nop>
-nnoremap ZZ <Nop>
-nnoremap ZQ <Nop>
+" カラースキーム {{{
+if exists('&termguicolors')
+  set termguicolors
+endif
+colorscheme nord
 " }}}
 
-" prefixにするキーを無効化 {{{
-noremap s <Nop>
-noremap <Space> <Nop>
+" クリップボードを共有 {{{
+" thanks to monaqa
+set clipboard=
+
+noremap <Space>p "+p
+noremap <Space>P "+P
+noremap! <C-r><C-r> <C-r>"
+noremap! <C-r><Space> <C-r>+
+
+augroup YankToClipboard
+  autocmd!
+  autocmd TextYankPost * call <SID>copy_unnamed_to_plus(v:event.operator)
+augroup END
+
+function! s:copy_unnamed_to_plus(opr)
+  " yank操作のときのみ+レジスタに内容を移す
+  if a:opr ==# 'y'
+    let @+ = @"
+  endif
+endfunction
 " }}}
 
 " vvで行末まで選択 {{{
@@ -74,6 +107,25 @@ endfunction
 nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
 " }}}
 
+" grep結果をQuickFixに送る {{{
+augroup GrepCmd
+  autocmd!
+  autocmd QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow 8 | endif
+augroup END
+" }}}
+
+" 外部grepをカスタマイズ {{{
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+elseif executable('git')
+  set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
+  set grepformat=%f:%l:%c:%m
+endif
+
+nnoremap sg :<C-u>silent grep!<Space>
+" }}}
+
 " URLなどを開く {{{
 nnoremap <silent> <Leader>o :<C-u>!open %<CR>
 vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
@@ -83,18 +135,11 @@ vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
 nnoremap Y y$
 " }}}
 
-" ペースト系 {{{
-noremap <Space>p "+p
-noremap <Space>P "+P
-noremap! <C-r><C-r> <C-r>"
-noremap! <C-r><Space> <C-r>+
-" }}}
-
 " 空行を追加 {{{
 nnoremap <Space><CR> mzo<Esc>`z
 " }}}
 
-" 再描画 {{{
+" 再描画でハイライトを消す {{{
 nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR>
 " }}}
 
@@ -133,10 +178,6 @@ function! s:set_visual_to_search_reg()
 endfunction
 " }}}
 
-" grep {{{
-nnoremap sg :<C-u>silent grep!<Space>
-" }}}
-
 " tigを開く {{{
 function! OpenTig()
   let tig_buf_name = bufname('term://*tig')
@@ -153,4 +194,64 @@ function! OpenTig()
 endfunction
 
 nnoremap <Space>t :<C-u>call OpenTig()<CR>
+" }}}
+
+" 行末の空白を削除 {{{
+command! -range=% FixWhitespaces :<line1>,<line2>s/\s\+$//g
+" }}}
+
+" ファイルパスをコピー {{{
+command! CopyPath :let @+ = expand('%:p')
+command! CopyFilename :let @+ = expand('%:t')
+" }}}
+
+" abbreviations {{{
+:cabbrev sg silent grep!
+:cabbrev windi windo diffthis
+:cabbrev gd Gvdiffsplit
+:cabbrev gb Gbrowse
+:cabbrev ld Linediff
+" }}}
+
+" smooth scroll {{{
+" thanks to cohama
+let s:scroll_time_ms = 100
+let s:scroll_precision = 8
+function! SmoothScroll(dir, windiv, factor)
+  let cl = &cursorline
+  let cc = &cursorcolumn
+  set nocursorline nocursorcolumn
+  let height = winheight(0) / a:windiv
+  let n = height / s:scroll_precision
+  if n <= 0
+    let n = 1
+  endif
+  let wait_per_one_move_ms = s:scroll_time_ms / s:scroll_precision * a:factor
+  let i = 0
+  let scroll_command = a:dir == "down" ?
+        \ "normal! " . n . "\<C-e>" . n ."j" :
+        \ "normal! " . n . "\<C-y>" . n ."k"
+  while i < s:scroll_precision
+    let i = i + 1
+    execute scroll_command
+    execute "sleep " . wait_per_one_move_ms . "m"
+    redraw
+  endwhile
+  let &cursorline = cl
+  let &cursorcolumn = cc
+endfunction
+nnoremap <silent><expr> <C-d> v:count == 0 ? ":call SmoothScroll('down', 2, 1)\<CR>" : "\<C-d>"
+nnoremap <silent><expr> <C-u> v:count == 0 ? ":call SmoothScroll('up', 2, 1)\<CR>" : "\<C-u>"
+nnoremap <silent><expr> <C-f> v:count == 0 ? ":call SmoothScroll('down', 1, 2)\<CR>" : "\<C-f>"
+nnoremap <silent><expr> <C-b> v:count == 0 ? ":call SmoothScroll('up', 1, 2)\<CR>" : "\<C-b>"
+" }}}
+
+" EscしたときにIMEをオフにする {{{
+" FIXME: オフにしてくれるのはいいけどESCのレスポンスが遅くなって困る
+if has('mac')
+  set ttimeoutlen=1
+  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
+  inoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
+  nnoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
+endif
 " }}}

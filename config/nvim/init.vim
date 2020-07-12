@@ -18,7 +18,7 @@ function! s:source_rc(rc_file_name)
   endif
 endfunction
 
-call s:source_rc('packages.rc.vim')
-call s:source_rc('plugins.rc.vim')
 call s:source_rc('basic.rc.vim')
+call s:source_rc('packages.rc.vim')
 call s:source_rc('user.rc.vim')
+call s:source_rc('plugins.rc.vim')
