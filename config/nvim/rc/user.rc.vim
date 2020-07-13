@@ -116,10 +116,10 @@ augroup END
 
 " 外部grepをカスタマイズ {{{
 if executable('rg')
-  set grepprg=rg\ --vimgrep
+  let &grepprg = 'rg --vimgrep'
   set grepformat=%f:%l:%c:%m
 elseif executable('git')
-  set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
+  let &grepprg = 'git grep -I --no-color --line-number --column'
   set grepformat=%f:%l:%c:%m
 endif
 
