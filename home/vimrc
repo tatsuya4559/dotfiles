@@ -75,10 +75,10 @@ set nowrap
 set hidden
 " }}}
 
-" grep結果をQuickFixに送る {{{
+" grep, makeのの実行後にQuickFixを開く {{{
 augroup GrepCmd
     autocmd!
-    au QuickFixCmdPost vimgrep,grep if len(getqflist()) != 0 | cwindow | endif
+    au QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow | endif
 augroup END
 " }}}
 
@@ -94,7 +94,7 @@ nnoremap <Space>* :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen
 " }}}
 
 " abbreviations {{{
-:cabbrev sg silent grep!
+:cabbrev sg silent grep
 " }}}
 
 " カーソル移動 {{{
