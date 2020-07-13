@@ -150,8 +150,12 @@ nnoremap <Space><CR> mzo<Esc>`z
 nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR>
 " }}}
 
-" 行番号の相対表示をトグル {{{
-nnoremap <Space>0 :<C-u>setlocal relativenumber!<CR>
+" 設定のトグル {{{
+nnoremap [switch] <Nop>
+nmap <Space>s [switch]
+nnoremap [switch]w :<C-u>setlocal wrap! wrap?<CR>
+nnoremap [switch]l :<C-u>setlocal list! list?<CR>
+nnoremap [switch]r :<C-u>setlocal relativenumber! relativenumber?<CR>
 " }}}
 
 " 選択範囲に.で繰り返しコマンド実行する {{{
