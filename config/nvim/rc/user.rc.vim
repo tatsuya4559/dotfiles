@@ -82,6 +82,13 @@ vnoremap <C-Down> "zx"zp`[V`]
 nnoremap s <C-w>
 " }}}
 
+" ウィンドウのリサイズ {{{
+nnoremap <S-Left> <C-w><
+nnoremap <S-Right> <C-w>>
+nnoremap <S-Up> <C-w>-
+nnoremap <S-Down> <C-w>+
+" }}}
+
 " バッファ移動 {{{
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
