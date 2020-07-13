@@ -13,10 +13,13 @@ setlocal errorformat=%f:%l:\ %m
 
 " テスト実行コマンドをtmuxペインに送る {{{
 let g:test_settings = {
-  \ 'texas': '--settings=texas.settings.local_db'
+  \ 'portal': '--settings=settings.bbtu.local',
+  \ 'texas': '--settings=texas.settings.local_db',
+  \ 'portalapi': '--settings=portalapi.settings.local',
   \ }
 
 function! s:send_keys_to_tmux(keys)
+  " TODO: 対象ペインを得る仕組みをスマートにできないか
   silent execute ':!tmux send-keys -t $(cat /tmp/test-pane) ' . a:keys
   silent execute ':!tmux select-pane -t $(cat /tmp/test-pane)'
 endfunction
@@ -31,6 +34,9 @@ function! s:send_python_test_command()
 endfunction
 
 function! s:build_testcase_string()
+  " TODO:
+  " カーソルがclass名にないと動かない
+  " メソッドやファイル全体に対応したい
   let test_class = expand('<cword>')
   let test_file = expand('%:r')
   if s:is_py3_project()
@@ -46,6 +52,8 @@ function! s:is_py3_project()
 endfunction
 
 function! s:get_project_name()
+  " cwdがプロジェクトルートである前提
+  " ちゃんとやるならgitからルートを取得する
   return substitute(getcwd(), '.*/', '', 'g')
 endfunction
 
