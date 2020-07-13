@@ -117,10 +117,10 @@ augroup END
 " 外部grepをカスタマイズ {{{
 if executable('rg')
   let &grepprg = 'rg --vimgrep'
-  set grepformat=%f:%l:%c:%m
+  let &grepformat = '%f:%l:%c:%m'
 elseif executable('git')
   let &grepprg = 'git grep -I --no-color --line-number --column'
-  set grepformat=%f:%l:%c:%m
+  let &grepformat = '%f:%l:%c:%m'
 endif
 
 nnoremap sg :<C-u>silent grep!<Space>

@@ -84,11 +84,11 @@ augroup END
 
 " 外部grepをripgrepにする {{{
 if executable('rg')
-    set grepprg =rg\ --vimgrep
-    set grepformat=%f:%l:%c:%m
+  let &grepprg = 'rg --vimgrep'
+  let &grepformat = '%f:%l:%c:%m'
 elseif executable('git')
-    set grepprg=git\ grep\ -I\ --no-color\ --line-number\ --column
-    set grepformat=%f:%l:%c:%m
+  let &grepprg = 'git grep -I --no-color --line-number --column'
+  let &grepformat = '%f:%l:%c:%m'
 endif
 nnoremap <Space>* :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 8\|else\|ccl\|endif\|cc<CR>
 " }}}

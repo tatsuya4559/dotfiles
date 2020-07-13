@@ -8,7 +8,7 @@ setlocal shiftwidth=4
 nnoremap <buffer> <Leader>b :<C-u>!black %:p<CR>
 nnoremap <buffer> <Leader>l :silent make!<CR>
 let &l:makeprg = 'pylint --reports=n --output-format=parseable %:p'
-setlocal errorformat=%f:%l:\ %m
+let &l:errorformat = '%f:%l: %m'
 " }}}
 
 " テスト実行コマンドをtmuxペインに送る {{{
