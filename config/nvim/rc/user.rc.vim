@@ -288,5 +288,5 @@ function! ToggleZoom()
     wincmd |
   endif
 endfun
-nnoremap <silent> <leader>z :call ToggleZoom()<CR>
+nnoremap <silent> <Space>z :call ToggleZoom()<CR>
 " }}}
