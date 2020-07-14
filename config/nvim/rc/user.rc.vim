@@ -273,3 +273,20 @@ if has('mac')
   nnoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
 endif
 " }}}
+
+" Zoom Window {{{
+function! ToggleZoom()
+  let is_zoomed = get(t:, 'is_zoomed', 0)
+  if is_zoomed
+    let t:is_zoomed = 0
+    execute "resize " . t:lastwh " | vertical resize ". t:lastww
+  else
+    let t:is_zoomed = 1
+    let t:lastwh = winheight(0)
+    let t:lastww = winwidth(0)
+    wincmd _
+    wincmd |
+  endif
+endfun
+nnoremap <silent> <leader>z :call ToggleZoom()<CR>
+" }}}
