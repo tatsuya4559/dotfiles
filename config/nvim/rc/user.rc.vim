@@ -275,16 +275,16 @@ endif
 " }}}
 
 " Zoom Window {{{
-" FIXME: 両サイドにウィンドウがあるところだと元に戻せない
 function! ToggleZoom()
   let is_zoomed = get(t:, 'is_zoomed', 0)
   if is_zoomed
     let t:is_zoomed = 0
-    execute 'resize ' . t:lastwh ' | vertical resize '. t:lastww
+    " FIXME: コマンド通りに復元されない場合がある
+    " vimのバグ??
+    execute t:unzoom_cmd
   else
     let t:is_zoomed = 1
-    let t:lastwh = winheight(0)
-    let t:lastww = winwidth(0)
+    let t:unzoom_cmd = winrestcmd()
     wincmd _
     wincmd |
   endif
