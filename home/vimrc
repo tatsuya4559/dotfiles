@@ -21,10 +21,9 @@ syntax enable
 " タブ設定 {{{
 set smartindent
 set breakindent
-set expandtab " タブでスペース挿入
-set tabstop=2 " タブの表示幅
-set softtabstop=2 " <Tab>で挿入されるスペースの数
-set shiftwidth=2 " 自動インデントのサイズ
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " 検索設定 {{{
 set incsearch
@@ -67,10 +66,6 @@ set noswapfile
 set number
 " }}}
 
-" テキストを折り返さない {{{
-set nowrap
-" }}}
-
 " バッファを保存しなくても切り替えられるようにする {{{
 set hidden
 " }}}
@@ -82,7 +77,7 @@ augroup GrepCmd
 augroup END
 " }}}
 
-" 外部grepをripgrepにする {{{
+" 外部grepをカスタマイズ {{{
 if executable('rg')
   let &grepprg = 'rg --vimgrep'
   let &grepformat = '%f:%l:%c:%m'
@@ -90,11 +85,7 @@ elseif executable('git')
   let &grepprg = 'git grep -I --no-color --line-number --column'
   let &grepformat = '%f:%l:%c:%m'
 endif
-nnoremap <Space>* :grep '\b<cword>\b'<CR>\|:if len(getqflist())\|:botright copen 8\|else\|ccl\|endif\|cc<CR>
-" }}}
-
-" abbreviations {{{
-:cabbrev sg silent grep
+nnoremap <Space>* :silent grep '\b<cword>\b'<CR>
 " }}}
 
 " カーソル移動 {{{
