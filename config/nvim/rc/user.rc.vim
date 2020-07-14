@@ -290,6 +290,6 @@ function! ToggleZoom()
     wincmd _
     wincmd |
   endif
-endfun
+endfunction
 nnoremap <silent> <Space>z :call ToggleZoom()<CR>
 " }}}
