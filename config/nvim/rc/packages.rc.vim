@@ -49,6 +49,8 @@ else
   Plug 'AndrewRadev/linediff.vim'
   Plug 'vim-jp/vimdoc-ja'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'vim-test/vim-test'
+  Plug 'benmills/vimux' " vim-testをtmuxで実行するため
 
   " DB
   Plug 'tpope/vim-dadbod'

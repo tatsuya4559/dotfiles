@@ -108,3 +108,9 @@ nnoremap <silent> <M-j> :<C-u>TmuxNavigateDown<CR>
 nnoremap <silent> <M-k> :<C-u>TmuxNavigateUp<CR>
 nnoremap <silent> <M-l> :<C-u>TmuxNavigateRight<CR>
 " }}}
+
+" vim-test {{{
+let g:test#strategy = 'vimux'
+let g:test#python#runner = 'djangotest'
+let g:test#python#djangotest#executable = 'python src/manage.py test'
+" }}}
