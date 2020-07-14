@@ -131,6 +131,7 @@ elseif executable('git')
 endif
 
 nnoremap sg :<C-u>silent grep!<Space>
+nnoremap ga :<C-u>silent grepadd!<Space>
 " }}}
 
 " URLなどを開く {{{
@@ -225,6 +226,7 @@ command! CopyFilename :let @+ = expand('%:t')
 
 " abbreviations {{{
 :cabbrev sg silent grep!
+:cabbrev ga silent grepadd!
 :cabbrev windi windo diffthis
 :cabbrev gd Gvdiffsplit
 :cabbrev gb Gbrowse
