@@ -15,8 +15,9 @@ else
   " Colorscheme
   Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'peitalin/vim-jsx-typescript'
-  Plug 'yasukotelin/shirotelin'
-  Plug 'arcticicestudio/nord-vim'
+  Plug 'yasukotelin/shirotelin' " クラシックがいいとき
+  Plug 'arcticicestudio/nord-vim' " icebergと悩んでる
+  Plug 'cocopon/iceberg.vim' " lightが登場してた
 
   " Text edit
   Plug 'markonm/traces.vim'
@@ -49,6 +50,7 @@ else
   " Utils
   Plug 'AndrewRadev/linediff.vim'
   Plug 'vim-jp/vimdoc-ja'
+  Plug 'mattn/webapi-vim' " なにか便利に使えないかな
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'vim-test/vim-test'
   Plug 'benmills/vimux' " vim-testをtmuxで実行するため
