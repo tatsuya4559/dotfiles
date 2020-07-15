@@ -114,3 +114,7 @@ let g:test#strategy = 'vimux'
 let g:test#python#runner = 'djangotest'
 let g:test#python#djangotest#executable = 'python src/manage.py test'
 " }}}
+
+" Fern {{{
+nnoremap <silent> <Space>e :Fern . -drawer -reveal=% -toggle<CR>
+" }}}
