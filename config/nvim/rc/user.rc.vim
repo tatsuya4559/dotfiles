@@ -197,18 +197,17 @@ endfunction
 " }}}
 
 " tigを開く {{{
-let s:tig_bufnr = -1
 function! OpenTig()
-  if bufexists(s:tig_bufnr)
-    let tig_winnr = bufwinnr(s:tig_bufnr)
+  let s:tig_bufname = bufname('term://*:tig')
+  if bufexists(s:tig_bufname)
+    let tig_winnr = bufwinnr(s:tig_bufname)
     if tig_winnr >= 0
       execute tig_winnr . 'wincmd w'
     else
-      execute s:tig_bufnr 'buffer'
+      execute 'buffer ' . s:tig_bufname
     endif
   else
     execute 'terminal tig'
-    let s:tig_bufnr = bufnr('%')
     setlocal nonumber
     setlocal norelativenumber
     " Qでtigを閉じずにもとのバッファに戻る
