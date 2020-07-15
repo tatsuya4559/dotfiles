@@ -157,6 +157,12 @@ nmap <Space>s [switch]
 nnoremap [switch]w :<C-u>setlocal wrap! wrap?<CR>
 nnoremap [switch]l :<C-u>setlocal list! list?<CR>
 nnoremap [switch]r :<C-u>setlocal relativenumber! relativenumber?<CR>
+nnoremap [switch]b :<C-u>call <SID>toggle_background()<CR>
+
+function s:toggle_background()
+  let bg_color = &background == 'light' ? 'dark' : 'light'
+  execute 'set background=' . bg_color
+endfunction
 " }}}
 
 " 選択範囲に.で繰り返しコマンド実行する {{{
