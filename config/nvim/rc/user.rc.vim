@@ -75,8 +75,6 @@ nnoremap vv v$h
 " }}}
 
 " <, >で連続してインデント調整できるようにする {{{
-nnoremap < <<
-nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 " }}}
