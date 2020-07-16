@@ -22,7 +22,7 @@ vnoremap <Leader>\ :Commentary<CR>
 
 " vaffle {{{
 nnoremap <Space>vv :<C-u>Vaffle<CR>
-nnoremap <Space>v. :<C-u>Vaffle %:h<CR>
+nnoremap <Space><Space> :<C-u>Vaffle %:h<CR>
 " }}}
 
 " fzf {{{
@@ -117,6 +117,5 @@ let g:test#python#djangotest#executable = 'python src/manage.py test'
 
 " Fern {{{
 nnoremap <silent> <Space>e :Fern . -drawer -reveal=% -toggle<CR>
-nnoremap <silent> <Space><Space> :Fern . -reveal=%<CR>
 let g:fern#scheme#file#mapping#grep#grepprg = 'rg --vimgrep'
 " }}}
