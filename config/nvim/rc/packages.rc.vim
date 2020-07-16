@@ -12,20 +12,22 @@ if !filereadable(s:vimplug_file)
 else
   call plug#begin('~/.local/share/nvim/plugged')
 
-  " Colorscheme
+  " Syntax highlight
   Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'peitalin/vim-jsx-typescript'
-  Plug 'yasukotelin/shirotelin' " クラシックがいいとき
-  Plug 'arcticicestudio/nord-vim' " icebergと悩んでる
-  Plug 'cocopon/iceberg.vim' " lightが登場してた
+
+  " Colorscheme
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'cocopon/iceberg.vim'
+  Plug 'yasukotelin/shirotelin'
 
   " Text edit
-  Plug 'markonm/traces.vim'
-  Plug 'machakann/vim-sandwich'
-  Plug 'bronson/vim-visual-star-search'
-  Plug 'tpope/vim-commentary'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'machakann/vim-sandwich'
+  Plug 'markonm/traces.vim'
   Plug 'thinca/vim-qfreplace'
+  Plug 'thinca/vim-visualstar'
+  Plug 'tpope/vim-commentary'
 
   " File explore
   Plug 'junegunn/fzf'
@@ -50,7 +52,6 @@ else
   " Utils
   Plug 'AndrewRadev/linediff.vim'
   Plug 'vim-jp/vimdoc-ja'
-  Plug 'mattn/webapi-vim' " なにか便利に使えないかな
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'vim-test/vim-test'
   Plug 'benmills/vimux' " vim-testをtmuxで実行するため
