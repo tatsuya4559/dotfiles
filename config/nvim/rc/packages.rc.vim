@@ -22,11 +22,11 @@ else
   Plug 'yasukotelin/shirotelin'
 
   " Text edit
+  Plug 'haya14busa/vim-asterisk'
   Plug 'jiangmiao/auto-pairs'
   Plug 'machakann/vim-sandwich'
   Plug 'markonm/traces.vim'
   Plug 'thinca/vim-qfreplace'
-  Plug 'thinca/vim-visualstar'
   Plug 'tpope/vim-commentary'
 
   " File explore

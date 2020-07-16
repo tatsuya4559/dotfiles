@@ -121,3 +121,11 @@ nnoremap <silent> <Space>e :Fern . -drawer -reveal=% -toggle<CR>
 let g:fern#scheme#file#mapping#grep#grepprg = 'rg --vimgrep'
 let g:fern#disable_default_mappings = 1
 " }}}
+
+" asterisk {{{
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
+let g:asterisk#keeppos = 1
+" }}}

@@ -176,12 +176,8 @@ endfunction
 vnoremap . :normal .<CR>
 " }}}
 
-" カーソル下の単語をハイライト {{{
-nnoremap <silent> <C-h> :call <SID>set_cword_to_search_reg()<CR>:set hlsearch<CR>
-vnoremap <silent> <C-h> mz:call <SID>set_visual_to_search_reg()<CR>:set hlsearch<CR>`z
-" }}}
-
 " 置換 {{{
+" vim-asterisk入れたから自前で関数作る必要ないかも
 nnoremap cgw :call <SID>set_cword_to_search_reg()<CR>cgn
 
 noremap [substitute] <Nop>
