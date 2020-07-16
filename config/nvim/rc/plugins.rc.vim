@@ -44,17 +44,17 @@ nnoremap <silent> <Space>g  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " Coc {{{
 let g:coc_global_extensions = [
       \   'coc-actions',
-      \   'coc-snippets',
-      \   'coc-prettier',
-      \   'coc-html',
       \   'coc-css',
+      \   'coc-html',
+      \   'coc-java',
+      \   'coc-json',
+      \   'coc-prettier',
+      \   'coc-python',
+      \   'coc-rls',
+      \   'coc-snippets',
       \   'coc-tailwindcss',
       \   'coc-tsserver',
-      \   'coc-python',
-      \   'coc-java',
-      \   'coc-rls',
       \   'coc-vimlsp',
-      \   'coc-json',
       \   'coc-yaml',
       \ ]
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
