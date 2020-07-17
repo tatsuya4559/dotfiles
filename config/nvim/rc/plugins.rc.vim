@@ -112,12 +112,6 @@ let g:test#python#runner = 'djangotest'
 let g:test#python#djangotest#executable = 'python src/manage.py test'
 " }}}
 
-" Fern {{{
-nnoremap <silent> <Space>e :Fern . -drawer -reveal=% -toggle<CR>
-let g:fern#scheme#file#mapping#grep#grepprg = 'rg --vimgrep'
-let g:fern#disable_default_mappings = 1
-" }}}
-
 " asterisk {{{
 map *  <Plug>(asterisk-z*)
 map #  <Plug>(asterisk-z#)

@@ -28,7 +28,6 @@ else
   " File explore
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'lambdalisue/fern.vim' " vaffleの方がシンプルで使いやすくもあるが、、
   Plug 'cocopon/vaffle.vim'
   Plug 'ap/vim-buftabline'
 

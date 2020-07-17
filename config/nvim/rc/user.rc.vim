@@ -28,7 +28,7 @@ cnoremap <C-a> <Home>
 if exists('&termguicolors')
   set termguicolors
 endif
-colorscheme iceberg
+colorscheme nord
 
 function s:toggle_color()
   if g:colors_name !=# 'nord'
