@@ -1,83 +1,46 @@
 " minimal settings
 set encoding=utf-8
 scriptencoding utf-8
-
-" 文字コード {{{
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
 set fileformats=unix,dos,mac
-" }}}
-
-" ステータスライン設定 {{{
 set laststatus=2
-" }}}
-
-" カラースキーム {{{
 colorscheme default
 filetype plugin indent on
 syntax enable
-" }}}
-
-" タブ設定 {{{
 set smartindent
 set breakindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
-
-" 検索設定 {{{
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
 set wrapscan
-" }}}
-
-" クリップボードを共有 {{{
 set clipboard+=unnamed
-" }}}
-
-" バックスペースとCtrl+hで削除を有効にする {{{
 set backspace=2
-" }}}
-
-" wildmenu有効化 {{{
 set wildmenu
-" }}}
-
-" 描画改善 {{{
-set updatetime=100
-" }}}
-
-" ミュート {{{
-set belloff=all
-" }}}
-
-" 不可視文字の表示 {{{
 set list
-set listchars=tab:»-,trail:-,nbsp:+,extends:»,precedes:«
-" }}}
-
-" スワップファイルを作成しない {{{
+set listchars=tab:»-,trail:-,nbsp:+
 set noswapfile
-" }}}
-
-" 行番号を表示 {{{
 set number
-" }}}
-
-" バッファを保存しなくても切り替えられるようにする {{{
 set hidden
-" }}}
+nnoremap <silent> ]b :<C-u>bn<CR>
+nnoremap <silent> [b :<C-u>bp<CR>
+nnoremap <silent> ]q :<C-u>cn<CR>
+nnoremap <silent> [q :<C-u>cp<CR>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+vnoremap . :normal .<CR>
+nnoremap <C-p> :<C-u>e **/*
+nnoremap <Space>b :<C-u>b *
+nnoremap <Space>e :Ex<CR>
 
-" grep, makeのの実行後にQuickFixを開く {{{
 augroup GrepCmd
     autocmd!
     au QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow | endif
 augroup END
-" }}}
 
-" 外部grepをカスタマイズ {{{
 if executable('rg')
   let &grepprg = 'rg --vimgrep'
   let &grepformat = '%f:%l:%c:%m'
@@ -86,37 +49,7 @@ elseif executable('git')
   let &grepformat = '%f:%l:%c:%m'
 endif
 nnoremap <Space>* :silent grep '\b<cword>\b'<CR>
-" }}}
 
-" カーソル移動 {{{
-noremap j gj
-noremap k gk
-
-noremap! <C-b> <Left>
-noremap! <C-f> <Right>
-noremap! <C-e> <End>
-
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-d> <Del>
-cnoremap <C-a> <Home>
-" }}}
-
-" vvで行末まで選択 {{{
-nnoremap vv v$h
-" }}}
-
-" バッファ移動 {{{
-nnoremap <silent> ]b :<C-u>bn<CR>
-nnoremap <silent> [b :<C-u>bp<CR>
-" }}}
-
-" QuickFix移動 {{{
-nnoremap <silent> ]q :<C-u>cn<CR>
-nnoremap <silent> [q :<C-u>cp<CR>
-" }}}
-
-" QuickFixをトグル {{{
 function! ToggleQuickfix()
     let l:nr = winnr('$')
     cwindow
@@ -126,22 +59,3 @@ function! ToggleQuickfix()
     endif
 endfunction
 nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
-" }}}
-
-" 行末までヤンク {{{
-nnoremap Y y$
-" }}}
-
-" 再描画 {{{
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-" }}}
-
-" 選択範囲に.で繰り返しコマンド実行する {{{
-vnoremap . :normal .<CR>
-" }}}
-
-" ファイルサーチ {{{
-nnoremap <C-p> :<C-u>e **/*
-nnoremap <Space>b :<C-u>b *
-nnoremap <Space>e :Ex<CR>
-" }}}
