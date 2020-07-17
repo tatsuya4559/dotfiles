@@ -1,7 +1,3 @@
-"==========================================
-" プラグインの読み込み
-"==========================================
-
 let s:vimplug_file = expand('~/.local/share/nvim/site/autoload/plug.vim')
 if !filereadable(s:vimplug_file)
   execute 'silent !curl -fLo ' .

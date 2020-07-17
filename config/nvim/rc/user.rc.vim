@@ -1,7 +1,3 @@
-"==========================================
-" ユーザ定義マッピング・コマンド
-"==========================================
-
 " 誤爆するキーを無効化 {{{
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
@@ -18,24 +14,22 @@ noremap <Space> <Nop>
 noremap j gj
 noremap k gk
 
-noremap H ^
-noremap L g_
-
 noremap! <C-b> <Left>
 noremap! <C-f> <Right>
 noremap! <C-e> <End>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-cnoremap <C-d> <Del>
-cnoremap <C-a> <Home>
+" cnoremap <C-d> <Del>
+" cnoremap <C-a> <Home>
 " }}}
 
-" カラースキーム {{{
+" カラースキーム迷うなあ {{{
 if exists('&termguicolors')
   set termguicolors
+  set
 endif
-colorscheme nord
+colorscheme iceberg
 
 function s:toggle_color()
   if g:colors_name !=# 'nord'

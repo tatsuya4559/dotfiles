@@ -1,7 +1,3 @@
-"==========================================
-" デフォルト値の変更
-"==========================================
-
 " 文字コード {{{
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
@@ -51,7 +47,7 @@ set belloff=all
 
 " 不可視文字の表示 {{{
 set list
-set listchars=tab:»-,trail:-,nbsp:+,extends:»,precedes:«
+set listchars=tab:»-,trail:-,nbsp:+
 " }}}
 
 " スワップファイルを作成しない {{{
@@ -71,13 +67,8 @@ set number
 " set relativenumber
 " }}}
 
-" テキストを折り返さない {{{
-" set nowrap
-" }}}
-
 " スクロール設定 {{{
-" set scrolloff=8
-" set sidescrolloff=16
+set scrolloff=3
 set sidescroll=1
 " }}}
 
