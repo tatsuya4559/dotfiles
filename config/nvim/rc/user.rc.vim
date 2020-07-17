@@ -27,7 +27,6 @@ cnoremap <C-n> <Down>
 " カラースキーム迷うなあ {{{
 if exists('&termguicolors')
   set termguicolors
-  set
 endif
 colorscheme iceberg
 
