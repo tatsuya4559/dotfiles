@@ -10,7 +10,6 @@ set ambiwidth=double
 
 " ステータスライン設定 {{{
 set laststatus=2
-set statusline=%f%m%h%r%w\ %<%=%(%l,%v\ %)
 " }}}
 
 " インデント設定 {{{
@@ -96,14 +95,6 @@ augroup AutoReadChecktime
 augroup END
 " }}}
 
-" terminal設定 {{{
-set sh=bash
-augroup Term
-  autocmd!
-  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-augroup END
-" }}}
-
 " undo設定 {{{
 set undolevels=1000
 if has('persistent_undo')
@@ -114,4 +105,3 @@ if has('persistent_undo')
   augroup END
 endif
 " }}}
-

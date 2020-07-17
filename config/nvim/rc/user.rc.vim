@@ -20,8 +20,8 @@ noremap! <C-e> <End>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-" cnoremap <C-d> <Del>
-" cnoremap <C-a> <Home>
+cnoremap <C-d> <Del>
+cnoremap <C-a> <Home>
 " }}}
 
 " カラースキーム迷うなあ {{{
@@ -169,27 +169,17 @@ endfunction
 vnoremap . :normal .<CR>
 " }}}
 
-" 置換 {{{
-" vim-asterisk入れたから自前で関数作る必要ないかも
-nnoremap cgw :call <SID>set_cword_to_search_reg()<CR>cgn
+" 置換 vim-asteriskに依存 {{{
+nmap c* *cgn
 
 noremap [substitute] <Nop>
 map gs [substitute]
 nnoremap [substitute]s :%s/\v//<Left><Left>
 nnoremap [substitute]. :s/\v//<Left><Left>
-nnoremap [substitute]* :<C-u>%s/\V\<<C-r>=expand('<cword>')<CR>\>//<Left>
+nmap [substitute]* *:%s/<C-r>///g<Left><Left>
 
 vnoremap [substitute]s :s/\v//<Left><Left>
-vnoremap [substitute]* :call <SID>set_visual_to_search_reg()<CR>:%s/<C-r>///g<Left><Left>
-
-function! s:set_cword_to_search_reg()
-  let @/ = '\V\<' . expand('<cword>') . '\>'
-endfunction
-
-function! s:set_visual_to_search_reg()
-  silent normal gv"zy
-  let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
-endfunction
+vmap [substitute]* *:%s/<C-r>///g<Left><Left>
 " }}}
 
 " tigを開く {{{
@@ -265,16 +255,6 @@ nnoremap <silent><expr> <C-d> v:count == 0 ? ":call SmoothScroll('down', 2, 1)\<
 nnoremap <silent><expr> <C-u> v:count == 0 ? ":call SmoothScroll('up', 2, 1)\<CR>" : "\<C-u>"
 nnoremap <silent><expr> <C-f> v:count == 0 ? ":call SmoothScroll('down', 1, 2)\<CR>" : "\<C-f>"
 nnoremap <silent><expr> <C-b> v:count == 0 ? ":call SmoothScroll('up', 1, 2)\<CR>" : "\<C-b>"
-" }}}
-
-" EscしたときにIMEをオフにする {{{
-" FIXME: オフにしてくれるのはいいけどESCのレスポンスが遅くなって困る
-if has('mac')
-  set ttimeoutlen=1
-  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
-  inoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
-  nnoremap <silent> <Esc> <Esc>:call system(g:imeoff)<CR>
-endif
 " }}}
 
 " Zoom Window {{{
