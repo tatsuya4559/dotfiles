@@ -46,7 +46,7 @@ set belloff=all
 
 " 不可視文字の表示 {{{
 set list
-set listchars=tab:»-,trail:-,nbsp:+
+set listchars=tab:▸\ ,trail:-,nbsp:+
 " }}}
 
 " スワップファイルを作成しない {{{
