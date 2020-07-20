@@ -34,7 +34,6 @@ nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
 
 " CocFzf {{{
 nnoremap <silent> <Space>o  :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <Space>g  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " }}}
 
 " Coc {{{
@@ -76,6 +75,8 @@ function! FormatDocument()
     call CocAction('format')
   endif
 endfunction
+
+nnoremap <Leader>g :<C-u>CocDiagnostics<CR>
 
 augroup Coc
   autocmd!
