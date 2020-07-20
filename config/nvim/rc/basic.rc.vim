@@ -53,10 +53,6 @@ set listchars=tab:▸\ ,trail:-,nbsp:+
 set noswapfile
 " }}}
 
-" ウィンドウサイズの自動調整を無効化 {{{
-set noequalalways
-" }}}
-
 " 右にsplitする {{{
 set splitright
 " }}}
@@ -105,3 +101,5 @@ if has('persistent_undo')
   augroup END
 endif
 " }}}
+
+set guicursor=
