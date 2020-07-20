@@ -97,4 +97,6 @@ set undodir=~/.local/share/nvim/undo
 set undofile
 " }}}
 
+" 縦棒のカーソルだと見えなくなる場合がある {{{
 set guicursor=
+" }}}
