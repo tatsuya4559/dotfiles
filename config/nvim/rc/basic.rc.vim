@@ -93,13 +93,8 @@ augroup END
 
 " undo設定 {{{
 set undolevels=1000
-if has('persistent_undo')
-  set undodir=./.vim/undo,~/.vim/undo
-  augroup SaveUndoFile
-    autocmd!
-    autocmd BufReadPre ~/* setlocal undofile
-  augroup END
-endif
+set undodir=~/.local/share/nvim/undo
+set undofile
 " }}}
 
 set guicursor=
