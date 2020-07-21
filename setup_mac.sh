@@ -55,14 +55,14 @@ ghq get https://github.com/tatsuya4559/dotfiles
 echo 'Set symlink of dotfiles...'
 DOTFILEDIR=`ghq list -p tatsuya4559/dotfiles`
 
-for file in $(ls $DOTFILEDIR/config/); do
+for file in $(ls ${DOTFILEDIR}/config/); do
     rm -rf ~/.config/${file}
-    ln -s $DOTFILEDIR/config/${file} ~/.config/${file}
+    ln -s ${DOTFILEDIR}/config/${file} ~/.config/${file}
 done
 
-for file in $(ls $DOTFILEDIR/home/); do
+for file in $(ls ${DOTFILEDIR}/home/); do
     rm -f ~/.${file}
-    ln -s $DOTFILEDIR/home/${file} ~/.${file}
+    ln -s ${DOTFILEDIR}/home/${file} ~/.${file}
 done
 
 echo 'DONE!!'
