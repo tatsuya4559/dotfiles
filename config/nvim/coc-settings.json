@@ -2,7 +2,6 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
-  "yank.highlight.enable": false,
   "html.autoClosingTags": true,
   "python.jediEnabled": false,
   "python.linting.flake8Enabled": true,
