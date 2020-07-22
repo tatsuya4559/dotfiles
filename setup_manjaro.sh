@@ -41,7 +41,6 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 sudo pacman -S --noconfirm yay
 sudo pacman -S --noconfirm xclip
 sudo pacman -S --noconfirm ripgrep
-sudo pacman -S --noconfirm sd
 sudo pacman -S --noconfirm fd
 sudo pacman -S --noconfirm bat
 sudo pacman -S --noconfirm tig
@@ -50,9 +49,6 @@ sudo pacman -S --noconfirm neovim
 sudo pacman -S --noconfirm jq
 sudo pacman -S --noconfirm hub
 sudo pacman -S --noconfirm ghq
-
-sudo pacman -S --noconfirm vagrant
-sudo pacman -S --noconfirm virtualbox
 sudo pacman -S --noconfirm docker
 sudo pacman -S --noconfirm docker-compose
 
@@ -61,22 +57,38 @@ yay -S ttf-cica
 
 ## install GUI tools
 sudo pacman -S --noconfirm synapse
-yay -S --noconfirm google-chrome visual-studio-code-bin meld
+yay -S --noconfirm google-chrome
 
 # install nice gtk/icon themes
-pushd ~/Downloads/
-## gtk theme
-git clone https://github.com/EliverLara/Nordic.git
+git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
 mkdir ~/.themes
-cp -r ~/Downloads/Nordic ~/.themes
-rm -rf ~/Downloads/Nordic
+cp -r /tmp/Nordic ~/.themes
+rm -rf /tmp/Nordic
 
-## icon theme
-git clone https://github.com/numixproject/numix-icon-theme-circle.git
+git clone https://github.com/numixproject/numix-icon-theme-circle.git /tmp/numix-icon-theme-circle
 mkdir ~/.icons
-cp -r ~/Downloads/numix-icon-theme-circle/Numix-Circle* .icons/
-rm -rf ~/Downloads/numix-icon-theme-circle
-popd
+cp -r /tmp/numix-icon-theme-circle/Numix-Circle* .icons/
+rm -rf /tmp/numix-icon-theme-circle
 
 # upgrade packages
 sudo pacman -Syu
+
+################################################################################
+# Dotfiles
+################################################################################
+export GHQ_ROOT=~/git
+ghq get https://github.com/tatsuya4559/dotfiles
+DOTFILEDIR=`ghq list -p tatsuya4559/dotfiles`
+
+for file in $(ls ${DOTFILEDIR}/config/); do
+    rm -rf ~/.config/${file}
+    ln -s ${DOTFILEDIR}/config/${file} ~/.config/${file}
+done
+
+for file in $(ls ${DOTFILEDIR}/home/); do
+    rm -f ~/.${file}
+    ln -s ${DOTFILEDIR}/home/${file} ~/.${file}
+done
+
+# reboot
+sudo systemctl reboot
