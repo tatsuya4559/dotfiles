@@ -67,7 +67,7 @@ rm -rf /tmp/Nordic
 
 git clone https://github.com/numixproject/numix-icon-theme-circle.git /tmp/numix-icon-theme-circle
 mkdir ~/.icons
-cp -r /tmp/numix-icon-theme-circle/Numix-Circle* .icons/
+cp -r /tmp/numix-icon-theme-circle/Numix-Circle* ~/.icons/
 rm -rf /tmp/numix-icon-theme-circle
 
 # upgrade packages
