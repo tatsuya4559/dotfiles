@@ -42,7 +42,6 @@ let g:coc_global_extensions = [
       \   'coc-css',
       \   'coc-html',
       \   'coc-java',
-      \   'coc-json',
       \   'coc-prettier',
       \   'coc-python',
       \   'coc-rls',
@@ -50,7 +49,6 @@ let g:coc_global_extensions = [
       \   'coc-tailwindcss',
       \   'coc-tsserver',
       \   'coc-vimlsp',
-      \   'coc-yaml',
       \ ]
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
