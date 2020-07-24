@@ -38,7 +38,6 @@ else
   Plug 'SirVer/ultisnips'
   Plug 'mattn/emmet-vim'
   Plug 'AndrewRadev/tagalong.vim'
-  Plug 'rust-lang/rust.vim'
 
   " Git
   Plug 'airblade/vim-gitgutter'
