@@ -11,8 +11,10 @@ noremap <Space> <Nop>
 " }}}
 
 " カーソル移動 {{{
-noremap j gj
-noremap k gk
+nnoremap j gj
+xnoremap j gj
+nnoremap k gk
+xnoremap k gk
 
 noremap! <C-b> <Left>
 noremap! <C-f> <Right>
