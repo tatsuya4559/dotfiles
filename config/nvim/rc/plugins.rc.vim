@@ -41,6 +41,7 @@ let g:coc_global_extensions = [
       \   'coc-actions',
       \   'coc-css',
       \   'coc-html',
+      \   'coc-go',
       \   'coc-java',
       \   'coc-prettier',
       \   'coc-python',
