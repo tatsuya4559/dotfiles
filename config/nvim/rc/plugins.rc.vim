@@ -77,11 +77,6 @@ endfunction
 
 nnoremap <Leader>g :<C-u>CocDiagnostics<CR>
 
-augroup Coc
-  autocmd!
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-augroup END
-
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
