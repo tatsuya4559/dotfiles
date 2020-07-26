@@ -40,13 +40,15 @@ nnoremap <silent> <Space>o  :<C-u>CocFzfList outline<CR>
 let g:coc_global_extensions = [
       \   'coc-actions',
       \   'coc-css',
-      \   'coc-html',
+      \   'coc-emmet',
       \   'coc-go',
+      \   'coc-html',
       \   'coc-java',
       \   'coc-prettier',
       \   'coc-python',
       \   'coc-rls',
       \   'coc-snippets',
+      \   'coc-svelte',
       \   'coc-tailwindcss',
       \   'coc-tsserver',
       \   'coc-vimlsp',
@@ -80,11 +82,6 @@ nnoremap <Leader>g :<C-u>CocDiagnostics<CR>
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
-" }}}
-
-" emmet {{{
-let g:user_emmet_mode='i'
-let g:user_emmet_leader_key='<C-k>'
 " }}}
 
 " AnyJump {{{

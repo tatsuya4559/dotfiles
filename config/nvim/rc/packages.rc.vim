@@ -11,6 +11,7 @@ else
   " Syntax highlight
   Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'peitalin/vim-jsx-typescript'
+  Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
   " Colorscheme
   Plug 'arcticicestudio/nord-vim'
@@ -36,7 +37,6 @@ else
   Plug 'antoinemadec/coc-fzf'
   Plug 'pechorin/any-jump.vim' " cocでジャンプできないpythonのため
   Plug 'SirVer/ultisnips'
-  Plug 'mattn/emmet-vim'
   Plug 'AndrewRadev/tagalong.vim'
 
   " Git
