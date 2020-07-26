@@ -40,6 +40,7 @@ else
   Plug 'AndrewRadev/tagalong.vim'
   Plug 'mattn/vim-goimpl'
   Plug 'mattn/vim-goimports'
+  Plug 'liuchengxu/vista.vim'
 
   " Git
   Plug 'airblade/vim-gitgutter'

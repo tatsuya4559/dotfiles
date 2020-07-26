@@ -113,3 +113,15 @@ map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 let g:asterisk#keeppos = 1
 " }}}
+
+" vista {{{
+let g:vista#renderer#enable_icon = 0
+let g:vista_executive_for = {
+  \ 'go': 'coc',
+  \ 'python': 'coc',
+  \ 'java': 'coc',
+  \ 'rust': 'coc',
+  \ 'javascript': 'coc',
+  \ 'typescript': 'coc',
+  \ }
+" }}}
