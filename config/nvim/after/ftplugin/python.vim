@@ -36,7 +36,7 @@ function! s:run_django_test(command)
   execute ':' . a:command . ' ' . options
 endfunction
 
-command! DjangoTestNearest :call <SID>run_django_test('TestNearest')<CR>
-command! DjangoTestFile :call <SID>run_django_test('TestFile')<CR>
-command! DjangoTestLast :call <SID>run_django_test('TestLast')<CR>
+command! DjangoTestNearest :call s:run_django_test('TestNearest')<CR>
+command! DjangoTestFile :call s:run_django_test('TestFile')<CR>
+command! DjangoTestLast :call s:run_django_test('TestLast')<CR>
 " }}}
