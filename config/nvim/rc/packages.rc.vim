@@ -38,6 +38,8 @@ else
   Plug 'pechorin/any-jump.vim' " cocでジャンプできないpythonのため
   Plug 'SirVer/ultisnips'
   Plug 'AndrewRadev/tagalong.vim'
+  Plug 'mattn/vim-goimpl'
+  Plug 'mattn/vim-goimports'
 
   " Git
   Plug 'airblade/vim-gitgutter'
