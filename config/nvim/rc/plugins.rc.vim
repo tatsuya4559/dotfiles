@@ -37,6 +37,7 @@ nnoremap <silent> <Space>o  :<C-u>CocFzfList outline<CR>
 " }}}
 
 " Coc {{{
+let g:coc_node_path = '/usr/local/bin/node'
 let g:coc_global_extensions = [
       \   'coc-actions',
       \   'coc-css',
@@ -53,17 +54,30 @@ let g:coc_global_extensions = [
       \   'coc-tsserver',
       \   'coc-vimlsp',
       \ ]
+" CocInstall coc-jest
+
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
 nmap <F2> <Plug>(coc-rename)
+nmap <F3> <Plug>(coc-refactor)
+imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
+
+nnoremap <Leader>g :<C-u>CocDiagnostics<CR>
+inoremap <silent><expr> <C-x><C-x> coc#refresh()
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+
 nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+    execute 'h ' expand('<cword>')
   else
     call CocAction('doHover')
   endif
@@ -78,12 +92,6 @@ function! FormatDocument()
     call CocAction('format')
   endif
 endfunction
-
-nnoremap <Leader>g :<C-u>CocDiagnostics<CR>
-
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-
-imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 " }}}
 
 " AnyJump {{{
