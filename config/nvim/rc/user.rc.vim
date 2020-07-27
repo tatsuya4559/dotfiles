@@ -224,6 +224,7 @@ command! CopyFilename :let @+ = expand('%:t')
 :cabbrev gd Gvdiffsplit
 :cabbrev gb Gbrowse
 :cabbrev ld Linediff
+:cabbrev ggl SearchByGoogle
 " }}}
 
 " smooth scroll {{{
@@ -278,15 +279,14 @@ nnoremap <silent> <Space>z :call ToggleZoom()<CR>
 " }}}
 
 " Google it {{{
-function! s:search_by_google(...)
-    let line = line(".")
-    let col  = col(".")
-    if !empty(a:000)
-        execute 'read !open https://www.google.co.jp/search\?q\=' . join(a:000, '+')
-        execute 'call cursor(' . line . ',' . col . ')'
-    endif
+function! s:search_by_google(...) abort
+  if empty(a:000)
+    return
+  endif
+  let q = join(a:000, '+')
+  call system('open ' . shellescape('https://www.google.com/search?q=' . q))
 endfunction
 command! -nargs=* SearchByGoogle call s:search_by_google(<f-args>)
-nnoremap <silent> <Space>g :SearchByGoogle expand('<cword>')<CR>
+nnoremap <silent> <Space>g :SearchByGoogle <C-r>=expand('<cword>')<CR><CR>
 vnoremap <silent> <Space>g "zy:SearchByGoogle <C-r>z<CR>
 " }}}
