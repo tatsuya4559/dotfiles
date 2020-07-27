@@ -262,14 +262,12 @@ nnoremap <silent><expr> <C-b> v:count == 0 ? ":call SmoothScroll('up', 1, 2)\<CR
 
 " Zoom Window {{{
 function! ToggleZoom()
-  let is_zoomed = get(t:, 'is_zoomed', 0)
-  if is_zoomed
-    let t:is_zoomed = 0
+  if exists('t:unzoom_cmd')
     " FIXME: コマンド通りに復元されない場合がある
     " vimのバグ??
     execute t:unzoom_cmd
+    unlet t:unzoom_cmd
   else
-    let t:is_zoomed = 1
     let t:unzoom_cmd = winrestcmd()
     wincmd _
     wincmd |
