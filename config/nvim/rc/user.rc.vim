@@ -276,3 +276,17 @@ function! ToggleZoom()
 endfunction
 nnoremap <silent> <Space>z :call ToggleZoom()<CR>
 " }}}
+
+" Google it {{{
+function! s:search_by_google(...)
+    let line = line(".")
+    let col  = col(".")
+    if !empty(a:000)
+        execute 'read !open https://www.google.co.jp/search\?q\=' . join(a:000, '+')
+        execute 'call cursor(' . line . ',' . col . ')'
+    endif
+endfunction
+command! -nargs=* SearchByGoogle call s:search_by_google(<f-args>)
+nnoremap <silent> <Space>g :SearchByGoogle expand('<cword>')<CR>
+vnoremap <silent> <Space>g "zy:SearchByGoogle <C-r>z<CR>
+" }}}
