@@ -283,8 +283,8 @@ function! s:search_by_google(...) abort
   if empty(a:000)
     return
   endif
-  let q = join(a:000, '+')
-  call system('open ' . shellescape('https://www.google.com/search?q=' . q))
+  let url = shellescape('https://www.google.com/search?q=' . join(a:000, '+'))
+  call system('open ' . url)
 endfunction
 command! -nargs=* SearchByGoogle call s:search_by_google(<f-args>)
 nnoremap <silent> <Space>g :SearchByGoogle <C-r>=expand('<cword>')<CR><CR>
