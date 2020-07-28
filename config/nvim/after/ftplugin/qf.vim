@@ -2,12 +2,11 @@ setlocal cursorline
 setlocal nowrap
 
 " qfから開いたときにvaffleのウィンドウが残ると邪魔なので閉じる
-nnoremap <silent> <buffer> <CR> :call <SID>open()<CR>
+nnoremap <silent> <buffer> <CR> <CR>:call <SID>close_vaffle()<CR>
 " pでqfからカーソルを動かさずにファイルを開く
-noremap <silent> <buffer> p  :call <SID>open()<CR>zz<C-w>p
+noremap <silent> <buffer> p  <CR>:call <SID>close_vaffle()<CR>zz<C-w>p
 
-function! s:open()
-  execute '.cc'
+function! s:close_vaffle()
   let vaffle_winnr = bufwinnr('vaffle://*')
   if vaffle_winnr >= 0
     execute vaffle_winnr . 'wincmd q'
