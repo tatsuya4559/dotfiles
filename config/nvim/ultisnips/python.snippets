@@ -54,3 +54,11 @@ endsnippet
 snippet asni "assertNotIn"
 self.assertNotIn($1)
 endsnippet
+
+snippet db.fetch "fetch rows"
+from contextlib import closing
+from django.db import connection
+with closing(connection.cursor()) as cursor:
+    cursor.execute(sql, [${1:param}])
+    return dict_fetchall(cursor)
+endsnippet
