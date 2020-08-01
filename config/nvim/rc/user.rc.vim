@@ -95,8 +95,11 @@ nnoremap <S-Down> <C-w>-
 " バッファ移動 {{{
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
-nnoremap <silent> <Right> :<C-u>bn<CR>
-nnoremap <silent> <Left> :<C-u>bp<CR>
+" }}}
+
+" 横スクロール {{{
+nnoremap <silent> <Right> zl
+nnoremap <silent> <Left> zh
 " }}}
 
 " QuickFix移動 {{{
