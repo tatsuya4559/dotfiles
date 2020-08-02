@@ -132,3 +132,5 @@ let g:vista_executive_for = {
   \ 'typescript': 'coc',
   \ }
 " }}}
+
+nmap <leader>c <Plug>(gswitch-open)

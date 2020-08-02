@@ -46,6 +46,7 @@ else
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive' " rhubarbが依存しているから
   Plug 'tpope/vim-rhubarb' " hub browseしか使ってない
+  Plug 'tatsuya4559/vim-gswitch'
 
   " Utils
   Plug 'AndrewRadev/linediff.vim'
