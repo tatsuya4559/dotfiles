@@ -54,6 +54,7 @@ sudo pacman -S --noconfirm docker-compose
 
 sudo pacman -S --noconfirm python-neovim python-pipenv
 yay -S ttf-cica
+yay -S dive
 
 ## install GUI tools
 sudo pacman -S --noconfirm synapse
