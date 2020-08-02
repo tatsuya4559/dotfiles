@@ -67,7 +67,6 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 nmap <F2> <Plug>(coc-rename)
-nmap <F3> <Plug>(coc-refactor)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 nnoremap <Leader>g :<C-u>CocDiagnostics<CR>
