@@ -134,8 +134,12 @@ let g:vista_executive_for = {
 " }}}
 
 " sneak {{{
-map x <Plug>Sneak_s
-map X <Plug>Sneak_S
+" sはsandwichが使っている
+" f/tはマクロのために変更したくない
+" xは結構使うので潰すと困る
+" 'ならいつも`で済ませるので潰しても困らないし打ちやすい
+map ' <Plug>Sneak_s
+map '' <Plug>Sneak_S
 let g:sneak#use_ic_scs = 1
 " }}}
 
