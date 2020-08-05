@@ -81,7 +81,8 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-nnoremap <silent> <Space>a :<C-u>CocCommand actions.open<CR>
+" nnoremap <silent> <Space>a :<C-u>CocCommand actions.open<CR>
+nnoremap <silent> <Space>a :<C-u>CocAction<CR>
 
 nnoremap <Leader>f :<C-u>call FormatDocument()<CR>
 function! FormatDocument()
