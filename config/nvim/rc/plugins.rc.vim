@@ -133,4 +133,10 @@ let g:vista_executive_for = {
   \ }
 " }}}
 
+" sneak {{{
+map x <Plug>Sneak_s
+map X <Plug>Sneak_S
+let g:sneak#use_ic_scs = 1
+" }}}
+
 nmap <leader>c <Plug>(gswitch-open)
