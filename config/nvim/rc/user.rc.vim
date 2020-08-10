@@ -220,6 +220,14 @@ command! CopyPath :let @+ = expand('%:p')
 command! CopyFilename :let @+ = expand('%:t')
 " }}}
 
+" awk {{{
+function! AwkPrint(line1, line2, ...)
+  let args = map(copy(a:000), { _, v -> '$' . v })
+  execute a:line1 ',' a:line2 "!awk '{print " join(args, ',') "}'"
+endfunction
+command! -range -nargs=+ Awk :call AwkPrint(<line1>, <line2>, <f-args>)
+" }}}
+
 " abbreviations {{{
 :cabbrev sg silent grep!
 :cabbrev ga silent grepadd!
