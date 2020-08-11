@@ -82,6 +82,7 @@ vnoremap <C-Down> "zx"zp`[V`]
 " }}}
 
 " terminal {{{
+tnoremap <Esc> <C-\><C-n>
 tnoremap <silent> <C-w> <C-\><C-n><C-w>
 augroup TermCmd
   autocmd!
