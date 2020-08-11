@@ -141,10 +141,7 @@ let g:neoterm_automap_keys = '<Leader>tt'
 let g:neoterm_default_mod='belowright'
 let g:neoterm_autoinsert = 1
 let g:neoterm_autoscroll=1
-" let g:neoterm_size=10
-" TODO:
-" * Tmuxへ依存している場所を書き直す
-" * tig をneoterm使うようにする
+let g:neoterm_size=10
 nnoremap <M-j> :Ttoggle<CR>
 tnoremap <M-j> <C-\><C-n>:Ttoggle<CR>
 tnoremap <M-h> <C-\><C-n>:Tprevious<CR>

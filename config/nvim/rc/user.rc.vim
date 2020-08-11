@@ -197,6 +197,8 @@ vmap [substitute]* *:%s/<C-r>///g<Left><Left>
 " }}}
 
 " tigを開く {{{
+" neotermの最後に使ったterminalとしてカウントされたくないから
+" 普通のterminalコマンドで開く
 function! OpenTig()
   let s:tig_bufname = bufname('term://*:tig')
   if bufexists(s:tig_bufname)
