@@ -101,3 +101,9 @@ describe('$1', () => {
   $2
 });
 endsnippet
+
+snippet readl "readlines"
+import * as fs from 'fs';
+
+const lines = fs.readFileSync('/dev/stdin', 'utf-8').trim().split('\n')$1;
+endsnippet
