@@ -55,6 +55,7 @@ else
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'vim-test/vim-test'
   Plug 'benmills/vimux' " vim-testをtmuxで実行するため
+  Plug 'kassio/neoterm'
 
   " DB
   Plug 'tpope/vim-dadbod'

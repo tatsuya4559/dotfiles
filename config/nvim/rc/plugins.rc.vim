@@ -144,4 +144,20 @@ map '' <Plug>Sneak_S
 let g:sneak#use_ic_scs = 1
 " }}}
 
+" neoterm {{{
+let g:neoterm_automap_keys = '<Leader>tt'
+let g:neoterm_default_mod='belowright'
+let g:neoterm_autoinsert = 1
+let g:neoterm_autoscroll=1
+" let g:neoterm_size=10
+" TmuxNavigatorと衝突
+" TODO:
+" * Tmuxへ依存している場所を書き直す
+" * tig をneoterm使うようにする
+nnoremap <M-j> :Ttoggle<CR>
+tnoremap <M-j> <C-\><C-n>:Ttoggle<CR>
+tnoremap <M-h> <C-\><C-n>:Tprevious<CR>
+tnoremap <M-l> <C-\><C-n>:Tnext<CR>
+" }}}
+
 nmap <leader>c <Plug>(gswitch-open)
