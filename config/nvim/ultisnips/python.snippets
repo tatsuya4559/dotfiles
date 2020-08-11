@@ -62,3 +62,15 @@ with closing(connection.cursor()) as cursor:
     cursor.execute(sql, [${1:param}])
     return dict_fetchall(cursor)
 endsnippet
+
+snippet pdb.trace "pdb breakpoint"
+import pdb; pdb.set_trace()
+endsnippet
+
+snippet json.encode "json encode"
+json.dumps($1)
+endsnippet
+
+snippet json.decode "json decode"
+json.loads($1)
+endsnippet
