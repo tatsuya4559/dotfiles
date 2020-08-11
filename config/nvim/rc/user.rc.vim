@@ -236,6 +236,7 @@ command! -range -nargs=+ Awk :call AwkPrint(<line1>, <line2>, <f-args>)
 :cabbrev gb Gbrowse
 :cabbrev ld Linediff
 :cabbrev ggl SearchByGoogle
+:cabbrev JO r!jo -p
 " }}}
 
 " smooth scroll {{{
