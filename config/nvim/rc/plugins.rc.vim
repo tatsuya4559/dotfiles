@@ -100,14 +100,6 @@ nnoremap <Space>j :<C-u>AnyJump<CR>
 xnoremap <Space>j :AnyJumpVisual<CR>
 " }}}
 
-" Tmux Navigator {{{
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <M-h> :<C-u>TmuxNavigateLeft<CR>
-nnoremap <silent> <M-j> :<C-u>TmuxNavigateDown<CR>
-nnoremap <silent> <M-k> :<C-u>TmuxNavigateUp<CR>
-nnoremap <silent> <M-l> :<C-u>TmuxNavigateRight<CR>
-" }}}
-
 " vim-test {{{
 let g:test#strategy = 'vimux'
 let g:test#python#runner = 'djangotest'
