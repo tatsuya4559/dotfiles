@@ -25,6 +25,7 @@ brew "ghq"
 brew "git"
 brew "hub"
 brew "jq"
+brew "jo"
 brew "neovim", args: ["HEAD"]
 brew "nvm"
 brew "pipenv"
