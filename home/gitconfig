@@ -34,4 +34,4 @@
 [pull]
   ff = only
 [ghq]
-  root = ~/git
+  root = ~/go/src
