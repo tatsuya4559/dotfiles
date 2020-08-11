@@ -53,7 +53,6 @@ else
   Plug 'AndrewRadev/linediff.vim'
   Plug 'vim-jp/vimdoc-ja'
   Plug 'vim-test/vim-test'
-  Plug 'benmills/vimux' " vim-testをtmuxで実行するため
   Plug 'kassio/neoterm'
 
   " DB

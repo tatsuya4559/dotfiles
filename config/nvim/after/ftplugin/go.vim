@@ -9,7 +9,7 @@ function! s:gorun(...) abort
   if !empty(a:000)
     let cmd .= ' ' . join(map(copy(a:000), 'shellescape(v:val)'), ' ')
   endif
-  call VimuxRunCommand(cmd)
+  execute 'T' cmd
 endfunction
 command! -nargs=* -buffer GoRun call s:gorun(<f-args>)
 

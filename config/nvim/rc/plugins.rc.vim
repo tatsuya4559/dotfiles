@@ -101,7 +101,7 @@ xnoremap <Space>j :AnyJumpVisual<CR>
 " }}}
 
 " vim-test {{{
-let g:test#strategy = 'vimux'
+let g:test#strategy = 'neoterm'
 let g:test#python#runner = 'djangotest'
 let g:test#python#djangotest#executable = 'python src/manage.py test'
 " }}}
@@ -142,7 +142,6 @@ let g:neoterm_default_mod='belowright'
 let g:neoterm_autoinsert = 1
 let g:neoterm_autoscroll=1
 " let g:neoterm_size=10
-" TmuxNavigatorと衝突
 " TODO:
 " * Tmuxへ依存している場所を書き直す
 " * tig をneoterm使うようにする
