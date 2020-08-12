@@ -10,18 +10,6 @@ class Test$1(unittest.TestCase):
         pass
 endsnippet
 
-snippet jt "django test"
-class Test$1(DjangoTest):
-    def setUp(self):
-        pass
-
-    def _callFUT(self, args):
-        return func(args)
-
-    def test_ok(self):
-        pass
-endsnippet
-
 snippet ase "assertEqual"
 self.assertEqual($1)
 endsnippet
@@ -39,25 +27,28 @@ with self.assertRaises($1):
     $2
 endsnippet
 
-snippet asin "assertIsNone"
+snippet asisnone "assertIsNone"
 self.assertIsNone($1)
 endsnippet
 
-snippet asinn "assertIsNotNone"
+snippet asisnotnone "assertIsNotNone"
 self.assertIsNotNone($1)
 endsnippet
 
-snippet asi "assertIn"
+snippet asin "assertIn"
 self.assertIn($1)
 endsnippet
 
-snippet asni "assertNotIn"
+snippet asnotin "assertNotIn"
 self.assertNotIn($1)
 endsnippet
 
 snippet db.fetch "fetch rows"
 from contextlib import closing
 from django.db import connection
+
+sql = 'select * from table'
+
 with closing(connection.cursor()) as cursor:
     cursor.execute(sql, [${1:param}])
     return dict_fetchall(cursor)
@@ -73,4 +64,32 @@ endsnippet
 
 snippet json.decode "json decode"
 json.loads($1)
+endsnippet
+
+snippet iter.groupby "for groupby"
+for key, group in groupby($1, key=$2):
+    $3
+endsnippet
+
+snippet iter.take "take function" b
+def take(n, iterable):
+    "Return first n items of the iterable as a list"
+    return list(islice(iterable, n))
+endsnippet
+
+snippet iter.tail "tail function" b
+def tail(n, iterable):
+    "Return an iterator over the last n items"
+    # tail(3, 'ABCDEFG') --> E F G
+    return iter(collections.deque(iterable, maxlen=n))
+endsnippet
+
+snippet main "main script" b
+#!/usr/bin/env python
+
+def main():
+    $1
+
+if __name__ == '__main__':
+    main()
 endsnippet
