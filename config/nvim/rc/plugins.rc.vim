@@ -137,7 +137,7 @@ let g:sneak#use_ic_scs = 1
 " neoterm {{{
 let g:neoterm_automap_keys = '<Leader>tt'
 let g:neoterm_default_mod='vertical'
-" let g:neoterm_default_mod='belowright'
+" let g:neoterm_default_mod='botright'
 " let g:neoterm_size=10
 let g:neoterm_autoinsert = 1
 let g:neoterm_autoscroll=1
