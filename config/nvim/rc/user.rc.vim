@@ -222,7 +222,8 @@ endfunction
 nnoremap <Space>t :<C-u>call OpenTig()<CR>
 " }}}
 
-"" tig内でvimを開くときにネストしない {{{
+" tig内でvimを開くときにネストしない {{{
+" https://github.com/mhinz/neovim-remote
 if executable('nvr')
   let $GIT_EDITOR = 'nvr -cc split --remote-wait'
   augroup GIT
