@@ -222,6 +222,17 @@ endfunction
 nnoremap <Space>t :<C-u>call OpenTig()<CR>
 " }}}
 
+"" tig内でvimを開くときにネストしない {{{
+if executable('nvr')
+  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+  augroup GIT
+    autocmd!
+    autocmd FileType gitcommit,gitrebase set bufhidden=delete
+    autocmd WinEnter,BufEnter term://*:tig startinsert
+  augroup END
+endif
+" }}}
+
 " 行末の空白を削除 {{{
 command! -range=% FixWhitespaces :<line1>,<line2>s/\s\+$//g
 " }}}
