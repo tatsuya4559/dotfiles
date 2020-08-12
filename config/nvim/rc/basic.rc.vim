@@ -87,7 +87,7 @@ set hidden
 set autoread
 augroup AutoReadChecktime
   autocmd!
-  autocmd FocusGained * checktime
+  autocmd FocusGained,BufEnter * checktime
 augroup END
 " }}}
 
