@@ -84,10 +84,10 @@ vnoremap <C-Down> "zx"zp`[V`]
 " terminal {{{
 tnoremap <Esc> <C-\><C-n>
 tnoremap <silent> <C-w> <C-\><C-n><C-w>
-" augroup TermCmd
-"   autocmd!
-"   autocmd WinEnter,BufEnter term://* startinsert
-" augroup END
+augroup TermCmd
+  autocmd!
+  autocmd WinEnter,BufEnter term://* startinsert
+augroup END
 " }}}
 
 " ウィンドウ操作のprefixをsに割り当てる {{{

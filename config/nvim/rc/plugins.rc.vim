@@ -145,8 +145,6 @@ let g:neoterm_autoinsert = 1
 let g:neoterm_autoscroll=1
 nnoremap <C-j> :Ttoggle<CR>
 tnoremap <C-j> <C-\><C-n>:Ttoggle<CR>
-nnoremap <M-[> <C-\><C-n>:Tprevious<CR>
-nnoremap <M-]> <C-\><C-n>:Tnext<CR>
 tnoremap <M-[> <C-\><C-n>:Tprevious<CR>
 tnoremap <M-]> <C-\><C-n>:Tnext<CR>
 " }}}
