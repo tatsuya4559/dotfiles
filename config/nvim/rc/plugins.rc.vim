@@ -47,7 +47,6 @@ let g:coc_global_extensions = [
       \   'coc-java',
       \   'coc-prettier',
       \   'coc-python',
-      \   'coc-rls',
       \   'coc-snippets',
       \   'coc-svelte',
       \   'coc-tailwindcss',
@@ -120,7 +119,6 @@ let g:vista_executive_for = {
   \ 'go': 'coc',
   \ 'python': 'coc',
   \ 'java': 'coc',
-  \ 'rust': 'coc',
   \ 'javascript': 'coc',
   \ 'typescript': 'coc',
   \ }

@@ -1,7 +1,7 @@
 {
   "coc.preferences.formatOnType": false,
   "coc.preferences.useQuickfixForLocations": true,
-  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"],
   "html.autoClosingTags": true,
   "python.jediEnabled": false,
   "python.linting.flake8Enabled": true,
