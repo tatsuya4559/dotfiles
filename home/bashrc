@@ -54,7 +54,6 @@ alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develo
 alias h='clear && tldr'
 alias dc='docker-compose'
 alias activate='. venv/bin/activate'
-alias r='ranger'
 alias t='tmuximum'
 alias C='pbcopy'
 
