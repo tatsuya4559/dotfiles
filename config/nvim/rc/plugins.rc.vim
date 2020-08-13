@@ -147,4 +147,8 @@ tnoremap <M-[> <C-\><C-n>:Tprevious<CR>
 tnoremap <M-]> <C-\><C-n>:Tnext<CR>
 " }}}
 
+" pydocstring {{{
+let g:pydocstring_formatter = 'google'
+" }}}
+
 nmap <leader>c <Plug>(gswitch-open)

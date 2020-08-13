@@ -31,7 +31,7 @@ else
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'cocopon/vaffle.vim'
-  Plug 'ap/vim-buftabline'
+  " Plug 'ap/vim-buftabline'
 
   " Language support
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -42,6 +42,7 @@ else
   Plug 'mattn/vim-goimpl'
   Plug 'mattn/vim-goimports'
   Plug 'liuchengxu/vista.vim'
+  Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
   " Git
   Plug 'airblade/vim-gitgutter'
