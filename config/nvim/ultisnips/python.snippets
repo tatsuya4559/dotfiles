@@ -43,7 +43,7 @@ snippet asnotin "assertNotIn"
 self.assertNotIn($1)
 endsnippet
 
-snippet db.fetch "fetch rows"
+snippet db#fetch "fetch rows"
 from contextlib import closing
 from django.db import connection
 
@@ -54,34 +54,46 @@ with closing(connection.cursor()) as cursor:
     return dict_fetchall(cursor)
 endsnippet
 
-snippet pdb.trace "pdb breakpoint"
+snippet pdb#trace "pdb breakpoint"
 import pdb; pdb.set_trace()
 endsnippet
 
-snippet json.encode "json encode"
+snippet json#encode "json encode"
 json.dumps($1)
 endsnippet
 
-snippet json.decode "json decode"
-json.loads($1)
+snippet json#decode "json decode"
+try:
+    ${1:result} = json.loads($2)
+except ValueError as e:
+    $3
 endsnippet
 
-snippet iter.groupby "for groupby"
+snippet iter#groupby "for groupby"
 for key, group in groupby($1, key=$2):
     $3
 endsnippet
 
-snippet iter.take "take function" b
+snippet iter#take "take function" b
 def take(n, iterable):
     "Return first n items of the iterable as a list"
     return list(islice(iterable, n))
 endsnippet
 
-snippet iter.tail "tail function" b
+snippet iter#tail "tail function" b
 def tail(n, iterable):
     "Return an iterator over the last n items"
     # tail(3, 'ABCDEFG') --> E F G
     return iter(collections.deque(iterable, maxlen=n))
+endsnippet
+
+snippet decorator "make a decorator" b
+def $1(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwwargs):
+        $2
+        return func(*args, **kwwargs)
+    return wrapper
 endsnippet
 
 snippet main "main script" b
@@ -92,4 +104,33 @@ def main():
 
 if __name__ == '__main__':
     main()
+endsnippet
+
+snippet django#form "django form" b
+class ${1:XXX}Form(forms.Form):
+    django#form#$2
+
+    def clean(self):
+        cleaned_data = super().clean()
+        return cleaned_data
+endsnippet
+
+snippet django#form#clean "django form clean method" b
+def clean_$1(self):
+    $1 = self.cleaned_data.get("$1")
+    if False:
+        raise forms.ValidationError("fill error message")
+    return $1
+endsnippet
+
+snippet django#form#CF "django form CharField" b
+$1 = forms.CharField(required=False, min_length=0, max_length=20)
+endsnippet
+
+snippet django#form#IF "django form IntegerField" b
+$1 = forms.IntegerField(required=False, min_value=0, max_value=10)
+endsnippet
+
+snippet django#form#BF "django form BooleanField" b
+$1 = forms.BooleanField(required=False)
 endsnippet
