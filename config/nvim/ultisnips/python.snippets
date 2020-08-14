@@ -1,5 +1,5 @@
 snippet ut "unittest"
-class Test$1(unittest.TestCase):
+class $1Test(TestCase):
     def setUp(self):
         pass
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 endsnippet
 
 snippet django#form "django form" b
-class ${1:XXX}Form(forms.Form):
+class $1Form(forms.Form):
     django#form#$2
 
     def clean(self):
