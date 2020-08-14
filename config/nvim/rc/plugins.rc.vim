@@ -149,6 +149,7 @@ tnoremap <M-]> <C-\><C-n>:Tnext<CR>
 
 " pydocstring {{{
 let g:pydocstring_formatter = 'google'
+let g:pydocstring_enable_mapping = 0
 " }}}
 
 nmap <leader>c <Plug>(gswitch-open)
