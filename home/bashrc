@@ -1,11 +1,10 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 export EDITOR='nvim'
-export BAT_THEME='ansi-dark'
 export MICRO_TRUECOLOR=1
 
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/git-completion.bash
+source $HOME/.git-completion.bash
+source $HOME/.git-prompt.sh
 
 # PS1 {{{
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -45,8 +44,6 @@ alias g='cd $(ghq root)/$(ghq list | fzf)'
 alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
 # git系
-alias st='git status'
-alias cm='git commit'
 alias push='git push origin HEAD'
 alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develop$" | xargs -I % git branch -d %'
 
