@@ -9,15 +9,13 @@ source $HOME/.git-prompt.sh
 # PS1 {{{
 GIT_PS1_SHOWDIRTYSTATE=true
 NORMAL='\[\e[m\]'
-RED='\[\e[0;31m\]'
-GREEN='\[\e[0;32m\]'
-YELLOW='\[\e[0;33m\]'
-BLUE='\[\e[0;34m\]'
-PURPLE='\[\e[0;35m\]'
-CYAN='\[\e[0;36m\]'
-LIGHT_GRAY='\[\e[0;37m\]'
-GRAY='\[\e[1;37m\]'
-export PS1="${BLUE}\w${YELLOW}"'$(__git_ps1)'"${BLUE}\n$ ${NORMAL}"
+RED='\[\e[1;31m\]'
+GREEN='\[\e[1;32m\]'
+YELLOW='\[\e[1;33m\]'
+BLUE='\[\e[1;34m\]'
+PURPLE='\[\e[1;35m\]'
+CYAN='\[\e[1;36m\]'
+export PS1="${BLUE}\w${PURPLE}"'$(__git_ps1)'"${YELLOW}\n↪ ${NORMAL}"
 # }}}
 
 
