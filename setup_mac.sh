@@ -45,6 +45,12 @@ EOF
 brew tap homebrew/bundle
 brew bundle --global
 
+# install git utils
+curl -fsSL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+chmod a+x ~/.git-completion.bash
+curl -fsSL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+chmod a+x ~/.git-prompt.sh
+
 # clone dotfiles
 echo 'Cloning dotfiles...'
 export GHQ_ROOT=~/git
