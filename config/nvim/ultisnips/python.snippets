@@ -1,3 +1,48 @@
+########################################################################
+# Basic
+########################################################################
+snippet decorator "make a decorator" b
+def $1(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwwargs):
+        $2
+        return func(*args, **kwwargs)
+    return wrapper
+endsnippet
+
+snippet main "main script" b
+#!/usr/bin/env python
+
+def main():
+    $1
+
+if __name__ == '__main__':
+    main()
+endsnippet
+
+snippet utf8 "coding utf-8" b
+# -*- coding: utf-8 -*-
+$1
+endsnippet
+
+snippet init "__init__ method" b
+def __init__(self$1):
+    $2
+endsnippet
+
+snippet def "function definition" b
+def $1($2):
+    $3
+endsnippet
+
+snippet meth "method definition" b
+def $1(self$2):
+    $3
+endsnippet
+
+########################################################################
+# Test
+########################################################################
 snippet ut "unittest"
 class $1Test(TestCase):
     def setUp(self):
@@ -43,17 +88,9 @@ snippet asnotin "assertNotIn"
 self.assertNotIn($1)
 endsnippet
 
-snippet db#fetch "fetch rows"
-from contextlib import closing
-from django.db import connection
-
-sql = 'select * from table'
-
-with closing(connection.cursor()) as cursor:
-    cursor.execute(sql, [${1:param}])
-    return dict_fetchall(cursor)
-endsnippet
-
+########################################################################
+# Debug
+########################################################################
 snippet pdb#trace "pdb breakpoint"
 import pdb; pdb.set_trace()
 endsnippet
@@ -62,6 +99,9 @@ snippet ipdb#trace "ipdb breakpoint"
 import ipdb; ipdb.set_trace()
 endsnippet
 
+########################################################################
+# 標準ライブラリ
+########################################################################
 snippet json#encode "json encode"
 json.dumps($1)
 endsnippet
@@ -91,25 +131,9 @@ def tail(n, iterable):
     return iter(collections.deque(iterable, maxlen=n))
 endsnippet
 
-snippet decorator "make a decorator" b
-def $1(func):
-    @functools.wraps(func)
-    def wrapper(*args, **kwwargs):
-        $2
-        return func(*args, **kwwargs)
-    return wrapper
-endsnippet
-
-snippet main "main script" b
-#!/usr/bin/env python
-
-def main():
-    $1
-
-if __name__ == '__main__':
-    main()
-endsnippet
-
+########################################################################
+# Django
+########################################################################
 snippet django#form "django form" b
 class $1Form(forms.Form):
     django#form#$2
@@ -139,7 +163,16 @@ snippet django#form#BF "django form BooleanField" b
 $1 = forms.BooleanField(required=False)
 endsnippet
 
-snippet utf8 "coding utf-8" b
-# -*- coding: utf-8 -*-
-$1
+########################################################################
+# Misc
+########################################################################
+snippet db#fetch "fetch rows"
+from contextlib import closing
+from django.db import connection
+
+sql = 'select * from table'
+
+with closing(connection.cursor()) as cursor:
+    cursor.execute(sql, [${1:param}])
+    return dict_fetchall(cursor)
 endsnippet
