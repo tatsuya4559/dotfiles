@@ -48,6 +48,7 @@ alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develo
 # その他
 alias h='clear && tldr'
 alias dc='docker-compose'
+alias pp='poetry run python'
 alias activate='. venv/bin/activate'
 alias t='tmuximum'
 alias C='pbcopy'
