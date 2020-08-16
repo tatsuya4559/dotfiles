@@ -55,6 +55,18 @@ class $1Test(TestCase):
         pass
 endsnippet
 
+snippet ut#table "table driven test" b
+def test_ok(self):
+    C = namedtuple('C', 'msg input expected')
+    cases = [
+        C(),
+    ]
+    for c in cases:
+        with self.subTest(msg=c.msg):
+            actual = self._callFUT(*c.input)
+            self.assertEqual(actual, c.expected)
+endsnippet
+
 snippet ase "assertEqual"
 self.assertEqual($1)
 endsnippet
