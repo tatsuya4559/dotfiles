@@ -57,13 +57,13 @@ endsnippet
 
 snippet ut#table "table driven test" b
 def test_ok(self):
-    C = namedtuple('C', 'msg input expected')
+    C = namedtuple('C', 'msg params expected')
     cases = [
         C(),
     ]
     for c in cases:
         with self.subTest(msg=c.msg):
-            actual = self._callFUT(*c.input)
+            actual = self._callFUT(*c.params)
             self.assertEqual(actual, c.expected)
 endsnippet
 
