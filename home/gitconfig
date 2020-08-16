@@ -14,6 +14,12 @@
   ff = false
 [mergetool "nvimdiff"]
   cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
+[fetch]
+  prune = true
+[pull]
+  ff = only
+[push]
+  default = current
 [alias]
   st = status
   co = checkout
@@ -28,11 +34,5 @@
   graph = log --graph --decorate --oneline
   PR = pull-request
   see = browse
-  sw = switch
-  re = restore
-[fetch]
-  prune = true
-[pull]
-  ff = only
 [ghq]
   root = ~/go/src

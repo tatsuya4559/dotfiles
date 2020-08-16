@@ -42,7 +42,6 @@ alias g='cd $(ghq root)/$(ghq list | fzf)'
 alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
 # git系
-alias push='git push origin HEAD'
 alias gitdel='git branch --merged master | grep -vE "^\*|master$|staging$|develop$" | xargs -I % git branch -d %'
 
 # その他
