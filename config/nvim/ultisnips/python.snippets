@@ -4,9 +4,9 @@
 snippet decorator "make a decorator" b
 def $1(func):
     @functools.wraps(func)
-    def wrapper(*args, **kwwargs):
+    def wrapper(*args, **kwargs):
         $2
-        return func(*args, **kwwargs)
+        return func(*args, **kwargs)
     return wrapper
 endsnippet
 
@@ -91,11 +91,11 @@ endsnippet
 ########################################################################
 # Debug
 ########################################################################
-snippet pdb#trace "pdb breakpoint"
+snippet bp#pdb "pdb breakpoint"
 import pdb; pdb.set_trace()
 endsnippet
 
-snippet ipdb#trace "ipdb breakpoint"
+snippet bp#ipdb "ipdb breakpoint"
 import ipdb; ipdb.set_trace()
 endsnippet
 
@@ -161,6 +161,27 @@ endsnippet
 
 snippet django#form#BF "django form BooleanField" b
 $1 = forms.BooleanField(required=False)
+endsnippet
+
+snippet django#middleware "django middleware" b
+# TODO: register this class to the MIDDLEWARE section of settings.py.
+class $1Middleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        return response
+
+    def process_view(self, request, view_func, view_args, view_kwargs):
+        pass
+endsnippet
+
+snippet django#qs "django custom queryset" b
+class $1QuerySet(models.QuerySet):
+    def $2(self):
+        return self.filter($3)
+# TODO: set \`objects = $1QuerySet.as_manager()\` in the model class
 endsnippet
 
 ########################################################################
