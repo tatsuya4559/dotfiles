@@ -26,6 +26,7 @@
   dt = difftool
   mt = mergetool
   graph = log --graph --decorate --oneline
+  PR = pull-request
   see = browse
   sw = switch
   re = restore
