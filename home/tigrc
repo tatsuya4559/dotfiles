@@ -17,10 +17,6 @@ set split-view-height = 70%
 # マウスを有効にする
 set mouse = true
 
-# bindが必要な普段遣いのコマンド
-# git add -u
-# git add --all
-
 # generic
 bind main    g  none
 bind main    g  move-first-line
@@ -28,7 +24,10 @@ bind generic g  move-first-line
 bind main    G  none
 bind main    G  move-last-line
 bind generic G  move-last-line
-bind generic L !git pull %(remote)
+
+bind generic F !git fetch --all
+bind generic L !git pull
+bind generic P ?git push -u
 
 # status
 bind status D !git difftool %(file)
@@ -36,14 +35,14 @@ bind status c !git commit -m "%(prompt Enter commit message: )"
 bind status P ?git push origin HEAD
 bind status S !git stash save
 bind status d ?git clean -f -- %(file)
+bind status U !git add -u
+bind status A !git add --all
 
 # refs
 bind refs c !git checkout %(branch)
 bind refs C !git checkout "%(prompt Enter branch name: )"
 bind refs B !git checkout -b "%(prompt Enter new branch name: )"
 bind refs M ?git merge %(branch)
-bind refs F !git fetch %(remote)
-bind refs P ?git push origin HEAD
 
 # stash
 bind stash P !git stash pop %(stash)
