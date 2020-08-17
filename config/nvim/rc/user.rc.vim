@@ -222,15 +222,11 @@ endfunction
 nnoremap <Space>t :<C-u>call OpenTig()<CR>
 " }}}
 
-" tig内でvimを開くときにネストしない {{{
+" terminal内でvimを開くとネストするのでmicroを使う {{{
+" nvrもあるけどうまくいかないケースがある
 " https://github.com/mhinz/neovim-remote
-if executable('nvr')
-  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-  augroup GIT
-    autocmd!
-    autocmd FileType gitcommit,gitrebase set bufhidden=delete
-    autocmd WinEnter,BufEnter term://*:tig startinsert
-  augroup END
+if executable('micro')
+  let $GIT_EDITOR = 'micro'
 endif
 " }}}
 
