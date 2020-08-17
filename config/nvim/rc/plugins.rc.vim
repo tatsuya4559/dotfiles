@@ -22,8 +22,13 @@ nnoremap <Space><Space> :<C-u>Vaffle %:h<CR>
 " }}}
 
 " fzf {{{
+" Rgコマンドでrgのオプションを渡せるように
+" デフォルトのコマンドからshellescape()を取り除いた
+command! -bang -nargs=* Rg call fzf#vim#grep(
+  \ "rg --column --line-number --no-heading --color=always --smart-case "
+  \ . <q-args>, 1, <bang>0)
 let g:fzf_preview_window = ''
-nnoremap <silent> <C-p> :<C-u>GFiles<CR>
+nnoremap <silent> <C-p> :<C-u>Files<CR>
 nnoremap <silent> <Space>b :<C-u>Buffers<CR>
 nnoremap <silent> <Space>c :<C-u>Commands<CR>
 nnoremap <silent> <Space>l :<C-u>BLines<CR>
