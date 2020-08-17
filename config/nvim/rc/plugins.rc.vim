@@ -58,7 +58,6 @@ let g:coc_global_extensions = [
       \   'coc-tsserver',
       \   'coc-vimlsp',
       \ ]
-" CocInstall coc-jest
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
