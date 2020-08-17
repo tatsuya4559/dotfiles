@@ -27,7 +27,7 @@
   cm = commit
   fe = fetch
   pop = stash pop
-  br = branch
+  br = branch -vv
   di = diff
   dt = difftool
   mt = mergetool
