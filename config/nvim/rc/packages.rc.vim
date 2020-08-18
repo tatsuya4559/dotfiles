@@ -15,7 +15,6 @@ else
 
   " Colorscheme
   Plug 'arcticicestudio/nord-vim'
-  Plug 'cocopon/iceberg.vim'
   Plug 'yasukotelin/shirotelin'
 
   " Text edit

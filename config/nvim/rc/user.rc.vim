@@ -36,8 +36,7 @@ function s:toggle_color()
   if g:colors_name !=# 'nord'
     execute 'colorscheme nord'
   else
-    execute 'colorscheme iceberg'
-    set background=light
+    execute 'colorscheme shirotelin'
   endif
 endfunction
 nnoremap <silent> <F3> :<C-u>call <SID>toggle_color()<CR>
