@@ -68,11 +68,6 @@ endfunction
 nnoremap vv v$h
 " }}}
 
-" <, >で連続してインデント調整できるようにする {{{
-vnoremap < <gv
-vnoremap > >gv
-" }}}
-
 " 行を移動 {{{
 nnoremap <C-Up> "zdd<Up>"zP
 nnoremap <C-Down> "zdd"zp
