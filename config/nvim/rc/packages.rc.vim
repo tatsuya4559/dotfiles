@@ -30,7 +30,6 @@ else
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'cocopon/vaffle.vim'
-  " Plug 'ap/vim-buftabline'
 
   " Language support
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
