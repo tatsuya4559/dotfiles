@@ -54,9 +54,5 @@ else
   Plug 'vim-test/vim-test'
   Plug 'kassio/neoterm'
 
-  " DB
-  Plug 'tpope/vim-dadbod'
-  Plug 'kristijanhusak/vim-dadbod-ui'
-
   call plug#end()
 endif
