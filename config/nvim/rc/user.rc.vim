@@ -216,12 +216,12 @@ endfunction
 nnoremap <Space>t :<C-u>call OpenTig()<CR>
 " }}}
 
-" terminal内でvimを開くとネストするのでmicroを使う {{{
-" nvrもあるけどうまくいかないケースがある
-" https://github.com/mhinz/neovim-remote
-if executable('micro')
-  let $GIT_EDITOR = 'micro'
-endif
+" terminal内でvimがネストしないようnvrを使う {{{
+let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+augroup GitCmd
+  autocmd!
+  autocmd FileType gitcommit,gitrebase set bufhidden=delete
+augroup END
 " }}}
 
 " 行末の空白を削除 {{{
