@@ -114,6 +114,15 @@ endsnippet
 ########################################################################
 # 標準ライブラリ
 ########################################################################
+snippet enum#def "enum definition" b
+class $1(enum.Enum):
+    $2 = enum.auto()
+endsnippet
+
+snippet nt "classic style namedtuple" b
+$1 = namedtuple("$1", "$2")
+endsnippet
+
 snippet json#encode "json encode"
 json.dumps($1)
 endsnippet
@@ -125,7 +134,7 @@ except ValueError as e:
     $3
 endsnippet
 
-snippet iter#groupby "for groupby"
+snippet iter#groupby "for groupby" b
 for key, group in groupby($1, key=$2):
     $3
 endsnippet
