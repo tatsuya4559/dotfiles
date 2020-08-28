@@ -17,6 +17,7 @@
     "typescriptreact": ["typescript"]
   },
   "tailwindCSS.headwind.runOnSave": false,
+  "emmet.includeLanguages": {"htmldjango": "html"},
   "diagnostic.warningSign": "🤔",
   "diagnostic.errorSign": "🔥",
   "diagnostic.infoSign": "💡",
