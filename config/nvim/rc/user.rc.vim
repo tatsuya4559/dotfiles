@@ -19,10 +19,10 @@ xnoremap k gk
 noremap! <C-b> <Left>
 noremap! <C-f> <Right>
 noremap! <C-e> <End>
+noremap! <C-d> <Del>
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-cnoremap <C-d> <Del>
 cnoremap <C-a> <Home>
 " }}}
 
