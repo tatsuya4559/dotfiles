@@ -24,7 +24,7 @@
   st = status
   co = checkout
   cof = !git branch | fzf | xargs git checkout
-  cm = commit
+  cm = commit -v
   fe = fetch
   pop = stash pop
   br = branch -vv
