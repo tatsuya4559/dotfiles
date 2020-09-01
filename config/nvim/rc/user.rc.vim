@@ -26,7 +26,7 @@ cnoremap <C-n> <Down>
 cnoremap <C-a> <Home>
 " }}}
 
-" カラースキーム迷うなあ {{{
+" カラースキーム {{{
 if exists('&termguicolors')
   set termguicolors
 endif
