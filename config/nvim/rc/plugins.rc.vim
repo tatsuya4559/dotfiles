@@ -12,7 +12,6 @@ vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
 " vaffle {{{
-nnoremap <Space>v :<C-u>Vaffle<CR>
 nnoremap <Space><Space> :<C-u>Vaffle %:h<CR>
 " }}}
 
