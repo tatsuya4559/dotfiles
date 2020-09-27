@@ -3,6 +3,12 @@
   email = tatsuya.k1029@gmail.com
 [core]
   editor = nvim
+  pager = delta
+[delta]
+    syntax-theme = Nord
+    line-numbers = true
+[interactive]
+    diffFilter = delta --color-only
 [diff]
   tool = nvimdiff
 [difftool]
