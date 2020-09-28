@@ -242,14 +242,14 @@ command! -range -nargs=+ Awk :call AwkPrint(<line1>, <line2>, <f-args>)
 " }}}
 
 " filer {{{
-function! s:open_current_dir() abort
+function! s:open_filer() abort
   let path = expand('%:h')
   if empty(path)
     let path = getcwd()
   endif
   execute printf('edit %s', fnameescape(path))
 endfunction
-nnoremap <silent> - :call <SID>open_current_dir()<CR>
+nnoremap <silent> - :call <SID>open_filer()<CR>
 " }}}
 
 " abbreviations {{{
