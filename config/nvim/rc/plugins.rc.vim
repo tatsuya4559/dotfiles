@@ -111,17 +111,6 @@ map g# <Plug>(asterisk-gz#)
 let g:asterisk#keeppos = 1
 " }}}
 
-" vista {{{
-let g:vista#renderer#enable_icon = 0
-let g:vista_executive_for = {
-  \ 'go': 'coc',
-  \ 'python': 'coc',
-  \ 'java': 'coc',
-  \ 'javascript': 'coc',
-  \ 'typescript': 'coc',
-  \ }
-" }}}
-
 " sneak {{{
 " sはsandwichが使っている
 " f/tはマクロのために変更したくない
