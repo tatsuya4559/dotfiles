@@ -11,10 +11,6 @@ nnoremap <Leader>\ :<C-u>Commentary<CR>
 vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
-" vaffle {{{
-nnoremap <Space><Space> :<C-u>Vaffle %:h<CR>
-" }}}
-
 " fzf {{{
 " Rgコマンドでrgのオプションを渡せるように
 " デフォルトのコマンドからshellescape()を取り除いた
