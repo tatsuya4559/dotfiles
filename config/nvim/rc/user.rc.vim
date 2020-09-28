@@ -169,7 +169,7 @@ nnoremap [switch]b :<C-u>call <SID>toggle_background()<CR>
 
 function s:toggle_background()
   let bg_color = &background == 'light' ? 'dark' : 'light'
-  execute 'set background=' . bg_color
+  execute 'set background=' bg_color
 endfunction
 " }}}
 
@@ -198,9 +198,9 @@ function! OpenTig()
   if bufexists(s:tig_bufname)
     let tig_winnr = bufwinnr(s:tig_bufname)
     if tig_winnr >= 0
-      execute tig_winnr . 'wincmd w'
+      execute tig_winnr 'wincmd w'
     else
-      execute 'buffer ' . s:tig_bufname
+      execute 'buffer ' s:tig_bufname
     endif
   else
     execute 'terminal tig'
@@ -235,8 +235,8 @@ command! CopyFilename :let @+ = expand('%:t')
 
 " awk {{{
 function! AwkPrint(line1, line2, ...)
-  let args = map(copy(a:000), { _, v -> '$' . v })
-  execute a:line1 ',' a:line2 "!awk '{print " join(args, ',') "}'"
+  let args = map(copy(a:000), { _, v -> '$' .. v })
+  execute printf("%d,%d!awk '{print %s}'", a:line1, a:line2, join(args, ','))
 endfunction
 command! -range -nargs=+ Awk :call AwkPrint(<line1>, <line2>, <f-args>)
 " }}}
@@ -247,7 +247,7 @@ function! s:open_filer() abort
   if empty(path)
     let path = getcwd()
   endif
-  execute printf('edit %s', fnameescape(path))
+  execute 'edit ' fnameescape(path)
 endfunction
 nnoremap <silent> - :call <SID>open_filer()<CR>
 " }}}
@@ -279,12 +279,12 @@ function! SmoothScroll(dir, windiv, factor)
   let wait_per_one_move_ms = s:scroll_time_ms / s:scroll_precision * a:factor
   let i = 0
   let scroll_command = a:dir == "down" ?
-        \ "normal! " . n . "\<C-e>" . n . "j" :
-        \ "normal! " . n . "\<C-y>" . n . "k"
+        \ "normal! " .. n . "\<C-e>" .. n .. "j" :
+        \ "normal! " .. n . "\<C-y>" .. n .. "k"
   while i < s:scroll_precision
     let i = i + 1
     execute scroll_command
-    execute "sleep " . wait_per_one_move_ms . "m"
+    execute "sleep " wait_per_one_move_ms "m"
     redraw
   endwhile
   let &cursorline = cl
@@ -317,8 +317,8 @@ function! s:search_by_google(...) abort
   if empty(a:000)
     return
   endif
-  let url = shellescape('https://www.google.com/search?q=' . join(a:000, '+'))
-  call system('open ' . url)
+  let url = shellescape('https://www.google.com/search?q=' .. join(a:000, '+'))
+  call system('open ' .. url)
 endfunction
 command! -nargs=* SearchByGoogle call s:search_by_google(<f-args>)
 nnoremap <silent> <Space>g :SearchByGoogle <C-r>=expand('<cword>')<CR><CR>

@@ -9,7 +9,7 @@ noremap <silent> <buffer> p  <CR>:call <SID>close_vaffle()<CR>zz<C-w>p
 function! s:close_vaffle()
   let vaffle_winnr = bufwinnr('vaffle://*')
   if vaffle_winnr >= 0
-    execute vaffle_winnr . 'wincmd q'
+    execute vaffle_winnr 'wincmd q'
   endif
 endfunction
 
