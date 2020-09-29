@@ -27,10 +27,6 @@ nnoremap <Space>f :<C-u>Rg<Space>
 nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
 " }}}
 
-" CocFzf {{{
-nnoremap <silent> <Space>o  :<C-u>CocFzfList outline<CR>
-" }}}
-
 " Coc {{{
 let g:coc_node_path = '/usr/local/bin/node'
 let g:coc_global_extensions = [

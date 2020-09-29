@@ -33,7 +33,6 @@ else
 
   " Language support
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'antoinemadec/coc-fzf'
   Plug 'pechorin/any-jump.vim' " cocでジャンプできないpythonのため
   Plug 'SirVer/ultisnips'
   Plug 'AndrewRadev/tagalong.vim'
