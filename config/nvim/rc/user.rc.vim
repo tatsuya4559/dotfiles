@@ -200,7 +200,7 @@ function! OpenTig()
     if tig_winnr >= 0
       execute tig_winnr 'wincmd w'
     else
-      execute 'buffer ' s:tig_bufname
+      execute 'buffer' s:tig_bufname
     endif
   else
     execute 'terminal tig'
@@ -247,7 +247,7 @@ function! s:open_filer() abort
   if empty(path)
     let path = getcwd()
   endif
-  execute 'edit ' fnameescape(path)
+  execute 'edit' fnameescape(path)
 endfunction
 nnoremap <silent> - :call <SID>open_filer()<CR>
 " }}}
@@ -284,7 +284,7 @@ function! SmoothScroll(dir, windiv, factor)
   while i < s:scroll_precision
     let i = i + 1
     execute scroll_command
-    execute "sleep " wait_per_one_move_ms "m"
+    execute "sleep" wait_per_one_move_ms "m"
     redraw
   endwhile
   let &cursorline = cl

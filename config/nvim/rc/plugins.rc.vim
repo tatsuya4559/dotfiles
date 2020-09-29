@@ -69,7 +69,7 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'h ' expand('<cword>')
+    execute 'h' expand('<cword>')
   else
     call CocAction('doHover')
   endif
