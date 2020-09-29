@@ -29,7 +29,7 @@ else
   " File explore
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'cocopon/vaffle.vim'
+  Plug 'tatsuya4559/filer.vim'
 
   " Language support
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
