@@ -33,7 +33,7 @@ function! s:run_django_test(command)
   if s:is_py3_project()
     call add(options, '-k')
   endif
-  execute ':' .. a:command  join(options)
+  execute a:command join(options)
 endfunction
 
 command! DjangoTestNearest :call s:run_django_test('TestNearest')<CR>
