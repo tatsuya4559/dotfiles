@@ -13,6 +13,8 @@ vnoremap <Leader>\ :Commentary<CR>
 
 " CtrlP {{{
 let g:ctrlp_user_command = 'rg --color never --files --hidden --follow --glob "!.git/*"'
+let g:ctrlp_reuse_window = 'filer'
+
 nnoremap <silent> <Space>b :<C-u>CtrlPBuffer<CR>
 nnoremap <silent> <Space>l :<C-u>CtrlPLine %<CR>
 nnoremap <silent> <Space>L :<C-u>CtrlPLine<CR>
