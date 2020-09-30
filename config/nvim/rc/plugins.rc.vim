@@ -11,20 +11,20 @@ nnoremap <Leader>\ :<C-u>Commentary<CR>
 vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
-" fzf {{{
-" Rgコマンドでrgのオプションを渡せるように
-" デフォルトのコマンドからshellescape()を取り除いた
-command! -bang -nargs=* Rg call fzf#vim#grep(
-  \ "rg --column --line-number --no-heading --color=always --smart-case "
-  \ .. <q-args>, 1, <bang>0)
-let g:fzf_preview_window = ''
-nnoremap <silent> <C-p> :<C-u>Files<CR>
-nnoremap <silent> <Space>b :<C-u>Buffers<CR>
-nnoremap <silent> <Space>c :<C-u>Commands<CR>
-nnoremap <silent> <Space>l :<C-u>BLines<CR>
-nnoremap <silent> <Space>L :<C-u>Lines<CR>
-nnoremap <Space>f :<C-u>Rg<Space>
-nnoremap <silent> <Space>* :<C-u>Rg <C-r>=expand('<cword>')<CR><CR>
+" CtrlP {{{
+let g:ctrlp_user_command = 'rg --color never --files --hidden --follow --glob "!.git/*"'
+let g:ctrlp_reuse_window = 'filer'
+
+nnoremap <silent> <Space>b :<C-u>CtrlPBuffer<CR>
+nnoremap <silent> <Space>l :<C-u>CtrlPLine %<CR>
+nnoremap <silent> <Space>L :<C-u>CtrlPLine<CR>
+
+function! s:search(...)
+  exe 'silent' 'grep!' join(a:000) '| cclose | CtrlPQuickfix'
+endfunction
+command! -nargs=+ Search :call s:search(<f-args>)
+nnoremap <Space>f :<C-u>Search<Space>
+nnoremap <silent> <Space>* :<C-u>Search <C-r>=expand('<cword>')<CR><CR>
 " }}}
 
 " Coc {{{

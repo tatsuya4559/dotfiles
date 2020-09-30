@@ -27,8 +27,7 @@ else
   Plug 'tpope/vim-commentary'
 
   " File explore
-  Plug 'junegunn/fzf'
-  Plug 'junegunn/fzf.vim'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tatsuya4559/filer.vim'
 
   " Language support
