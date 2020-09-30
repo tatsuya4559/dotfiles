@@ -95,11 +95,6 @@ nnoremap <S-Up> <C-w>+
 nnoremap <S-Down> <C-w>-
 " }}}
 
-" バッファ移動 {{{
-nnoremap <silent> ]b :<C-u>bn<CR>
-nnoremap <silent> [b :<C-u>bp<CR>
-" }}}
-
 " 横スクロール {{{
 nnoremap <silent> <Right> zl
 nnoremap <silent> <Left> zh
