@@ -236,17 +236,6 @@ endfunction
 command! -range -nargs=+ Awk :call AwkPrint(<line1>, <line2>, <f-args>)
 " }}}
 
-" filer {{{
-function! s:open_filer() abort
-  let path = expand('%:h')
-  if empty(path)
-    let path = getcwd()
-  endif
-  execute 'edit' fnameescape(path)
-endfunction
-nnoremap <silent> - :call <SID>open_filer()<CR>
-" }}}
-
 " abbreviations {{{
 :cabbrev sg silent grep!
 :cabbrev ga silent grepadd!
