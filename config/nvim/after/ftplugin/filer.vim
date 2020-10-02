@@ -1,5 +1,5 @@
 nmap <buffer> h <Plug>(filer-up)
-nmap <buffer> l <Plug>(filer-open)
+nmap <buffer> l <Plug>(filer-down)
 
 " 編集用バッファを別に用意すると便利
 function! s:as_new_buf() abort
