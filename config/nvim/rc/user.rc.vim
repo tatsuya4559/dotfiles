@@ -198,7 +198,7 @@ function! OpenTig()
       execute 'buffer' s:tig_bufname
     endif
   else
-    execute 'terminal tig'
+    execute 'terminal tig status'
     setlocal nonumber
     setlocal norelativenumber
     " Qでtigを閉じずにもとのバッファに戻る
