@@ -2,8 +2,6 @@ setlocal noexpandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
 
-setlocal listchars=tab:\ \ ,trail:-,nbsp:+
-
 function! s:gorun(...) abort
   let cmd = printf('go run %s', expand('%'))
   if !empty(a:000)
