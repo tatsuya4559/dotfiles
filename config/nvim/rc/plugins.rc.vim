@@ -32,7 +32,6 @@ let g:coc_node_path = '/usr/local/bin/node'
 let g:coc_global_extensions = [
       \   'coc-actions',
       \   'coc-css',
-      \   'coc-emmet',
       \   'coc-go',
       \   'coc-html',
       \   'coc-java',
@@ -129,4 +128,8 @@ tnoremap <M-]> <C-\><C-n>:Tnext<CR>
 " pydocstring {{{
 let g:pydocstring_formatter = 'google'
 let g:pydocstring_enable_mapping = 0
+" }}}
+
+" emmet {{{
+let g:user_emmet_mode = 'iv'
 " }}}

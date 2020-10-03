@@ -34,6 +34,7 @@ else
   Plug 'pechorin/any-jump.vim' " cocでジャンプできないpythonのため
   Plug 'SirVer/ultisnips'
   Plug 'AndrewRadev/tagalong.vim'
+  Plug 'mattn/emmet-vim'
   Plug 'mattn/vim-goimpl'
   Plug 'mattn/vim-goimports'
   Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
