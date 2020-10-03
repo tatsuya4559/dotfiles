@@ -22,6 +22,7 @@ set shiftwidth=2
 
 " 検索設定 {{{
 set incsearch
+set inccommand=nosplit
 set ignorecase
 set smartcase
 set hlsearch

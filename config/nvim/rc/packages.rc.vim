@@ -22,7 +22,6 @@ else
   Plug 'justinmk/vim-sneak'
   Plug 'jiangmiao/auto-pairs'
   Plug 'machakann/vim-sandwich'
-  Plug 'markonm/traces.vim'
   Plug 'thinca/vim-qfreplace'
   Plug 'tpope/vim-commentary'
 
