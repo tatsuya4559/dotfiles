@@ -172,17 +172,18 @@ endfunction
 vnoremap . :normal .<CR>
 " }}}
 
-" 置換 vim-asteriskに依存 {{{
+" 置換 {{{
+" vim-asteriskに依存
 nmap c* *cgn
 
 noremap [substitute] <Nop>
 map gs [substitute]
-nnoremap [substitute]s :%s/\v//<Left><Left>
-nnoremap [substitute]. :s/\v//<Left><Left>
-nmap [substitute]* *:%s/<C-r>///g<Left><Left>
+nnoremap [substitute]s :%s/\v
+nnoremap [substitute]. :s/\v
+nnoremap [substitute]* :%s/\V<C-r><C-w>
 
-vnoremap [substitute]s :s/\v//<Left><Left>
-vmap [substitute]* *:%s/<C-r>///g<Left><Left>
+vnoremap [substitute]s :s/\v
+vnoremap [substitute]* "zy:%s/\V<C-r>z
 " }}}
 
 " tigを開く {{{
