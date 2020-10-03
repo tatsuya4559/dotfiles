@@ -30,7 +30,6 @@ nnoremap <silent> <Space>* :<C-u>Search <C-r>=expand('<cword>')<CR><CR>
 " Coc {{{
 let g:coc_node_path = '/usr/local/bin/node'
 let g:coc_global_extensions = [
-      \   'coc-actions',
       \   'coc-css',
       \   'coc-go',
       \   'coc-html',
@@ -69,7 +68,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-" nnoremap <silent> <Space>a :<C-u>CocCommand actions.open<CR>
 nnoremap <silent> <Space>a :<C-u>CocAction<CR>
 
 nnoremap <Leader>f :<C-u>call FormatDocument()<CR>
