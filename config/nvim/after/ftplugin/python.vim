@@ -21,7 +21,7 @@ let g:test_options = {
 function! s:get_project_name()
   " cwdがプロジェクトルートである前提
   " テスト実行コマンドがsrc/manage.py決め打ちだからこの前提でOK
-  return split(getcwd(), '/')[-1]
+  return fnamemodify(getcwd(), ':t')
 endfunction
 
 function! s:run_django_test(command)
