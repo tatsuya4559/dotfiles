@@ -9,8 +9,8 @@ else
   call plug#begin('~/.local/share/nvim/plugged')
 
   " Syntax highlight
+  Plug 'HerringtonDarkholme/yats.vim'
   Plug 'MaxMEllon/vim-jsx-pretty'
-  Plug 'peitalin/vim-jsx-typescript'
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
   " Colorscheme
