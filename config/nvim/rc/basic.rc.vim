@@ -9,7 +9,7 @@ set ambiwidth=double
 " }}}
 
 " ステータスライン設定 {{{
-set laststatus=2
+set laststatus=2 " default on neovim
 " }}}
 
 " インデント設定 {{{
@@ -21,20 +21,20 @@ set shiftwidth=2
 " }}}
 
 " 検索設定 {{{
-set incsearch
+set incsearch " default on neovim
 set inccommand=nosplit
 set ignorecase
 set smartcase
-set hlsearch
-set wrapscan
+set hlsearch " default on neovim
+set wrapscan " default on neovim
 " }}}
 
 " バックスペースとCtrl+hで削除を有効にする {{{
-set backspace=2
+set backspace=2 " default on neovim
 " }}}
 
 " wildmenu有効化 {{{
-set wildmenu
+set wildmenu " default on neovim
 " }}}
 
 " アイドル状態になる時間 {{{
@@ -42,7 +42,7 @@ set updatetime=100
 " }}}
 
 " ミュート {{{
-set belloff=all
+set belloff=all " default on neovim
 " }}}
 
 " 不可視文字の表示 {{{
@@ -85,7 +85,7 @@ set hidden
 " }}}
 
 " ファイルの変更を自動読込 {{{
-set autoread
+set autoread " default on neovim
 augroup AutoReadChecktime
   autocmd!
   autocmd FocusGained,BufEnter * checktime
