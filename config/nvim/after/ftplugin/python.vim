@@ -25,7 +25,7 @@ function! s:get_project_name()
 endfunction
 
 function! s:run_django_test(command)
-  let options = get(g:test_options, s:get_project_name(), '')
+  let options = get(g:test_options, s:get_project_name(), [])
   execute a:command join(options)
 endfunction
 
