@@ -58,7 +58,7 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 
 nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
+  if &filetype =~? '\v(vim|help)'
     execute 'h' expand('<cword>')
   else
     call CocAction('doHover')
@@ -68,7 +68,7 @@ nnoremap <silent> <Space>a :<C-u>CocAction<CR>
 
 nnoremap <Leader>f :<C-u>call FormatDocument()<CR>
 function! FormatDocument()
-  if &ft =~? 'javascript\|typescript'
+  if &filetype =~? '\v(javascript|typescript)'
     execute 'CocCommand prettier.formatFile'
   else
     call CocAction('format')
