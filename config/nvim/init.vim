@@ -9,10 +9,10 @@ scriptencoding utf-8
 
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
-let s:rc_dir = expand('~/.config/nvim/rc')
+let s:rc_dir = '~/.config/nvim/rc/'
 
 function! s:source_rc(rc_file_name)
-  let rc_file = expand(s:rc_dir .. '/' .. a:rc_file_name)
+  let rc_file = expand(s:rc_dir .. a:rc_file_name)
   if filereadable(rc_file)
     execute 'source' rc_file
   endif
