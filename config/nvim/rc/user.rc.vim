@@ -237,14 +237,14 @@ command! -range -nargs=+ Awk :call AwkPrint(<line1>, <line2>, <f-args>)
 " }}}
 
 " abbreviations {{{
-:cabbrev sg silent grep!
-:cabbrev ga silent grepadd!
-:cabbrev windi windo diffthis
-:cabbrev gd Gvdiffsplit
-:cabbrev gb Gbrowse
-:cabbrev ld Linediff
-:cabbrev ggl SearchByGoogle
-:cabbrev JO r!jo -p
+cabbrev sg silent grep!
+cabbrev ga silent grepadd!
+cabbrev windi windo diffthis
+cabbrev gd Gvdiffsplit
+cabbrev gb Gbrowse
+cabbrev ld Linediff
+cabbrev ggl SearchByGoogle
+cabbrev JO r!jo -p
 " }}}
 
 " smooth scroll {{{
