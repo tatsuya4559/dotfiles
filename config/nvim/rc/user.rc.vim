@@ -365,4 +365,5 @@ function! CloseParen(findstart, base) abort
   return []
 endfunction
 set completefunc=CloseParen
+imap <C-l> <C-x><C-u>
 " }}}
