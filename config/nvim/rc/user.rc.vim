@@ -309,3 +309,59 @@ command! -nargs=* SearchByGoogle call s:search_by_google(<f-args>)
 nnoremap <silent> <Space>g :SearchByGoogle <C-r>=expand('<cword>')<CR><CR>
 vnoremap <silent> <Space>g "zy:SearchByGoogle <C-r>z<CR>
 " }}}
+
+" 閉じられていない(), [], {}を補完する
+function! CloseParen(findstart, base) abort
+  if a:findstart
+    return col('.') - 1
+  endif
+
+  let l:closed_parens = 0
+  let l:closed_brackets = 0
+  let l:closed_braces = 0
+
+  let l:line = line('.')
+  let l:col = col('.') - 1
+
+  while l:line > 0
+    let l:line_string = getline(l:line)
+    while l:col > 0
+      let l:char = l:line_string[l:col - 1]
+      let l:col -= 1
+
+      if l:char !~# '\v(\(|\)|\[|\]|\{|\})'
+        continue
+      endif
+
+      if l:char ==# '('
+        if l:closed_parens <= 0
+          return [')']
+        else
+          let l:closed_parens -= 1
+        endif
+      elseif l:char ==# '['
+        if l:closed_brackets <= 0
+          return [']']
+        else
+          let l:closed_brackets -= 1
+        endif
+      elseif l:char ==# '{'
+        if l:closed_braces <= 0
+          return ['}']
+        else
+          let l:closed_braces -= 1
+        endif
+      elseif l:char ==# ')'
+        let l:closed_parens += 1
+      elseif l:char ==# ']'
+        let l:closed_brackets += 1
+      elseif l:char ==# '}'
+        let l:closed_braces += 1
+      endif
+    endwhile
+    let l:line -= 1
+    let l:col = col([l:line, '$']) - 1
+  endwhile
+  return []
+endfunction
+set completefunc=CloseParen
