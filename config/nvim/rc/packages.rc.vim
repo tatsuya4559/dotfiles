@@ -20,7 +20,6 @@ else
   " Text edit
   Plug 'haya14busa/vim-asterisk'
   Plug 'justinmk/vim-sneak'
-  Plug 'jiangmiao/auto-pairs'
   Plug 'machakann/vim-sandwich'
   Plug 'thinca/vim-qfreplace'
   Plug 'tpope/vim-commentary'

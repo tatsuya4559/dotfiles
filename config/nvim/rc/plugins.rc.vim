@@ -1,7 +1,3 @@
-" auto pairs {{{
-let g:AutoPairsShortcutFastWrap = '<C-l>'
-" }}}
-
 " ultisnips {{{
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 " }}}
