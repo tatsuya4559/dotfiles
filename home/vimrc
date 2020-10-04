@@ -25,6 +25,7 @@ set list
 set listchars=tab:»-,trail:-,nbsp:+
 set noswapfile
 set number
+set ruler
 set hidden
 nnoremap <silent> ]b :<C-u>bn<CR>
 nnoremap <silent> [b :<C-u>bp<CR>
