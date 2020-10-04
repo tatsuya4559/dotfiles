@@ -45,14 +45,3 @@ elseif executable('git')
   let &grepprg = 'git grep -I --no-color --line-number --column'
   let &grepformat = '%f:%l:%c:%m'
 endif
-nnoremap <Space>* :silent grep '\b<cword>\b'<CR>
-
-function! ToggleQuickfix()
-    let l:nr = winnr('$')
-    cwindow
-    let l:nr2 = winnr('$')
-    if l:nr == l:nr2
-        cclose
-    endif
-endfunction
-nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
