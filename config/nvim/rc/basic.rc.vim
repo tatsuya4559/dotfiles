@@ -59,6 +59,7 @@ set splitright
 " }}}
 
 " 行番号を表示 {{{
+set ruler " default on neovim
 set number
 " set relativenumber
 " }}}
