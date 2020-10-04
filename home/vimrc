@@ -5,7 +5,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
 set fileformats=unix,dos,mac
 set laststatus=2
-colorscheme default
 filetype plugin indent on
 syntax enable
 set smartindent
@@ -23,12 +22,9 @@ set backspace=2
 set wildmenu
 set list
 set listchars=tab:»-,trail:-,nbsp:+
-set noswapfile
 set number
 set ruler
 set hidden
-nnoremap <silent> ]b :<C-u>bn<CR>
-nnoremap <silent> [b :<C-u>bp<CR>
 nnoremap <silent> ]q :<C-u>cn<CR>
 nnoremap <silent> [q :<C-u>cp<CR>
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
