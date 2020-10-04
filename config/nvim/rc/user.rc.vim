@@ -310,7 +310,7 @@ nnoremap <silent> <Space>g :SearchByGoogle <C-r>=expand('<cword>')<CR><CR>
 vnoremap <silent> <Space>g "zy:SearchByGoogle <C-r>z<CR>
 " }}}
 
-" 閉じられていない(), [], {}を補完する
+" 閉じられていない(), [], {}を補完する {{{
 function! CloseParen(findstart, base) abort
   if a:findstart
     return col('.') - 1
@@ -365,3 +365,4 @@ function! CloseParen(findstart, base) abort
   return []
 endfunction
 set completefunc=CloseParen
+" }}}
