@@ -61,13 +61,13 @@ echo 'Set symlink of dotfiles...'
 DOTFILEDIR=`ghq list -p tatsuya4559/dotfiles`
 
 for file in $(ls ${DOTFILEDIR}/config/); do
-    rm -rf ~/.config/${file}
-    ln -s ${DOTFILEDIR}/config/${file} ~/.config/${file}
+  rm -rf ~/.config/${file}
+  ln -s ${DOTFILEDIR}/config/${file} ~/.config/${file}
 done
 
-for file in $(ls ${DOTFILEDIR}/home/); do
-    rm -f ~/.${file}
-    ln -s ${DOTFILEDIR}/home/${file} ~/.${file}
+for file in $(find ${DOTFILEDIR}/home -type f); do
+  rm -f ~/`basename ${file}`
+  ln -s ${file} ~/`basename ${file}`
 done
 
 echo 'DONE!!'

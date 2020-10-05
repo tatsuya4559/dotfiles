@@ -37,3 +37,5 @@ augroup GrepCmd
     autocmd!
     au QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow | endif
 augroup END
+
+nnoremap s <C-w>
