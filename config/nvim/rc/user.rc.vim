@@ -119,8 +119,6 @@ else
   let &grepprg = 'grep -nRIE'
   let &grepformat = '%f:%l:%c:%m'
 endif
-
-nnoremap sg :<C-u>silent grep!<Space>
 " }}}
 
 " URLなどを開く {{{
