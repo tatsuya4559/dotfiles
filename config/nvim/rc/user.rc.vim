@@ -155,10 +155,6 @@ vnoremap [substitute]s :s/\v
 vnoremap [substitute]* "zy:%s/\V<C-r>z
 " }}}
 
-" 行末の空白を削除 {{{
-command! -range=% FixWhitespaces :<line1>,<line2>s/\s\+$//g
-" }}}
-
 " ファイルパスをコピー {{{
 command! CopyPath :let @+ = expand('%:p')
 command! CopyFilename :let @+ = expand('%:t')
