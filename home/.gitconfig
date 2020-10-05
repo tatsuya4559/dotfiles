@@ -23,7 +23,6 @@
 [alias]
   st = status
   co = checkout
-  cof = !git branch | fzf | xargs git checkout
   cm = commit -v
   fe = fetch
   pop = stash pop
@@ -31,7 +30,6 @@
   di = diff
   dt = difftool
   mt = mergetool
-  graph = log --graph --decorate --oneline
   PR = pull-request
   see = browse
 [ghq]
