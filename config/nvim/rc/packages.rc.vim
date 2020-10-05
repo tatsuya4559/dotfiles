@@ -34,8 +34,6 @@ else
   Plug 'SirVer/ultisnips'
   Plug 'AndrewRadev/tagalong.vim'
   Plug 'mattn/emmet-vim'
-  Plug 'mattn/vim-goimpl'
-  Plug 'mattn/vim-goimports'
   Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
   " Git
