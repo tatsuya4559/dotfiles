@@ -19,7 +19,7 @@ Plug 'tpope/vim-commentary'
 
 " File explore
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'tatsuya4559/filer.vim'
+Plug 'tatsuya4559/filer.vim'
 
 " Language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
