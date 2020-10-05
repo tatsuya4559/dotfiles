@@ -28,9 +28,7 @@ cnoremap <C-a> <Home>
 " }}}
 
 " カラースキーム {{{
-if exists('&termguicolors')
-  set termguicolors
-endif
+set termguicolors
 colorscheme nord
 
 function! s:toggle_color()
