@@ -22,7 +22,8 @@ set shiftwidth=2
 
 " 検索設定 {{{
 set incsearch " default on neovim
-set inccommand=nosplit
+" inccommand has bug (2020/10/05)
+" set inccommand=nosplit
 set ignorecase
 set smartcase
 set hlsearch " default on neovim

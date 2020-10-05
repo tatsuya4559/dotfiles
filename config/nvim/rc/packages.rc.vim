@@ -13,6 +13,7 @@ Plug 'yasukotelin/shirotelin'
 Plug 'haya14busa/vim-asterisk'
 Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-sandwich'
+Plug 'markonm/traces.vim'
 Plug 'thinca/vim-qfreplace'
 Plug 'tpope/vim-commentary'
 
