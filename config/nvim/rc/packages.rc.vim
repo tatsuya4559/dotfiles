@@ -8,7 +8,6 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " Colorscheme
 Plug 'arcticicestudio/nord-vim'
 Plug 'yasukotelin/shirotelin'
-Plug 'morhetz/gruvbox'
 
 " Text edit
 Plug 'haya14busa/vim-asterisk'
