@@ -143,16 +143,11 @@ vnoremap . :normal .<CR>
 
 " 置換 {{{
 " vim-asteriskに依存
-nmap c* *cgn
-
-noremap [substitute] <Nop>
-map gs [substitute]
-nnoremap [substitute]s :%s/\v
-nnoremap [substitute]. :s/\v
-nnoremap [substitute]* :%s/\V<C-r><C-w>
-
-vnoremap [substitute]s :s/\v
-vnoremap [substitute]* "zy:%s/\V<C-r>z
+nnoremap gss :%s/\v
+nnoremap gs. :s/\v
+nnoremap gs* :%s/\V<C-r><C-w>
+vnoremap gss :s/\v
+vnoremap gs* "zy:%s/\V<C-r>z
 " }}}
 
 " ファイルパスをコピー {{{
