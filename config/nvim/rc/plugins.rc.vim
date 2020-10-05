@@ -78,12 +78,6 @@ nnoremap <Space>j :<C-u>AnyJump<CR>
 xnoremap <Space>j :AnyJumpVisual<CR>
 " }}}
 
-" vim-test {{{
-let g:test#strategy = 'neoterm'
-let g:test#python#runner = 'djangotest'
-let g:test#python#djangotest#executable = 'python src/manage.py test'
-" }}}
-
 " asterisk {{{
 map *  <Plug>(asterisk-z*)
 map #  <Plug>(asterisk-z#)
@@ -100,19 +94,6 @@ let g:asterisk#keeppos = 1
 map ' <Plug>Sneak_s
 map '' <Plug>Sneak_S
 let g:sneak#use_ic_scs = 1
-" }}}
-
-" neoterm {{{
-let g:neoterm_automap_keys = '<Leader>tt'
-let g:neoterm_default_mod='botright'
-let g:neoterm_autoinsert = 1
-let g:neoterm_autoscroll=1
-nnoremap <C-j> :botright Ttoggle<CR>
-nnoremap <C-k> :vertical Ttoggle<CR>
-tnoremap <C-j> <C-\><C-n>:Ttoggle<CR>
-tnoremap <C-k> <C-\><C-n>:Ttoggle<CR>
-tnoremap <M-[> <C-\><C-n>:Tprevious<CR>
-tnoremap <M-]> <C-\><C-n>:Tnext<CR>
 " }}}
 
 " pydocstring {{{

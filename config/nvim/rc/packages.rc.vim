@@ -44,8 +44,6 @@ else
   " Utils
   Plug 'AndrewRadev/linediff.vim'
   Plug 'vim-jp/vimdoc-ja'
-  Plug 'vim-test/vim-test'
-  Plug 'kassio/neoterm'
 
   call plug#end()
 endif

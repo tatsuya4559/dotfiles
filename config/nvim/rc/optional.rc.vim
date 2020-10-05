@@ -75,8 +75,6 @@ endif
 " }}}
 
 " tigを開く {{{
-" neotermの最後に使ったterminalとしてカウントされたくないから
-" 普通のterminalコマンドで開く
 if g:enable_open_tig
   function! OpenTig()
     let s:tig_bufname = bufname('term://*:tig')
