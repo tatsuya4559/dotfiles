@@ -48,7 +48,6 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <F2> <Plug>(coc-rename)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
-nnoremap <Leader>g :<C-u>CocDiagnostics<CR>
 inoremap <silent><expr> <C-x><C-x> coc#refresh()
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
