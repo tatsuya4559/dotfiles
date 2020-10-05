@@ -18,6 +18,7 @@ xnoremap k gk
 
 noremap! <C-b> <Left>
 noremap! <C-f> <Right>
+inoremap <C-a> <C-o>^
 noremap! <C-e> <End>
 
 cnoremap <C-d> <Del>
