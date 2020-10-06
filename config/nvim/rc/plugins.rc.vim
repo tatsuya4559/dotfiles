@@ -14,13 +14,7 @@ let g:ctrlp_reuse_window = 'filer'
 nnoremap <silent> <Space>b :<C-u>CtrlPBuffer<CR>
 nnoremap <silent> <Space>l :<C-u>CtrlPLine %<CR>
 nnoremap <silent> <Space>L :<C-u>CtrlPLine<CR>
-
-function! s:search(...)
-  exe 'silent' 'grep!' join(a:000) '| cclose | CtrlPQuickfix'
-endfunction
-command! -nargs=+ Search :call s:search(<f-args>)
-nnoremap <Space>f :<C-u>Search<Space>
-nnoremap <silent> <Space>* :<C-u>Search <C-r>=expand('<cword>')<CR><CR>
+nnoremap <silent> <Leader>q :<C-u>CtrlPQuickfix<CR>
 " }}}
 
 " Coc {{{

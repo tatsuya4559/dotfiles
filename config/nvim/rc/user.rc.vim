@@ -100,14 +100,17 @@ endfunction
 nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
 " }}}
 
-" grep, makeのの実行後にQuickFixを開く {{{
+" grep, makeの実行後にQuickFixを開く {{{
 augroup QfCmd
   autocmd!
   autocmd QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow 8 | endif
 augroup END
 " }}}
 
-" 外部grepをカスタマイズ {{{
+" grep {{{
+nnoremap <Space>f :<C-u>silent grep!<Space>
+vnoremap <Space>f "zy:<C-u>silent grep! '<C-r>z'<CR>
+
 if executable('rg')
   let &grepprg = 'rg --vimgrep'
   let &grepformat = '%f:%l:%c:%m'
