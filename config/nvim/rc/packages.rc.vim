@@ -27,14 +27,14 @@ Plug 'pechorin/any-jump.vim' " cocでジャンプできないpythonのため
 Plug 'SirVer/ultisnips'
 Plug 'AndrewRadev/tagalong.vim'
 Plug 'mattn/emmet-vim'
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+Plug 'heavenshell/vim-pydocstring', {'do': 'make install', 'for': 'python'}
 
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'ruanyl/vim-gh-line'
 
 " Utils
-Plug 'AndrewRadev/linediff.vim'
+Plug 'AndrewRadev/linediff.vim', {'on': 'Linediff'}
 Plug 'vim-jp/vimdoc-ja'
 
 call plug#end()
