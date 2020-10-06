@@ -27,10 +27,8 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # vim系
-alias vm='nvim'
 alias vim='nvim'
 alias view='nvim -R'
-alias db='nvim +DBUI'
 
 # ls系
 alias ls='ls -GF'
