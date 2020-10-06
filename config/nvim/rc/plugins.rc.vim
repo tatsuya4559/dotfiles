@@ -8,9 +8,6 @@ vnoremap <Leader>\ :Commentary<CR>
 " }}}
 
 " CtrlP {{{
-if !has('nvim')
-  let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
-endif
 let g:ctrlp_user_command = 'rg --color never --files --hidden --follow --glob "!.git/*"'
 let g:ctrlp_reuse_window = 'filer'
 
