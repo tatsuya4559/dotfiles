@@ -117,9 +117,6 @@ if executable('rg')
 elseif executable('git') && !empty(system('git rev-parse --git-dir 2>/dev/null'))
   let &grepprg = 'git grep -I --no-color --line-number --column'
   let &grepformat = '%f:%l:%c:%m'
-else
-  let &grepprg = 'grep -nRIE'
-  let &grepformat = '%f:%l:%c:%m'
 endif
 " }}}
 
