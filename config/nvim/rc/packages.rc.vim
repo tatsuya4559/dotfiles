@@ -19,6 +19,9 @@ Plug 'tpope/vim-commentary'
 
 " File explore
 Plug 'ctrlpvim/ctrlp.vim'
+if !has('nvim')
+  Plug 'mattn/ctrlp-matchfuzzy'
+endif
 Plug 'tatsuya4559/filer.vim'
 
 " Language support
