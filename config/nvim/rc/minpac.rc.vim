@@ -83,9 +83,11 @@ function! PackInit() abort
   Pac 'mattn/emmet-vim', {'type': 'opt', 'lazy': v:true}
   Pac 'heavenshell/vim-pydocstring', {'type': 'opt', 'do': 'make install', 'for': 'python'}
 
+  " Git
   Pac 'airblade/vim-gitgutter', {'type': 'opt', 'lazy': v:true}
   Pac 'ruanyl/vim-gh-line', {'type': 'opt', 'lazy': v:true}
 
+  " Misc
   Pac 'AndrewRadev/linediff.vim', {'type': 'opt', 'on': 'Linediff'}
   Pac 'vim-jp/vimdoc-ja', {'type': 'opt', 'lazy': v:true}
 endfunction
