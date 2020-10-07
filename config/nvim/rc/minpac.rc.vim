@@ -4,7 +4,7 @@ augroup PackAutoCmd
   autocmd!
 augroup END
 
-function! s:add_package(repo, ...) abort
+function! s:register_package(repo, ...) abort
   let l:name = split(a:repo, '/')[1]
   let l:options = get(a:000, 0, {})
 
@@ -32,7 +32,7 @@ function! s:add_package(repo, ...) abort
   endif
 endfunction
 
-command! -nargs=+ Pac call s:add_package(<args>)
+command! -nargs=+ Pack call s:register_package(<args>)
 
 function! PackAddHandler(timer) abort
   let l:plugin = remove(s:lazy_load_plugins, 0)
@@ -42,7 +42,7 @@ function! PackAddHandler(timer) abort
   endif
 endfunction
 
-augroup LazyLoadBundle
+augroup LazyLoad
   autocmd!
   autocmd VimEnter * call timer_start(10, 'PackAddHandler', {'repeat': len(s:lazy_load_plugins)})
 augroup END
@@ -55,41 +55,41 @@ function! PackInit() abort
   endif
 
   " Syntax highlight
-  Pac 'HerringtonDarkholme/yats.vim', {'type': 'opt', 'for': ['typescript', 'typescriptreact']}
-  Pac 'MaxMEllon/vim-jsx-pretty', {'type': 'opt', 'for': ['javascript', 'javascriptreact', 'typescriptreact']}
-  Pac 'evanleck/vim-svelte', {'branch': 'main'}
+  Pack 'HerringtonDarkholme/yats.vim', {'type': 'opt', 'for': ['typescript', 'typescriptreact']}
+  Pack 'MaxMEllon/vim-jsx-pretty', {'type': 'opt', 'for': ['javascript', 'javascriptreact', 'typescriptreact']}
+  Pack 'evanleck/vim-svelte', {'branch': 'main'}
 
   " Colorscheme
-  Pac 'arcticicestudio/nord-vim', {'type': 'opt'}
-  Pac 'yasukotelin/shirotelin', {'type': 'opt'}
+  Pack 'arcticicestudio/nord-vim', {'type': 'opt'}
+  Pack 'yasukotelin/shirotelin', {'type': 'opt'}
 
   " Text edit
-  Pac 'haya14busa/vim-asterisk', {'type': 'opt', 'lazy': v:true}
-  Pac 'justinmk/vim-sneak', {'type': 'opt', 'lazy': v:true}
-  Pac 'machakann/vim-sandwich', {'type': 'opt', 'lazy': v:true}
-  Pac 'markonm/traces.vim', {'type': 'opt', 'lazy': v:true}
-  Pac 'thinca/vim-qfreplace', {'type': 'opt', 'for': 'qf'}
-  Pac 'tpope/vim-commentary', {'type': 'opt', 'lazy': v:true}
+  Pack 'haya14busa/vim-asterisk', {'type': 'opt', 'lazy': v:true}
+  Pack 'justinmk/vim-sneak', {'type': 'opt', 'lazy': v:true}
+  Pack 'machakann/vim-sandwich', {'type': 'opt', 'lazy': v:true}
+  Pack 'markonm/traces.vim', {'type': 'opt', 'lazy': v:true}
+  Pack 'thinca/vim-qfreplace', {'type': 'opt', 'for': 'qf'}
+  Pack 'tpope/vim-commentary', {'type': 'opt', 'lazy': v:true}
 
   " File explore
-  Pac 'ctrlpvim/ctrlp.vim'
-  Pac 'tatsuya4559/filer.vim'
+  Pack 'ctrlpvim/ctrlp.vim'
+  Pack 'tatsuya4559/filer.vim'
 
   " Language support
-  Pac 'neoclide/coc.nvim', {'branch': 'release'}
-  Pac 'pechorin/any-jump.vim', {'type': 'opt', 'lazy': v:true}
-  Pac 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
-  Pac 'AndrewRadev/tagalong.vim', {'type': 'opt', 'lazy': v:true}
-  Pac 'mattn/emmet-vim', {'type': 'opt', 'lazy': v:true}
-  Pac 'heavenshell/vim-pydocstring', {'type': 'opt', 'do': 'make install', 'for': 'python'}
+  Pack 'neoclide/coc.nvim', {'branch': 'release'}
+  Pack 'pechorin/any-jump.vim', {'type': 'opt', 'lazy': v:true}
+  Pack 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
+  Pack 'AndrewRadev/tagalong.vim', {'type': 'opt', 'lazy': v:true}
+  Pack 'mattn/emmet-vim', {'type': 'opt', 'lazy': v:true}
+  Pack 'heavenshell/vim-pydocstring', {'type': 'opt', 'do': 'make install', 'for': 'python'}
 
   " Git
-  Pac 'airblade/vim-gitgutter', {'type': 'opt', 'lazy': v:true}
-  Pac 'ruanyl/vim-gh-line', {'type': 'opt', 'lazy': v:true}
+  Pack 'airblade/vim-gitgutter', {'type': 'opt', 'lazy': v:true}
+  Pack 'ruanyl/vim-gh-line', {'type': 'opt', 'lazy': v:true}
 
   " Misc
-  Pac 'AndrewRadev/linediff.vim', {'type': 'opt', 'on': 'Linediff'}
-  Pac 'vim-jp/vimdoc-ja', {'type': 'opt', 'lazy': v:true}
+  Pack 'AndrewRadev/linediff.vim', {'type': 'opt', 'on': 'Linediff'}
+  Pack 'vim-jp/vimdoc-ja', {'type': 'opt', 'lazy': v:true}
 endfunction
 
 call PackInit()
