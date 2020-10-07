@@ -32,7 +32,7 @@ set termguicolors
 colorscheme nord
 
 function! s:toggle_color()
-  if g:colors_name !=# 'nord'
+  if get(g:, 'colors_name', '') !=# 'nord'
     execute 'colorscheme nord'
   else
     execute 'colorscheme shirotelin'
