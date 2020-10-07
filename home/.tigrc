@@ -14,9 +14,6 @@ set ignore-case = true
 # 水平分割したウィンドウの下画面サイズを % で指定（行数指定も可）
 set split-view-height = 70%
 
-# マウスを有効にする
-set mouse = true
-
 # generic
 bind main    g  none
 bind main    g  move-first-line
