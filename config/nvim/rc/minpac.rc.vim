@@ -69,7 +69,7 @@ function! PackInit() abort
   Pack 'machakann/vim-sandwich', {'type': 'opt', 'lazy': v:true}
   Pack 'markonm/traces.vim', {'type': 'opt', 'lazy': v:true}
   Pack 'thinca/vim-qfreplace', {'type': 'opt', 'for': 'qf'}
-  Pack 'tpope/vim-commentary', {'type': 'opt', 'lazy': v:true}
+  Pack 'tpope/vim-commentary', {'type': 'opt', 'on': 'Commentary'}
 
   " File explore
   Pack 'ctrlpvim/ctrlp.vim'
@@ -77,7 +77,7 @@ function! PackInit() abort
 
   " Language support
   Pack 'neoclide/coc.nvim', {'branch': 'release'}
-  Pack 'pechorin/any-jump.vim', {'type': 'opt', 'lazy': v:true}
+  Pack 'pechorin/any-jump.vim', {'type': 'opt', 'on': ['AnyJump', 'AnyJumpVisual']}
   Pack 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
   Pack 'AndrewRadev/tagalong.vim', {'type': 'opt', 'lazy': v:true}
   Pack 'mattn/emmet-vim', {'type': 'opt', 'lazy': v:true}
