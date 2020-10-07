@@ -2,7 +2,7 @@
 "   (_)__  (_) /_ _  __(_)_ _
 "  / / _ \/ / __/| |/ / /  ' \
 " /_/_//_/_/\__(_)___/_/_/_/_/
-"
+"                   always WIP
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -19,7 +19,7 @@ function! s:source_rc(rc_file_name)
 endfunction
 
 call s:source_rc('basic.rc.vim')
-call s:source_rc('packages.rc.vim')
+call s:source_rc('minpac.rc.vim')
 call s:source_rc('user.rc.vim')
 call s:source_rc('plugins.rc.vim')
 call s:source_rc('optional.rc.vim')
