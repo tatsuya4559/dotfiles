@@ -57,7 +57,7 @@ function! PackInit() abort
   " Syntax highlight
   Pac 'HerringtonDarkholme/yats.vim', {'type': 'opt', 'for': ['typescript', 'typescriptreact']}
   Pac 'MaxMEllon/vim-jsx-pretty', {'type': 'opt', 'for': ['javascript', 'javascriptreact', 'typescriptreact']}
-  Pac 'evanleck/vim-svelte', {'type': 'opt', 'branch': 'main', 'lazy': v:true}
+  Pac 'evanleck/vim-svelte', {'branch': 'main'}
 
   " Colorscheme
   Pac 'arcticicestudio/nord-vim', {'type': 'opt'}
