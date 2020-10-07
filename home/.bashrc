@@ -65,4 +65,8 @@ function profile_vim() {
     echo "scale=3; $(nvim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1) / $(nvim --noplugin --startuptime /tmp/stime_default.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_default.log | cut -d ' ' -f1)" | bc | xargs -I{} echo "{}x slower your NeoVim than the default."
     rm -f /tmp/stime_with_plugin.log /tmp/stime_default.log
 }
+
+function time_vim() {
+  nvim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1
+}
 # }}}
