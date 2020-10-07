@@ -53,12 +53,14 @@ sudo pacman -S --noconfirm docker
 sudo pacman -S --noconfirm docker-compose
 
 sudo pacman -S --noconfirm python-neovim python-pipenv
-yay -S ttf-cica
-yay -S dive
+yay -S --noconfirm ttf-cica
+yay -S --noconfirm ttf-monaco
+yay -S --noconfirm dive
 
 ## install GUI tools
 sudo pacman -S --noconfirm synapse
 yay -S --noconfirm google-chrome
+yay -S --noconfirm gruake
 
 # install nice gtk/icon themes
 git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
