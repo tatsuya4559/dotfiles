@@ -1,3 +1,8 @@
+" disable default plugins {{{
+let g:loaded_2html_plugin = 1
+let g:loaded_man = 1
+" }}}
+
 " 文字コード {{{
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
