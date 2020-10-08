@@ -55,6 +55,7 @@ sudo pacman -S --noconfirm docker-compose
 sudo pacman -S --noconfirm python-neovim python-pipenv
 yay -S --noconfirm ttf-cica
 yay -S --noconfirm ttf-monaco
+yay -S --noconfirm nerd-fonts-ubuntu-mono
 yay -S --noconfirm dive
 
 ## install GUI tools
