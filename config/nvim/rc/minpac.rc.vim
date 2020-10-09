@@ -27,7 +27,7 @@ function! s:register_package(repo, ...) abort
     endif
   endif
 
-  if get(g:, 'loaded_minpac', v:false)
+  if exists('g:loaded_minpac')
     call minpac#add(a:repo, l:options)
   endif
 endfunction
