@@ -65,7 +65,6 @@ function! PackInit() abort
 
   " Text edit
   Pack 'haya14busa/vim-asterisk', {'type': 'opt', 'lazy': v:true}
-  Pack 'justinmk/vim-sneak', {'type': 'opt', 'lazy': v:true}
   Pack 'machakann/vim-sandwich', {'type': 'opt', 'lazy': v:true}
   Pack 'markonm/traces.vim', {'type': 'opt', 'lazy': v:true}
   Pack 'thinca/vim-qfreplace', {'type': 'opt', 'for': 'qf'}

@@ -78,16 +78,6 @@ map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 " }}}
 
-" sneak {{{
-" sはsandwichが使っている
-" f/tはマクロのために変更したくない
-" xは結構使うので潰すと困る
-" 'ならいつも`で済ませるので潰しても困らないし打ちやすい
-map ' <Plug>Sneak_s
-map '' <Plug>Sneak_S
-let g:sneak#use_ic_scs = 1
-" }}}
-
 " pydocstring {{{
 let g:pydocstring_formatter = 'google'
 let g:pydocstring_enable_mapping = 0
