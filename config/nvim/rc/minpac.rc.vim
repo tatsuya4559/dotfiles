@@ -94,6 +94,6 @@ endfunction
 
 call PackInit()
 
-command! -nargs=* PackUpdate source $MYVIMRC | call minpac#update([<f-args>])
-command! -nargs=* PackClean source $MYVIMRC | call minpac#clean([<f-args>])
+command! PackUpdate source $MYVIMRC | call minpac#update()
+command! PackClean source $MYVIMRC | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
