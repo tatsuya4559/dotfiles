@@ -1,1 +1,1 @@
-command! -buffer Do '<,'>!sh
+command! -buffer Do '<,'>w !sh
