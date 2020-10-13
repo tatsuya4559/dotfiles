@@ -2,7 +2,7 @@
   name = tatsuya4559
   email = tatsuya.k1029@gmail.com
 [core]
-  editor = nvim
+  editor = "nvim --noplugin"
 [diff]
   tool = nvimdiff
 [difftool]
