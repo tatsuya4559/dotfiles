@@ -76,7 +76,7 @@ language C
 " }}}
 
 " マウスを有効化 {{{
-set mouse=nvr
+" set mouse=nvr
 " }}}
 
 " コマンドラインからコマンドラインウィンドウを開く {{{
