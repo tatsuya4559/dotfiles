@@ -57,9 +57,9 @@ endsnippet
 
 snippet ut::table "table driven test" b
 def test_${1:ok}(self):
-    C = namedtuple('C', 'msg params expected')
+    Case = namedtuple('Case', 'msg params expected')
     cases = [
-        C(),
+        Case(),
     ]
     for c in cases:
         with self.subTest(msg=c.msg):
