@@ -83,7 +83,7 @@ function! PackInit() abort
   Pack 'heavenshell/vim-pydocstring', {'type': 'opt', 'do': 'make install', 'for': 'python'}
 
   " Git
-  Pack 'airblade/vim-gitgutter', {'type': 'opt', 'lazy': v:true}
+  Pack 'mhinz/vim-signify', {'type': 'opt', 'lazy': v:true}
   Pack 'ruanyl/vim-gh-line', {'type': 'opt', 'lazy': v:true}
 
   " Misc
