@@ -70,7 +70,7 @@ function! PackInit() abort
   Pack 'tatsuya4559/filer.vim'
 
   " Language support
-  Pack 'neoclide/coc.nvim', {'branch': 'release'}
+  Pack 'neoclide/coc.nvim', {'branch': 'release', 'frozen': v:true}
   Pack 'sheerun/vim-polyglot', {'type': 'opt', 'lazy': v:true, 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']}
   Pack 'pechorin/any-jump.vim', {'type': 'opt', 'on': ['AnyJump', 'AnyJumpVisual']}
   Pack 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
