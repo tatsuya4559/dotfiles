@@ -54,11 +54,6 @@ function! PackInit() abort
     call minpac#add('k-takata/minpac', {'type': 'opt'})
   endif
 
-  " Syntax highlight
-  Pack 'HerringtonDarkholme/yats.vim', {'type': 'opt', 'for': ['typescript', 'typescriptreact']}
-  Pack 'MaxMEllon/vim-jsx-pretty', {'type': 'opt', 'for': ['javascript', 'javascriptreact', 'typescriptreact']}
-  Pack 'evanleck/vim-svelte', {'branch': 'main'}
-
   " Colorscheme
   Pack 'arcticicestudio/nord-vim', {'type': 'opt'}
   Pack 'yasukotelin/shirotelin', {'type': 'opt'}
@@ -76,6 +71,7 @@ function! PackInit() abort
 
   " Language support
   Pack 'neoclide/coc.nvim', {'branch': 'release'}
+  Pack 'sheerun/vim-polyglot', {'type': 'opt', 'lazy': v:true}
   Pack 'pechorin/any-jump.vim', {'type': 'opt', 'on': ['AnyJump', 'AnyJumpVisual']}
   Pack 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
   Pack 'AndrewRadev/tagalong.vim', {'type': 'opt', 'lazy': v:true}
