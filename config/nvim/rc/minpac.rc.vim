@@ -74,7 +74,6 @@ function! PackInit() abort
   Pack 'sheerun/vim-polyglot', {'type': 'opt', 'lazy': v:true, 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']}
   Pack 'pechorin/any-jump.vim', {'type': 'opt', 'on': ['AnyJump', 'AnyJumpVisual']}
   Pack 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
-  Pack 'AndrewRadev/tagalong.vim', {'type': 'opt', 'lazy': v:true}
   Pack 'mattn/emmet-vim', {'type': 'opt', 'lazy': v:true}
 
   " Git
