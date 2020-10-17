@@ -79,11 +79,6 @@ map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 " }}}
 
-" pydocstring {{{
-let g:pydocstring_formatter = 'google'
-let g:pydocstring_enable_mapping = 0
-" }}}
-
 " emmet {{{
 let g:user_emmet_mode = 'iv'
 " }}}
