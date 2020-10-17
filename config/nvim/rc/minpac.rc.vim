@@ -76,7 +76,6 @@ function! PackInit() abort
   Pack 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
   Pack 'AndrewRadev/tagalong.vim', {'type': 'opt', 'lazy': v:true}
   Pack 'mattn/emmet-vim', {'type': 'opt', 'lazy': v:true}
-  Pack 'heavenshell/vim-pydocstring', {'type': 'opt', 'do': 'make install', 'for': 'python'}
 
   " Git
   Pack 'mhinz/vim-signify', {'type': 'opt', 'lazy': v:true}
