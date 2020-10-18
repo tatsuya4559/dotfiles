@@ -23,3 +23,26 @@ endsnippet
 snippet "(\w+).map.(\w+).(\w+)" "make map" r
 `!p snip.rv = match.group(1)` = map[`!p snip.rv = match.group(2)`]`!p snip.rv = match.group(3)`$0
 endsnippet
+
+snippet ut::table "table driven test skelton"
+func Test$1(t *testing.T) {
+	cases := []struct {
+		${2:input string
+		expected string}
+	}{
+		{input: "hoge", expected: "fuga"},
+	}
+
+	for _, c := range cases {
+		if Testee(c.input) != c.expected {
+			t.Errorf("error!")
+		}
+	}
+}
+endsnippet
+
+snippet ut::fn "test function"
+func Test$1(t *testing.T) {
+	$2
+}
+endsnippet
