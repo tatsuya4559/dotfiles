@@ -8,6 +8,9 @@ set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
 # 横分割に強制する
 set vertical-split = no
 
+# commit idを表示
+set main-view = id date author commit-title:graph=yes,refs=yes
+
 # 検索時に大文字小文字を無視する (default: false)
 set ignore-case = true
 
