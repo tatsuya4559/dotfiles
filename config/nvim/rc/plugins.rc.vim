@@ -44,7 +44,6 @@ nmap <F2> <Plug>(coc-rename)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <C-x><C-x> coc#refresh()
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
