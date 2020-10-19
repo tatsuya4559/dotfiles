@@ -57,9 +57,7 @@ function! PackInit() abort
   " Colorscheme
   Pack 'arcticicestudio/nord-vim', {'type': 'opt'}
   Pack 'yasukotelin/shirotelin', {'type': 'opt'}
-  Pack 'vim-scripts/twilight', {'type': 'opt'}
   Pack 'sjl/badwolf', {'type': 'opt'}
-  Pack 'croaker/mustang-vim', {'type': 'opt'}
 
   " Text edit
   Pack 'haya14busa/vim-asterisk', {'type': 'opt', 'lazy': v:true}
