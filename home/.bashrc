@@ -1,8 +1,4 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
-export EDITOR='nvim'
-export MICRO_TRUECOLOR=1
-export FZF_DEFAULT_COMMAND='rg --color never --files --hidden --follow --glob "!.git/*"'
 
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
