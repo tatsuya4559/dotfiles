@@ -39,9 +39,7 @@ alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 # その他
 alias h='clear && tldr'
 alias dc='docker-compose'
-alias pp='poetry run python'
 alias a='. venv/bin/activate'
-alias t='tmuximum'
 alias C='pbcopy'
 
 # for linux
@@ -54,12 +52,6 @@ alias C='pbcopy'
 # awkめんどい
 function col() {
   awk -v col=$1 '{print $col}'
-}
-
-# デフォルトのneovimよりどのくらい遅くなっているか
-function profile_vim() {
-    echo "scale=3; $(nvim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1) / $(nvim --noplugin --startuptime /tmp/stime_default.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_default.log | cut -d ' ' -f1)" | bc | xargs -I{} echo "{}x slower your NeoVim than the default."
-    rm -f /tmp/stime_with_plugin.log /tmp/stime_default.log
 }
 
 function time_vim() {
