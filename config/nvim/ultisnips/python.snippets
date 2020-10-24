@@ -55,7 +55,7 @@ class $1Test(TestCase):
         pass
 endsnippet
 
-snippet ut::table "table driven test" b
+snippet ut.table "table driven test" b
 def test_${1:ok}(self):
     Case = namedtuple('Case', 'msg params expected')
     cases = [
@@ -103,18 +103,18 @@ endsnippet
 ########################################################################
 # Debug
 ########################################################################
-snippet bp::pdb "pdb breakpoint"
+snippet bp.pdb "pdb breakpoint"
 import pdb; pdb.set_trace()
 endsnippet
 
-snippet bp::ipdb "ipdb breakpoint"
+snippet bp.ipdb "ipdb breakpoint"
 import ipdb; ipdb.set_trace()
 endsnippet
 
 ########################################################################
 # 標準ライブラリ
 ########################################################################
-snippet enum::def "enum definition" b
+snippet enum.def "enum definition" b
 class $1(enum.Enum):
     $2 = enum.auto()
 endsnippet
@@ -123,29 +123,29 @@ snippet nt "classic style namedtuple" b
 $1 = namedtuple("$1", "$2")
 endsnippet
 
-snippet json::encode "json encode"
+snippet json.encode "json encode"
 json.dumps($1)
 endsnippet
 
-snippet json::decode "json decode"
+snippet json.decode "json decode"
 try:
     ${1:result} = json.loads($2)
 except ValueError as e:
     $3
 endsnippet
 
-snippet iter::groupby "for groupby" b
+snippet iter.groupby "for groupby" b
 for key, group in groupby($1, key=$2):
     $3
 endsnippet
 
-snippet iter::take "take function" b
+snippet iter.take "take function" b
 def take(n, iterable):
     "Return first n items of the iterable as a list"
     return list(islice(iterable, n))
 endsnippet
 
-snippet iter::tail "tail function" b
+snippet iter.tail "tail function" b
 def tail(n, iterable):
     "Return an iterator over the last n items"
     # tail(3, 'ABCDEFG') --> E F G
@@ -155,7 +155,7 @@ endsnippet
 ########################################################################
 # Django
 ########################################################################
-snippet django::form "django form" b
+snippet django.form "django form" b
 class $1Form(forms.Form):
     django#form#$2
 
@@ -164,7 +164,7 @@ class $1Form(forms.Form):
         return cleaned_data
 endsnippet
 
-snippet django::form::clean "django form clean method" b
+snippet django.form.clean "django form clean method" b
 def clean_$1(self):
     $1 = self.cleaned_data.get("$1")
     if False:
@@ -172,19 +172,19 @@ def clean_$1(self):
     return $1
 endsnippet
 
-snippet django::form::CF "django form CharField" b
+snippet django.form.CF "django form CharField" b
 $1 = forms.CharField(required=False, min_length=0, max_length=20)
 endsnippet
 
-snippet django::form::IF "django form IntegerField" b
+snippet django.form.IF "django form IntegerField" b
 $1 = forms.IntegerField(required=False, min_value=0, max_value=10)
 endsnippet
 
-snippet django::form::BF "django form BooleanField" b
+snippet django.form.BF "django form BooleanField" b
 $1 = forms.BooleanField(required=False)
 endsnippet
 
-snippet django::middleware "django middleware" b
+snippet django.middleware "django middleware" b
 # TODO: register this class to the MIDDLEWARE section of settings.py.
 class $1Middleware:
     def __init__(self, get_response):
@@ -198,7 +198,7 @@ class $1Middleware:
         pass
 endsnippet
 
-snippet django::qs "django custom queryset" b
+snippet django.qs "django custom queryset" b
 class $1QuerySet(models.QuerySet):
     def $2(self):
         return self.filter($3)
@@ -208,7 +208,7 @@ endsnippet
 ########################################################################
 # Misc
 ########################################################################
-snippet db::fetch "fetch rows"
+snippet db.fetch "fetch rows"
 from contextlib import closing
 from django.db import connection
 
