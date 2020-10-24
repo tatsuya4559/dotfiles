@@ -25,6 +25,7 @@ alias rm='rm -i'
 # vim系
 alias vim='nvim'
 alias view='nvim -R'
+alias vimdiff='nvim -d'
 
 # ls系
 alias ls='ls -GF'
