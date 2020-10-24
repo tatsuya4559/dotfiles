@@ -19,10 +19,4 @@ vnoremap . :normal .<CR>
 nnoremap <C-p> :<C-u>e **/*
 nnoremap <Space>b :<C-u>b *
 nnoremap <Space>e :Ex<CR>
-
-augroup GrepCmd
-    autocmd!
-    au QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow | endif
-augroup END
-
 nnoremap s <C-w>
