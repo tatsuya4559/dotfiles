@@ -3,6 +3,16 @@
   "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"],
   "html.autoClosingTags": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  },
   "python.jediEnabled": false,
   "python.linting.flake8Enabled": false,
   "python.linting.flake8Args": [
