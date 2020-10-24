@@ -11,7 +11,7 @@ command! -buffer ErrCheck call s:errcheck()
 
 " peek methods
 function! s:peek_methods()
-  execute 'vimgrep /func (.* \*\?' . expand('<cword>') . ')/ %'
+  execute 'vimgrep /func (.* \*\?' .. expand('<cword>') .. ')/ %'
 endfunction
 command! -buffer PeekMethods call s:peek_methods()
 nnoremap <buffer><silent> gm :<C-u>PeekMethods<CR>
