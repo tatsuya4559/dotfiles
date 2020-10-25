@@ -84,33 +84,6 @@ with self.assertRaises($1):
     $2
 endsnippet
 
-snippet asisnone "assertIsNone"
-self.assertIsNone($1)
-endsnippet
-
-snippet asisnotnone "assertIsNotNone"
-self.assertIsNotNone($1)
-endsnippet
-
-snippet asin "assertIn"
-self.assertIn($1)
-endsnippet
-
-snippet asnotin "assertNotIn"
-self.assertNotIn($1)
-endsnippet
-
-########################################################################
-# Debug
-########################################################################
-snippet bp.pdb "pdb breakpoint"
-import pdb; pdb.set_trace()
-endsnippet
-
-snippet bp.ipdb "ipdb breakpoint"
-import ipdb; ipdb.set_trace()
-endsnippet
-
 ########################################################################
 # 標準ライブラリ
 ########################################################################
@@ -134,24 +107,6 @@ except ValueError as e:
     $3
 endsnippet
 
-snippet iter.groupby "for groupby" b
-for key, group in groupby($1, key=$2):
-    $3
-endsnippet
-
-snippet iter.take "take function" b
-def take(n, iterable):
-    "Return first n items of the iterable as a list"
-    return list(islice(iterable, n))
-endsnippet
-
-snippet iter.tail "tail function" b
-def tail(n, iterable):
-    "Return an iterator over the last n items"
-    # tail(3, 'ABCDEFG') --> E F G
-    return iter(collections.deque(iterable, maxlen=n))
-endsnippet
-
 ########################################################################
 # Django
 ########################################################################
@@ -170,18 +125,6 @@ def clean_$1(self):
     if False:
         raise forms.ValidationError("fill error message")
     return $1
-endsnippet
-
-snippet django.form.CF "django form CharField" b
-$1 = forms.CharField(required=False, min_length=0, max_length=20)
-endsnippet
-
-snippet django.form.IF "django form IntegerField" b
-$1 = forms.IntegerField(required=False, min_value=0, max_value=10)
-endsnippet
-
-snippet django.form.BF "django form BooleanField" b
-$1 = forms.BooleanField(required=False)
 endsnippet
 
 snippet django.middleware "django middleware" b
