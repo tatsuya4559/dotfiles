@@ -56,6 +56,7 @@ function col() {
 }
 
 function time_vim() {
-  nvim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1
+  nvim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null \
+    && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1
 }
 # }}}
