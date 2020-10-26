@@ -33,6 +33,7 @@ let g:coc_global_extensions = [
       \   'coc-vimlsp',
       \ ]
 
+nnoremap <Space>o :<C-u>CocList outline<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
