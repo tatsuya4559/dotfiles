@@ -41,8 +41,6 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 sudo pacman -S --noconfirm yay
 sudo pacman -S --noconfirm xclip
 sudo pacman -S --noconfirm ripgrep
-sudo pacman -S --noconfirm fd
-sudo pacman -S --noconfirm bat
 sudo pacman -S --noconfirm tig
 sudo pacman -S --noconfirm fzf
 sudo pacman -S --noconfirm neovim
@@ -52,8 +50,7 @@ sudo pacman -S --noconfirm ghq
 sudo pacman -S --noconfirm docker
 sudo pacman -S --noconfirm docker-compose
 
-sudo pacman -S --noconfirm python-neovim python-pipenv
-yay -S --noconfirm ttf-cica
+sudo pacman -S --noconfirm python-neovim
 yay -S --noconfirm ttf-monaco
 yay -S --noconfirm nerd-fonts-ubuntu-mono
 yay -S --noconfirm dive
