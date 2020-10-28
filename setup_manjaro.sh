@@ -40,13 +40,14 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 ## install CLI tools
 sudo pacman -S --noconfirm yay
 sudo pacman -S --noconfirm xclip
+sudo pacman -S --noconfirm tmux
+sudo pacman -S --noconfirm neovim
 sudo pacman -S --noconfirm ripgrep
 sudo pacman -S --noconfirm tig
 sudo pacman -S --noconfirm fzf
-sudo pacman -S --noconfirm neovim
-sudo pacman -S --noconfirm jq
-sudo pacman -S --noconfirm hub
 sudo pacman -S --noconfirm ghq
+sudo pacman -S --noconfirm hub
+sudo pacman -S --noconfirm jq
 sudo pacman -S --noconfirm docker
 sudo pacman -S --noconfirm docker-compose
 
