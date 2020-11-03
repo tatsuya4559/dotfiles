@@ -1,10 +1,11 @@
-let g:use_builtin_terminal = v:false
-let g:enable_zoom_window = v:false
-let g:enable_smooth_scroll = v:false
-let g:enable_open_tig = v:false
+" let g:use_builtin_terminal = 1
+" let g:enable_zoom_window = 1
+" let g:enable_smooth_scroll = 1
+" let g:enable_open_tig = 1
+let g:enable_change_case = 1
 
 " terminal {{{
-if g:use_builtin_terminal
+if get(g:, 'use_builtin_terminal', 0)
   tnoremap <Esc> <C-\><C-n>
   tnoremap <silent> <C-w> <C-\><C-n><C-w>
   augroup TermCmd
@@ -22,7 +23,7 @@ endif
 " }}}
 
 " Zoom Window {{{
-if g:enable_zoom_window
+if get(g:, 'enable_zoom_window', 0)
   function! ToggleZoom()
     if exists('t:unzoom_cmd')
       " FIXME: コマンド通りに復元されない場合がある
@@ -41,7 +42,7 @@ endif
 
 " smooth scroll {{{
 " thanks to cohama
-if g:enable_smooth_scroll
+if get(g:, 'enable_smooth_scroll', 0)
   let s:scroll_time_ms = 100
   let s:scroll_precision = 8
   function! SmoothScroll(dir, windiv, factor)
@@ -75,7 +76,7 @@ endif
 " }}}
 
 " tigを開く {{{
-if g:enable_open_tig
+if get(g:, 'enable_open_tig', 0)
   function! OpenTig()
     let s:tig_bufname = bufname('term://*:tig')
     if bufexists(s:tig_bufname)
@@ -96,5 +97,70 @@ if g:enable_open_tig
     startinsert
   endfunction
   nnoremap <Space>t :<C-u>call OpenTig()<CR>
+endif
+" }}}
+
+" ケース変換 {{{
+if get(g:, 'enable_change_case', 0)
+  function! s:determine_case(word) abort
+    " 大文字を含まない
+    if a:word =~# '^[^A-Z]\+$'
+      return 'snake'
+    " 小文字を含まない
+    elseif a:word =~# '^[^a-z]\+$'
+      return 'upper'
+    " 1文字目が小文字
+    elseif a:word[0] =~# '[a-z]'
+      return 'camel'
+    else
+      return 'pascal'
+    endif
+  endfunction
+
+  function! s:split_token(word) abort
+    let l:case = s:determine_case(a:word)
+
+    if l:case ==# 'snake'
+      return split(a:word, '_')
+    elseif l:case ==# 'upper'
+      return map(split(a:word, '_'), {_, t -> tolower(t)})
+    else
+      return map(split(a:word, '\zs\ze[A-Z]'), {_, t -> tolower(t)})
+    endif
+  endfunction
+
+  function! ToSnakeCase() abort
+    let l:word = expand('<cword>')
+    let l:tokens = s:split_token(l:word)
+    let l:snake = join(l:tokens, '_')
+    call setline('.', substitute(getline('.'), l:word, l:snake, ''))
+  endfunction
+
+  function! ToUpperCase() abort
+    let l:word = expand('<cword>')
+    let l:tokens = s:split_token(l:word)
+    let l:upper = join(map(l:tokens, {_, t -> toupper(t)}), '_')
+    call setline('.', substitute(getline('.'), l:word, l:upper, ''))
+  endfunction
+
+  function! ToCamelCase() abort
+    let l:word = expand('<cword>')
+    let l:tokens = s:split_token(l:word)
+    let l:camel = join(map(l:tokens, {_, t -> toupper(t[0]) .. t[1:]}), '')
+    let l:camel = tolower(l:camel[0]) .. l:camel[1:]
+    call setline('.', substitute(getline('.'), l:word, l:camel, ''))
+  endfunction
+
+  function! ToPascalCase() abort
+    let l:word = expand('<cword>')
+    let l:tokens = s:split_token(l:word)
+    let l:pascal = join(map(l:tokens, {_, t -> toupper(t[0]) .. t[1:]}), '')
+    call setline('.', substitute(getline('.'), l:word, l:pascal, ''))
+  endfunction
+
+  nnoremap <Leader>cs :<C-u>call ToSnakeCase()<CR>
+  nnoremap <Leader>cu :<C-u>call ToUpperCase()<CR>
+  nnoremap <Leader>cc :<C-u>call ToCamelCase()<CR>
+  nnoremap <Leader>cp :<C-u>call ToPascalCase()<CR>
 endif
 " }}}
