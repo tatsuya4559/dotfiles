@@ -1,0 +1,18 @@
+snippet inc "include"
+#include $1
+endsnippet
+
+snippet ifndef "ifndef"
+#ifndef ${1:`!p snip.rv = "_%s_H" % snip.basename.upper()`}
+#define $1
+$2
+#endif /* `!p snip.rv = snip.fn` */
+endsnippet
+
+snippet main "main function"
+int main(void) {
+    $1
+
+    return 0;
+}
+endsnippet
