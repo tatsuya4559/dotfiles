@@ -5,3 +5,11 @@ endsnippet
 snippet filedir "get directory where this script is"
 `echo 'SCRIPT_DIR=$(cd $(dirname $0); pwd)'`
 endsnippet
+
+snippet wr "while read"
+while IFS=\ read col1 col2; do
+  $1
+done <<EOF
+$2
+EOF
+endsnippet
