@@ -61,12 +61,7 @@ sudo pacman -S --noconfirm synapse
 yay -S --noconfirm google-chrome
 yay -S --noconfirm gruake
 
-# install nice gtk/icon themes
-git clone https://github.com/EliverLara/Nordic.git /tmp/Nordic
-mkdir ~/.themes
-cp -r /tmp/Nordic ~/.themes
-rm -rf /tmp/Nordic
-
+# install nice icon themes
 git clone https://github.com/numixproject/numix-icon-theme-circle.git /tmp/numix-icon-theme-circle
 mkdir ~/.icons
 cp -r /tmp/numix-icon-theme-circle/Numix-Circle* ~/.icons/
