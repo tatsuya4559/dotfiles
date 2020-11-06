@@ -1,6 +1,5 @@
 " disable default plugins {{{
 let g:loaded_2html_plugin = 1
-let g:loaded_man = 1
 " }}}
 
 " 文字コード {{{

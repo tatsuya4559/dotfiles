@@ -49,6 +49,8 @@ nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if &filetype =~? '\v(vim|help)'
     execute 'h' expand('<cword>')
+  elseif &filetype ==# 'c'
+    execute 'Man' expand('<cword>')
   else
     call CocAction('doHover')
   endif
