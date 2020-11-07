@@ -63,6 +63,7 @@ set splitright
 set ruler " default on neovim
 set number
 " set relativenumber
+" set colorcolumn=80
 " }}}
 
 " スクロール設定 {{{
