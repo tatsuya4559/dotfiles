@@ -235,3 +235,10 @@ function! CloseParen() abort
 endfunction
 inoremap <silent><expr> <C-l> CloseParen()
 " }}}
+
+" filetype {{{
+augroup FileTypeCmd
+  autocmd!
+  autocmd BufRead,BufNewFile *.h set filetype=c
+augroup END
+" }}}
