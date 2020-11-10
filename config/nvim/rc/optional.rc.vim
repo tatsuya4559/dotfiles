@@ -158,9 +158,9 @@ if get(g:, 'enable_change_case', 0)
     call setline('.', substitute(getline('.'), l:word, l:pascal, ''))
   endfunction
 
-  nnoremap <Leader>cs :<C-u>call ToSnakeCase()<CR>
-  nnoremap <Leader>cu :<C-u>call ToUpperCase()<CR>
-  nnoremap <Leader>cc :<C-u>call ToCamelCase()<CR>
-  nnoremap <Leader>cp :<C-u>call ToPascalCase()<CR>
+  command! ToSnake call ToSnakeCase()
+  command! ToUpper call ToUpperCase()
+  command! ToCamel call ToCamelCase()
+  command! ToPascal call ToPascalCase()
 endif
 " }}}
