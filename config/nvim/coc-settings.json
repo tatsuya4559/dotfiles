@@ -1,7 +1,11 @@
 {
   "coc.preferences.formatOnType": false,
   "coc.preferences.useQuickfixForLocations": true,
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "typescript",
+    "typescriptreact"
+  ],
   "html.autoClosingTags": true,
   "languageserver": {
     "golang": {
