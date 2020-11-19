@@ -1,4 +1,4 @@
-" let g:use_builtin_terminal = 1
+let g:use_builtin_terminal = 1
 " let g:enable_zoom_window = 1
 " let g:enable_smooth_scroll = 1
 " let g:enable_open_tig = 1
@@ -10,7 +10,7 @@ if get(g:, 'use_builtin_terminal', 0)
   tnoremap <silent> <C-w> <C-\><C-n><C-w>
   augroup TermCmd
     autocmd!
-    autocmd WinEnter,BufEnter term://* startinsert
+    autocmd WinEnter,BufEnter term://* startinsert | setlocal nonumber norelativenumber
   augroup END
 
   " terminal内でvimがネストしないようnvrを使う
