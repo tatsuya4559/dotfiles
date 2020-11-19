@@ -125,8 +125,8 @@ endif
 " }}}
 
 " URLなどを開く {{{
-nnoremap <silent> <Leader>o :<C-u>!open %<CR>
-vnoremap <silent> <Leader>o "zy:<C-u>!open <C-r>z<CR>
+let g:open_prg = has('mac') ? 'open' : 'xdg-open'
+vnoremap <silent> <Leader>o "zy:<C-u>!<C-r>=g:open_prg<CR> <C-r>z<CR>
 " }}}
 
 " 行末までヤンク {{{
@@ -180,7 +180,7 @@ function! s:search_by_google(...) abort
     return
   endif
   let url = shellescape('https://www.google.com/search?q=' .. join(a:000, '+'))
-  call system('open ' .. url)
+  call system(printf('%s %s', g:open_prg, url))
 endfunction
 command! -nargs=* SearchByGoogle call s:search_by_google(<f-args>)
 nnoremap <silent> <Space>g :SearchByGoogle <C-r>=expand('<cword>')<CR><CR>
