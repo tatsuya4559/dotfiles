@@ -3,6 +3,7 @@ let g:use_builtin_terminal = 1
 " let g:enable_smooth_scroll = 1
 " let g:enable_open_tig = 1
 let g:enable_change_case = 1
+" let g:enable_im_ctrl = 1
 
 " terminal {{{
 if get(g:, 'use_builtin_terminal', 0)
@@ -162,5 +163,56 @@ if get(g:, 'enable_change_case', 0)
   command! ToUpper call ToUpperCase()
   command! ToCamel call ToCamelCase()
   command! ToPascal call ToPascalCase()
+endif
+" }}}
+
+" 日本語固定モード(fcitx only) {{{
+if get(g:, 'enable_im_ctrl', 0)
+  let g:kana_mode = 0
+
+  function! s:toggle_kana_mode() abort
+    let l:mode = get(g:, 'kana_mode', v:false)
+    let g:kana_mode = !l:mode
+  endfunction
+  command! ToggleKanaMode call s:toggle_kana_mode()
+
+  augroup IMCtrl
+    autocmd!
+    autocmd InsertEnter * call s:activate_im()
+    autocmd InsertLeave * call s:deactivate_im()
+  augroup END
+
+  function! s:deactivate_im() abort
+    let l:state = s:get_im_state()
+    if l:state == 2
+      call s:im_ctrl('deactivate')
+    endif
+  endfunction
+
+  function s:activate_im() abort
+    if !get(g:, 'kana_mode', v:false)
+      return
+    endif
+
+    let l:state = s:get_im_state()
+    if l:state == 1
+      call s:im_ctrl('activate')
+    endif
+  endfunction
+
+  function s:get_im_state() abort
+    " returns:
+    "   1 -> inactive
+    "   2 -> active
+    return system('fcitx-remote')
+  endfunction
+
+  function! s:im_ctrl(cmd) abort
+    if a:cmd ==# 'activate'
+      call system('fcitx-remote -o > /dev/null 2>&1')
+    elseif a:cmd ==# 'deactivate'
+      call system('fcitx-remote -c > /dev/null 2>&1')
+    endif
+  endfunction
 endif
 " }}}
