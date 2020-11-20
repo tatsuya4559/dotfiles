@@ -180,6 +180,7 @@ if get(g:, 'enable_im_ctrl', 0)
     endif
   endfunction
   command! ToggleKanaMode call s:toggle_kana_mode()
+  nnoremap <Leader>k :ToggleKanaMode<CR>
 
   augroup IMCtrl
     autocmd!
