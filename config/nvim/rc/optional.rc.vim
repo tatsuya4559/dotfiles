@@ -173,6 +173,11 @@ if get(g:, 'enable_im_ctrl', 0)
   function! s:toggle_kana_mode() abort
     let l:mode = get(g:, 'kana_mode', v:false)
     let g:kana_mode = !l:mode
+    if g:kana_mode
+      set statusline=日本語固定モード
+    else
+      set statusline=
+    endif
   endfunction
   command! ToggleKanaMode call s:toggle_kana_mode()
 
