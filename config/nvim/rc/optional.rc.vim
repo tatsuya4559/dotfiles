@@ -202,7 +202,7 @@ if get(g:, 'enable_im_ctrl', 0)
     endif
   endfunction
 
-  function s:activate_im() abort
+  function! s:activate_im() abort
     if !get(g:, 'kana_mode', v:false)
       return
     endif
@@ -212,7 +212,7 @@ if get(g:, 'enable_im_ctrl', 0)
     endif
   endfunction
 
-  function s:get_im_state() abort
+  function! s:get_im_state() abort
     return system(g:im_commands['status'])
   endfunction
 endif
