@@ -168,6 +168,13 @@ endif
 
 " 日本語固定モード(fcitx only) {{{
 if get(g:, 'enable_im_ctrl', 0)
+
+  let g:im_commands = executable('fcitx-remote') ? {
+        \ 'status': 'fcitx-remote',
+        \ 'activate': 'fcitx-remote -o > /dev/null 2>&1',
+        \ 'deactivate': 'fcitx-remote -c > /dev/null 2>&1',
+        \ } : {}
+
   let g:kana_mode = 0
 
   function! s:toggle_kana_mode() abort
@@ -191,7 +198,7 @@ if get(g:, 'enable_im_ctrl', 0)
   function! s:deactivate_im() abort
     let l:state = s:get_im_state()
     if l:state == 2
-      call s:im_ctrl('deactivate')
+      call system(g:im_commands['deactivate'])
     endif
   endfunction
 
@@ -202,7 +209,7 @@ if get(g:, 'enable_im_ctrl', 0)
 
     let l:state = s:get_im_state()
     if l:state == 1
-      call s:im_ctrl('activate')
+      call system(g:im_commands['activate'])
     endif
   endfunction
 
@@ -210,15 +217,7 @@ if get(g:, 'enable_im_ctrl', 0)
     " returns:
     "   1 -> inactive
     "   2 -> active
-    return system('fcitx-remote')
-  endfunction
-
-  function! s:im_ctrl(cmd) abort
-    if a:cmd ==# 'activate'
-      call system('fcitx-remote -o > /dev/null 2>&1')
-    elseif a:cmd ==# 'deactivate'
-      call system('fcitx-remote -c > /dev/null 2>&1')
-    endif
+    return system(g:im_commands['status'])
   endfunction
 endif
 " }}}
