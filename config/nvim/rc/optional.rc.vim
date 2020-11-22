@@ -168,52 +168,63 @@ endif
 
 " 日本語固定モード(fcitx only) {{{
 if get(g:, 'enable_im_ctrl', 0)
+  function! s:IMEManager() abort
+    let self = {}
+
+    " properties
+    let self.is_japanese_mode = v:false
+
+    " methods
+    function! self.toggle_japanese_mode() abort
+      let self.is_japanese_mode = !self.is_japanese_mode
+      if self.is_japanese_mode
+        set statusline=日本語固定モード
+      else
+        set statusline=
+      endif
+    endfunction
+
+    return self
+  endfunction
+
+
+  function! s:FcitxManager() abort
+    " IMEManagerを継承
+    let self = s:IMEManager()
+
+    " methods
+    function! self.is_active() abort
+        return system('fcitx-remote') == 2
+    endfunction
+
+    function! self.activate() abort
+      if !self.is_japanese_mode || self.is_active()
+        return
+      endif
+
+      call system('fcitx-remote -o > /dev/null 2>&1')
+    endfunction
+
+    function! self.deactivate() abort
+      if self.is_active()
+        call system('fcitx-remote -c > /dev/null 2>&1')
+      endif
+    endfunction
+
+    return self
+  endfunction
+
 
   if executable('fcitx-remote')
-    let g:im_commands = {
-          \ 'status': '[[ $(fcitx-remote) == 1 ]] && echo -n inactive || echo -n active',
-          \ 'activate': 'fcitx-remote -o > /dev/null 2>&1',
-          \ 'deactivate': 'fcitx-remote -c > /dev/null 2>&1',
-          \ }
+    let g:ime_manager = s:FcitxManager()
   endif
 
-  let g:kana_mode = 0
-
-  function! s:toggle_kana_mode() abort
-    let g:kana_mode = !get(g:, 'kana_mode', v:false)
-    if g:kana_mode
-      set statusline=日本語固定モード
-    else
-      set statusline=
-    endif
-  endfunction
-  command! ToggleKanaMode call s:toggle_kana_mode()
-  nnoremap <Leader>k :ToggleKanaMode<CR>
-
-  augroup IMCtrl
+  augroup IMECtrl
     autocmd!
-    autocmd InsertEnter * call s:activate_im()
-    autocmd InsertLeave * call s:deactivate_im()
+    autocmd InsertEnter * call g:ime_manager.activate()
+    autocmd InsertLeave * call g:ime_manager.deactivate()
   augroup END
-
-  function! s:deactivate_im() abort
-    if s:get_im_state() ==# 'active'
-      call system(g:im_commands['deactivate'])
-    endif
-  endfunction
-
-  function! s:activate_im() abort
-    if !get(g:, 'kana_mode', v:false)
-      return
-    endif
-
-    if s:get_im_state() ==# 'inactive'
-      call system(g:im_commands['activate'])
-    endif
-  endfunction
-
-  function! s:get_im_state() abort
-    return system(g:im_commands['status'])
-  endfunction
+  command! ToggleJapaneseMode call g:ime_manager.toggle_japanese_mode()
+  nnoremap <Leader>k :ToggleJapaneseMode<CR>
 endif
 " }}}
