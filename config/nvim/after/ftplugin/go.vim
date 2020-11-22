@@ -25,3 +25,6 @@ function! s:gobuild() abort
   cexpr system(printf('go build %s', expand('%'))) | cw
 endfunction
 command! GoBuild call s:gobuild()
+
+command! -buffer Run :bo split term://go run %
+nnoremap <Leader>r :<C-u>Run<CR>

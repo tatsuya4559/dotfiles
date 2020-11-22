@@ -14,3 +14,6 @@ function! s:start_repl() abort
   exe printf('bo split term://%s', l:prg)
 endfunction
 command! -buffer REPL call s:start_repl()
+
+command! -buffer Run :bo split term://python %
+nnoremap <Leader>r :<C-u>Run<CR>
