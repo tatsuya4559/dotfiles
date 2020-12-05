@@ -44,6 +44,7 @@ nmap <F2> <Plug>(coc-rename)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <C-x><C-x> coc#refresh()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 
 nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
