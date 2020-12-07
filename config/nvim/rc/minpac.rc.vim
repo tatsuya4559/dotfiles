@@ -67,6 +67,7 @@ function! PackInit() abort
   Pack 'markonm/traces.vim', {'type': 'opt', 'lazy': v:true}
   Pack 'thinca/vim-qfreplace', {'type': 'opt', 'for': 'qf'}
   Pack 'tpope/vim-commentary', {'type': 'opt', 'on': 'Commentary'}
+  Pack 'cohama/lexima.vim', {'type': 'opt', 'lazy': v:true}
 
   " File explore
   Pack 'ctrlpvim/ctrlp.vim'
