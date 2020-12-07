@@ -58,6 +58,8 @@ function! PackInit() abort
   Pack 'arcticicestudio/nord-vim', {'type': 'opt'}
   Pack 'yasukotelin/shirotelin', {'type': 'opt'}
   Pack 'ulwlu/elly.vim', {'type': 'opt'}
+  Pack 'agude/vim-eldar', {'type': 'opt'}
+  Pack 'rhysd/try-colorscheme.vim', {'type': 'opt', 'lazy': v:true}
 
   " Text edit
   Pack 'haya14busa/vim-asterisk', {'type': 'opt', 'lazy': v:true}
