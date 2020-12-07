@@ -4,6 +4,7 @@ let g:use_builtin_terminal = 1
 " let g:enable_open_tig = 1
 let g:enable_change_case = 1
 " let g:enable_im_ctrl = 1
+" let g:enable_close_paren = 1
 
 " terminal {{{
 if get(g:, 'use_builtin_terminal', 0)
@@ -228,3 +229,57 @@ if get(g:, 'enable_im_ctrl', 0)
   nnoremap <Leader>k :ToggleJapaneseMode<CR>
 endif
 " }}}
+
+" 閉じられていない(), [], {}を補完する {{{
+if get(g:, 'enable_close_paren', 0)
+  function! CloseParen() abort
+    let l:closed_parens = 0
+    let l:closed_brackets = 0
+    let l:closed_braces = 0
+
+    let l:line = line('.')
+    let l:col = col('.') - 1
+
+    while l:line > 0
+      let l:line_string = getline(l:line)
+      while l:col > 0
+        let l:char = l:line_string[l:col - 1]
+        let l:col -= 1
+
+        if l:char !~# '\v(\(|\)|\[|\]|\{|\})'
+          continue
+        endif
+
+        if l:char ==# '('
+          if l:closed_parens <= 0
+            return ')'
+          else
+            let l:closed_parens -= 1
+          endif
+        elseif l:char ==# '['
+          if l:closed_brackets <= 0
+            return ']'
+          else
+            let l:closed_brackets -= 1
+          endif
+        elseif l:char ==# '{'
+          if l:closed_braces <= 0
+            return '}'
+          else
+            let l:closed_braces -= 1
+          endif
+        elseif l:char ==# ')'
+          let l:closed_parens += 1
+        elseif l:char ==# ']'
+          let l:closed_brackets += 1
+        elseif l:char ==# '}'
+          let l:closed_braces += 1
+        endif
+      endwhile
+      let l:line -= 1
+      let l:col = col([l:line, '$']) - 1
+    endwhile
+    return ''
+  endfunction
+  inoremap <silent><expr> <C-l> CloseParen()
+endif
