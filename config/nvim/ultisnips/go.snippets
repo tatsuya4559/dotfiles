@@ -47,6 +47,29 @@ func Test$1(t *testing.T) {
 }
 endsnippet
 
+snippet httpserver "http server skelton"
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "hoge")
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+	log.Fatal(http.ListenAndServe(":8000", nil))
+}
+endsnippet
+
+snippet wr "http response writer and http request"
+w http.ResponseWriter, r *http.Request
+endsnippet
+
 snippet ut "test function"
 func Test$1(t *testing.T) {
 	$2
