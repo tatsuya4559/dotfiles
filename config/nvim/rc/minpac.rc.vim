@@ -57,7 +57,8 @@ function! PackInit() abort
   " Colorscheme
   Pack 'arcticicestudio/nord-vim', {'type': 'opt'}
   Pack 'yasukotelin/shirotelin', {'type': 'opt'}
-  Pack 'morhetz/gruvbox', {'type': 'opt'}
+  Pack 'ulwlu/elly.vim', {'type': 'opt'}
+  Pack 'danilo-augusto/vim-afterglow', {'type': 'opt'}
   Pack 'rhysd/try-colorscheme.vim', {'type': 'opt', 'lazy': v:true}
 
   " Text edit
