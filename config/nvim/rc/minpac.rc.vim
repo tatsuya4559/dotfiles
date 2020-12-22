@@ -79,6 +79,7 @@ function! PackInit() abort
   Pack 'pechorin/any-jump.vim', {'type': 'opt', 'on': ['AnyJump', 'AnyJumpVisual']}
   Pack 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
   Pack 'mattn/emmet-vim', {'type': 'opt', 'lazy': v:true}
+  Pack 'rhysd/vim-go-impl', {'type': 'opt', 'for': 'go'}
 
   " Git
   Pack 'mhinz/vim-signify', {'type': 'opt', 'lazy': v:true}
