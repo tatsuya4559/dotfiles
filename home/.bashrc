@@ -35,7 +35,6 @@ alias tree='tree -C'
 
 # cd系
 alias g='cd $(ghq root)/$(ghq list | fzf)'
-alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
 # その他
 alias h='clear && tldr'
