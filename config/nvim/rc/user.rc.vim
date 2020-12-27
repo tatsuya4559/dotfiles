@@ -27,10 +27,12 @@ set termguicolors
 colorscheme nord
 
 function! s:toggle_color()
-  if get(g:, 'colors_name', '') !=# 'nord'
-    execute 'colorscheme nord'
-  else
+  let l:colors_name = get(g:, 'colors_name', '')
+  if  l:colors_name !=# 'shirotelin'
+    let b:prev_color = l:colors_name
     execute 'colorscheme shirotelin'
+  else
+    execute 'colorscheme' get(g:, 'prev_color', '')
   endif
 endfunction
 nnoremap <silent> <F3> :<C-u>call <SID>toggle_color()<CR>
