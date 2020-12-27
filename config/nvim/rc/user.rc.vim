@@ -179,10 +179,3 @@ command! -nargs=* SearchByGoogle call s:search_by_google(<f-args>)
 nnoremap <silent> <Space>g :SearchByGoogle <C-r>=expand('<cword>')<CR><CR>
 vnoremap <silent> <Space>g "zy:SearchByGoogle <C-r>z<CR>
 " }}}
-
-" filetype {{{
-augroup FileTypeCmd
-  autocmd!
-  autocmd BufRead,BufNewFile *.h set filetype=c
-augroup END
-" }}}

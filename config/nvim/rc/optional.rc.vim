@@ -6,6 +6,7 @@ let g:enable_change_case = 1
 " let g:enable_im_ctrl = 1
 " let g:enable_close_paren = 1
 " let g:swap_jk_gjk = 1
+" let g:use_clang = 1
 
 " terminal {{{
 if get(g:, 'use_builtin_terminal', 0)
@@ -296,5 +297,14 @@ if get(g:, 'swap_jk_gjk', 0)
   xnoremap gj j
   nnoremap gk k
   xnoremap gk k
+endif
+" }}}
+
+" C言語を使う場合、ヘッダーファイルををcとして扱う {{{
+if get(g:, 'use_clang', 0)
+  augroup CFileTypeCmd
+    autocmd!
+    autocmd BufRead,BufNewFile *.h set filetype=c
+  augroup END
 endif
 " }}}
