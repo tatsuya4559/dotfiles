@@ -1,3 +1,6 @@
+# Color
+color cursor magenta default bold underline
+
 # Pager系の行数表示をon
 set pager-view  = line-number:yes,interval=1 text
 set stage-view  = line-number:yes,interval=1 text
