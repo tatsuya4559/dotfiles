@@ -21,6 +21,8 @@ set ignore-case = true
 set split-view-height = 70%
 
 # generic
+bind main    b  scroll-page-up
+bind generic b  scroll-page-up
 bind main    g  none
 bind main    g  move-first-line
 bind generic g  move-first-line
