@@ -1,6 +1,7 @@
 setlocal noexpandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
+set listchars=tab:\ \ ,trail:-,nbsp:+
 
 function! s:errcheck() abort
   let mx = '\S\+:\d\+:\d\+:[^:]\+:[^:]\+$'
