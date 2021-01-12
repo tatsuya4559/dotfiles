@@ -24,7 +24,7 @@ cnoremap <C-a> <Home>
 
 " カラースキーム {{{
 set termguicolors
-colorscheme nord
+colorscheme shirotelin
 
 function! s:toggle_color()
   let l:colors_name = get(g:, 'colors_name', '')
