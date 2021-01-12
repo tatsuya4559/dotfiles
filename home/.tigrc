@@ -15,7 +15,7 @@ set vertical-split = no
 set ignore-case = true
 
 # 水平分割したウィンドウの下画面サイズを % で指定（行数指定も可）
-set split-view-height = 70%
+set split-view-height = 90%
 
 # generic
 bind main    b  scroll-page-up
