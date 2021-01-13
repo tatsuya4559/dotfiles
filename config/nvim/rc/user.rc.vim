@@ -29,7 +29,7 @@ colorscheme shirotelin
 function! s:toggle_color()
   let l:colors_name = get(g:, 'colors_name', '')
   if  l:colors_name !=# 'shirotelin'
-    let b:prev_color = l:colors_name
+    let g:prev_color = l:colors_name
     execute 'colorscheme shirotelin'
   else
     execute 'colorscheme' get(g:, 'prev_color', '')
