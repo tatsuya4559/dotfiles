@@ -4,7 +4,7 @@ let g:use_builtin_terminal = 1
 " let g:enable_open_tig = 1
 let g:enable_change_case = 1
 " let g:enable_im_ctrl = 1
-" let g:enable_close_paren = 1
+let g:enable_close_paren = 1
 " let g:swap_jk_gjk = 1
 " let g:use_clang = 1
 
