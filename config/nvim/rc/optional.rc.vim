@@ -5,7 +5,6 @@ let g:use_builtin_terminal = 1
 let g:enable_change_case = 1
 " let g:enable_im_ctrl = 1
 let g:enable_close_paren = 1
-" let g:swap_jk_gjk = 1
 " let g:use_clang = 1
 
 " terminal {{{
@@ -284,19 +283,6 @@ if get(g:, 'enable_close_paren', 0)
     return ''
   endfunction
   inoremap <silent><expr> <C-l> CloseParen()
-endif
-" }}}
-
-" j,kとgj,gkを入れ替える {{{
-if get(g:, 'swap_jk_gjk', 0)
-  nnoremap j gj
-  xnoremap j gj
-  nnoremap k gk
-  xnoremap k gk
-  nnoremap gj j
-  xnoremap gj j
-  nnoremap gk k
-  xnoremap gk k
 endif
 " }}}
 
