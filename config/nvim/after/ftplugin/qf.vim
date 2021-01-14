@@ -1,10 +1,6 @@
 setlocal cursorline
 setlocal nowrap
 
-" quickfixリスト履歴を移動
-nnoremap <buffer> <S-Left> :colder<CR>
-nnoremap <buffer> <S-Right> :cnewer<CR>
-
 " qfから開いたときにfilerのウィンドウが残ると邪魔なので閉じる
 nnoremap <silent> <buffer> <CR> <CR>:call <SID>close_filer()<CR>
 " pでqfからカーソルを動かさずにファイルを開く

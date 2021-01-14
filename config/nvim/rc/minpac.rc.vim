@@ -58,13 +58,12 @@ function! PackInit() abort
   Pack 'arcticicestudio/nord-vim', {'type': 'opt'}
   Pack 'yasukotelin/shirotelin', {'type': 'opt'}
   Pack 'yasukotelin/notelight', {'type': 'opt'}
-  Pack 'rhysd/try-colorscheme.vim', {'type': 'opt', 'lazy': v:true}
 
   " Text edit
   Pack 'haya14busa/vim-asterisk', {'type': 'opt', 'lazy': v:true}
   Pack 'machakann/vim-sandwich', {'type': 'opt', 'lazy': v:true}
   Pack 'markonm/traces.vim', {'type': 'opt', 'lazy': v:true}
-  Pack 'thinca/vim-qfreplace', {'type': 'opt', 'for': 'qf'}
+  Pack 'thinca/vim-qfreplace', {'type': 'opt', 'lazy': v:false}
   Pack 'tpope/vim-commentary', {'type': 'opt', 'on': 'Commentary'}
   Pack 'cohama/lexima.vim', {'type': 'opt', 'lazy': v:true}
 
@@ -74,11 +73,9 @@ function! PackInit() abort
 
   " Language support
   Pack 'neoclide/coc.nvim', {'branch': 'release', 'frozen': v:true}
-  Pack 'sheerun/vim-polyglot', {'type': 'opt', 'lazy': v:true, 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']}
   Pack 'pechorin/any-jump.vim', {'type': 'opt', 'on': ['AnyJump', 'AnyJumpVisual']}
   Pack 'SirVer/ultisnips', {'type': 'opt', 'lazy': v:true}
   Pack 'mattn/emmet-vim', {'type': 'opt', 'lazy': v:true}
-  Pack 'rhysd/vim-go-impl', {'type': 'opt', 'for': 'go'}
 
   " Git
   Pack 'mhinz/vim-signify', {'type': 'opt', 'lazy': v:true}
@@ -86,7 +83,6 @@ function! PackInit() abort
 
   " Misc
   Pack 'AndrewRadev/linediff.vim', {'type': 'opt', 'on': 'Linediff'}
-  Pack 'vim-jp/vimdoc-ja', {'type': 'opt', 'lazy': v:true}
 endfunction
 
 call PackInit()

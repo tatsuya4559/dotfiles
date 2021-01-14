@@ -1,29 +1,8 @@
-let g:use_builtin_terminal = 1
 " let g:enable_zoom_window = 1
 " let g:enable_smooth_scroll = 1
-" let g:enable_open_tig = 1
 let g:enable_change_case = 1
 " let g:enable_im_ctrl = 1
 let g:enable_close_paren = 1
-" let g:use_clang = 1
-
-" terminal {{{
-if get(g:, 'use_builtin_terminal', 0)
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <silent> <C-w> <C-\><C-n><C-w>
-  augroup TermCmd
-    autocmd!
-    autocmd WinEnter,BufEnter term://* startinsert | setlocal nonumber norelativenumber
-  augroup END
-
-  " terminal内でvimがネストしないようnvrを使う
-  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-  augroup GitCmd
-    autocmd!
-    autocmd FileType gitcommit,gitrebase set bufhidden=delete
-  augroup END
-endif
-" }}}
 
 " Zoom Window {{{
 if get(g:, 'enable_zoom_window', 0)
@@ -75,31 +54,6 @@ if get(g:, 'enable_smooth_scroll', 0)
   nnoremap <silent><expr> <C-u> v:count == 0 ? ":call SmoothScroll('up', 2, 1)\<CR>" : "\<C-u>"
   nnoremap <silent><expr> <C-f> v:count == 0 ? ":call SmoothScroll('down', 1, 2)\<CR>" : "\<C-f>"
   nnoremap <silent><expr> <C-b> v:count == 0 ? ":call SmoothScroll('up', 1, 2)\<CR>" : "\<C-b>"
-endif
-" }}}
-
-" tigを開く {{{
-if get(g:, 'enable_open_tig', 0)
-  function! OpenTig()
-    let s:tig_bufname = bufname('term://*:tig')
-    if bufexists(s:tig_bufname)
-      let tig_winnr = bufwinnr(s:tig_bufname)
-      if tig_winnr >= 0
-        execute tig_winnr 'wincmd w'
-      else
-        execute 'buffer' s:tig_bufname
-      endif
-    else
-      execute 'terminal tig status'
-      setlocal nonumber
-      setlocal norelativenumber
-      " Qでtigを閉じずにもとのバッファに戻る
-      tnoremap <buffer> Q <C-\><C-n><C-^>
-      tnoremap <buffer> <C-w> <C-\><C-n><C-w>
-    endif
-    startinsert
-  endfunction
-  nnoremap <Space>t :<C-u>call OpenTig()<CR>
 endif
 " }}}
 
@@ -283,14 +237,5 @@ if get(g:, 'enable_close_paren', 0)
     return ''
   endfunction
   inoremap <silent><expr> <C-l> CloseParen()
-endif
-" }}}
-
-" C言語を使う場合、ヘッダーファイルををcとして扱う {{{
-if get(g:, 'use_clang', 0)
-  augroup CFileTypeCmd
-    autocmd!
-    autocmd BufRead,BufNewFile *.h set filetype=c
-  augroup END
 endif
 " }}}

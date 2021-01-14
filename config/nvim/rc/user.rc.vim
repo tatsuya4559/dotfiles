@@ -25,17 +25,6 @@ cnoremap <C-a> <Home>
 " カラースキーム {{{
 set termguicolors
 colorscheme shirotelin
-
-function! s:toggle_color()
-  let l:colors_name = get(g:, 'colors_name', '')
-  if  l:colors_name !=# 'shirotelin'
-    let g:prev_color = l:colors_name
-    execute 'colorscheme shirotelin'
-  else
-    execute 'colorscheme' get(g:, 'prev_color', '')
-  endif
-endfunction
-nnoremap <silent> <F3> :<C-u>call <SID>toggle_color()<CR>
 " }}}
 
 " クリップボードを共有 {{{
@@ -66,13 +55,6 @@ nnoremap vv v$h
 
 " ウィンドウ操作のprefixをsに割り当てる {{{
 nnoremap s <C-w>
-" }}}
-
-" ウィンドウのリサイズ {{{
-nnoremap <S-Left> <C-w><
-nnoremap <S-Right> <C-w>>
-nnoremap <S-Up> <C-w>+
-nnoremap <S-Down> <C-w>-
 " }}}
 
 " 横スクロール {{{
@@ -139,12 +121,9 @@ vnoremap . :normal .<CR>
 " }}}
 
 " 置換 {{{
-" vim-asteriskに依存
 nnoremap gss :%s/\v
 nnoremap gs. :s/\v
-nnoremap gs* :%s/\V<C-r><C-w>
 vnoremap gss :s/\v
-vnoremap gs* "zy:%s/\V<C-r>z
 " }}}
 
 " ファイルパスをコピー {{{
