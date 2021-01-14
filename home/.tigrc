@@ -1,5 +1,5 @@
 # Color
-color cursor magenta default bold underline
+color cursor white cyan bold
 
 # Pager系の行数表示をon
 set pager-view  = line-number:yes,interval=1 text
