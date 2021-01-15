@@ -55,10 +55,6 @@ set listchars=tab:▸\ ,trail:-,nbsp:+
 set noswapfile
 " }}}
 
-" 右にsplitする {{{
-set splitright
-" }}}
-
 " 行番号を表示 {{{
 set ruler " default on neovim
 set number
