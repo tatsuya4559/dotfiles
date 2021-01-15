@@ -2,18 +2,10 @@
   name = tatsuya4559
   email = tatsuya.k1029@gmail.com
 [core]
-  editor = "nvim --noplugin"
-[diff]
-  tool = nvimdiff
-[difftool]
-  prompt = false
-[difftool "nvimdiff"]
-  cmd = "nvim -Rdc \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+  editor = vim
 [merge]
-  tool = nvimdiff
+  tool = vimdiff
   ff = false
-[mergetool "nvimdiff"]
-  cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [fetch]
   prune = true
 [pull]
@@ -30,7 +22,6 @@
   di = diff
   dt = difftool
   mt = mergetool
-  PR = pull-request
   see = browse
 [ghq]
   root = ~/go/src
