@@ -1,6 +1,4 @@
-########################################################################
 # Basic
-########################################################################
 snippet decorator "make a decorator" b
 def $1(func):
     @functools.wraps(func)
@@ -40,9 +38,7 @@ def $1(self$2):
     $3
 endsnippet
 
-########################################################################
 # Test
-########################################################################
 snippet ut "unittest"
 class $1Test(TestCase):
     def setUp(self):
@@ -84,9 +80,7 @@ with self.assertRaises($1):
     $2
 endsnippet
 
-########################################################################
 # 標準ライブラリ
-########################################################################
 snippet enum.def "enum definition" b
 class $1(enum.Enum):
     $2 = enum.auto()
@@ -107,9 +101,7 @@ except ValueError as e:
     $3
 endsnippet
 
-########################################################################
 # Django
-########################################################################
 snippet django.form "django form" b
 class $1Form(forms.Form):
     django#form#$2
@@ -148,9 +140,7 @@ class $1QuerySet(models.QuerySet):
 # TODO: set \`objects = $1QuerySet.as_manager()\` in the model class
 endsnippet
 
-########################################################################
 # Misc
-########################################################################
 snippet db.fetch "fetch rows"
 from contextlib import closing
 from django.db import connection
