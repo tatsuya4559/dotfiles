@@ -33,8 +33,6 @@ set clipboard=
 
 noremap <Space>p "+p
 noremap <Space>P "+P
-noremap! <C-r><C-r> <C-r>"
-noremap! <C-r><Space> <C-r>+
 
 augroup YankToClipboard
   autocmd!
@@ -118,12 +116,6 @@ nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR>
 
 " 選択範囲に.で繰り返しコマンド実行する {{{
 vnoremap . :normal .<CR>
-" }}}
-
-" 置換 {{{
-nnoremap gss :%s/\v
-nnoremap gs. :s/\v
-vnoremap gss :s/\v
 " }}}
 
 " ファイルパスをコピー {{{
