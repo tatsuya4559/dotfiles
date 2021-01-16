@@ -8,12 +8,6 @@ func $1 {
 }
 endsnippet
 
-snippet for "for loop" b
-for $1 {
-	$2
-}
-endsnippet
-
 snippet ife "if error"
 if err != nil {
 	${1:panic(err)}
@@ -22,12 +16,6 @@ endsnippet
 
 snippet "([\w\.]+).append" "append" r
 `!p snip.rv = match.group(1)` = append(`!p snip.rv = match.group(1)`, $1)
-endsnippet
-
-snippet json.encode "JSON encode"
-if err := json.NewEncoder($1).Encode($2); err != nil {
-	$3
-}
 endsnippet
 
 snippet ut.table "table driven test skelton"
@@ -45,29 +33,6 @@ func Test$1(t *testing.T) {
 		}
 	}
 }
-endsnippet
-
-snippet httpserver "http server skelton"
-package main
-
-import (
-	"fmt"
-	"log"
-	"net/http"
-)
-
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "hoge")
-}
-
-func main() {
-	http.HandleFunc("/", handler)
-	log.Fatal(http.ListenAndServe(":8000", nil))
-}
-endsnippet
-
-snippet wr "http response writer and http request"
-w http.ResponseWriter, r *http.Request
 endsnippet
 
 snippet ut "test function"
