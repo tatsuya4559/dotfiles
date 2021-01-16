@@ -17,8 +17,6 @@ inoremap <C-a> <C-o>^
 noremap! <C-e> <End>
 
 cnoremap <C-d> <Del>
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
 cnoremap <C-a> <Home>
 " }}}
 
