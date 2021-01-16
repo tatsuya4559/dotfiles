@@ -15,7 +15,6 @@ let g:ctrlp_switch_buffer = 0
 nnoremap <silent> <Space>b :<C-u>CtrlPBuffer<CR>
 nnoremap <silent> <Space>l :<C-u>CtrlPLine %<CR>
 nnoremap <silent> <Space>L :<C-u>CtrlPLine<CR>
-nnoremap <silent> <Leader>q :<C-u>CtrlPQuickfix<CR>
 " }}}
 
 " Coc {{{
