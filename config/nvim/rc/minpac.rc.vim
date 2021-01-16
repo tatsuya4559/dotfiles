@@ -79,9 +79,6 @@ function! PackInit() abort
   " Git
   Pack 'mhinz/vim-signify', {'type': 'opt', 'lazy': v:true}
   Pack 'ruanyl/vim-gh-line', {'type': 'opt', 'lazy': v:true}
-
-  " Misc
-  Pack 'AndrewRadev/linediff.vim', {'type': 'opt', 'on': 'Linediff'}
 endfunction
 
 call PackInit()

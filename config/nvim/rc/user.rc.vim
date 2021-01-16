@@ -134,7 +134,6 @@ command! -range -nargs=+ Awk :call AwkPrint(<line1>, <line2>, <f-args>)
 " abbreviations {{{
 cabbrev sg silent grep!
 cabbrev windi windo diffthis
-cabbrev ld Linediff
 cabbrev ggl SearchByGoogle
 " }}}
 
