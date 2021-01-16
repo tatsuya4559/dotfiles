@@ -11,12 +11,10 @@ set expandtab tabstop=4 shiftwidth=4
 set hlsearch incsearch ignorecase smartcase wrapscan
 set wildmenu
 set laststatus=2
-set ruler
-set number
+set ruler number
 set hidden
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 vnoremap . :normal .<CR>
 nnoremap <C-p> :<C-u>e **/*
 nnoremap <Space>b :<C-u>b *
-nnoremap <Space>e :Ex<CR>
-nnoremap s <C-w>
+nnoremap - :Ex<CR>
