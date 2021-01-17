@@ -28,9 +28,6 @@ function! s:copy_unnamed_to_plus(opr)
   endif
 endfunction
 
-" vvで行末まで選択
-nnoremap vv v$h
-
 " 横スクロール
 nnoremap <silent> <Right> zl
 nnoremap <silent> <Left> zh
