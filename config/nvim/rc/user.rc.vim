@@ -4,9 +4,6 @@ nnoremap <F1> <Nop>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
-" prefixにするキーを無効化
-noremap <Space> <Nop>
-
 " カーソル移動
 noremap! <C-b> <Left>
 noremap! <C-f> <Right>
