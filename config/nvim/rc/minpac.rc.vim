@@ -20,7 +20,7 @@ function! PackInit() abort
   call minpac#add('tatsuya4559/filer.vim')
 
   " Language support
-  call minpac#add('neoclide/coc.nvim', {'branch': 'release', 'frozen': v:true})
+  call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
   call minpac#add('SirVer/ultisnips')
   call minpac#add('pechorin/any-jump.vim', {'type': 'opt'})
   call minpac#add('mattn/emmet-vim', {'type': 'opt'})
