@@ -29,9 +29,6 @@ set number
 " 日本語表示を抑制
 language C
 
-" マウスを有効化
-set mouse=nvr
-
 " コマンドラインからコマンドラインウィンドウを開く
 execute 'set cedit=\<C-c>'
 

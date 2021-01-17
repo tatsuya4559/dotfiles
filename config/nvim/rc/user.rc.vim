@@ -79,10 +79,6 @@ nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR>
 " 選択範囲に.で繰り返しコマンド実行する
 vnoremap . :normal .<CR>
 
-" ファイルパスをコピー
-command! CopyPath :let @+ = expand('%:p')
-command! CopyFilename :let @+ = expand('%:t')
-
 " awk
 function! AwkPrint(line1, line2, ...)
   let args = map(copy(a:000), { _, v -> '$' .. v })
