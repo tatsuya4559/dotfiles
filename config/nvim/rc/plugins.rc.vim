@@ -66,7 +66,8 @@ nnoremap <Space>j :<C-u>AnyJump<CR>
 xnoremap <Space>j :AnyJumpVisual<CR>
 
 " asterisk
-map *  <Plug>(asterisk-z*)
-map #  <Plug>(asterisk-z#)
-map g* <Plug>(asterisk-gz*)
-map g# <Plug>(asterisk-gz#)
+map *   <Plug>(asterisk-*)
+map #   <Plug>(asterisk-#)
+map g*  <Plug>(asterisk-g*)
+map g#  <Plug>(asterisk-g#)
+" }}}
