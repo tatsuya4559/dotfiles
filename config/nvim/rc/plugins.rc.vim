@@ -1,23 +1,17 @@
-" ultisnips {{{
+" ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
-" }}}
 
-" commentary {{{
+" commentary
 nnoremap <Leader>\ :<C-u>Commentary<CR>
 vnoremap <Leader>\ :Commentary<CR>
-" }}}
 
-" CtrlP {{{
+" CtrlP
 let g:ctrlp_user_command = 'rg --color never --files --hidden --follow --glob "!.git/*"'
 let g:ctrlp_reuse_window = 'filer'
 let g:ctrlp_switch_buffer = 0
-
 nnoremap <silent> <Space>b :<C-u>CtrlPBuffer<CR>
-nnoremap <silent> <Space>l :<C-u>CtrlPLine %<CR>
-nnoremap <silent> <Space>L :<C-u>CtrlPLine<CR>
-" }}}
 
-" Coc {{{
+" Coc
 let g:coc_node_path = has('mac') ? '/usr/local/bin/node' : '/usr/bin/node'
 let g:coc_global_extensions = [
       \   'coc-css',
@@ -65,17 +59,14 @@ function! FormatDocument()
     call CocAction('format')
   endif
 endfunction
-" }}}
 
-" AnyJump {{{
+" AnyJump
 let g:any_jump_disable_default_keybindings = 1
 nnoremap <Space>j :<C-u>AnyJump<CR>
 xnoremap <Space>j :AnyJumpVisual<CR>
-" }}}
 
-" asterisk {{{
+" asterisk
 map *  <Plug>(asterisk-z*)
 map #  <Plug>(asterisk-z#)
 map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
-" }}}
