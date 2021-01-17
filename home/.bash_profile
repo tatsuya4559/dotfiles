@@ -14,9 +14,6 @@ export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 HISTSIZE=10000
 HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
 
-# rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
 # node
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
