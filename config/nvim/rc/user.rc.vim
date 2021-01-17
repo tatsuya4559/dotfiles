@@ -105,7 +105,8 @@ nnoremap Y y$
 " }}}
 
 " 空行を追加 {{{
-nnoremap <Space><CR> mzo<Esc>`z
+nnoremap <Space>[ mzO<Esc>`z
+nnoremap <Space>] mzo<Esc>`z
 " }}}
 
 " 再描画でハイライトを消す {{{
