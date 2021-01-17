@@ -34,10 +34,6 @@ set backspace=2 " default on neovim
 set wildmenu " default on neovim
 " }}}
 
-" アイドル状態になる時間 {{{
-set updatetime=100
-" }}}
-
 " ミュート {{{
 set belloff=all " default on neovim
 " }}}
@@ -58,11 +54,6 @@ set number
 " set colorcolumn=80
 " }}}
 
-" スクロール設定 {{{
-set scrolloff=3
-set sidescroll=1
-" }}}
-
 " 日本語表示を抑制 {{{
 language C
 " }}}
@@ -81,10 +72,7 @@ set hidden
 
 " ファイルの変更を自動読込 {{{
 set autoread " default on neovim
-augroup AutoReadChecktime
-  autocmd!
-  autocmd FocusGained,BufEnter * checktime
-augroup END
+autocmd MyAutoCmd FocusGained,BufEnter * checktime
 " }}}
 
 " undo設定 {{{

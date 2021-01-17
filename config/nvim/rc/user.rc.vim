@@ -6,18 +6,14 @@ nnoremap ZQ <Nop>
 " }}}
 
 " prefixにするキーを無効化 {{{
-noremap s <Nop>
 noremap <Space> <Nop>
 " }}}
 
 " カーソル移動 {{{
 noremap! <C-b> <Left>
 noremap! <C-f> <Right>
-inoremap <C-a> <C-o>^
+noremap! <C-a> <Home>
 noremap! <C-e> <End>
-
-cnoremap <C-d> <Del>
-cnoremap <C-a> <Home>
 " }}}
 
 " カラースキーム {{{
@@ -29,13 +25,7 @@ colorscheme shirotelin
 " thanks to monaqa
 set clipboard=
 
-noremap <Space>p "+p
-noremap <Space>P "+P
-
-augroup YankToClipboard
-  autocmd!
-  autocmd TextYankPost * call <SID>copy_unnamed_to_plus(v:event.operator)
-augroup END
+autocmd MyAutoCmd TextYankPost * call <SID>copy_unnamed_to_plus(v:event.operator)
 
 function! s:copy_unnamed_to_plus(opr)
   " yank操作のときのみ+レジスタに内容を移す
@@ -47,10 +37,6 @@ endfunction
 
 " vvで行末まで選択 {{{
 nnoremap vv v$h
-" }}}
-
-" ウィンドウ操作のprefixをsに割り当てる {{{
-nnoremap s <C-w>
 " }}}
 
 " 横スクロール {{{
@@ -76,10 +62,7 @@ nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
 " }}}
 
 " grep, makeの実行後にQuickFixを開く {{{
-augroup QfCmd
-  autocmd!
-  autocmd QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow 8 | endif
-augroup END
+autocmd MyAutoCmd QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow 8 | endif
 " }}}
 
 " grep {{{

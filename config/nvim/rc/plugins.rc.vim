@@ -79,7 +79,3 @@ map #  <Plug>(asterisk-z#)
 map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 " }}}
-
-" emmet {{{
-let g:user_emmet_mode = 'iv'
-" }}}

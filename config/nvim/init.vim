@@ -18,6 +18,9 @@ function! s:source_rc(rc_file_name)
   endif
 endfunction
 
+augroup MyAutoCmd
+  autocmd!
+augroup END
 call s:source_rc('basic.rc.vim')
 call s:source_rc('minpac.rc.vim')
 call s:source_rc('user.rc.vim')
