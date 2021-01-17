@@ -14,16 +14,10 @@ nnoremap <silent> <Space>b :<C-u>CtrlPBuffer<CR>
 " Coc
 let g:coc_node_path = has('mac') ? '/usr/local/bin/node' : '/usr/bin/node'
 let g:coc_global_extensions = [
-      \   'coc-css',
-      \   'coc-html',
       \   'coc-java',
-      \   'coc-prettier',
       \   'coc-python',
-      \   'coc-snippets',
       \   'coc-svelte',
-      \   'coc-tailwindcss',
       \   'coc-tsserver',
-      \   'coc-vimlsp',
       \ ]
 
 nnoremap <Space>o :<C-u>CocList outline<CR>
@@ -34,7 +28,6 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <F2> <Plug>(coc-rename)
-imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <C-x><C-x> coc#refresh()
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
@@ -43,8 +36,6 @@ nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if &filetype =~? '\v(vim|help)'
     execute 'h' expand('<cword>')
-  elseif &filetype ==# 'c'
-    execute 'Man' expand('<cword>')
   else
     call CocAction('doHover')
   endif
@@ -53,11 +44,7 @@ nnoremap <silent> <Space>a :<C-u>CocAction<CR>
 
 nnoremap <Leader>f :<C-u>call FormatDocument()<CR>
 function! FormatDocument()
-  if &filetype =~? '\v(javascript|typescript)'
-    execute 'CocCommand prettier.formatFile'
-  else
-    call CocAction('format')
-  endif
+  call CocAction('format')
 endfunction
 
 " AnyJump
