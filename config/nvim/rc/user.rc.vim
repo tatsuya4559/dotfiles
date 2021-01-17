@@ -29,11 +29,7 @@ endfunction
 nnoremap <silent> <Right> zl
 nnoremap <silent> <Left> zh
 
-" QuickFix移動
-nnoremap <silent> ]q :<C-u>cn<CR>
-nnoremap <silent> [q :<C-u>cp<CR>
-
-" QuickFixをトグル
+" quickfix and grep
 function! ToggleQuickfix()
   let l:nr = winnr('$')
   cwindow 8
@@ -43,11 +39,11 @@ function! ToggleQuickfix()
   endif
 endfunction
 nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
+nnoremap <silent> ]q :<C-u>cn<CR>
+nnoremap <silent> [q :<C-u>cp<CR>
 
-" grep, makeの実行後にQuickFixを開く
 autocmd MyAutoCmd QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow 8 | endif
 
-" grep
 nnoremap <Space>f :<C-u>silent grep!<Space>
 vnoremap <Space>f "zy:<C-u>silent grep! '<C-r>z'<CR>
 

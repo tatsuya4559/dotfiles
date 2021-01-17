@@ -29,9 +29,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <F2> <Plug>(coc-rename)
 
-inoremap <silent><expr> <C-x><C-x> coc#refresh()
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-
 nnoremap <silent> K :<C-u>call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if &filetype =~? '\v(vim|help)'
@@ -57,4 +54,3 @@ map *   <Plug>(asterisk-*)
 map #   <Plug>(asterisk-#)
 map g*  <Plug>(asterisk-g*)
 map g#  <Plug>(asterisk-g#)
-" }}}
