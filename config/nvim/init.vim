@@ -169,7 +169,6 @@ function! PackInit() abort
   " Text edit
   call minpac#add('markonm/traces.vim')
   call minpac#add('tpope/vim-commentary')
-  call minpac#add('thinca/vim-qfreplace', {'type': 'opt'})
   call minpac#add('cohama/lexima.vim', {'type': 'opt'})
 
   " File explore
