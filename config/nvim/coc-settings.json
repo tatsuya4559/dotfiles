@@ -30,7 +30,6 @@
     "javascriptreact": ["javascript"],
     "typescriptreact": ["typescript"]
   },
-  "tailwindCSS.headwind.runOnSave": false,
   "diagnostic.warningSign": "🤔",
   "diagnostic.errorSign": "🔥",
   "diagnostic.infoSign": "💡",
