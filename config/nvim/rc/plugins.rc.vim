@@ -44,11 +44,6 @@ function! FormatDocument()
   call CocAction('format')
 endfunction
 
-" AnyJump
-let g:any_jump_disable_default_keybindings = 1
-nnoremap <Space>j :<C-u>AnyJump<CR>
-xnoremap <Space>j :AnyJumpVisual<CR>
-
 " asterisk
 map *   <Plug>(asterisk-*)
 map #   <Plug>(asterisk-#)
