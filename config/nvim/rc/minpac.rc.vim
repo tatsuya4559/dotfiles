@@ -6,7 +6,6 @@ function! PackInit() abort
   " Colorscheme
   call minpac#add('arcticicestudio/nord-vim', {'type': 'opt'})
   call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
-  call minpac#add('yasukotelin/notelight', {'type': 'opt'})
 
   " Text edit
   call minpac#add('haya14busa/vim-asterisk')
