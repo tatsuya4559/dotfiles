@@ -70,10 +70,12 @@ nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
 " カーソル移動
-noremap! <C-b> <Left>
-noremap! <C-f> <Right>
-noremap! <C-a> <Home>
-noremap! <C-e> <End>
+inoremap <C-b> <C-g>U<Left>
+inoremap <C-f> <C-g>U<Right>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " カラースキーム
 set termguicolors
