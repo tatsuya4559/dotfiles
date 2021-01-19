@@ -17,7 +17,7 @@
   st = status
   co = checkout
   cm = commit -v
-  fe = fetch
+  fe = fetch --all
   pop = stash pop
   br = branch -vv
   di = diff
