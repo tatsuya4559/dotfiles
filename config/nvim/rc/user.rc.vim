@@ -25,10 +25,6 @@ function! s:copy_unnamed_to_plus(opr)
   endif
 endfunction
 
-" 横スクロール
-nnoremap <silent> <Right> zl
-nnoremap <silent> <Left> zh
-
 " quickfix and grep
 function! ToggleQuickfix()
   let l:nr = winnr('$')
