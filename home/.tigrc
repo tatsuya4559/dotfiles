@@ -1,23 +1,17 @@
-# Color
 color cursor white cyan bold
 
-# Pager系の行数表示をon
+# show line number on pagers
 set pager-view  = line-number:yes,interval=1 text
 set stage-view  = line-number:yes,interval=1 text
 set log-view    = line-number:yes,interval=1 text
 set blob-view   = line-number:yes,interval=1 text
 set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
 
-# 横分割に強制する
 set vertical-split = no
-
-# 検索時に大文字小文字を無視する (default: false)
 set ignore-case = true
-
-# 水平分割したウィンドウの下画面サイズを % で指定（行数指定も可）
 set split-view-height = 90%
 
-# generic
+# keybind
 bind main    b  scroll-page-up
 bind generic b  scroll-page-up
 bind main    g  none
@@ -29,24 +23,7 @@ bind generic G  move-last-line
 
 bind generic F !git fetch --all
 bind generic L !git pull
-bind generic P ?git push -u
 
-# status
-bind status D !git difftool %(file)
 bind status c !git commit -m "%(prompt Enter commit message: )"
-bind status P ?git push origin HEAD
-bind status S !git stash save
-bind status d ?git clean -f -- %(file)
-bind status U !git add -u
-bind status A !git add --all
 
-# refs
 bind refs c !git checkout %(branch)
-bind refs C !git checkout "%(prompt Enter branch name: )"
-bind refs B !git checkout -b "%(prompt Enter new branch name: )"
-bind refs M ?git merge %(branch)
-
-# stash
-bind stash P !git stash pop %(stash)
-bind stash A !git stash apply %(stash)
-bind stash D ?git stash drop %(stash)
