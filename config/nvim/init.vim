@@ -168,7 +168,6 @@ function! PackInit() abort
   call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
 
   " Text edit
-  call minpac#add('haya14busa/vim-asterisk')
   call minpac#add('markonm/traces.vim')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('thinca/vim-qfreplace', {'type': 'opt'})
@@ -235,9 +234,3 @@ nnoremap <Leader>f :<C-u>call FormatDocument()<CR>
 function! FormatDocument()
   call CocAction('format')
 endfunction
-
-" asterisk
-map *   <Plug>(asterisk-*)
-map #   <Plug>(asterisk-#)
-map g*  <Plug>(asterisk-g*)
-map g#  <Plug>(asterisk-g#)
