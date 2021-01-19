@@ -5,9 +5,8 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export TERM=xterm-256color
-export EDITOR='nvim'
+export EDITOR='vim'
 
-export MICRO_TRUECOLOR=1
 export FZF_DEFAULT_COMMAND='rg --color never --files --hidden --follow --glob "!.git/*"'
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 
