@@ -164,7 +164,6 @@ function! PackInit() abort
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Colorscheme
-  call minpac#add('arcticicestudio/nord-vim', {'type': 'opt'})
   call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
 
   " Text edit
