@@ -105,7 +105,7 @@ nnoremap <script><silent> <Space>q :call ToggleQuickfix()<CR>
 nnoremap <silent> ]q :<C-u>cn<CR>
 nnoremap <silent> [q :<C-u>cp<CR>
 
-autocmd MyAutoCmd QuickFixCmdPost vimgrep,grep,grepadd,make if len(getqflist()) != 0 | cwindow 8 | endif
+autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
 nnoremap <Space>f :<C-u>silent grep!<Space>
 vnoremap <Space>f "zy:<C-u>silent grep! '<C-r>z'<CR>
