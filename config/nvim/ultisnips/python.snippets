@@ -75,7 +75,7 @@ with self.assertRaises($1):
 	$2
 endsnippet
 
-# 標準ライブラリ
+# Standard Library
 snippet enum.def "enum definition" b
 class $1(enum.Enum):
 	$2 = enum.auto()
@@ -99,7 +99,7 @@ endsnippet
 # Django
 snippet django.form "django form" b
 class $1Form(forms.Form):
-	django#form#$2
+	$2
 
 	def clean(self):
 		cleaned_data = super().clean()
