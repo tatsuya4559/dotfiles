@@ -9,44 +9,38 @@ scriptencoding utf-8
 
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
-let s:rc_dir = '~/.config/nvim/rc/'
 
 augroup MyAutoCmd
   autocmd!
 augroup END
 
-" 文字コード
+" encoding
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
 set fileformats=unix,dos,mac
 
-" インデント設定
+" indentation
 set smartindent
 set breakindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
 
-" 検索設定
+" search
 " inccommand has bug (2020/10/05)
 " set inccommand=nosplit
 set ignorecase
 set smartcase
 
-" 不可視文字の表示
+" display unprintable characters
 set list
 set listchars=tab:▸\ ,trail:-,nbsp:+
 
-" スワップファイルを作成しない
 set noswapfile
-
-" 行番号を表示
 set number
+language en_US
 
-" 日本語表示を抑制
-language C
-
-" コマンドラインからコマンドラインウィンドウを開く
+" open command-line window from command-line mode
 execute 'set cedit=\<C-c>'
 
 " バッファを保存しなくても切り替えられるようにする
@@ -55,7 +49,7 @@ set hidden
 " ファイルの変更を自動読込
 autocmd MyAutoCmd FocusGained,BufEnter * checktime
 
-" undo設定
+" undo
 set undolevels=1000
 set undodir=~/.local/share/nvim/undo
 set undofile
@@ -77,11 +71,10 @@ cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" カラースキーム
 set termguicolors
 colorscheme shirotelin
 
-" クリップボードを共有
+" clipboard
 " thanks to monaqa
 set clipboard=
 autocmd MyAutoCmd TextYankPost * call <SID>copy_unnamed_to_plus(v:event.operator)
@@ -122,7 +115,7 @@ endif
 let g:open_prg = has('mac') ? 'open' : 'xdg-open'
 vnoremap <silent> <Leader>o "zy:<C-u>!<C-r>=g:open_prg<CR> <C-r>z<CR>
 
-" 行末までヤンク
+" yank to EOL
 nnoremap Y y$
 
 " 再描画でハイライトを消す
