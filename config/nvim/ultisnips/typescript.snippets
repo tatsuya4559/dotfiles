@@ -11,9 +11,9 @@ type Props = {
 }
 
 const ${1:`!p snip.rv = snip.basename`}: React.FC<Props> = () => {
-  return (
-    <div></div>
-  );
+	return (
+		<div></div>
+	);
 };
 
 export default $1;
@@ -29,19 +29,19 @@ endsnippet
 
 snippet caf "const arrow function"
 const ${1:func} = (${2:args}) => {
-  $3
+	$3
 };
 endsnippet
 
 snippet fn "function"
 function $1($2) {
-  $3
+	$3
 }
 endsnippet
 
 snippet afn "arrow function"
 ($1) => {
-  $2
+	$2
 }
 endsnippet
 
@@ -55,7 +55,7 @@ endsnippet
 
 snippet uef "useEffect"
 useEffect(() => {
-  $1
+	$1
 }, []);
 endsnippet
 
@@ -73,19 +73,19 @@ endsnippet
 
 snippet snap "snapshot test"
 test('snapshot', () => {
-  const { asFragment } = render($1);
-  expect(asFragment()).toMatchSnapshot();
+	const { asFragment } = render($1);
+	expect(asFragment()).toMatchSnapshot();
 });
 endsnippet
 
 snippet it "test case"
 test('$1', () => {
-  $2
+	$2
 });
 endsnippet
 
 snippet desc "describe"
 describe('$1', () => {
-  $2
+	$2
 });
 endsnippet

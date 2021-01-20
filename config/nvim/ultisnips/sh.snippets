@@ -8,7 +8,7 @@ endsnippet
 
 snippet wr "while read"
 while IFS=\ read col1 col2; do
-  $1
+	$1
 done <<EOF
 $2
 EOF
@@ -16,26 +16,26 @@ endsnippet
 
 snippet if "if statement"
 if [[ $1 ]]; then
-  $2
+	$2
 fi
 endsnippet
 
 snippet case "case statement"
 case "${$1}" in
-  *)
-    $2
-    ;;
+	*)
+		$2
+		;;
 esac
 endsnippet
 
 snippet fn "function"
 function $1() {
-  $2
+	$2
 }
 endsnippet
 
 snippet error "error function"
 function err() {
-  echo "[$(date +'%Y-%m-%dT%H:%M%S%z')]: $*" > &2
+	echo "[$(date +'%Y-%m-%dT%H:%M%S%z')]: $*" > &2
 }
 endsnippet
