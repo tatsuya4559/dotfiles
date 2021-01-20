@@ -125,10 +125,6 @@ vnoremap <silent> <Leader>o "zy:<C-u>!<C-r>=g:open_prg<CR> <C-r>z<CR>
 " 行末までヤンク
 nnoremap Y y$
 
-" 空行を追加
-nnoremap <Space>[ mzO<Esc>`z
-nnoremap <Space>] mzo<Esc>`z
-
 " 再描画でハイライトを消す
 nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR>
 
