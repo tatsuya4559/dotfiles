@@ -61,7 +61,7 @@ for file in $(ls ${DOTFILEDIR}/config/); do
   ln -s ${DOTFILEDIR}/config/${file} ~/.config/${file}
 done
 
-for file in $(find ${DOTFILEDIR}/home -type f); do
+for file in $(find ${DOTFILEDIR} -name '\.*' -d 1 -type f); do
   rm -f ~/`basename ${file}`
   cp ${file} ~/`basename ${file}`
 done
