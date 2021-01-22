@@ -63,7 +63,7 @@ done
 
 for file in $(find ${DOTFILEDIR}/home -type f); do
   rm -f ~/`basename ${file}`
-  ln -s ${file} ~/`basename ${file}`
+  cp ${file} ~/`basename ${file}`
 done
 
 echo 'DONE!!'

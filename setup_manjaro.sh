@@ -82,10 +82,10 @@ for file in $(ls ${DOTFILEDIR}/config/); do
   ln -s ${DOTFILEDIR}/config/${file} ~/.config/${file}
 done
 
-# for file in $(find ${DOTFILEDIR}/home -type f); do
-#   rm -f ~/`basename ${file}`
-#   ln -s ${file} ~/`basename ${file}`
-# done
+for file in $(find ${DOTFILEDIR}/home -type f); do
+  rm -f ~/`basename ${file}`
+  cp -s ${file} ~/`basename ${file}`
+done
 
 # reboot
 sudo systemctl reboot
