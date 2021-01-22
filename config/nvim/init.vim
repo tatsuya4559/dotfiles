@@ -182,10 +182,6 @@ command! PackStatus call PackInit() | call minpac#status()
 " ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
-" commentary
-nnoremap <Leader>\ :<C-u>Commentary<CR>
-vnoremap <Leader>\ :Commentary<CR>
-
 " CtrlP
 let g:ctrlp_user_command = 'rg --color never --files --hidden --follow --glob "!.git/*"'
 let g:ctrlp_reuse_window = 'filer'
