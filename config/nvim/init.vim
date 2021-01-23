@@ -188,7 +188,6 @@ nnoremap <silent> <Space>b :<C-u>CtrlPBuffer<CR>
 let g:coc_node_path = has('mac') ? '/usr/local/bin/node' : '/usr/bin/node'
 let g:coc_global_extensions = [
       \   'coc-java',
-      \   'coc-python',
       \   'coc-svelte',
       \   'coc-tsserver',
       \ ]
