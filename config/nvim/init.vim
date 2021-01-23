@@ -38,15 +38,13 @@ set listchars=tab:▸\ ,trail:-,nbsp:+
 
 set noswapfile
 set number
+set hidden
 language en_US
 
 " open command-line window from command-line mode
 execute 'set cedit=\<C-c>'
 
-" バッファを保存しなくても切り替えられるようにする
-set hidden
-
-" ファイルの変更を自動読込
+" autoread more frequently
 autocmd MyAutoCmd FocusGained,BufEnter * checktime
 
 " undo
@@ -54,16 +52,16 @@ set undolevels=1000
 set undodir=~/.local/share/nvim/undo
 set undofile
 
-" 縦棒のカーソルだと見えなくなる場合がある
+" use block cursor in insert mode
 set guicursor=
 
-" 誤爆するキーを無効化
+" prevent accidentally pressing these keys
 nnoremap Q <Nop>
 nnoremap <F1> <Nop>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
-" カーソル移動
+" move cursor
 inoremap <C-b> <C-g>U<Left>
 inoremap <C-f> <C-g>U<Right>
 cnoremap <C-b> <Left>
@@ -71,6 +69,7 @@ cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" colorscheme
 set termguicolors
 colorscheme shirotelin
 
@@ -111,14 +110,11 @@ elseif executable('git') && !empty(system('git rev-parse --git-dir 2>/dev/null')
   let &grepformat = '%f:%l:%c:%m'
 endif
 
-" URLなどを開く
+" open in browser
 let g:open_prg = has('mac') ? 'open' : 'xdg-open'
 vnoremap <silent> <Leader>o "zy:<C-u>!<C-r>=g:open_prg<CR> <C-r>z<CR>
 
-" yank to EOL
 nnoremap Y y$
-
-" 再描画でハイライトを消す
 nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR>
 
 " 選択範囲に.で繰り返しコマンド実行する
