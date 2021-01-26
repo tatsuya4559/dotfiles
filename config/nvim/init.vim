@@ -110,10 +110,6 @@ elseif executable('git') && !empty(system('git rev-parse --git-dir 2>/dev/null')
   let &grepformat = '%f:%l:%c:%m'
 endif
 
-" open in browser
-let g:open_prg = has('mac') ? 'open' : 'xdg-open'
-vnoremap <silent> <Leader>o "zy:<C-u>!<C-r>=g:open_prg<CR> <C-r>z<CR>
-
 nnoremap Y y$
 nmap <silent> <C-l> :<C-u>nohlsearch<CR>:redraw<CR>
 
@@ -130,19 +126,6 @@ command! -range -nargs=+ Awk :call AwkPrint(<line1>, <line2>, <f-args>)
 " abbreviations
 cabbrev sg silent grep!
 cabbrev windi windo diffthis
-cabbrev ggl SearchByGoogle
-
-" Google it
-function! s:search_by_google(...) abort
-  if empty(a:000)
-    return
-  endif
-  let url = shellescape('https://www.google.com/search?q=' .. join(a:000, '+'))
-  call system(printf('%s %s', g:open_prg, url))
-endfunction
-command! -nargs=* SearchByGoogle call s:search_by_google(<f-args>)
-nnoremap <silent> <Space>g :SearchByGoogle <C-r>=expand('<cword>')<CR><CR>
-vnoremap <silent> <Space>g "zy:SearchByGoogle <C-r>z<CR>
 
 " plugins
 function! PackInit() abort
@@ -156,7 +139,6 @@ function! PackInit() abort
   " Text edit
   call minpac#add('markonm/traces.vim')
   call minpac#add('tpope/vim-commentary')
-  call minpac#add('cohama/lexima.vim', {'type': 'opt'})
 
   " File explore
   call minpac#add('ctrlpvim/ctrlp.vim')
