@@ -49,7 +49,7 @@ autocmd MyAutoCmd FocusGained,BufEnter * checktime
 
 " undo
 set undolevels=1000
-set undodir=~/.local/share/nvim/undo
+set undodir=~/.vim/undo
 set undofile
 
 " use block cursor in insert mode
