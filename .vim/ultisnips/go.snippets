@@ -54,3 +54,9 @@ for ${1:i:=0}; ${2:i<n}; ${3:i++} {
 	$4
 }
 endsnippet
+
+snippet http.handlerfn "handler function"
+func ${1:handler}(w http.ResponseWriter, r *http.Request) {
+	$2
+}
+endsnippet

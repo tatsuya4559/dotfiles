@@ -158,7 +158,7 @@ command! PackClean call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
 
 " ultisnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+let g:UltiSnipsSnippetDirectories=['~/.vim/ultisnips']
 
 " CtrlP
 let g:ctrlp_user_command = 'rg --color never --files --hidden --follow --glob "!.git/*"'
