@@ -37,6 +37,7 @@ nnoremap ZQ <nop>
 noremap! <c-b> <left>
 noremap! <c-f> <right>
 cnoremap <c-a> <home>
+nnoremap <c-]> g<c-]>
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 vnoremap . :normal .<cr>
 nnoremap Y y$
