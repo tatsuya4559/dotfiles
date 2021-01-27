@@ -41,7 +41,6 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 sudo pacman -S --noconfirm yay
 sudo pacman -S --noconfirm xclip
 sudo pacman -S --noconfirm tmux
-sudo pacman -S --noconfirm neovim
 sudo pacman -S --noconfirm ripgrep
 sudo pacman -S --noconfirm tig
 sudo pacman -S --noconfirm fzf
@@ -51,7 +50,6 @@ sudo pacman -S --noconfirm jq
 sudo pacman -S --noconfirm docker
 sudo pacman -S --noconfirm docker-compose
 
-sudo pacman -S --noconfirm python-neovim
 yay -S --noconfirm ttf-monaco
 yay -S --noconfirm nerd-fonts-ubuntu-mono
 yay -S --noconfirm dive
@@ -76,11 +74,6 @@ sudo pacman -Syu
 export GHQ_ROOT=~/git
 ghq get https://github.com/tatsuya4559/dotfiles
 DOTFILEDIR=`ghq list -p tatsuya4559/dotfiles`
-
-for file in $(ls ${DOTFILEDIR}/config/); do
-  rm -rf ~/.config/${file}
-  ln -s ${DOTFILEDIR}/config/${file} ~/.config/${file}
-done
 
 for file in $(find ${DOTFILEDIR} -name '\.*' -d 1 -type f); do
   rm -f ~/`basename ${file}`

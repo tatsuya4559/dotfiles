@@ -23,7 +23,6 @@ brew "ghq"
 brew "git"
 brew "hub"
 brew "jq"
-brew "neovim", args: ["HEAD"]
 brew "nvm"
 brew "ripgrep"
 brew "tig"
@@ -55,11 +54,6 @@ ghq get https://github.com/tatsuya4559/dotfiles
 # distribute dotfiles
 echo 'Set symlink of dotfiles...'
 DOTFILEDIR=`ghq list -p tatsuya4559/dotfiles`
-
-for file in $(ls ${DOTFILEDIR}/config/); do
-  rm -rf ~/.config/${file}
-  ln -s ${DOTFILEDIR}/config/${file} ~/.config/${file}
-done
 
 for file in $(find ${DOTFILEDIR} -name '\.*' -d 1 -type f); do
   rm -f ~/`basename ${file}`
