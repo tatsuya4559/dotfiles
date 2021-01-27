@@ -20,8 +20,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-alias vim='nvim'
-
 alias ls='ls -GF'
 alias la='ls -GFa'
 alias ll='ls -GFalh'
@@ -44,6 +42,6 @@ function col() {
 
 # vim perf
 function time_vim() {
-  nvim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null \
+  vim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null \
     && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1
 }
