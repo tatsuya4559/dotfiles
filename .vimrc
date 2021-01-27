@@ -56,7 +56,7 @@ let g:UltiSnipsSnippetDirectories=['~/.vim/ultisnips']
 
 " clipboard (thanks to monaqa
 set clipboard=
-autocmd MyAutoCmd TextYankPost * call <SID>copy_unnamed_to_plus(v:event.operator)
+autocmd MyAutoCmd TextYankPost * call s:copy_unnamed_to_plus(v:operator)
 function! s:copy_unnamed_to_plus(opr)
   if a:opr ==# 'y'
     let @+ = @"
