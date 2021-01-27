@@ -83,4 +83,4 @@ function! s:grep(word) abort
 endfunction
 command! -nargs=1 Grep call s:grep(<q-args>)
 nnoremap <space>f :<c-u>Grep<space>
-nnoremap gr :<c-u>Grep <c-r><c-w><cr>
+nnoremap gr :<c-u>Grep \b<c-r><c-w>\b<cr>
