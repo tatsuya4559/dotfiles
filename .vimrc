@@ -22,7 +22,8 @@ set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
 execute 'set cedit=\<c-c>'
 set termguicolors
-colorscheme notelight
+colorscheme newspaper
+"colorscheme notelight
 augroup MyAutoCmd
   autocmd!
 augroup END
@@ -41,18 +42,6 @@ nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 vnoremap . :normal .<cr>
 nnoremap Y y$
 nnoremap <silent> <space>b :<c-u>CtrlPBuffer<cr>
-
-" filetype
-" ftplugin and ftdetect are prepared for each environment
-autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
-autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
-
-" plugins
-" still manual management now
-" use minpac when I get tired
-let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
-let g:ctrlp_user_command = 'fd --color never --type f --hidden --exclude ".git"'
-let g:UltiSnipsSnippetDirectories=['~/.vim/ultisnips']
 
 " clipboard (thanks to monaqa
 set clipboard=
@@ -83,3 +72,15 @@ endfunction
 command! -nargs=1 Grep call s:grep(<q-args>)
 nnoremap <space>f :<c-u>Grep<space>
 nnoremap gr :<c-u>Grep \b<c-r><c-w>\b<cr>
+
+" filetype
+" ftplugin and ftdetect are prepared for each environment
+autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
+autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
+
+" plugins
+" still manual management now
+" use minpac when I get tired
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
+let g:ctrlp_user_command = 'fd --color never --type f --hidden --exclude ".git"'
+let g:UltiSnipsSnippetDirectories=['~/.vim/ultisnips']
