@@ -76,24 +76,8 @@ with self.assertRaises($1):
 endsnippet
 
 # Standard Library
-snippet enum.def "enum definition" b
-class $1(enum.Enum):
-	$2 = enum.auto()
-endsnippet
-
 snippet nt "classic style namedtuple" b
 $1 = namedtuple("$1", "$2")
-endsnippet
-
-snippet json.encode "json encode"
-json.dumps($1)
-endsnippet
-
-snippet json.decode "json decode"
-try:
-	${1:result} = json.loads($2)
-except ValueError as e:
-	$3
 endsnippet
 
 # Django
