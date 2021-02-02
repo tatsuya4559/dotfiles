@@ -67,7 +67,8 @@ nnoremap <silent> [q :<c-u>cp<cr>
 
 " grep
 function! s:grep(word) abort
-  cgetexpr system(printf('rg --vimgrep "%s"', a:word)) | cw
+  let l:cmd = 'rg --vimgrep --color never --hidden --glob "!.git/*" "%s"'
+  cgetexpr system(printf(l:cmd, a:word)) | cw
 endfunction
 command! -nargs=1 Grep call s:grep(<q-args>)
 nnoremap <space>f :<c-u>Grep<space>
