@@ -22,8 +22,7 @@ set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
 execute 'set cedit=\<c-c>'
 set termguicolors
-colorscheme newspaper
-"colorscheme notelight
+colorscheme notelight
 augroup MyAutoCmd
   autocmd!
 augroup END
