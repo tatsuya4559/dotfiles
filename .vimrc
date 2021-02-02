@@ -9,7 +9,7 @@ language en_US
 set smartindent breakindent
 set expandtab tabstop=2 shiftwidth=2
 set hlsearch incsearch ignorecase smartcase wrapscan
-set shortmess-=S
+set shortmess-=S showcmd
 set backspace=2
 set wildmenu
 set list listchars=tab:▸\ ,trail:-
