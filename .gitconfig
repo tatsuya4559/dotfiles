@@ -12,13 +12,16 @@
   ff = only
 [push]
   default = current
+[grep]
+  lineNumber = true
+  column = true
+  fallbackToNoIndex = true
 [alias]
   fa = !git status -s | fzf -m | awk '{print $2}' | xargs git add
   st = status
   co = checkout
   cm = commit -v
   fe = fetch --all
-  pop = stash pop
   br = branch -vv
   di = diff
   dt = difftool
