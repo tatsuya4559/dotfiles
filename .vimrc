@@ -22,7 +22,7 @@ set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
 execute 'set cedit=\<c-c>'
 set termguicolors
-colorscheme notelight
+colorscheme shirotelin
 augroup MyAutoCmd
   autocmd!
 augroup END
@@ -40,7 +40,6 @@ cnoremap <c-a> <home>
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 vnoremap . :normal .<cr>
 nnoremap Y y$
-nnoremap <silent> <space>b :<c-u>CtrlPBuffer<cr>
 
 " clipboard (thanks to monaqa
 set clipboard=
@@ -81,6 +80,7 @@ autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 " plugins
 " still manual management now
 " use minpac when I get tired
-let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
-let g:ctrlp_user_command = 'fd --color never --type f --hidden --exclude ".git"'
-let g:UltiSnipsSnippetDirectories=['~/.vim/ultisnips']
+let g:fzf_preview_window = []
+let g:fzf_layout = {'window': 'bo 10new'}
+nnoremap <c-p> :Files<cr>
+nnoremap <space>b :Buffers<cr>
