@@ -45,14 +45,12 @@ sudo pacman -S --noconfirm ripgrep
 sudo pacman -S --noconfirm tig
 sudo pacman -S --noconfirm fzf
 sudo pacman -S --noconfirm ghq
-sudo pacman -S --noconfirm hub
 sudo pacman -S --noconfirm jq
 sudo pacman -S --noconfirm docker
 sudo pacman -S --noconfirm docker-compose
 
 yay -S --noconfirm ttf-monaco
 yay -S --noconfirm nerd-fonts-ubuntu-mono
-yay -S --noconfirm dive
 
 ## install GUI tools
 sudo pacman -S --noconfirm synapse
