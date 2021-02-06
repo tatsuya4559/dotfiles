@@ -17,7 +17,6 @@
   column = true
   fallbackToNoIndex = true
 [alias]
-  fa = !git status -s | fzf -m | awk '{print $2}' | xargs git add
   st = status
   co = checkout
   cm = commit -v
@@ -26,6 +25,5 @@
   di = diff
   dt = difftool
   mt = mergetool
-  see = browse
 [ghq]
-  root = ~/go/src
+  root = ~/git
