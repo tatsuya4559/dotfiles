@@ -10,9 +10,9 @@ RED='\[\e[1;31m\]'
 GREEN='\[\e[1;32m\]'
 YELLOW='\[\e[1;33m\]'
 BLUE='\[\e[1;34m\]'
-PURPLE='\[\e[1;35m\]'
+MAGENTA='\[\e[1;35m\]'
 CYAN='\[\e[1;36m\]'
-export PS1="${BLUE}\w${PURPLE}"'$(__git_ps1)'"${YELLOW}\n↪ ${NORMAL}"
+export PS1="${BLUE}\w${MAGENTA}"'$(__git_ps1)'"${YELLOW}\n↪ ${NORMAL}"
 
 
 # alias
@@ -38,10 +38,4 @@ alias C='pbcopy'
 # awkめんどい
 function col() {
   awk -v col=$1 '{print $col}'
-}
-
-# vim perf
-function time_vim() {
-  vim --startuptime /tmp/stime_with_plugin.log -c 'quit' > /dev/null \
-    && tail -n 1 /tmp/stime_with_plugin.log | cut -d ' ' -f1
 }
