@@ -78,8 +78,29 @@ autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 
 " plugins
-" still manual management now
-" use minpac when I get tired
+function! PackInit() abort
+  packadd minpac
+  call minpac#init()
+  call minpac#add('k-takata/minpac', {'type': 'opt'})
+  call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
+  call minpac#add('tatsuya4559/newspaper.vim', {'type': 'opt'})
+  call minpac#add('tatsuya4559/vim-eldar', {'type': 'opt'})
+  "call minpac#add('tatsuya4559/filer.vim')
+  call minpac#add('junegunn/fzf')
+  call minpac#add('junegunn/fzf.vim')
+  call minpac#add('markonm/traces.vim')
+  call minpac#add('tpope/vim-commentary')
+  call minpac#add('SirVer/ultisnips')
+  call minpac#add('ruanyl/vim-gh-line')
+  call minpac#add('mattn/emmet-vim', {'type': 'opt'})
+  call minpac#add('mattn/vim-goimports')
+endfunction
+command! PackUpdate call PackInit() | call minpac#update()
+command! PackClean call PackInit() | call minpac#clean()
+
+let g:netrw_banner = 0
+nnoremap - :<c-u>Explore<cr>
+nnoremap <c-w>- :<c-u>Sexplore<cr>
 let g:fzf_preview_window = []
 let g:fzf_layout = {'window': 'bo 10new'}
 nnoremap <c-p> :Files<cr>
