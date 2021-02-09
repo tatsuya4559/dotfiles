@@ -62,7 +62,7 @@ endfunction
 nnoremap <silent><script> <space>q :<c-u>call <SID>toggle_quickfix()<cr>
 nnoremap <silent> ]q :<c-u>cn<cr>
 nnoremap <silent> [q :<c-u>cp<cr>
-autocmd MyAutoCmd QuickFixCmdPost *grep* :cwindow
+autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
 " grep
 function! s:grep(word) abort
