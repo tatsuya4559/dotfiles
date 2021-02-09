@@ -59,9 +59,10 @@ function! s:toggle_quickfix()
     cclose
   endif
 endfunction
-nnoremap <script><silent> <space>q :call <SID>toggle_quickfix()<cr>
+nnoremap <silent><script> <space>q :<c-u>call <SID>toggle_quickfix()<cr>
 nnoremap <silent> ]q :<c-u>cn<cr>
 nnoremap <silent> [q :<c-u>cp<cr>
+autocmd MyAutoCmd QuickFixCmdPost *grep* :cwindow
 
 " grep
 function! s:grep(word) abort
@@ -103,5 +104,5 @@ nnoremap - :<c-u>Explore<cr>
 nnoremap <c-w>- :<c-u>Sexplore<cr>
 let g:fzf_preview_window = []
 let g:fzf_layout = {'window': 'bo 10new'}
-nnoremap <c-p> :Files<cr>
-nnoremap <space>b :Buffers<cr>
+nnoremap <c-p> :<c-u>Files<cr>
+nnoremap <space>b :<c-u>Buffers<cr>
