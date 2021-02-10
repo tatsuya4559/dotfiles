@@ -1,5 +1,6 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+source $HOME/.local/bin/bashmarks.sh
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
 
@@ -25,7 +26,7 @@ alias la='ls -GFa'
 alias ll='ls -GFalh'
 alias tree='tree -C'
 
-alias g='cd $(ghq root)/$(ghq list | fzf)'
+alias r='cd $(ghq root)/$(ghq list | fzf)'
 
 alias h='clear && tldr'
 alias dc='docker-compose'
