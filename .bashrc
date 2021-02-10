@@ -24,17 +24,19 @@ alias rm='rm -i'
 alias ls='ls -GF'
 alias la='ls -GFa'
 alias ll='ls -GFalh'
-alias tree='tree -C'
 
 alias r='cd $(ghq root)/$(ghq list | fzf)'
 
 alias h='clear && tldr'
 alias dc='docker-compose'
 alias a='. venv/bin/activate'
-alias C='pbcopy'
 
 #alias pbcopy='xclip -selection c'
 #alias pbpaste='xclip -selection c -o'
+
+function preview() {
+  pandoc -f markdown -t html $1 | w3m -T text/html
+}
 
 # awkめんどい
 function col() {
