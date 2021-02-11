@@ -1,29 +1,7 @@
-color cursor white cyan bold
-
-# show line number on pagers
-set pager-view  = line-number:yes,interval=1 text
-set stage-view  = line-number:yes,interval=1 text
-set log-view    = line-number:yes,interval=1 text
-set blob-view   = line-number:yes,interval=1 text
-set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
-
 set vertical-split = no
 set ignore-case = true
-set split-view-height = 90%
 
-# keybind
-bind main    b  scroll-page-up
-bind generic b  scroll-page-up
-bind main    g  none
 bind main    g  move-first-line
 bind generic g  move-first-line
-bind main    G  none
 bind main    G  move-last-line
 bind generic G  move-last-line
-
-bind generic F !git fetch --all
-bind generic L !git pull
-
-bind status c !git commit -m "%(prompt Enter commit message: )"
-
-bind refs c !git checkout %(branch)
