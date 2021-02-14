@@ -20,7 +20,6 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-execute 'set cedit=\<c-c>'
 set termguicolors
 colorscheme shirotelin
 augroup MyAutoCmd
@@ -34,9 +33,6 @@ nnoremap <f1> <nop>
 nnoremap Q <nop>
 nnoremap ZZ <nop>
 nnoremap ZQ <nop>
-noremap! <c-b> <left>
-noremap! <c-f> <right>
-cnoremap <c-a> <home>
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 vnoremap . :normal .<cr>
 nnoremap Y y$
