@@ -34,10 +34,6 @@ alias a='. venv/bin/activate'
 #alias pbcopy='xclip -selection c'
 #alias pbpaste='xclip -selection c -o'
 
-function preview() {
-  pandoc -f markdown -t html $1 | w3m -T text/html
-}
-
 # awkめんどい
 function col() {
   awk -v col=$1 '{print $col}'
