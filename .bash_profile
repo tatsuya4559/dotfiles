@@ -7,7 +7,7 @@ export LC_CTYPE=en_US.UTF-8
 export TERM=xterm-256color
 export EDITOR='vim'
 
-export FZF_DEFAULT_COMMAND='rg --color never --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='fd --color never --type f'
 export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
 
 HISTSIZE=10000

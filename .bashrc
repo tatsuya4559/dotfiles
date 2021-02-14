@@ -25,8 +25,6 @@ alias ls='ls -GF'
 alias la='ls -GFa'
 alias ll='ls -GFalh'
 
-alias r='cd $(ghq root)/$(ghq list | fzf)'
-
 alias h='clear && tldr'
 alias dc='docker-compose'
 alias a='. venv/bin/activate'

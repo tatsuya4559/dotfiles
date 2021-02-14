@@ -41,21 +41,18 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 sudo pacman -S --noconfirm yay
 sudo pacman -S --noconfirm xclip
 sudo pacman -S --noconfirm tmux
-sudo pacman -S --noconfirm ripgrep
 sudo pacman -S --noconfirm tig
 sudo pacman -S --noconfirm fzf
-sudo pacman -S --noconfirm ghq
 sudo pacman -S --noconfirm jq
+sudo pacman -S --noconfirm fd
 sudo pacman -S --noconfirm docker
 sudo pacman -S --noconfirm docker-compose
 
 yay -S --noconfirm ttf-monaco
-yay -S --noconfirm nerd-fonts-ubuntu-mono
 
 ## install GUI tools
 sudo pacman -S --noconfirm synapse
 yay -S --noconfirm google-chrome
-yay -S --noconfirm gruake
 
 # install nice icon themes
 git clone https://github.com/numixproject/numix-icon-theme-circle.git /tmp/numix-icon-theme-circle
@@ -69,14 +66,23 @@ sudo pacman -Syu
 ################################################################################
 # Dotfiles
 ################################################################################
-export GHQ_ROOT=~/git
-ghq get https://github.com/tatsuya4559/dotfiles
-DOTFILEDIR=`ghq list -p tatsuya4559/dotfiles`
+git clone https://github.com/tatsuya4559/dotfiles ~/dotfiles
 
-for file in $(find ${DOTFILEDIR} -name '\.*' -d 1 -type f); do
-  rm -f ~/`basename ${file}`
-  cp -s ${file} ~/`basename ${file}`
-done
+function copy() {
+  rm -f ~/$1
+  cp ~/dotfiles/$1 ~
+}
+
+copy .bash_profile
+copy .bashrc
+copy .inputrc
+copy .gitconfig
+copy .vimrc
+copy .tmux.conf
+copy .tigrc
+
+mkdir ~/.vim
+ln -s ~/dotfiles/.vim/ultisnips ~/.vim/ultisnips
 
 # reboot
 sudo systemctl reboot

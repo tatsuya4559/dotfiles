@@ -18,11 +18,9 @@ brew "docker"
 brew "docker-compose"
 brew "fd"
 brew "fzf"
-brew "ghq"
 brew "git"
 brew "jq"
 brew "nvm"
-brew "ripgrep"
 brew "tig"
 brew "tmux"
 brew "tree"
@@ -42,18 +40,23 @@ chmod a+x ~/.git-completion.bash
 curl -fsSL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 chmod a+x ~/.git-prompt.sh
 
-# clone dotfiles
-echo 'Cloning dotfiles...'
-export GHQ_ROOT=~/git
-ghq get https://github.com/tatsuya4559/dotfiles
+# dotfiles
+git clone https://github.com/tatsuya4559/dotfiles ~/dotfiles
 
-# distribute dotfiles
-echo 'Set symlink of dotfiles...'
-DOTFILEDIR=`ghq list -p tatsuya4559/dotfiles`
+function copy() {
+  rm -f ~/$1
+  cp ~/dotfiles/$1 ~
+}
 
-for file in $(find ${DOTFILEDIR} -name '\.*' -d 1 -type f); do
-  rm -f ~/`basename ${file}`
-  cp ${file} ~/`basename ${file}`
-done
+copy .bash_profile
+copy .bashrc
+copy .inputrc
+copy .gitconfig
+copy .vimrc
+copy .tmux.conf
+copy .tigrc
+
+mkdir ~/.vim
+ln -s ~/dotfiles/.vim/ultisnips ~/.vim/ultisnips
 
 echo 'DONE!!'

@@ -25,5 +25,3 @@
   di = diff
   dt = difftool
   mt = mergetool
-[ghq]
-  root = ~/git
