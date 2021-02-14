@@ -3,6 +3,7 @@
   email = tatsuya.k1029@gmail.com
 [core]
   editor = vim
+  pager = diff-highlight | less
 [merge]
   tool = vimdiff
   ff = false
@@ -16,6 +17,8 @@
   lineNumber = true
   column = true
   fallbackToNoIndex = true
+[diff]
+  colorMoved = dimmed-zebra
 [alias]
   st = status
   co = checkout
