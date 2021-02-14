@@ -74,7 +74,6 @@ nnoremap <space>f :<c-u>Grep<space>
 nnoremap gr :<c-u>Grep \b<c-r><c-w>\b<cr>
 
 " filetype
-" ftplugin and ftdetect are prepared for each environment
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 
@@ -86,7 +85,6 @@ function! PackInit() abort
   call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
   call minpac#add('tatsuya4559/newspaper.vim', {'type': 'opt'})
   call minpac#add('tatsuya4559/vim-eldar', {'type': 'opt'})
-  "call minpac#add('tatsuya4559/filer.vim')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('markonm/traces.vim')
@@ -95,6 +93,8 @@ function! PackInit() abort
   call minpac#add('ruanyl/vim-gh-line')
   call minpac#add('mattn/emmet-vim', {'type': 'opt'})
   call minpac#add('mattn/vim-goimports')
+  call minpac#add('prabirshrestha/vim-lsp')
+  call minpac#add('mattn/vim-lsp-settings')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
@@ -102,7 +102,23 @@ command! PackClean call PackInit() | call minpac#clean()
 let g:netrw_banner = 0
 nnoremap - :<c-u>Explore<cr>
 nnoremap <c-w>- :<c-u>Sexplore<cr>
+
 let g:fzf_preview_window = []
 let g:fzf_layout = {'window': 'bo 10new'}
 nnoremap <c-p> :<c-u>Files<cr>
 nnoremap <space>b :<c-u>Buffers<cr>
+
+let g:lsp_document_highlight_enabled = 0
+let g:lsp_diagnostics_echo_cursor = 1
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  nmap <buffer><silent> gd <plug>(lsp-definition)
+  nmap <buffer><silent> gr <plug>(lsp-references)
+  nmap <buffer><silent> gi <plug>(lsp-implementation)
+  nmap <buffer><silent> gt <plug>(lsp-type-definition)
+  nmap <buffer> <f2> <plug>(lsp-rename)
+  nmap <buffer><silent> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer><silent> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+endfunction
+autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
