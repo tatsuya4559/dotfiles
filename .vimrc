@@ -62,12 +62,14 @@ autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
 " grep
 function! s:grep(word) abort
-  let l:cmd = 'rg --vimgrep --color never --hidden --glob "!.git/*" "%s"'
+  let l:cmd = 'git grep --color=never "%s"'
   cgetexpr system(printf(l:cmd, a:word)) | cw
 endfunction
 command! -nargs=1 Grep call s:grep(<q-args>)
 nnoremap <space>f :<c-u>Grep<space>
-nnoremap gr :<c-u>Grep \b<c-r><c-w>\b<cr>
+nnoremap gr :<c-u>Grep \<<c-r><c-w>\><cr>
+set grepprg=git\ grep\ --color=never
+set grepformat=%f:%l:%c:%m
 
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
