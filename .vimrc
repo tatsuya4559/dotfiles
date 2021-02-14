@@ -6,7 +6,7 @@ set fileformats=unix,dos,mac
 filetype plugin indent on
 syntax enable
 language en_US
-set smartindent breakindent
+set smartindent
 set expandtab tabstop=2 shiftwidth=2
 set hlsearch incsearch ignorecase smartcase wrapscan
 set shortmess-=S
