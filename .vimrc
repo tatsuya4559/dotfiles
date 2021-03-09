@@ -113,7 +113,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer><silent> gd <plug>(lsp-definition)
   nmap <buffer><silent> gr <plug>(lsp-references)
   nmap <buffer><silent> gi <plug>(lsp-implementation)
-  nmap <buffer><silent> gt <plug>(lsp-type-definition)
+  nmap <buffer><silent> gy <plug>(lsp-type-definition)
   nmap <buffer> <f2> <plug>(lsp-rename)
   nmap <buffer><silent> [g <plug>(lsp-previous-diagnostic)
   nmap <buffer><silent> ]g <plug>(lsp-next-diagnostic)
