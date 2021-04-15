@@ -36,6 +36,8 @@ nnoremap ZQ <nop>
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 vnoremap . :normal .<cr>
 nnoremap Y y$
+nnoremap <c-w>- :<c-u>sp %:h<cr>
+nnoremap <c-w>g <c-w>sgg
 
 " clipboard (thanks to monaqa
 set clipboard=
@@ -83,6 +85,7 @@ function! PackInit() abort
   call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
   call minpac#add('tatsuya4559/newspaper.vim', {'type': 'opt'})
   call minpac#add('tatsuya4559/vim-eldar', {'type': 'opt'})
+  call minpac#add('tatsuya4559/filer.vim')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('markonm/traces.vim')
@@ -93,19 +96,17 @@ function! PackInit() abort
   call minpac#add('mattn/vim-goimports')
   call minpac#add('prabirshrestha/vim-lsp')
   call minpac#add('mattn/vim-lsp-settings')
+  call minpac#add('thinca/vim-quickrun')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
-
-let g:netrw_banner = 0
-nnoremap - :<c-u>Explore<cr>
-nnoremap <c-w>- :<c-u>Sexplore<cr>
 
 let g:fzf_preview_window = []
 let g:fzf_layout = {'window': 'bo 10new'}
 nnoremap <c-p> :<c-u>Files<cr>
 nnoremap <space>b :<c-u>Buffers<cr>
 
+" lsp
 let g:lsp_document_highlight_enabled = 0
 let g:lsp_diagnostics_echo_cursor = 1
 function! s:on_lsp_buffer_enabled() abort
@@ -120,3 +121,21 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> K <plug>(lsp-hover)
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+
+if executable('ocamllsp')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'ocamllsp',
+    \ 'cmd': {server_info->['ocamllsp']},
+    \ 'allowlist': ['ocaml'],
+    \ })
+endif
+
+" quickrun
+nnoremap <space>r <cmd>QuickRun<cr>
+let g:quickrun_config = {}
+let g:quickrun_config['_'] = {
+  \ 'outputter/buffer/split' : ':rightbelow 8sp',
+  \ 'outputter/error/error' : 'quickfix',
+  \ 'outputter/error/success' : 'buffer',
+  \ 'outputter': 'error',
+  \ }
