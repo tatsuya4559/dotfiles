@@ -8,6 +8,20 @@ def $1(func):
 	return wrapper
 endsnippet
 
+snippet conman "context manager" b
+@contextlib.contextmanager
+def $1():
+	# preprocess
+	$2
+	try:
+		yield
+		# postprocess
+		$3
+	except Exception as e:
+		# error handle
+		raise e
+endsnippet
+
 snippet main "main script" b
 #!/usr/bin/env python
 
