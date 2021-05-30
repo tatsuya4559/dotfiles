@@ -119,6 +119,8 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer><silent> [g <plug>(lsp-previous-diagnostic)
   nmap <buffer><silent> ]g <plug>(lsp-next-diagnostic)
   nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <leader>a <cmd>LspCodeAction<cr>
+  nnoremap <space>o <cmd>LspWorkspaceSymbol<cr>
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
