@@ -30,11 +30,12 @@ cd dotfiles
 cp .inputrc ~
 cp .bashrc ~
 cp .gitconfig ~
-cp .vimrc ~
 ln -s `pwd`/.tmux.conf ~/.tmux.conf
 
-# install apps
-sudo apt install -y tmux
+cp .vimrc ~
+mkdir ~/.config/nvim
+ln -s ~/.vimrc ~/.confing/nvim/init.vim
+ln -s `pwd`/.vim/ultisnips ~/.confing/nvim/Ultisnips
 
-# sudo apt-get install software-properties-common
-# sudo add-apt-repository ppa:jonathonf/vim
+# install apps
+sudo apt install -y tmux neovim python-neovim
