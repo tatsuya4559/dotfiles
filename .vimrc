@@ -5,7 +5,7 @@ set fileencodings=utf-8,sjis,cp932,euc-jp
 set fileformats=unix,dos,mac
 filetype plugin indent on
 syntax enable
-language en_US
+language C
 set smartindent
 set expandtab tabstop=2 shiftwidth=2
 set hlsearch incsearch ignorecase smartcase wrapscan
