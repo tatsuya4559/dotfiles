@@ -30,3 +30,7 @@ ln -s `pwd`/.vim/ultisnips ~/.vim/UltiSnips
 # clone minpac
 git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 
+# manual
+# put symlink for diff-highlight
+# install go-imports
+# add $HOME/go to PATH
