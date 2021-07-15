@@ -90,7 +90,6 @@ function! PackInit() abort
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('markonm/traces.vim')
   call minpac#add('tpope/vim-commentary')
-  call minpac#add('machakann/vim-sandwich')
   call minpac#add('SirVer/ultisnips')
   call minpac#add('ruanyl/vim-gh-line')
   call minpac#add('mattn/emmet-vim', {'type': 'opt'})
