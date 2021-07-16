@@ -38,6 +38,8 @@ vnoremap . :normal .<cr>
 nnoremap Y y$
 nnoremap <c-w>- :<c-u>sp %:h<cr>
 nnoremap <c-w>g <c-w>sgg
+nnoremap vv v$h
+vnoremap * "zyq/"zp<cr>
 
 " clipboard (thanks to monaqa
 set clipboard=
