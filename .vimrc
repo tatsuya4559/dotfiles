@@ -139,10 +139,3 @@ endif
 
 " quickrun
 nnoremap <space>r <cmd>QuickRun<cr>
-let g:quickrun_config = {}
-let g:quickrun_config['_'] = {
-  \ 'outputter/buffer/split' : ':rightbelow 8sp',
-  \ 'outputter/error/error' : 'quickfix',
-  \ 'outputter/error/success' : 'buffer',
-  \ 'outputter': 'error',
-  \ }
