@@ -53,6 +53,15 @@ function! s:copy_unnamed_to_plus(opr)
   endif
 endfunction
 
+" auto mkdir
+function! s:auto_mkdir(dir) abort
+  if !isdirectory(a:dir) &&
+        \ input(printf('"%s" does not exist. Should it be created? (y/N)', a:dir)) =~? '^y\%[es]$'
+    call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+  endif
+endfunction
+autocmd MyAutoCmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
+
 " quickfix
 function! s:toggle_quickfix()
   let l:nr = winnr('$')
@@ -106,6 +115,7 @@ endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
 
+" fzf
 let g:fzf_preview_window = []
 let g:fzf_layout = {'window': 'bo 10new'}
 nnoremap <c-p> :<c-u>Files<cr>
