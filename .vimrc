@@ -38,8 +38,11 @@ vnoremap . :normal .<cr>
 nnoremap Y y$
 nnoremap <c-w>- :<c-u>sp %:h<cr>
 nnoremap <c-w>g <c-w>sgg
-nnoremap vv v$h
+nnoremap vv vg_
 vnoremap * "zyq/"zp<cr>
+
+" abbreviations
+cabbrev w!! w !sudo tee > /dev/null %
 
 " clipboard (thanks to monaqa
 set clipboard=
