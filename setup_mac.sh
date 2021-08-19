@@ -56,7 +56,8 @@ copy .vimrc
 copy .tmux.conf
 copy .tigrc
 
-mkdir ~/.vim
+mkdir -p ~/.vim/pack/minpac/{start,opt}
+git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 ln -s ~/dotfiles/.vim/ultisnips ~/.vim/ultisnips
 
 echo 'DONE!!'
