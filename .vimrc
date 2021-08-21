@@ -104,7 +104,7 @@ function! PackInit() abort
   call minpac#add('markonm/traces.vim')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('SirVer/ultisnips')
-  call minpac#add('ruanyl/vim-gh-line')
+  call minpac#add('lambdalisue/gina.vim')
   call minpac#add('mattn/emmet-vim', {'type': 'opt'})
   call minpac#add('mattn/vim-goimports')
   call minpac#add('prabirshrestha/vim-lsp')
