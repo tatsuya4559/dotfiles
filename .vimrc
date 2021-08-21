@@ -40,6 +40,7 @@ nnoremap <c-w>- :<c-u>sp %:h<cr>
 nnoremap <c-w>g <c-w>sgg
 nnoremap vv vg_
 vnoremap * "zyq/"zp<cr>
+tnoremap <esc><esc> <c-\><c-n>
 
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %
