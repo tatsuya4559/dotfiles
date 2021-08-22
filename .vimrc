@@ -148,3 +148,9 @@ endif
 
 " quickrun
 nnoremap <space>r <cmd>QuickRun<cr>
+
+" gina
+nnoremap <silent><space>gh :<c-u>Gina browse --exact : <cr>
+vnoremap <silent><space>gh :Gina browse --exact : <cr>
+nnoremap <silent><space>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
+vnoremap <silent><space>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
