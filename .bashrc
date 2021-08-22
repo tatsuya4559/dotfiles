@@ -2,6 +2,7 @@
 
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
+eval "$(gh completion -s bash)"
 
 # PS1
 GIT_PS1_SHOWDIRTYSTATE=true
