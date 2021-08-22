@@ -1,6 +1,5 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-source $HOME/.local/bin/bashmarks.sh
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
 
