@@ -24,6 +24,7 @@ alias ls='ls -GF'
 alias la='ls -GFa'
 alias ll='ls -GFalh'
 
+alias g='git'
 alias h='clear && tldr'
 alias dc='docker-compose'
 alias a='. venv/bin/activate'
