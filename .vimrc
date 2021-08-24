@@ -147,7 +147,7 @@ if executable('ocamllsp')
 endif
 
 " quickrun
-nnoremap <space>r <cmd>QuickRun<cr>
+nmap <space>r <Plug>(quickrun)
 
 " gina
 nnoremap <silent><space>gh :<c-u>Gina browse --exact : <cr>
