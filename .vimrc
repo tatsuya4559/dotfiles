@@ -39,7 +39,6 @@ nnoremap Y y$
 nnoremap <c-w>- :<c-u>sp %:h<cr>
 nnoremap <c-w>g <c-w>sgg
 nnoremap vv vg_
-vnoremap * "zyq/"zp<cr>
 tnoremap <esc><esc> <c-\><c-n>
 
 " abbreviations
@@ -102,6 +101,7 @@ function! PackInit() abort
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('markonm/traces.vim')
+  call minpac#add('haya14busa/vim-asterisk')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('SirVer/ultisnips')
   call minpac#add('lambdalisue/gina.vim')
@@ -148,6 +148,10 @@ endif
 
 " quickrun
 nmap <space>r <Plug>(quickrun)
+
+" asterisk
+map * <Plug>(asterisk-z*)
+map # <Plug>(asterisk-z#)
 
 " gina
 nnoremap <silent><space>gh :<c-u>Gina browse --exact : <cr>
