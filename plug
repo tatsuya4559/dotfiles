@@ -1,0 +1,57 @@
+#!/bin/bash
+
+function install() {
+  name=${1##*/}
+  git clone --depth 1 "https://github.com/$1.git" "$HOME/.vim/pack/plug/start/${name}"
+}
+
+function uninstall() {
+  name=${1##*/}
+  rm -rf "$HOME/.vim/pack/plug/start/${name}"
+}
+
+function list() {
+  ls "$HOME/.vim/pack/plug/start/" | cat
+}
+
+function help() {
+  cat <<EOF
+Plug - Simple vim plugin installer
+
+Usage:
+  $1 install <owner>/<repo>
+  $1 uninstall [<owner>/]<repo>
+  $1 ls
+
+Commands:
+  install     Install plugin
+  uninstall   Uninstall plugin
+  ls          List installed plugins
+EOF
+  exit 1
+}
+
+case "$1" in
+  "install")
+    for plugin in ${@:2}; do
+      install $plugin&
+    done
+    wait
+    ;;
+  "uninstall")
+    for plugin in ${@:2}; do
+      uninstall $plugin&
+    done
+    wait
+    ;;
+  "ls")
+    list
+    ;;
+  "-h" | "--help")
+    help $0
+    ;;
+  * )
+    echo "Unknown command: $1"
+    help $0
+    ;;
+esac
