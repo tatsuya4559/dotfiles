@@ -21,9 +21,13 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-alias ls='ls -GF'
-alias la='ls -GFa'
-alias ll='ls -GFalh'
+if [[ "$(uname)" == 'Darwin' ]]; then
+  alias ls='ls -GF'
+else
+  alias ls='ls --color=auto -F'
+fi
+alias la='ls -A'
+alias ll='ls -alh'
 
 alias r='cd $(ghq root)/$(ghq list | fzf)'
 alias g='git'
