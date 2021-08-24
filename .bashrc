@@ -35,8 +35,10 @@ alias h='clear && tldr'
 alias dc='docker-compose'
 alias a='. venv/bin/activate'
 
-#alias pbcopy='xclip -selection c'
-#alias pbpaste='xclip -selection c -o'
+if [[ "$(uname)" == 'Linux' ]]; then
+  alias pbcopy='xclip -selection c'
+  alias pbpaste='xclip -selection c -o'
+fi
 
 # awkめんどい
 function col() {
