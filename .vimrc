@@ -116,8 +116,7 @@ command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
 
 " fzf
-let g:fzf_preview_window = []
-let g:fzf_layout = {'window': 'bo 10new'}
+let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 nnoremap <c-p> :<c-u>Files<cr>
 nnoremap <space>b :<c-u>Buffers<cr>
 
