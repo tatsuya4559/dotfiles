@@ -138,14 +138,6 @@ function! s:on_lsp_buffer_enabled() abort
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
-if executable('ocamllsp')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'ocamllsp',
-    \ 'cmd': {server_info->['ocamllsp']},
-    \ 'allowlist': ['ocaml'],
-    \ })
-endif
-
 " quickrun
 nmap <space>r <Plug>(quickrun)
 
