@@ -11,7 +11,24 @@ function uninstall() {
 }
 
 function list() {
+  echo "*** active ***"
   ls "$HOME/.vim/pack/plug/start/" | cat
+  echo ""
+  echo "*** disabled ***"
+  ls "$HOME/.vim/pack/plug/disabled/" | cat
+}
+
+function disable() {
+  name=${1##*/}
+  if [[ ! -d "$HOME/.vim/pack/plug/disabled" ]]; then
+    mkdir "$HOME/.vim/pack/plug/disabled"
+  fi
+  mv "$HOME/.vim/pack/plug/start/${name}" "$HOME/.vim/pack/plug/disabled/${name}"
+}
+
+function enable() {
+  name=${1##*/}
+  mv "$HOME/.vim/pack/plug/disabled/${name}" "$HOME/.vim/pack/plug/start/${name}"
 }
 
 function help() {
@@ -22,11 +39,15 @@ Usage:
   $1 install <owner>/<repo>
   $1 uninstall [<owner>/]<repo>
   $1 ls
+  $1 enable [<owner>/]<repo>
+  $1 disable [<owner>/]<repo>
 
 Commands:
   install     Install plugin
   uninstall   Uninstall plugin
   ls          List installed plugins
+  enable      Enable plugins
+  disable     Disable plugins
 EOF
   exit 1
 }
@@ -46,6 +67,18 @@ case "$1" in
     ;;
   "ls")
     list
+    ;;
+  "enable")
+    for plugin in ${@:2}; do
+      enable $plugin&
+    done
+    wait
+    ;;
+  "disable")
+    for plugin in ${@:2}; do
+      disable $plugin&
+    done
+    wait
     ;;
   "-h" | "--help")
     help $0
