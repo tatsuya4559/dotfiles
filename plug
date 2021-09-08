@@ -7,7 +7,8 @@ function install() {
 
 function uninstall() {
   name=${1##*/}
-  rm -rf "$HOME/.vim/pack/plug/start/${name}"
+  [[ -d "$HOME/.vim/pack/plug/start/${name}" ]] && rm -rf "$HOME/.vim/pack/plug/start/${name}"
+  [[ -d "$HOME/.vim/pack/plug/disabled/${name}" ]] && rm -rf "$HOME/.vim/pack/plug/disabled/${name}"
 }
 
 function list() {
