@@ -21,7 +21,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-if [[ "$(uname)" == 'Darwin' ]]; then
+if [[ $(uname) == 'Darwin' ]]; then
   alias ls='ls -GF'
 else
   alias ls='ls --color=auto -F'
@@ -34,7 +34,7 @@ alias h='clear && tldr'
 alias dc='docker-compose'
 alias a='. venv/bin/activate'
 
-if [[ "$(uname)" == 'Linux' ]]; then
+if [[ $(uname) == 'Linux' ]]; then
   alias pbcopy='xclip -selection c'
   alias pbpaste='xclip -selection c -o'
 fi
