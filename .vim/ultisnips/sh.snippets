@@ -39,3 +39,38 @@ function err() {
 	echo "[$(date +'%Y-%m-%dT%H:%M%S%z')]: $*" > &2
 }
 endsnippet
+
+snippet getopts "get options"
+while getopts ${1:ho:} OPT; do
+	case "${OPT}" in
+		h)
+			echo got help
+			;;
+		o)
+			echo got $OPTARG
+			;;
+	esac
+done
+endsnippet
+
+snippet opts "parse options"
+while [[ $# > 0 ]]; do
+	case "$1" in
+		-o | -o=*)
+			if [[ $1 =~ ^-o= ]]; then
+				echo option o is ${1#*=}
+			else
+				echo option o is $2
+				shift
+			fi
+			;;
+		-h)
+			echo h
+			;;
+		*)
+			echo $1
+			;;
+	esac
+	shift
+done
+endsnippet
