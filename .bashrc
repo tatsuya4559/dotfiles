@@ -1,4 +1,4 @@
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
