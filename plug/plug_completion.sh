@@ -3,6 +3,11 @@ _plug() {
   local cur prev words cword
   _get_comp_words_by_ref -n : cur prev words cword
 
+  if [[ ${cword} > 2 ]]; then
+    # make completion based on subcommand
+    prev=${words[1]}
+  fi
+
   case "${prev}" in
     plug)
       local subcommands="install uninstall ls enable disable"
