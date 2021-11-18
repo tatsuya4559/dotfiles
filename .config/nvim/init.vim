@@ -88,25 +88,35 @@ autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 
 " plugins
 call plug#begin('~/.config/nvim/plugged')
-Plug 'yasukotelin/shirotelin'
+" visual effect
 Plug 'overcache/NeoSolarized'
+Plug 'cocopon/shadeline.vim'
+
+" file explorer
 Plug 'tatsuya4559/filer.vim'
+Plug 'lambdalisue/fern.vim'
+
+" searcher
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'AndrewRadev/writable_search.vim'
+
+" editing
 Plug 'markonm/traces.vim'
 Plug 'machakann/vim-sandwich'
+Plug 'cohama/lexima.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-commentary'
-Plug 'mattn/emmet-vim'
+
+" language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'SirVer/ultisnips'
+Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
+
+" misc
 Plug 'lambdalisue/gina.vim'
 Plug 'thinca/vim-quickrun'
-Plug 'SirVer/ultisnips'
-Plug 'cohama/lexima.vim'
-Plug 'lambdalisue/fern.vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'AndrewRadev/writable_search.vim'
-Plug 'cocopon/shadeline.vim'
 call plug#end()
 
 " fzf
