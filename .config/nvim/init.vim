@@ -44,6 +44,8 @@ nnoremap <c-w>- :<c-u>sp %:h<cr>
 nnoremap <c-w>g <c-w>sgg
 nnoremap vv vg_
 tnoremap <esc><esc> <c-\><c-n>
+nnoremap <s-left> zh
+nnoremap <s-right> zl
 
 " clipboard (thanks to monaqa
 set clipboard=
@@ -77,11 +79,6 @@ nnoremap <silent> ]q :<c-u>cn<cr>
 nnoremap <silent> [q :<c-u>cp<cr>
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
-" grep
-nnoremap <space>f :<c-u>silent grep!<space>
-set grepprg=git\ grep\ -I\ --color=never
-set grepformat=%f:%l:%c:%m
-
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
@@ -99,7 +96,7 @@ Plug 'lambdalisue/fern.vim'
 " searcher
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'AndrewRadev/writable_search.vim'
+Plug 'dyng/ctrlsf.vim'
 
 " editing
 Plug 'markonm/traces.vim'
@@ -151,29 +148,20 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <f2> <Plug>(coc-rename)
-
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <space>a  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " }}}
 
 " quickrun
-nmap <space>r <Plug>(quickrun)
+nmap <leader>r <Plug>(quickrun)
 
 " asterisk
 map * <Plug>(asterisk-z*)
@@ -181,18 +169,37 @@ map # <Plug>(asterisk-z#)
 
 " gina
 " GitHubで開く以外の操作はtig or gitでやる
-nnoremap <silent><space>gh :<c-u>Gina browse --exact : <cr>
-vnoremap <silent><space>gh :Gina browse --exact : <cr>
-nnoremap <silent><space>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
-vnoremap <silent><space>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
+nnoremap <silent><leader>gh :<c-u>Gina browse --exact : <cr>
+vnoremap <silent><leader>gh :Gina browse --exact : <cr>
+nnoremap <silent><leader>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
+vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
 
 " fern
 nnoremap <space>e <cmd>Fern . -drawer -toggle -reveal=%<cr>
+
+" ctrlsf
+let g:ctrlsf_populate_qflist = 1
+let g:ctrlsf_auto_focus = {'at': 'start'}
+let g:ctrlsf_case_sensitive = 'yes'
+nnoremap <space>f :<c-u>CtrlSF<space>
+nnoremap <leader>f <cmd>CtrlSFOpen<cr>
 
 " angular
 function! s:ng_goto_companion_file() abort
   let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
   let filename = expand('%:p:r') .. extension
-  exe 'edit' filename
+  if filereadable(filename)
+    exe 'edit' filename
+  else
+    call s:echoerr('Cannot open %s', filename)
+  endif
 endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
+
+" util
+function! s:echoerr(msg, ...) abort
+  redraw
+  echohl Error
+  echomsg call(function('printf', [a:msg]), a:000)
+  echohl None
+endfunction
