@@ -10,7 +10,6 @@ set smartindent
 set expandtab tabstop=2 shiftwidth=2
 set hlsearch incsearch ignorecase smartcase wrapscan
 set shortmess-=S
-set shortmess+=c
 set backspace=2
 set wildmenu
 set list listchars=tab:▸\ ,trail:-
@@ -168,7 +167,6 @@ map * <Plug>(asterisk-z*)
 map # <Plug>(asterisk-z#)
 
 " gina
-" GitHubで開く以外の操作はtig or gitでやる
 nnoremap <silent><leader>gh :<c-u>Gina browse --exact : <cr>
 vnoremap <silent><leader>gh :Gina browse --exact : <cr>
 nnoremap <silent><leader>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
