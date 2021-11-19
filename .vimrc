@@ -139,14 +139,14 @@ endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
 " quickrun
-nmap <space>r <Plug>(quickrun)
+nmap <leader>r <Plug>(quickrun)
 
 " asterisk
 map * <Plug>(asterisk-z*)
 map # <Plug>(asterisk-z#)
 
 " gina
-nnoremap <silent><space>gh :<c-u>Gina browse --exact : <cr>
-vnoremap <silent><space>gh :Gina browse --exact : <cr>
-nnoremap <silent><space>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
-vnoremap <silent><space>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
+nnoremap <silent><leader>gh :<c-u>Gina browse --exact : <cr>
+vnoremap <silent><leader>gh :Gina browse --exact : <cr>
+nnoremap <silent><leader>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
+vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
