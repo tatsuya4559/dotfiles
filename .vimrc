@@ -20,7 +20,10 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
+set cmdheight=2
+set signcolumn=number
 set termguicolors
+set updatetime=300
 colorscheme shirotelin
 augroup MyAutoCmd
   autocmd!
