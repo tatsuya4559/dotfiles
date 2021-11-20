@@ -102,12 +102,16 @@ function! PackInit() abort
   call minpac#add('tpope/vim-commentary')
   call minpac#add('SirVer/ultisnips')
   call minpac#add('lambdalisue/gina.vim')
-  call minpac#add('mattn/emmet-vim', {'type': 'opt'})
-  call minpac#add('mattn/vim-goimports')
   call minpac#add('prabirshrestha/vim-lsp')
   call minpac#add('mattn/vim-lsp-settings')
   call minpac#add('editorconfig/editorconfig-vim')
   call minpac#add('thinca/vim-quickrun')
+
+  call minpac#add('mattn/emmet-vim', {'type': 'opt'})
+  call minpac#add('mattn/vim-goimports', {'type': 'opt'})
+  call minpac#add('cocopon/shadeline.vim', {'type': 'opt'})
+  call minpac#add('lambdalisue/fern.vim', {'type': 'opt'})
+  call minpac#add('cohama/lexima.vim', {'type': 'opt'})
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
