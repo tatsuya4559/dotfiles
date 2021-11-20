@@ -43,6 +43,7 @@ nnoremap <c-w>- :<c-u>sp %:h<cr>
 nnoremap <c-w>g <c-w>sgg
 nnoremap vv vg_
 tnoremap <esc><esc> <c-\><c-n>
+nnoremap <leader>v :e $MYVIMRC<cr>
 
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %

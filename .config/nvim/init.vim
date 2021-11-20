@@ -45,6 +45,7 @@ nnoremap vv vg_
 tnoremap <esc><esc> <c-\><c-n>
 nnoremap <s-left> zh
 nnoremap <s-right> zl
+nnoremap <leader>v :e $MYVIMRC<cr>
 
 " clipboard (thanks to monaqa
 set clipboard=
