@@ -84,8 +84,22 @@ nnoremap <silent> [q :<c-u>cp<cr>
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
 " filetype
-autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
+autocmd MyAutoCmd FileType go call s:on_filetype_go()
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
+autocmd MyAutoCmd FileType javascript,typescript,html,css,scss call s:on_filetype_frontend()
+
+function! s:on_filetype_go() abort
+  setlocal tabstop=4 shiftwidth=4 noexpandtab
+  packadd vim-goimports
+endfunction
+
+function! s:on_filetype_frontend() abort
+  packadd emmet-vim
+  packadd lexima.vim
+  packadd shadeline.vim
+  packadd fern.vim
+  nnoremap <space>e <cmd>Fern . -drawer -toggle -reveal=%<cr>
+endfunction
 
 " plugins
 function! PackInit() abort
@@ -157,6 +171,7 @@ vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
 let g:ctrlsf_populate_qflist = 1
 let g:ctrlsf_auto_focus = {'at': 'start'}
 let g:ctrlsf_case_sensitive = 'yes'
+let g:ctrlsf_position = 'bottom'
 nnoremap <space>f :<c-u>CtrlSF<space>
 nnoremap <leader>f <cmd>CtrlSFToggle<cr>
 
