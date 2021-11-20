@@ -46,6 +46,7 @@ tnoremap <esc><esc> <c-\><c-n>
 nnoremap <s-left> zh
 nnoremap <s-right> zl
 nnoremap <leader>v :e $MYVIMRC<cr>
+nnoremap yt :<c-u>tabedit %<cr>
 
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %
