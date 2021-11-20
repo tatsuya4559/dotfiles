@@ -194,5 +194,3 @@ function! s:echoerr(msg, ...) abort
   echomsg call(function('printf', [a:msg]), a:000)
   echohl None
 endfunction
-set grepprg=git\ grep\ -I\ --color=never
-set grepformat=%f:%l:%c:%m
