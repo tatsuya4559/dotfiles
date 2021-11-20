@@ -43,6 +43,8 @@ nnoremap <c-w>- :<c-u>sp %:h<cr>
 nnoremap <c-w>g <c-w>sgg
 nnoremap vv vg_
 tnoremap <esc><esc> <c-\><c-n>
+nnoremap <s-left> zh
+nnoremap <s-right> zl
 nnoremap <leader>v :e $MYVIMRC<cr>
 
 " abbreviations
@@ -80,17 +82,6 @@ nnoremap <silent> ]q :<c-u>cn<cr>
 nnoremap <silent> [q :<c-u>cp<cr>
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
-" grep
-function! s:grep(word) abort
-  let l:cmd = 'git grep -I --color=never "%s"'
-  cgetexpr system(printf(l:cmd, a:word)) | cw
-endfunction
-command! -nargs=1 Grep call s:grep(<q-args>)
-nnoremap <space>f :<c-u>Grep<space>
-nnoremap gr :<c-u>Grep \<<c-r><c-w>\><cr>
-set grepprg=git\ grep\ -I\ --color=never
-set grepformat=%f:%l:%c:%m
-
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
@@ -104,6 +95,7 @@ function! PackInit() abort
   call minpac#add('tatsuya4559/filer.vim')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
+  call minpac#add('dyng/ctrlsf.vim')
   call minpac#add('markonm/traces.vim')
   call minpac#add('machakann/vim-sandwich')
   call minpac#add('haya14busa/vim-asterisk')
@@ -114,6 +106,7 @@ function! PackInit() abort
   call minpac#add('mattn/vim-goimports')
   call minpac#add('prabirshrestha/vim-lsp')
   call minpac#add('mattn/vim-lsp-settings')
+  call minpac#add('editorconfig/editorconfig-vim')
   call minpac#add('thinca/vim-quickrun')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
@@ -137,8 +130,8 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer><silent> [g <plug>(lsp-previous-diagnostic)
   nmap <buffer><silent> ]g <plug>(lsp-next-diagnostic)
   nmap <buffer> K <plug>(lsp-hover)
-  nnoremap <leader>a <cmd>LspCodeAction<cr>
-  nnoremap <space>o <cmd>LspWorkspaceSymbol<cr>
+  nmap <buffer> <leader>a <plug>(lsp-code-action)
+  nmap <buffer> <space>o <plug>(lsp-document-symbol-search)
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
@@ -154,3 +147,32 @@ nnoremap <silent><leader>gh :<c-u>Gina browse --exact : <cr>
 vnoremap <silent><leader>gh :Gina browse --exact : <cr>
 nnoremap <silent><leader>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
 vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
+
+" ctrlsf
+let g:ctrlsf_populate_qflist = 1
+let g:ctrlsf_auto_focus = {'at': 'start'}
+let g:ctrlsf_case_sensitive = 'yes'
+nnoremap <space>f :<c-u>CtrlSF<space>
+nnoremap <leader>f <cmd>CtrlSFToggle<cr>
+
+" angular
+function! s:ng_goto_companion_file() abort
+  let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
+  let filename = expand('%:p:r') .. extension
+  if filereadable(filename)
+    exe 'edit' filename
+  else
+    call s:echoerr('Cannot open %s', filename)
+  endif
+endfunction
+nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
+
+" util
+function! s:echoerr(msg, ...) abort
+  redraw
+  echohl Error
+  echomsg call(function('printf', [a:msg]), a:000)
+  echohl None
+endfunction
+set grepprg=git\ grep\ -I\ --color=never
+set grepformat=%f:%l:%c:%m
