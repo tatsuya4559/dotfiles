@@ -24,12 +24,36 @@ set cmdheight=2
 set signcolumn=number
 set termguicolors
 set updatetime=300
-colorscheme shirotelin
 augroup MyAutoCmd
   autocmd!
 augroup END
 set autoread
 autocmd MyAutoCmd FocusGained,BufEnter * checktime
+
+" plugins
+call plug#begin('~/.vim/plugged')
+Plug 'yasukotelin/shirotelin'
+Plug 'overcache/NeoSolarized'
+Plug 'tatsuya4559/filer.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'markonm/traces.vim'
+Plug 'machakann/vim-sandwich'
+Plug 'haya14busa/vim-asterisk'
+Plug 'tpope/vim-commentary'
+Plug 'SirVer/ultisnips'
+Plug 'lambdalisue/gina.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'thinca/vim-quickrun'
+Plug 'mattn/emmet-vim'
+Plug 'mattn/vim-goimports', {'for': 'go'}
+" Plug 'cocopon/shadeline.vim'
+" Plug 'lambdalisue/fern.vim'
+" Plug 'cohama/lexima.vim'
+call plug#end()
 
 " keymaps
 nnoremap <f1> <nop>
@@ -47,6 +71,9 @@ nnoremap <s-left> zh
 nnoremap <s-right> zl
 nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap yt :<c-u>tabedit %<cr>
+
+" colorscheme
+colorscheme shirotelin
 
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %
@@ -84,52 +111,8 @@ nnoremap <silent> [q :<c-u>cp<cr>
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
 " filetype
-autocmd MyAutoCmd FileType go call s:on_filetype_go()
+autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
-autocmd MyAutoCmd FileType javascript,typescript,html,css,scss call s:on_filetype_frontend()
-
-function! s:on_filetype_go() abort
-  setlocal tabstop=4 shiftwidth=4 noexpandtab
-  packadd vim-goimports
-endfunction
-
-function! s:on_filetype_frontend() abort
-  packadd emmet-vim
-  packadd lexima.vim
-  packadd shadeline.vim
-  packadd fern.vim
-  nnoremap <space>e <cmd>Fern . -drawer -toggle -reveal=%<cr>
-endfunction
-
-" plugins
-function! PackInit() abort
-  packadd minpac
-  call minpac#init()
-  call minpac#add('k-takata/minpac', {'type': 'opt'})
-  call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
-  call minpac#add('tatsuya4559/filer.vim')
-  call minpac#add('junegunn/fzf')
-  call minpac#add('junegunn/fzf.vim')
-  call minpac#add('dyng/ctrlsf.vim')
-  call minpac#add('markonm/traces.vim')
-  call minpac#add('machakann/vim-sandwich')
-  call minpac#add('haya14busa/vim-asterisk')
-  call minpac#add('tpope/vim-commentary')
-  call minpac#add('SirVer/ultisnips')
-  call minpac#add('lambdalisue/gina.vim')
-  call minpac#add('prabirshrestha/vim-lsp')
-  call minpac#add('mattn/vim-lsp-settings')
-  call minpac#add('editorconfig/editorconfig-vim')
-  call minpac#add('thinca/vim-quickrun')
-
-  call minpac#add('mattn/emmet-vim', {'type': 'opt'})
-  call minpac#add('mattn/vim-goimports', {'type': 'opt'})
-  call minpac#add('cocopon/shadeline.vim', {'type': 'opt'})
-  call minpac#add('lambdalisue/fern.vim', {'type': 'opt'})
-  call minpac#add('cohama/lexima.vim', {'type': 'opt'})
-endfunction
-command! PackUpdate call PackInit() | call minpac#update()
-command! PackClean call PackInit() | call minpac#clean()
 
 " fzf
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
@@ -157,11 +140,11 @@ endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
 " quickrun
-nmap <leader>r <Plug>(quickrun)
+nmap <leader>r <plug>(quickrun)
 
 " asterisk
-map * <Plug>(asterisk-z*)
-map # <Plug>(asterisk-z#)
+map * <plug>(asterisk-z*)
+map # <plug>(asterisk-z#)
 
 " gina
 nnoremap <silent><leader>gh :<c-u>Gina browse --exact : <cr>
@@ -176,6 +159,9 @@ let g:ctrlsf_case_sensitive = 'yes'
 let g:ctrlsf_position = 'bottom'
 nnoremap <space>f :<c-u>CtrlSF<space>
 nnoremap <leader>f <cmd>CtrlSFToggle<cr>
+
+" fern
+" nnoremap <space>e <cmd>Fern . -drawer -toggle -reveal=%<cr>
 
 " angular
 function! s:ng_goto_companion_file() abort
