@@ -28,5 +28,6 @@
   di = diff
   dt = difftool
   mt = mergetool
+  sw = !git branch -vv | grep -v '^\\s*\\*' | fzf | awk '{print $1}' | xargs git switch
 [ghq]
   root = ~/git
