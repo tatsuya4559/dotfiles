@@ -46,6 +46,7 @@ tnoremap <esc><esc> <c-\><c-n>
 nnoremap <s-left> zh
 nnoremap <s-right> zl
 nnoremap <leader>v :e $MYVIMRC<cr>
+nnoremap yt :<c-u>tabedit %<cr>
 
 " clipboard (thanks to monaqa
 set clipboard=
@@ -85,33 +86,22 @@ autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 
 " plugins
 call plug#begin('~/.config/nvim/plugged')
-" visual effect
 Plug 'overcache/NeoSolarized'
 Plug 'cocopon/shadeline.vim'
-
-" file explorer
 Plug 'tatsuya4559/filer.vim'
 Plug 'lambdalisue/fern.vim'
-
-" searcher
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'dyng/ctrlsf.vim'
-
-" editing
 Plug 'markonm/traces.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'cohama/lexima.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-commentary'
-
-" language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
 Plug 'editorconfig/editorconfig-vim'
-
-" misc
 Plug 'lambdalisue/gina.vim'
 Plug 'thinca/vim-quickrun'
 call plug#end()
@@ -120,6 +110,8 @@ call plug#end()
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 nnoremap <c-p> :<c-u>Files<cr>
 nnoremap <space>b :<c-u>Buffers<cr>
+nnoremap <space>r :<c-u>Rg <c-r><c-w><cr>
+vnoremap <space>r "zy:Rg <c-r>z<cr>
 
 " lsp {{{
 inoremap <silent><expr> <c-x><c-o> coc#refresh()
@@ -161,11 +153,11 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " }}}
 
 " quickrun
-nmap <leader>r <Plug>(quickrun)
+nmap <leader>r <plug>(quickrun)
 
 " asterisk
-map * <Plug>(asterisk-z*)
-map # <Plug>(asterisk-z#)
+map * <plug>(asterisk-z*)
+map # <plug>(asterisk-z#)
 
 " gina
 nnoremap <silent><leader>gh :<c-u>Gina browse --exact : <cr>
@@ -173,15 +165,16 @@ vnoremap <silent><leader>gh :Gina browse --exact : <cr>
 nnoremap <silent><leader>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
 vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
 
-" fern
-nnoremap <space>e <cmd>Fern . -drawer -toggle -reveal=%<cr>
-
 " ctrlsf
 let g:ctrlsf_populate_qflist = 1
 let g:ctrlsf_auto_focus = {'at': 'start'}
 let g:ctrlsf_case_sensitive = 'yes'
+let g:ctrlsf_position = 'bottom'
 nnoremap <space>f :<c-u>CtrlSF<space>
-nnoremap <leader>f <cmd>CtrlSFOpen<cr>
+nnoremap <leader>f <cmd>CtrlSFToggle<cr>
+
+" fern
+nnoremap <space>e <cmd>Fern . -drawer -toggle -reveal=%<cr>
 
 " angular
 function! s:ng_goto_companion_file() abort
