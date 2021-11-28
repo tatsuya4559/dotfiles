@@ -24,6 +24,8 @@ set cmdheight=2
 set signcolumn=number
 set termguicolors
 set updatetime=300
+set nrformats&
+set nrformats+=unsigned
 augroup MyAutoCmd
   autocmd!
 augroup END
