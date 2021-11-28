@@ -184,3 +184,11 @@ function! s:echoerr(msg, ...) abort
   echomsg call(function('printf', [a:msg]), a:000)
   echohl None
 endfunction
+
+
+" startup time
+let g:startuptime = reltime()
+autocmd MyAutoCmd VimEnter *
+      \ : let g:startuptime = reltime(g:startuptime)
+      \ | redraw
+      \ | echomsg printf('startuptime: %s seconds', reltimestr(g:startuptime))
