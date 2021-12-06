@@ -52,9 +52,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'thinca/vim-quickrun'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/vim-goimports', {'for': 'go'}
-" Plug 'cocopon/shadeline.vim'
-" Plug 'lambdalisue/fern.vim'
-" Plug 'cohama/lexima.vim'
 call plug#end()
 
 " keymaps
@@ -161,9 +158,6 @@ let g:ctrlsf_case_sensitive = 'yes'
 let g:ctrlsf_position = 'bottom'
 nnoremap <space>f :<c-u>CtrlSF<space>
 nnoremap <leader>f <cmd>CtrlSFToggle<cr>
-
-" fern
-" nnoremap <space>e <cmd>Fern . -drawer -toggle -reveal=%<cr>
 
 " angular
 function! s:ng_goto_companion_file() abort
