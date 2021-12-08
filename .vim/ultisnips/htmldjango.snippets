@@ -1,0 +1,21 @@
+extends html
+
+snippet for "django for loop"
+{% for $1 in $2 %}
+	$3
+{% endfor %}
+endsnippet
+
+snippet if "django if"
+{% if $1 %}
+	$2
+{% else %}
+	$3
+{% endif %}
+endsnippet
+
+snippet with "django with"
+{% with $1 as $2 %}
+	$2
+{% endwith %}
+endsnippet
