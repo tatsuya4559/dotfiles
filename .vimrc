@@ -161,6 +161,7 @@ let g:ctrlsf_auto_focus = {'at': 'start'}
 let g:ctrlsf_case_sensitive = 'yes'
 let g:ctrlsf_position = 'bottom'
 nnoremap <space>f :<c-u>CtrlSF<space>
+vnoremap <space>f "zy:CtrlSF <c-r>z<cr>
 nnoremap <leader>f <cmd>CtrlSFToggle<cr>
 
 " angular
