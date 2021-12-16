@@ -52,6 +52,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'thinca/vim-quickrun'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/vim-goimports', {'for': 'go'}
+Plug 'vim-test/vim-test'
 call plug#end()
 
 " keymaps
@@ -186,3 +187,7 @@ autocmd MyAutoCmd VimEnter *
       \ : let g:startuptime = reltime(g:startuptime)
       \ | redraw
       \ | echomsg printf('startuptime: %s seconds', reltimestr(g:startuptime))
+
+let g:test#strategy = 'vimterminal'
+let g:test#python#runner = 'pytest'
+let g:test#python#pytest#executable = 'pytest -v -x --pdb'
