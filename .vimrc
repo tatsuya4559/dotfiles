@@ -187,10 +187,12 @@ endfunction
 
 " startup time
 let g:startuptime = reltime()
-autocmd MyAutoCmd VimEnter *
-      \ : let g:startuptime = reltime(g:startuptime)
-      \ | redraw
-      \ | echomsg printf('startuptime: %s seconds', reltimestr(g:startuptime))
+function! s:echo_startuptime() abort
+  let g:startuptime = reltime(g:startuptime)
+  redraw
+  echomsg printf('startuptime: %s seconds', reltimestr(g:startuptime))
+endfunction
+autocmd MyAutoCmd VimEnter * call s:echo_startuptime()
 
 function! s:open_file_with_position(file_identifiler) abort
   let splitted = split(a:file_identifiler, ':', 1)
