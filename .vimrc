@@ -192,6 +192,19 @@ autocmd MyAutoCmd VimEnter *
       \ | redraw
       \ | echomsg printf('startuptime: %s seconds', reltimestr(g:startuptime))
 
+function! s:open_file_with_position(file_identifiler) abort
+  let splitted = split(a:file_identifiler, ':', 1)
+  let filename = splitted[0]
+  let lnum = len(splitted) >= 2 ? splitted[1] : 1
+  let col = len(splitted) >= 3 ? splitted[2] : 1
+
+  exe 'edit' filename
+  call cursor(lnum, col)
+  normal zz
+endfunction
+command! -nargs=1 O call s:open_file_with_position('<args>')
+nnoremap <leader>o :call <SID>open_file_with_position(getline('.'))<cr>
+
 let g:test#strategy = 'vimterminal'
 let g:test#python#runner = 'pytest'
 let g:test#python#pytest#executable = 'pytest -v -x --pdb'
