@@ -20,7 +20,6 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-set cmdheight=2
 set signcolumn=number
 set termguicolors
 set updatetime=300
@@ -35,11 +34,9 @@ autocmd MyAutoCmd FocusGained,BufEnter * checktime
 " plugins
 call plug#begin('~/.vim/plugged')
 Plug 'yasukotelin/shirotelin'
-Plug 'overcache/NeoSolarized'
 Plug 'tatsuya4559/filer.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'dyng/ctrlsf.vim'
 Plug 'markonm/traces.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'haya14busa/vim-asterisk'
@@ -48,11 +45,9 @@ Plug 'SirVer/ultisnips'
 Plug 'lambdalisue/gina.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'thinca/vim-quickrun'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/vim-goimports', {'for': 'go'}
-Plug 'vim-test/vim-test'
 call plug#end()
 
 " keymaps
@@ -137,7 +132,6 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <leader>a <plug>(lsp-code-action)
   nmap <buffer> <space>o <plug>(lsp-document-symbol-search)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
-
   nmap <buffer><silent> <c-w><c-]> <c-w>s<plug>(lsp-definition)
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
@@ -155,27 +149,6 @@ vnoremap <silent><leader>gh :Gina browse --exact : <cr>
 nnoremap <silent><leader>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
 vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
 
-" ctrlsf
-let g:ctrlsf_populate_qflist = 1
-let g:ctrlsf_auto_focus = {'at': 'start'}
-let g:ctrlsf_case_sensitive = 'yes'
-let g:ctrlsf_position = 'bottom'
-nnoremap <space>f :<c-u>CtrlSF<space>
-vnoremap <space>f "zy:CtrlSF <c-r>z<cr>
-nnoremap <leader>f <cmd>CtrlSFToggle<cr>
-
-" angular
-function! s:ng_goto_companion_file() abort
-  let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
-  let filename = expand('%:p:r') .. extension
-  if filereadable(filename)
-    exe 'edit' filename
-  else
-    call s:echoerr('Cannot open %s', filename)
-  endif
-endfunction
-nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
-
 " util
 function! s:echoerr(msg, ...) abort
   redraw
@@ -183,7 +156,6 @@ function! s:echoerr(msg, ...) abort
   echomsg call(function('printf', [a:msg]), a:000)
   echohl None
 endfunction
-
 
 " startup time
 let g:startuptime = reltime()
@@ -206,7 +178,3 @@ function! s:open_file_with_position(file_identifiler) abort
 endfunction
 command! -nargs=1 O call s:open_file_with_position('<args>')
 nnoremap <leader>o :call <SID>open_file_with_position(getline('.'))<cr>
-
-let g:test#strategy = 'vimterminal'
-let g:test#python#runner = 'pytest'
-let g:test#python#pytest#executable = 'pytest -v -x --pdb'
