@@ -97,14 +97,14 @@ if !exists('g:vscode')
   Plug 'cohama/lexima.vim'
   Plug 'lambdalisue/gina.vim'
   Plug 'thinca/vim-quickrun'
+  Plug 'mattn/emmet-vim'
+  Plug 'editorconfig/editorconfig-vim'
 endif
 Plug 'markonm/traces.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'haya14busa/vim-asterisk'
 Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
-Plug 'mattn/emmet-vim'
-Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " lsp {{{
