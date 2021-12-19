@@ -202,6 +202,29 @@ else
   nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
 endif
 
+" google
+function! s:google(...) abort
+  if empty(a:000)
+    return
+  endif
+  let l:url = shellescape('https://www.google.com/search?q='
+      \ .. join(a:000, '+'))
+  " I don't have windows
+  let l:openprg = has('mac') ? 'open' : 'xdg-open'
+  call system(printf('%s %s', l:openprg, l:url))
+endfunction
+command! -nargs=* Google call s:google(<f-args>)
+nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
+vnoremap <silent> <leader>gg "zy:Google <c-r>z<cr>
+
+function! s:open_localhost(port) abort
+  let l:url = shellescape(printf('http://localhost:%d', a:port))
+  " I don't have windows
+  let l:openprg = has('mac') ? 'open' : 'xdg-open'
+  call system(printf('%s %s', l:openprg, l:url))
+endfunction
+command! -nargs=1 Localhost call s:open_localhost(<args>)
+
 " util
 function! s:echoerr(msg, ...) abort
   redraw
