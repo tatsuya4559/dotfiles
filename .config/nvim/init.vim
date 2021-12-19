@@ -186,7 +186,10 @@ else
 endif
 
 " angular
-if !exists('g:vscode')
+if exists('g:vscode')
+  nnoremap <leader>t <cmd>call VSCodeNotify('angular.goToTemplateForComponent')<cr>
+  nnoremap <leader>c <cmd>call VSCodeNotify('angular.goToComponentWithTemplateFile')<cr>
+else
   function! s:ng_goto_companion_file() abort
     let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
     let filename = expand('%:p:r') .. extension
