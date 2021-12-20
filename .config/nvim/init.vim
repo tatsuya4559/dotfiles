@@ -167,7 +167,9 @@ vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
 endif
 
 " ctrlsf
-if !exists('g:vscode')
+if exists('g:vscode')
+  nnoremap <space>f yiw:call VSCodeNotify('workbench.action.findInFiles')<cr>:call VSCodeNotify('execPaste')<cr>
+else
   let g:ctrlsf_populate_qflist = 1
   let g:ctrlsf_auto_focus = {'at': 'start'}
   let g:ctrlsf_case_sensitive = 'yes'
