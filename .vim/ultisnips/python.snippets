@@ -67,6 +67,17 @@ def test_${1:ok}(self):
 			self.assertEqual(actual, c.expected)
 endsnippet
 
+snippet ut.p "parametrized test"
+@pytest.mark.parametrize(
+	"${2:f1, f2}",
+	[
+		($3),
+	],
+)
+def test_$1(self, $2):
+	$4
+endsnippet
+
 snippet ase "assertEqual"
 self.assertEqual($1)
 endsnippet
