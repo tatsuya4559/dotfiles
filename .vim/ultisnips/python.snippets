@@ -39,7 +39,12 @@ endsnippet
 
 snippet init "__init__ method" b
 def __init__(self$1):
-	$2
+`!p lines = ['    self.{0} = {0}'.format(f.strip()) for f in t[1].lstrip(',').split(',')]
+if lines:
+	snip.rv = lines[0]
+	for line in lines[1:]:
+		snip += line
+`
 endsnippet
 
 # Test
