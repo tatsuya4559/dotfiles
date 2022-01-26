@@ -37,6 +37,7 @@ Plug 'yasukotelin/shirotelin'
 Plug 'tatsuya4559/filer.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-grepper'
 Plug 'markonm/traces.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'haya14busa/vim-asterisk'
@@ -106,6 +107,15 @@ nnoremap <silent> [q :<c-u>cp<cr>
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 set grepprg=git\ grep\ -I\ -n\ --column\ --color=never
 set grepformat=%f:%l:%c:%m
+packadd! cfilter
+
+" grepper
+nnoremap <space>g <cmd>Grepper<cr>
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+let g:grepper = {
+      \ 'side_cmd': 'tabnew'
+      \ }
 
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
@@ -181,3 +191,33 @@ function! s:open_file_with_position(file_identifiler) abort
 endfunction
 command! -nargs=1 O call s:open_file_with_position('<args>')
 nnoremap <leader>o :call <SID>open_file_with_position(getline('.'))<cr>
+
+" angular
+function! s:ng_goto_companion_file() abort
+  let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
+  let filename = expand('%:p:r') .. extension
+  if filereadable(filename)
+    exe 'edit' filename
+  else
+    call s:echoerr('Cannot open %s', filename)
+  endif
+endfunction
+nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
+
+" separate html attrs
+command! Sep :s/\S\zs<space>/\r/g | :nohlsearch
+
+" google
+function! s:google(...) abort
+  if empty(a:000)
+    return
+  endif
+  let l:url = shellescape('https://www.google.com/search?q='
+      \ .. join(a:000, '+'))
+  " I don't have windows
+  let l:openprg = has('mac') ? 'open' : 'xdg-open'
+  call system(printf('%s %s', l:openprg, l:url))
+endfunction
+command! -nargs=* Google call s:google(<f-args>)
+nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
+vnoremap <silent> <leader>gg "zy:Google <c-r>z<cr>
