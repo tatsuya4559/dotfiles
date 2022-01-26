@@ -49,6 +49,8 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'thinca/vim-quickrun'
 Plug 'mattn/emmet-vim'
 Plug 'mattn/vim-goimports', {'for': 'go'}
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 " keymaps
@@ -134,6 +136,7 @@ let g:lsp_document_highlight_enabled = 0
 let g:lsp_diagnostics_float_cursor = 1
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
+  setlocal tagfunc=lsp#tagfunc
   nmap <buffer><silent> gd <plug>(lsp-definition)
   nmap <buffer><silent> gr <plug>(lsp-references)
   nmap <buffer><silent> gi <plug>(lsp-implementation)
