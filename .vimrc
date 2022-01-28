@@ -148,7 +148,6 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <leader>a <plug>(lsp-code-action)
   nmap <buffer> <space>o <plug>(lsp-document-symbol-search)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
-  nmap <buffer><silent> <c-w><c-]> <c-w>s<plug>(lsp-definition)
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
