@@ -51,6 +51,7 @@ Plug 'mattn/emmet-vim'
 Plug 'mattn/vim-goimports', {'for': 'go'}
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'vim-test/vim-test'
 call plug#end()
 
 " keymaps
@@ -223,3 +224,11 @@ endfunction
 command! -nargs=* Google call s:google(<f-args>)
 nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
 vnoremap <silent> <leader>gg "zy:Google <c-r>z<cr>
+
+" vim-test
+let g:test#strategy = 'vimterminal'
+let g:test#python#runner = 'pytest'
+let g:test#python#pytest#executable = 'pytest -v'
+nnoremap <leader>tf <cmd>TestFile<cr>
+nnoremap <leader>tn <cmd>TestNearest<cr>
+nnoremap <leader>tt <cmd>TestLast<cr>
