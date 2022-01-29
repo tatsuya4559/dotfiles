@@ -38,6 +38,7 @@ Plug 'tatsuya4559/filer.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'dyng/ctrlsf.vim'
 Plug 'markonm/traces.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'haya14busa/vim-asterisk'
@@ -117,8 +118,15 @@ nnoremap <space>g <cmd>Grepper<cr>
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
 let g:grepper = {
+      \ 'highlight': v:true,
       \ 'side_cmd': 'tabnew'
       \ }
+
+" ctrlsf
+let g:ctrlsf_auto_focus = {'at': 'start'}
+let g:ctrlsf_position = 'bottom'
+nnoremap <space>f :<c-u>CtrlSF<space>
+nnoremap <leader>f <cmd>CtrlSFToggle<cr>
 
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
@@ -174,28 +182,6 @@ function! s:echoerr(msg, ...) abort
   echohl None
 endfunction
 
-" startup time
-let g:startuptime = reltime()
-function! s:echo_startuptime() abort
-  let g:startuptime = reltime(g:startuptime)
-  redraw
-  echomsg printf('startuptime: %s seconds', reltimestr(g:startuptime))
-endfunction
-autocmd MyAutoCmd VimEnter * call s:echo_startuptime()
-
-function! s:open_file_with_position(file_identifiler) abort
-  let splitted = split(a:file_identifiler, ':', 1)
-  let filename = splitted[0]
-  let lnum = len(splitted) >= 2 ? splitted[1] : 1
-  let col = len(splitted) >= 3 ? splitted[2] : 1
-
-  exe 'edit' filename
-  call cursor(lnum, col)
-  normal zz
-endfunction
-command! -nargs=1 O call s:open_file_with_position('<args>')
-nnoremap <leader>o :call <SID>open_file_with_position(getline('.'))<cr>
-
 " angular
 function! s:ng_goto_companion_file() abort
   let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
@@ -209,7 +195,7 @@ endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
 
 " separate html attrs
-command! Sep :s/\S\zs<space>/\r/g | :nohlsearch
+command! Sep :s/\S\zs<space>\+/\r/g | :nohlsearch
 
 " google
 function! s:google(...) abort
