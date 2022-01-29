@@ -1,1 +1,1 @@
-nnoremap <space>g :Grepper -dir file<cr>
+nnoremap <buffer> <space>g :Grepper -dir file<cr>
