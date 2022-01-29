@@ -149,6 +149,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <leader>a <plug>(lsp-code-action)
   nmap <buffer> <space>o <plug>(lsp-document-symbol-search)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
+  inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
@@ -224,6 +225,10 @@ endfunction
 command! -nargs=* Google call s:google(<f-args>)
 nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
 vnoremap <silent> <leader>gg "zy:Google <c-r>z<cr>
+
+" copy path
+command! CopyPath :let @+ = expand('%')
+command! CopyFullPath :let @+ = expand('%:p')
 
 " vim-test
 let g:test#strategy = 'vimterminal'
