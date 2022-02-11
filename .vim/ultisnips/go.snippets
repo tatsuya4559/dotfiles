@@ -69,3 +69,21 @@ func ${1:handler}(w http.ResponseWriter, r *http.Request) {
 	$2
 }
 endsnippet
+
+snippet filter "tipical filter"
+var $1 []$2
+for _, e := range $3 {
+	if $4 {
+		$1 = append($1, e)
+	}
+}
+return $1
+endsnippet
+
+snippet enum "enum"
+type $1 int
+const (
+	$3 $1 = iota
+	$4
+)
+endsnippet
