@@ -32,29 +32,31 @@ set autoread
 autocmd MyAutoCmd FocusGained,BufEnter * checktime
 
 " plugins
-call plug#begin('~/.vim/plugged')
-Plug 'yasukotelin/shirotelin'
-Plug 'tatsuya4559/filer.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-grepper'
-Plug 'dyng/ctrlsf.vim'
-Plug 'markonm/traces.vim'
-Plug 'machakann/vim-sandwich'
-Plug 'haya14busa/vim-asterisk'
-Plug 'tpope/vim-commentary'
-Plug 'SirVer/ultisnips'
-Plug 'lambdalisue/gina.vim'
-Plug 'APZelos/blamer.nvim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'thinca/vim-quickrun'
-Plug 'mattn/emmet-vim'
-Plug 'mattn/vim-goimports', {'for': 'go'}
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'vim-test/vim-test'
-call plug#end()
+function! PackInit() abort
+  packadd! minpac
+  call minpac#init({'package_name': 'plug'})
+  call minpac#add('k-takata/minpac', {'type': 'opt'})
+  call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
+  call minpac#add('tatsuya4559/filer.vim')
+  call minpac#add('junegunn/fzf')
+  call minpac#add('junegunn/fzf.vim')
+  call minpac#add('mhinz/vim-grepper')
+  call minpac#add('markonm/traces.vim')
+  call minpac#add('machakann/vim-sandwich')
+  call minpac#add('haya14busa/vim-asterisk')
+  call minpac#add('tpope/vim-commentary')
+  call minpac#add('SirVer/ultisnips')
+  call minpac#add('lambdalisue/gina.vim')
+  call minpac#add('APZelos/blamer.nvim')
+  call minpac#add('prabirshrestha/vim-lsp')
+  call minpac#add('mattn/vim-lsp-settings')
+  call minpac#add('thinca/vim-quickrun')
+  call minpac#add('mattn/emmet-vim')
+  call minpac#add('mattn/vim-goimports')
+  call minpac#add('vim-test/vim-test')
+endfunction
+command! PackUpdate call PackInit() | call minpac#update()
+command! PackClean call PackInit() | call minpac#clean()
 
 " keymaps
 nnoremap <f1> <nop>
@@ -156,7 +158,6 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <leader>a <plug>(lsp-code-action)
   nmap <buffer> <space>o <plug>(lsp-document-symbol-search)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
-  inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
