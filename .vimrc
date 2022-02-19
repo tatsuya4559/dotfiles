@@ -123,12 +123,6 @@ let g:grepper = {
       \ 'side_cmd': 'tabnew'
       \ }
 
-" ctrlsf
-let g:ctrlsf_auto_focus = {'at': 'start'}
-let g:ctrlsf_position = 'bottom'
-nnoremap <space>f :<c-u>CtrlSF<space>
-nnoremap <leader>f <cmd>CtrlSFToggle<cr>
-
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
