@@ -13,7 +13,7 @@ YELLOW='\[\e[1;33m\]'
 BLUE='\[\e[1;34m\]'
 MAGENTA='\[\e[1;35m\]'
 CYAN='\[\e[1;36m\]'
-export PS1="${BLUE}\w${MAGENTA}"'$(__git_ps1)'"${YELLOW}\n↪ ${NORMAL}"
+export PS1="${BLUE}\w${MAGENTA}"'$(__git_ps1)'"${YELLOW}\n$ ${NORMAL}"
 
 
 # alias
@@ -33,6 +33,7 @@ alias r='cd $(ghq root)/$(ghq list | fzf)'
 alias h='clear && tldr'
 alias dc='docker-compose'
 alias a='. venv/bin/activate'
+alias dw='diff2html -i stdin'
 
 if [[ $(uname) == 'Linux' ]]; then
   alias pbcopy='xclip -selection c'

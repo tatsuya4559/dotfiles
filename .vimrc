@@ -74,6 +74,8 @@ nnoremap <s-left> zh
 nnoremap <s-right> zl
 nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap yt :<c-u>tabedit %<cr>
+nnoremap <leader>s :!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>
+nnoremap <space>t :!tig status<cr>
 
 " colorscheme
 colorscheme shirotelin
