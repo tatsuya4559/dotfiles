@@ -1,0 +1,17 @@
+snippet main "main"
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, const char **argv)
+{
+	$1
+
+	return 0;
+}
+endsnippet
+
+snippet fori "for loop"
+for (int i=0; i<$1; i++) {
+	$2
+}
+endsnippet

@@ -31,14 +31,14 @@ snippet ut.table "table driven test skelton"
 func Test$1(t *testing.T) {
 	tests := []struct {
 		${2:input string
-		expected string}
+		want string}
 	}{
-		{input: "hoge", expected: "fuga"},
+		{input: "hoge", want: "fuga"},
 	}
 
 	for _, tt := range tests {
-		actual := Testee(tt.input)
-		if actual != tt.expected {
+		got := Testee(tt.input)
+		if got != tt.want {
 			t.Errorf("error!")
 		}
 	}
