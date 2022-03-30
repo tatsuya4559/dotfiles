@@ -150,7 +150,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer><silent> [g <plug>(lsp-previous-diagnostic)
   nmap <buffer><silent> ]g <plug>(lsp-next-diagnostic)
   nmap <buffer> K <plug>(lsp-hover)
-  nmap <buffer> <leader>a <plug>(lsp-code-action)
+  nmap <buffer> <space>a <plug>(lsp-code-action)
   nmap <buffer> <space>o <plug>(lsp-document-symbol-search)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
 endfunction
