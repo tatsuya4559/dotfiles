@@ -12,7 +12,8 @@ echo 'eval $(~/.linuxbrew/bin/brew shellenv)' >> ~/.bash_profile
 # install apps
 brew install tmux
 brew install vim
-brew install pyenv
+brew install anyenv
+brew install direnv
 brew install go
 
 # clone this repository
