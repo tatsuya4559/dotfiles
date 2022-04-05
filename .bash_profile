@@ -17,7 +17,3 @@ HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
 export GOPATH=`go env GOPATH`
 export PATH=$PATH:$GOPATH/bin
 
-# python
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
