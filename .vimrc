@@ -20,7 +20,6 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-set signcolumn=number
 set termguicolors
 set updatetime=300
 set nrformats&
@@ -189,9 +188,6 @@ function! s:ng_goto_companion_file() abort
   endif
 endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
-
-" separate html attrs
-command! Sep :s/\S\zs<space>\+/\r/g | :nohlsearch
 
 " google
 function! s:google(...) abort
