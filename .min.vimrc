@@ -27,23 +27,3 @@ nnoremap Y y$
 
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %
-
-" quickfix
-function! s:toggle_quickfix()
-  let l:nr = winnr('$')
-  cwindow
-  let l:nr2 = winnr('$')
-  if l:nr == l:nr2
-    cclose
-  endif
-endfunction
-nnoremap <silent><script> <space>q :<c-u>call <SID>toggle_quickfix()<cr>
-nnoremap <silent> ]q :<c-u>cn<cr>
-nnoremap <silent> [q :<c-u>cp<cr>
-autocmd QuickFixCmdPost *grep* cwindow
-
-" grep
-if executable('git')
-  set grepprg=git\ grep\ -I\ -n\ --column\ --color=never
-  set grepformat=%f:%l:%c:%m
-endif

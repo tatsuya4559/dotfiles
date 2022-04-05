@@ -32,7 +32,6 @@ alias ll='ls -alh'
 alias r='cd $(ghq root)/$(ghq list | fzf)'
 alias h='clear && tldr'
 alias dc='docker-compose'
-alias a='. venv/bin/activate'
 alias dw='diff2html -i stdin'
 
 if [[ $(uname) == 'Linux' ]]; then
