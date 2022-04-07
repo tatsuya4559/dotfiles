@@ -33,6 +33,7 @@ alias r='cd $(ghq root)/$(ghq list | fzf)'
 alias h='clear && tldr'
 alias dc='docker-compose'
 alias dw='diff2html -i stdin'
+alias tf='terraform'
 
 if [[ $(uname) == 'Linux' ]]; then
   alias pbcopy='xclip -selection c'
