@@ -80,6 +80,7 @@ nnoremap <space>t :!tig status<cr>
 
 " colorscheme
 colorscheme shirotelin
+let g:is_bash = v:true
 
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %
