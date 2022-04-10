@@ -1,0 +1,7 @@
+.vim/syntax/gotexttmpl.vim:
+  type: file
+  url: https://raw.githubusercontent.com/fatih/vim-go/master/syntax/gotexttmpl.vim
+
+.vim/pack/minpac/opt/minpac:
+  type: git-repo
+  url: "https://github.com/k-takata/minpac.git"
