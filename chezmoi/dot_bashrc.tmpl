@@ -4,7 +4,9 @@ source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
 eval "$(gh completion -s bash)"
 
+{{ if eq .chezmoi.hostname "tatsuyaMac" }}
 complete -C '/Users/tatsuya/Movies/tmp/venv/bin/aws_completer' aws
+{{ end }}
 
 source $HOME/.local/bin/bashmarks.sh
 
@@ -27,11 +29,11 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-if [[ $(uname) == 'Darwin' ]]; then
-  alias ls='ls -GF'
-else
-  alias ls='ls --color=auto -F'
-fi
+{{ if eq .chezmoi.os "darwin" }}
+alias ls='ls -GF'
+{{ else }}
+alias ls='ls --color=auto -F'
+{{ end }}
 alias la='ls -A'
 alias ll='ls -alh'
 
@@ -40,10 +42,10 @@ alias h='clear && tldr'
 alias dw='diff2html -i stdin'
 alias tf='terraform'
 
-if [[ $(uname) == 'Linux' ]]; then
-  alias pbcopy='xclip -selection c'
-  alias pbpaste='xclip -selection c -o'
-fi
+{{ if eq .chezmoi.os "linux" }}
+alias pbcopy='xclip -selection c'
+alias pbpaste='xclip -selection c -o'
+{{ end }}
 
 # awkめんどい
 function col() {
@@ -54,3 +56,5 @@ function mkdircd() {
   mkdir -p $1
   cd $1
 }
+
+# vim: ft=sh
