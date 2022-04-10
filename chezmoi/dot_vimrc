@@ -13,8 +13,10 @@ set shortmess-=S
 set backspace=2
 set wildmenu
 set list listchars=tab:▸\ ,trail:-
-set laststatus=2
-set ruler number
+"set laststatus=2
+"set number
+"set relativenumber
+set ruler
 set noswapfile
 set nowrap
 set hidden
@@ -84,6 +86,22 @@ let g:is_bash = v:true
 
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %
+iabbrev improt import
+iabbrev flase false
+iabbrev Flase False
+
+augroup MyAutoCmd
+  let sql_keywords = [
+        \ 'select', 'from', 'where',
+        \ 'order', 'by', 'asc', 'desc',
+        \ 'insert', 'into', 'values',
+        \ 'update', 'delete', 'limit',
+        \ ]
+  for keyword in sql_keywords
+    exe printf('autocmd FileType sql iabbrev <buffer> %s %s', keyword, keyword->toupper())
+  endfor
+augroup END
+
 
 " clipboard (thanks to monaqa
 set clipboard=
@@ -157,6 +175,14 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+
+if executable('ocamllsp')
+  autocmd MyAutoCmd User lsp_setup call lsp#register_server({
+        \ 'name': 'ocamllsp',
+        \ 'cmd': {server_info -> ['ocamllsp']},
+        \ 'allowlist': ['ocaml'],
+        \ })
+endif
 
 " quickrun
 nmap <leader>r <plug>(quickrun)

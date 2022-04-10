@@ -1,0 +1,16 @@
+#!/bin/bash
+{{ if eq .chezmoi.osRelease.idLike "debian" }}
+sudo apt update
+sudo apt upgrade -y
+
+sudo apt install -y \
+  build-essential \
+  procps \
+  curl \
+  file \
+  git \
+  curl
+
+{{ end }}
+
+# vim: ft=sh
