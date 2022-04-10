@@ -5,3 +5,11 @@
 .vim/pack/minpac/opt/minpac:
   type: git-repo
   url: https://github.com/k-takata/minpac.git
+
+.git-completion.bash:
+  type: file
+  url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+
+.git-prompt.sh:
+  type: file
+  url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
