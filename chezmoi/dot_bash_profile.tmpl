@@ -1,0 +1,47 @@
+{{ if eq .chezmoi.os "darwin" }}
+export BASH_SILENCE_DEPRECATION_WARNING=1
+{{ end }}
+
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export TERM=xterm-256color
+export EDITOR='vim'
+
+HISTSIZE=10000
+HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
+
+export FZF_DEFAULT_COMMAND='fd --color never --type f'
+export PATH="$HOME/.local/bin:$PATH"
+
+# anyenv
+eval "$(anyenv init -)"
+eval "$(pyenv init -)"
+
+# direnv
+eval "$(direnv hook bash)"
+
+{{ if eq .chezmoi.hostname "tatsuyaMac" }}
+export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
+
+# deno
+export DENO_INSTALL="/Users/tatsuya/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# go
+export GOPATH=`go env GOPATH`
+export PATH=$PATH:$GOPATH/bin
+
+# java
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+# rust
+source "$HOME/.cargo/env"
+
+# ocaml
+eval $(opam env)
+{{ end }}
+
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+# vim: ft=sh
