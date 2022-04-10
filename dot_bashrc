@@ -1,8 +1,14 @@
-[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
+source $HOME/.fzf.bash
 
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
 eval "$(gh completion -s bash)"
+
+complete -C '/Users/tatsuya/Movies/tmp/venv/bin/aws_completer' aws
+
+source $HOME/.local/bin/bashmarks.sh
+
+source $HOME/.local/bin/plug_completion.sh
 
 # PS1
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -31,7 +37,6 @@ alias ll='ls -alh'
 
 alias r='cd $(ghq root)/$(ghq list | fzf)'
 alias h='clear && tldr'
-alias dc='docker-compose'
 alias dw='diff2html -i stdin'
 alias tf='terraform'
 
@@ -43,4 +48,9 @@ fi
 # awkめんどい
 function col() {
   awk -v col=$1 '{print $col}'
+}
+
+function mkdircd() {
+  mkdir -p $1
+  cd $1
 }
