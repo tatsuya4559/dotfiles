@@ -10,8 +10,12 @@ export EDITOR='vim'
 HISTSIZE=10000
 HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
 
-export FZF_DEFAULT_COMMAND='fd --color never --type f'
 export PATH="$HOME/.local/bin:$PATH"
+export FZF_DEFAULT_COMMAND='fd --color never --type f'
+
+{{ if eq .chezmoi.os "linux" }}
+eval $("$HOME/.linuxbrew/bin/brew" shellenv)
+{{ end }}
 
 # anyenv
 eval "$(anyenv init -)"

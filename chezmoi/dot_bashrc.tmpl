@@ -1,17 +1,3 @@
-source $HOME/.fzf.bash
-
-source $HOME/.git-completion.bash
-source $HOME/.git-prompt.sh
-eval "$(gh completion -s bash)"
-
-{{ if eq .chezmoi.hostname "tatsuyaMac" }}
-complete -C '/Users/tatsuya/Movies/tmp/venv/bin/aws_completer' aws
-{{ end }}
-
-source $HOME/.local/bin/bashmarks.sh
-
-source $HOME/.local/bin/plug_completion.sh
-
 # PS1
 GIT_PS1_SHOWDIRTYSTATE=true
 NORMAL='\[\e[m\]'
@@ -47,7 +33,7 @@ alias pbcopy='xclip -selection c'
 alias pbpaste='xclip -selection c -o'
 {{ end }}
 
-# awkめんどい
+# functions
 function col() {
   awk -v col=$1 '{print $col}'
 }
@@ -56,5 +42,22 @@ function mkdircd() {
   mkdir -p $1
   cd $1
 }
+
+# apps
+source $HOME/.fzf.bash
+
+source $HOME/.git-completion.bash
+source $HOME/.git-prompt.sh
+
+eval "$(gh completion -s bash)"
+
+{{ if eq .chezmoi.hostname "tatsuyaMac" }}
+complete -C '/Users/tatsuya/Movies/tmp/venv/bin/aws_completer' aws
+{{ end }}
+
+source $HOME/.local/bin/bashmarks.sh
+
+source $HOME/.local/bin/plug_completion.sh
+
 
 # vim: ft=sh
