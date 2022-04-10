@@ -2,17 +2,8 @@
 
 ## Usage
 
-### for mac
-```sh
-curl -fsSL https://raw.githubusercontent.com/tatsuya4559/dotfiles/master/setup_mac.sh | sh
-```
 
-### for manjaro linux
-```sh
-curl -fsSL https://raw.githubusercontent.com/tatsuya4559/dotfiles/master/setup_manjaro.sh | sh
-```
-
-## chezmoi
+### chezmoi
 ```sh
 chezmoi edit --apply $FILE
 chezmoi edit $FILE
@@ -25,4 +16,10 @@ chezmoi git pull -- --rebase && chezmoi diff
 
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply tatsuya4559
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --one-shot tatsuya4559
+```
+
+### plug
+```sh
+cd plug
+make install
 ```
