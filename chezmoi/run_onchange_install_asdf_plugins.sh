@@ -11,9 +11,12 @@ asdf install terraform 1.1.5
 
 asdf plugin add golang
 asdf install golang 1.18
+asdf global golang 1.18
 
 asdf plugin add awscli
 asdf install awscli 2.5.4
+asdf global awscli 2.5.4
 
 asdf plugin add heroku-cli
 asdf install heroku-cli 7.60.1
+asdf global heroku-cli 7.60.1
