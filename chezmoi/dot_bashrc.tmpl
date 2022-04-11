@@ -15,11 +15,11 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "darwin" -}}
 alias ls='ls -GF'
-{{ else }}
+{{ else -}}
 alias ls='ls --color=auto -F'
-{{ end }}
+{{ end -}}
 alias la='ls -A'
 alias ll='ls -alh'
 
@@ -30,10 +30,10 @@ alias dw='diff2html -i stdin'
 alias tf='terraform'
 alias cm='chezmoi'
 
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 alias pbcopy='xclip -selection c'
 alias pbpaste='xclip -selection c -o'
-{{ end }}
+{{ end -}}
 
 # functions
 function col() {
@@ -53,13 +53,13 @@ source $HOME/.git-prompt.sh
 
 eval "$(gh completion -s bash)"
 
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 eval $("$HOME/.linuxbrew/bin/brew" shellenv)
-{{ end }}
+{{ end -}}
 
-{{ if eq .chezmoi.hostname "tatsuyaMac" }}
+{{ if eq .chezmoi.hostname "tatsuyaMac" -}}
 complete -C '/Users/tatsuya/Movies/tmp/venv/bin/aws_completer' aws
-{{ end }}
+{{ end -}}
 
 source $HOME/.local/bin/bashmarks.sh
 
