@@ -80,6 +80,8 @@ nnoremap yt :<c-u>tabedit %<cr>
 nnoremap <leader>s :!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>
 nnoremap <space>t :!tig status<cr>
 
+command! SepLineFeed :s/\\n/\r/g
+
 " colorscheme
 colorscheme shirotelin
 let g:is_bash = v:true
@@ -239,7 +241,7 @@ command! CopyFullPath :let @+ = expand('%:p')
 " vim-test
 let g:test#strategy = 'vimterminal'
 let g:test#python#runner = 'pytest'
-let g:test#python#pytest#executable = 'pytest -v'
+let g:test#python#pytest#executable = 'pytest -v --disable-warnings --no-migrations --reuse-db'
 nnoremap <leader>tf <cmd>TestFile<cr>
 nnoremap <leader>tn <cmd>TestNearest<cr>
 nnoremap <leader>tt <cmd>TestLast<cr>

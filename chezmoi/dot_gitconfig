@@ -24,10 +24,13 @@
   co = checkout
   cm = commit -v
   fe = fetch --all
-  br = branch -vv
+  br = branch
   di = diff
   dt = difftool
   mt = mergetool
   sw = !git branch -vv | grep -v '^\\s*\\*' | fzf | awk '{print $1}' | xargs git switch
+  mf = !git branch -vv | grep -v '^\\s*\\*' | fzf | awk '{print $1}' | xargs git merge
 [ghq]
   root = ~/git
+[delta]
+  # syntax-theme = GitHub
