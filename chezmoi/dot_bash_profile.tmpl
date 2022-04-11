@@ -17,9 +17,9 @@ export FZF_DEFAULT_COMMAND='fd --color never --type f'
 eval $("$HOME/.linuxbrew/bin/brew" shellenv)
 {{ end -}}
 
-# anyenv
-eval "$(anyenv init -)"
-eval "$(pyenv init -)"
+# asdf
+source "$(brew --prefix asdf)/libexec/asdf.sh"
+source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 
 # direnv
 eval "$(direnv hook bash)"
