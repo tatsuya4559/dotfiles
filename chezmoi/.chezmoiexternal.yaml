@@ -13,3 +13,7 @@
 .git-prompt.sh:
   type: file
   url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+
+.fzf.bash:
+  type: file
+  url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash
