@@ -43,9 +43,12 @@ source "$HOME/.cargo/env"
 
 # ocaml
 eval $(opam env)
-{{ end -}}
+{{ end }}
 
 if [[ -f $HOME/.bashrc ]]; then
     source "$HOME/.bashrc"
 fi
-# vim: ft=gotexttmpl
+
+{{/*
+vim: ft=gotexttmpl
+*/}}
