@@ -18,3 +18,31 @@ snippet select "select"
 	<option value=""></option>
 </select>
 endsnippet
+
+snippet ngfor "ngFor"
+*ngFor="let $1 of $2"
+endsnippet
+
+snippet ngif "ngIf"
+*ngIf="$1"
+endsnippet
+
+snippet ngifelse "ngIf else"
+<ng-container *ngIf="$1; else $2">
+	$3
+</ng-container>
+<ng-template #$2>
+	$4
+</ng-template>
+endsnippet
+
+snippet ngswitch "ngSwitch"
+<ng-container [ngSwitch]="$1">
+	<ng-container *ngSwitchCase="$2">
+		$3
+	</ng-container>
+	<ng-container *ngSwitchDefault>
+		$4
+	</ng-container>
+</ng-container>
+endsnippet
