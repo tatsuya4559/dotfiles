@@ -53,6 +53,10 @@ source $HOME/.git-prompt.sh
 
 eval "$(gh completion -s bash)"
 
+{{ if eq .chezmoi.os "linux" }}
+eval $("$HOME/.linuxbrew/bin/brew" shellenv)
+{{ end }}
+
 {{ if eq .chezmoi.hostname "tatsuyaMac" }}
 complete -C '/Users/tatsuya/Movies/tmp/venv/bin/aws_completer' aws
 {{ end }}
