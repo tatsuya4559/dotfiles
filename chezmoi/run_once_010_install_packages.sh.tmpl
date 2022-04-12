@@ -17,9 +17,7 @@ install_brew() {
 if [[ -z $(command -v brew) ]]; then
   install_brew
 fi
-brew bundle --global
-
-$(brew --prefix)/opt/fzf/install
+yes | brew bundle --global
 
 {{/*
 vim: ft=gotexttmpl
