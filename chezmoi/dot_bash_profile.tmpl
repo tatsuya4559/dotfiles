@@ -25,22 +25,6 @@ source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 eval "$(direnv hook bash)"
 
 {{ if eq .chezmoi.hostname "tatsuyaMac" -}}
-export PATH=$PATH:/usr/local/opt.coreutils/libexec/gnubin
-
-# deno
-export DENO_INSTALL="/Users/tatsuya/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-# go
-export GOPATH=`go env GOPATH`
-export PATH=$PATH:$GOPATH/bin
-
-# java
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
-# rust
-source "$HOME/.cargo/env"
-
 # ocaml
 eval $(opam env)
 {{ end }}
