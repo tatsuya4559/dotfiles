@@ -54,38 +54,38 @@ EOF
 }
 
 case "$1" in
-  "install")
-    for plugin in ${@:2}; do
-      _install $plugin&
-    done
-    wait
-    ;;
-  "uninstall")
-    for plugin in ${@:2}; do
-      _uninstall $plugin&
-    done
-    wait
-    ;;
-  "ls")
-    _list
-    ;;
-  "enable")
-    for plugin in ${@:2}; do
-      _enable $plugin&
-    done
-    wait
-    ;;
-  "disable")
-    for plugin in ${@:2}; do
-      _disable $plugin&
-    done
-    wait
-    ;;
-  "-h" | "--help")
-    _help
-    ;;
-  * )
-    echo "Unknown command: $1"
-    _help
-    ;;
+"install")
+  for plugin in "${@:2}"; do
+    _install $plugin &
+  done
+  wait
+  ;;
+"uninstall")
+  for plugin in "${@:2}"; do
+    _uninstall $plugin &
+  done
+  wait
+  ;;
+"ls")
+  _list
+  ;;
+"enable")
+  for plugin in "${@:2}"; do
+    _enable $plugin &
+  done
+  wait
+  ;;
+"disable")
+  for plugin in "${@:2}"; do
+    _disable $plugin &
+  done
+  wait
+  ;;
+"-h" | "--help")
+  _help
+  ;;
+*)
+  echo "Unknown command: $1"
+  _help
+  ;;
 esac
