@@ -73,12 +73,17 @@ nnoremap <c-w>- :<c-u>sp %:h<cr>
 nnoremap <c-w>g <c-w>sgg
 nnoremap vv vg_
 tnoremap <esc><esc> <c-\><c-n>
-nnoremap <s-left> zh
-nnoremap <s-right> zl
 nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap yt :<c-u>tabedit %<cr>
 nnoremap <leader>s :!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>
 nnoremap <space>t :!tig status<cr>
+
+" submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
+nmap zh zh<SID>z
+nmap zl zl<SID>z
+nnoremap <script> <SID>zh zh<SID>z
+nnoremap <script> <SID>zl zl<SID>z
+nmap <SID>z <Nop>
 
 command! SepLineFeed :s/\\n/\r/g
 
