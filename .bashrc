@@ -22,11 +22,11 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-{{ if eq .chezmoi.os "darwin" -}}
-alias ls='ls -GF'
-{{ else -}}
-alias ls='ls --color=auto -F'
-{{ end -}}
+if [[ $(uname) == 'Darwin' ]]; then
+  alias ls='ls -GF'
+else
+  alias ls='ls --color=auto -F'
+fi
 alias la='ls -A'
 alias ll='ls -alh'
 
@@ -35,12 +35,11 @@ alias h='clear && tldr'
 alias dc='docker compose'
 alias dw='diff2html -i stdin'
 alias tf='terraform'
-alias cm='chezmoi'
 
-{{ if eq .chezmoi.os "linux" -}}
-alias pbcopy='xclip -selection c'
-alias pbpaste='xclip -selection c -o'
-{{ end -}}
+if [[ $(uname) == 'Linux' ]]; then
+  alias pbcopy='xclip -selection c'
+  alias pbpaste='xclip -selection c -o'
+fi
 
 # functions
 function col() {
@@ -60,15 +59,6 @@ source $HOME/.git-prompt.sh
 
 eval "$(gh completion -s bash)"
 
-{{ if eq .chezmoi.os "linux" -}}
-eval $("$HOME/.linuxbrew/bin/brew" shellenv)
-{{ end -}}
-
 source $HOME/.local/bin/bashmarks.sh
 
 source $HOME/.local/bin/plug_completion.sh
-
-
-{{/*
-vim: ft=gotexttmpl
-*/}}

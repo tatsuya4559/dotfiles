@@ -27,7 +27,6 @@ brew "universal-ctags"
 brew "vim"
 brew "watch"
 
-{{ if eq .chezmoi.os "darwin" -}}
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 cask "dbeaver-community"
@@ -37,8 +36,3 @@ cask "google-japanese-ime"
 cask "iterm2"
 cask "slack"
 cask "visual-studio-code"
-{{ end -}}
-
-{{/*
-vim: ft=gotexttmpl
-*/}}
