@@ -93,6 +93,18 @@ function download_external() {
   done < "${SCRIPT_DIR}/external_repos.conf"
 }
 
+function get_last_modified_in_unix_time() {
+  # FIXME: これだとsymlink自体の時間は取れないのでlockファイルを通常ファイルにしている
+  local filepath="$1"
+  date -r "${filepath}" +%s
+}
+
+function on_run_script_once_failed() {
+  log ERROR "${script_filename} failed."
+  log INFO "delete lock file ${lock_filename}"
+  ${DRY_RUN} rm -f "${lock_filename}" || true
+}
+
 function run_script_once() {
   local script_filename="${SCRIPT_DIR}/scripts/$1"
   local lock_filename="${SCRIPT_DIR}/.lock/$1"
@@ -102,14 +114,30 @@ function run_script_once() {
     return 0
   fi
 
+  trap on_run_script_once_failed ERR
   log INFO "run ${script_filename}."
   ${DRY_RUN} bash "${script_filename}"
-  local status=$?
-  if [[ "${status}" -ne 0 ]]; then
-    log ERROR "${script_filename} failed."
-    rm -f "${lock_filename}" || true
+}
+
+function run_script_on_change() {
+  local script_filename="${SCRIPT_DIR}/scripts/$1"
+  local lock_filename="${SCRIPT_DIR}/.lock/$1"
+
+  if [[ -e "${lock_filename}" ]]; then
+    local script_timestamp="$(get_last_modified_in_unix_time ${script_filename})"
+    local lock_timestamp="$(get_last_modified_in_unix_time ${lock_filename})"
+    if [[ "${lock_timestamp}" -gt "${script_timestamp}" ]]; then
+      log INFO "${script_filename} skipped."
+      return 0
+    fi
   fi
-  return "${status}"
+
+  trap "log ERROR ${script_filename} failed." ERR
+  log INFO "run ${script_filename}."
+  ${DRY_RUN} bash "${script_filename}"
+
+  # FIXME: lockをtouchで作成しているのでアトミックじゃない
+  ${DRY_RUN} touch "${lock_filename}"
 }
 
 function run_scripts() {
@@ -118,10 +146,12 @@ function run_scripts() {
   fi
 
   while read -r filename; do
-    if [[ "${filename}" =~ ^run ]]; then
+    if [[ "${filename}" =~ ^run_once ]]; then
       run_script_once "${filename}"
+    elif [[ "${filename}" =~ ^run_onchange ]]; then
+      run_script_on_change "${filename}"
     fi
-  done < <(find "${SCRIPT_DIR}/scripts" -type f | xargs basename)
+  done < <(find "${SCRIPT_DIR}/scripts" -type f | xargs basename | sort)
 }
 
 function deploy() {
@@ -143,9 +173,6 @@ usage: $0 deploy [OPTION]
   -h --help Show this help and exit.
 USAGE
         exit 1
-        ;;
-      *)
-        :
         ;;
     esac
     shift
@@ -197,14 +224,12 @@ USAGE
         log INFO "set unified option."
         unified=true
         ;;
-      *)
-        :
-        ;;
     esac
     shift
   done
 
   if ${unified}; then
+    # FIXME: symlinkをフォローしないので差分が出てしまう
     git diff --no-index "${original}" "${deployed}"
   else
     vimdiff "${original}" "${deployed}"
@@ -237,22 +262,10 @@ usage: $0 SUBCOMMAND [OPTION]
 USAGE
 }
 
-readonly SUBCOMMAND=${1:-}; shift
+readonly SUBCOMMAND="${1:-}"; shift
 case "${SUBCOMMAND}" in
-  deploy)
-    deploy $@
-    ;;
-  status)
-    status
-    ;;
-  diff)
-    diff $@
-    ;;
-  clear)
-    clear
-    ;;
-  add)
-    add $@
+  deploy|status|diff|clear|add)
+    ${SUBCOMMAND} $@
     ;;
   noop)
     :
