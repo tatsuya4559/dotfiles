@@ -24,7 +24,6 @@ function symlink() {
     log INFO "force symlink ${src} to ${dest}."
     ${DRY_RUN} ln -s -F "${src}" "${dest}"
   else
-    # FIXME: linkが切れていると処理を続行してしまう
     if [[ -e "${dest}" ]]; then
       log INFO "${dest} already exists. symlink skipped."
       return 0
