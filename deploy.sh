@@ -3,8 +3,8 @@ set -eu
 readonly SCRIPT_DIR=$(cd $(dirname \$0); pwd)
 
 DEBUG=true
-DRY_RUN=echo
-FORCE=false
+DRY_RUN= #echo
+FORCED=false # force symlink and copy
 
 function log() {
   if ! ${DEBUG}; then
@@ -20,25 +20,35 @@ function symlink() {
   local filename=$1
   local src="${SCRIPT_DIR}/dotfiles/${filename}"
   local dest="${HOME}/${filename}"
-  # FIXME: linkが切れていると処理を続行してしまう
-  if [[ -e "${dest}" ]]; then
-    log WARN "${dest} already exists. symlink skipped."
-    return 0
+  if ${FORCED}; then
+    log INFO "force symlink ${src} to ${dest}."
+    ${DRY_RUN} ln -s -F "${src}" "${dest}"
+  else
+    # FIXME: linkが切れていると処理を続行してしまう
+    if [[ -e "${dest}" ]]; then
+      log INFO "${dest} already exists. symlink skipped."
+      return 0
+    fi
+    log INFO "symlink ${src} to ${dest}."
+    ${DRY_RUN} ln -s "${src}" "${dest}"
   fi
-  log INFO "symlink ${src} to ${dest}."
-  ${DRY_RUN} ln -s "${src}" "${dest}"
 }
 
 function copy() {
   local filename=$1
   local src="${SCRIPT_DIR}/dotfiles/${filename}"
   local dest="${HOME}/${filename}"
-  if [[ -e "${dest}" ]]; then
-    log WARN "${dest} already exists. copy skipped."
-    return 0
+  if ${FORCED}; then
+    log INFO "force copy ${src} to ${dest}."
+    ${DRY_RUN} cp "${src}" "${dest}"
+  else
+    if [[ -e "${dest}" ]]; then
+      log INFO "${dest} already exists. copy skipped."
+      return 0
+    fi
+    log INFO "copy ${src} to ${dest}."
+    ${DRY_RUN} cp -n "${src}" "${dest}"
   fi
-  log INFO "copy ${src} to ${dest}."
-  ${DRY_RUN} cp -n "${src}" "${dest}"
 }
 
 function deploy_files() {
@@ -55,7 +65,7 @@ function download_file() {
   local dest_filename="${HOME}/$1"
   local src_url=$2
   if [[ -e "${dest_filename}" ]]; then
-    log WARN "${dest_filename} already exists. download skipped."
+    log INFO "${dest_filename} already exists. download skipped."
     return 0
   fi
   log INFO "download ${src_url} to ${dest_filename}."
@@ -66,10 +76,10 @@ function clone_git_repo() {
   local dest_dirname="${HOME}/$1"
   local repo_url=$2
   if [[ -e "${dest_dirname}" ]]; then
-    log WARN "${dest_dirname} already exists. clone skipped."
+    log INFO "${dest_dirname} already exists. clone skipped."
     return 0
   fi
-  log INFO "clone ${src_url} into ${dest_dirname}."
+  log INFO "clone ${repo_url} into ${dest_dirname}."
   ${DRY_RUN} git clone "${repo_url}" "${dest_dirname}"
 }
 
@@ -87,7 +97,7 @@ function run_script_once() {
   local script_filename="${SCRIPT_DIR}/scripts/$1"
   local lock_filename="${SCRIPT_DIR}/.lock/$1"
 
-  if ! ${DRY_RUN} ln -s "${script_filename}" "${lock_filename}" 2>/dev/null; then
+  if [[ -e "${lock_filename}" ]] || ! ${DRY_RUN} ln -s "${script_filename}" "${lock_filename}" 2>/dev/null; then
     log INFO "${script_filename} skipped."
     return 0
   fi
@@ -120,6 +130,10 @@ function deploy() {
       -d|--dry-run)
         log INFO "set dry-run option."
         DRY_RUN=echo
+        ;;
+      -f|--force)
+        log INFO "set force option."
+        FORCED=true
         ;;
       *)
         :
