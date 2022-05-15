@@ -3,7 +3,7 @@ set -eu
 readonly SCRIPT_DIR=$(cd $(dirname \$0); pwd)
 
 DEBUG=true
-DRY_RUN= #echo
+DRY_RUN=
 FORCED=false # force symlink and copy
 
 function log() {
