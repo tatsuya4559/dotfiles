@@ -13,7 +13,7 @@ function log() {
 
   local severity="$1"
   local message="${@:2}"
-  echo "[${severity}] ${message}" 1>&2
+  echo "[${severity}] ${message}" >&2
 }
 
 function symlink() {
@@ -135,6 +135,15 @@ function deploy() {
         log INFO "set force option."
         FORCED=true
         ;;
+      -h|--help)
+        cat <<USAGE >&2
+usage: $0 deploy [OPTION]
+  -d  --dry-run  Show commands to be executed.
+  -f --force  Force make symlink and copy dotfiles.
+  -h --help Show this help and exit.
+USAGE
+        exit 1
+        ;;
       *)
         :
         ;;
@@ -168,6 +177,15 @@ function status() {
 }
 
 function diff() {
+  if [[ $# -lt 1 ]]; then
+    echo 'Nothing specified.' >&2
+    cat <<USAGE >&2
+usage: $0 diff <filename> [OPTION]
+  -u  --unified  Show unified diff.
+USAGE
+    exit 1
+  fi
+
   local filename=$1
   local original="${SCRIPT_DIR}/dotfiles/${filename}"
   local deployed="${HOME}/${filename}"
@@ -208,7 +226,18 @@ function add() {
   ${DRY_RUN} git -C "${SCRIPT_DIR}" add "dotfiles/${filepath}"
 }
 
-readonly SUBCOMMAND=$1; shift
+function usage() {
+  cat <<USAGE >&2
+usage: $0 SUBCOMMAND [OPTION]
+  deploy  Distribute dotfiles.
+  status  List modified dotfiles.
+  diff  Compare file.
+  clear  Clear lock file for run_once scripts.
+  add  Add a file under dotfiles management.
+USAGE
+}
+
+readonly SUBCOMMAND=${1:-}; shift
 case "${SUBCOMMAND}" in
   deploy)
     deploy $@
@@ -217,11 +246,6 @@ case "${SUBCOMMAND}" in
     status
     ;;
   diff)
-    if [[ $# -lt 1 ]]; then
-      echo "Usage: $0 diff <filename> [OPTION]" 1>&2
-      echo "  -u  --unified  Show unified diff." 1>&2
-      exit 1
-    fi
     diff $@
     ;;
   clear)
@@ -233,9 +257,13 @@ case "${SUBCOMMAND}" in
   noop)
     :
     ;;
+  -h|--help)
+    usage
+    exit 1
+    ;;
   *)
-    # TODO: show usage
-    echo invalid subcommand
+    echo "unknown subcommand: ${SUBCOMMAND}" >&2
+    usage
     exit 1
     ;;
 esac
