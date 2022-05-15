@@ -1,6 +1,6 @@
-{{ if eq .chezmoi.os "darwin" -}}
-export BASH_SILENCE_DEPRECATION_WARNING=1
-{{ end -}}
+if [[ $(uname) == 'Darwin' ]]; then
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
 
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -13,9 +13,9 @@ HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
 export PATH="$HOME/.local/bin:$PATH"
 export FZF_DEFAULT_COMMAND='fd --color never --type f'
 
-{{ if eq .chezmoi.os "linux" -}}
-eval $("$HOME/.linuxbrew/bin/brew" shellenv)
-{{ end -}}
+if [[ $(uname) == 'Linux' ]]; then
+  eval $("$HOME/.linuxbrew/bin/brew" shellenv)
+fi
 
 # asdf
 source "$(brew --prefix asdf)/libexec/asdf.sh"
@@ -24,15 +24,11 @@ source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 # direnv
 eval "$(direnv hook bash)"
 
-{{ if eq .chezmoi.hostname "tatsuyaMac" -}}
 # ocaml
-eval $(opam env)
-{{ end }}
+if [[ -n $(command -v opam) ]]; then
+  eval $(opam env)
+fi
 
 if [[ -f $HOME/.bashrc ]]; then
     source "$HOME/.bashrc"
 fi
-
-{{/*
-vim: ft=gotexttmpl
-*/}}
