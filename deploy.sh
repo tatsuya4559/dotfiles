@@ -61,14 +61,14 @@ function deploy_files() {
 }
 
 function download_file() {
-  local dest_filename="${HOME}/$1"
+  local dest_filepath="${HOME}/$1"
   local src_url=$2
-  if [[ -e "${dest_filename}" ]]; then
-    log INFO "${dest_filename} already exists. download skipped."
+  if [[ -e "${dest_filepath}" ]]; then
+    log INFO "${dest_filepath} already exists. download skipped."
     return 0
   fi
-  log INFO "download ${src_url} to ${dest_filename}."
-  ${DRY_RUN} curl "${src_url}" -o "${dest_filename}"
+  log INFO "download ${src_url} to ${dest_filepath}."
+  ${DRY_RUN} curl "${src_url}" -o "${dest_filepath}"
 }
 
 function clone_git_repo() {
@@ -105,44 +105,44 @@ function get_last_modified_in_unix_time() {
 }
 
 function on_run_script_once_failed() {
-  log ERROR "${script_filename} failed."
-  log INFO "delete lock file ${lock_filename}"
-  ${DRY_RUN} rm -f "${lock_filename}" || true
+  log ERROR "${script_filepath} failed."
+  log INFO "delete lock file ${lock_filepath}"
+  ${DRY_RUN} rm -f "${lock_filepath}" || true
 }
 
 function run_script_once() {
-  local script_filename="${SCRIPT_DIR}/scripts/$1"
-  local lock_filename="${SCRIPT_DIR}/.lock/$1"
+  local script_filepath="${SCRIPT_DIR}/scripts/$1"
+  local lock_filepath="${SCRIPT_DIR}/.lock/$1"
 
-  if [[ -e "${lock_filename}" ]] || ! ${DRY_RUN} ln -s "${script_filename}" "${lock_filename}" 2>/dev/null; then
-    log INFO "${script_filename} skipped."
+  if [[ -e "${lock_filepath}" ]] || ! ${DRY_RUN} ln -s "${script_filepath}" "${lock_filepath}" 2>/dev/null; then
+    log INFO "${script_filepath} skipped."
     return 0
   fi
 
   trap on_run_script_once_failed ERR
-  log INFO "run ${script_filename}."
-  ${DRY_RUN} bash "${script_filename}"
+  log INFO "run ${script_filepath}."
+  ${DRY_RUN} bash "${script_filepath}"
 }
 
 function run_script_on_change() {
-  local script_filename="${SCRIPT_DIR}/scripts/$1"
-  local lock_filename="${SCRIPT_DIR}/.lock/$1"
+  local script_filepath="${SCRIPT_DIR}/scripts/$1"
+  local lock_filepath="${SCRIPT_DIR}/.lock/$1"
 
-  if [[ -e "${lock_filename}" ]]; then
-    local script_timestamp="$(get_last_modified_in_unix_time ${script_filename})"
-    local lock_timestamp="$(get_last_modified_in_unix_time ${lock_filename})"
+  if [[ -e "${lock_filepath}" ]]; then
+    local script_timestamp="$(get_last_modified_in_unix_time ${script_filepath})"
+    local lock_timestamp="$(get_last_modified_in_unix_time ${lock_filepath})"
     if [[ "${lock_timestamp}" -gt "${script_timestamp}" ]]; then
-      log INFO "${script_filename} skipped."
+      log INFO "${script_filepath} skipped."
       return 0
     fi
   fi
 
-  trap "log ERROR ${script_filename} failed." ERR
-  log INFO "run ${script_filename}."
-  ${DRY_RUN} bash "${script_filename}"
+  trap "log ERROR ${script_filepath} failed." ERR
+  log INFO "run ${script_filepath}."
+  ${DRY_RUN} bash "${script_filepath}"
 
   # FIXME: lockをtouchで作成しているのでアトミックじゃない
-  ${DRY_RUN} touch "${lock_filename}"
+  ${DRY_RUN} touch "${lock_filepath}"
 }
 
 function run_scripts() {
