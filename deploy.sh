@@ -84,13 +84,19 @@ function clone_git_repo() {
 }
 
 function download_external() {
+  local pid_array=()
+
   while read -r filename url; do
-    download_file "${filename}" "${url}"
+    download_file "${filename}" "${url}" &
+    pid_array+=($!)
   done < "${SCRIPT_DIR}/external_files.conf"
 
   while read -r dirname url; do
-    clone_git_repo "${dirname}" "${url}"
+    clone_git_repo "${dirname}" "${url}" &
+    pid_array+=($!)
   done < "${SCRIPT_DIR}/external_repos.conf"
+
+  wait ${pid_array[@]}
 }
 
 function get_last_modified_in_unix_time() {
