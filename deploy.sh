@@ -2,7 +2,7 @@
 set -eu
 readonly SCRIPT_DIR=$(cd $(dirname \$0); pwd)
 
-readonly DEBUG=true
+DEBUG=true
 DRY_RUN=echo
 FORCE=false
 
@@ -115,7 +115,7 @@ function run_scripts() {
 }
 
 function deploy() {
-  while [[ $# > 0 ]]; do
+  while [[ $# -gt 0 ]]; do
     case "$1" in
       -d|--dry-run)
         log INFO "set dry-run option."
@@ -159,7 +159,7 @@ function diff() {
   local deployed="${HOME}/${filename}"
 
   local unified=false
-  while [[ $# > 0 ]]; do
+  while [[ $# -gt 0 ]]; do
     case "$1" in
       -u|--unified)
         log INFO "set unified option."
@@ -185,6 +185,7 @@ function clear() {
 }
 
 function add() {
+  # TODO: copy, symlink, externalのconfにも追記する
   local filepath="$1"
   local dir=$(dirname "${filepath}")
   log INFO "add ${filepath} under dotfiles management."
@@ -214,6 +215,9 @@ case "${SUBCOMMAND}" in
     ;;
   add)
     add $@
+    ;;
+  noop)
+    :
     ;;
   *)
     # TODO: show usage
