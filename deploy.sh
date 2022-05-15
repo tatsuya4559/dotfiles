@@ -267,7 +267,12 @@ usage: $0 SUBCOMMAND [OPTION]
 USAGE
 }
 
-readonly SUBCOMMAND="${1:-}"; shift
+### main ###
+if [[ $# -lt 1 ]]; then
+  usage
+  exit 1
+fi
+readonly SUBCOMMAND="$1"; shift
 case "${SUBCOMMAND}" in
   deploy|status|diff|clear|add)
     ${SUBCOMMAND} $@
