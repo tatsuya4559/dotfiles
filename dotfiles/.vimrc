@@ -153,7 +153,7 @@ let g:grepper = {
       \ }
 
 " filetype
-autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab
+autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:-
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 
 " fzf
