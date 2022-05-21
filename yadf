@@ -1,6 +1,6 @@
 #!/bin/bash
 set -eu
-readonly SCRIPT_DIR=$(cd $(dirname \$0); pwd)
+readonly SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 DEBUG=true
 DRY_RUN=
@@ -246,14 +246,77 @@ function clear() {
   ${DRY_RUN} rm -f "${SCRIPT_DIR}/.lock/*"
 }
 
-function add() {
-  # TODO: copy, symlink, externalのconfにも追記する
+function add_copy() {
   local filepath="$1"
   local dir=$(dirname "${filepath}")
-  log INFO "add ${filepath} under dotfiles management."
   ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/${dir}"
   ${DRY_RUN} cp -a "${HOME}/${filepath}" "${SCRIPT_DIR}/dotfiles/${filepath}"
-  ${DRY_RUN} git -C "${SCRIPT_DIR}" add "dotfiles/${filepath}"
+  ${DRY_RUN} echo "${filepath}" >> "${SCRIPT_DIR}/copy.conf"
+}
+
+function add_symlink() {
+  local filepath="$1"
+  local dir=$(dirname "${filepath}")
+  ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/${dir}"
+  ${DRY_RUN} mv "${HOME}/${filepath}" "${SCRIPT_DIR}/dotfiles/${filepath}"
+  ${DRY_RUN} ln -s "${SCRIPT_DIR}/dotfiles/${filepath}" "${HOME}/${filepath}"
+  ${DRY_RUN} echo "${filepath}" >> "${SCRIPT_DIR}/symlink.conf"
+}
+
+function add_external_file() {
+  ${DRY_RUN} echo "$1 $2" >> "${SCRIPT_DIR}/external_files.conf"
+}
+function add_external_git_repo() {
+  ${DRY_RUN} echo "$1 $2" >> "${SCRIPT_DIR}/external_repos.conf"
+}
+
+function add() {
+  local filepaths=()
+  local add_fn
+  local url
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -c | --copy)
+        add_fn=add_copy
+        ;;
+      -s | --symlink)
+        add_fn=add_symlink
+        ;;
+      -e | --external-file)
+        add_fn=add_external_file
+        shift
+        url="$1"
+        ;;
+      -g | --git-repo)
+        add_fn=add_external_git_repo
+        shift
+        url="$1"
+        ;;
+      *)
+        filepaths+=("$1")
+        ;;
+    esac
+    shift
+  done
+
+  if [[ -z "${add_fn}" ]]; then
+    # TODO:
+    log ERROR 'specify option'
+    echo <<USAGE
+usage: $0 add <filename> [OPTION]
+  -c  --copy
+  -s  --symlink
+  -e  --external-file URL
+  -g  --git-repo URL
+USAGE
+    exit 1
+  fi
+
+  for filepath in "${filepaths[@]}"; do
+    log INFO "add ${filepath} under dotfiles management."
+    ${add_fn} "${filepath}" "${url}"
+    ${DRY_RUN} git -C "${SCRIPT_DIR}" add "dotfiles/${filepath}"
+  done
 }
 
 function usage() {
@@ -274,7 +337,7 @@ if [[ $# -lt 1 ]]; then
 fi
 readonly SUBCOMMAND="$1"; shift
 case "${SUBCOMMAND}" in
-  deploy|status|diff|clear|add)
+  deploy | status | diff | clear | add)
     ${SUBCOMMAND} $@
     ;;
   noop)
