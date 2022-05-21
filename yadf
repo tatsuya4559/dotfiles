@@ -3,8 +3,11 @@ set -eu
 readonly SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 DEBUG=true
+# If DRY_RUN is set `echo`, commands that affect the filesystem will not
+# be executed but printed to console.
 DRY_RUN=
-FORCED=false # force symlink and copy
+# If FORCED is set `true`, copy and symlink will overwrite existing files.
+FORCED=false
 
 function log() {
   if ! ${DEBUG}; then
@@ -31,6 +34,7 @@ function symlink() {
     log INFO "symlink ${src} to ${dest}."
     ${DRY_RUN} ln -s "${src}" "${dest}"
   fi
+  echo "deployed: ${src} -> ${dest}"
 }
 
 function copy() {
@@ -48,6 +52,7 @@ function copy() {
     log INFO "copy ${src} to ${dest}."
     ${DRY_RUN} cp -n "${src}" "${dest}"
   fi
+  echo "deployed: ${src} -> ${dest}"
 }
 
 function deploy_files() {
@@ -69,6 +74,7 @@ function download_file() {
   fi
   log INFO "download ${src_url} to ${dest_filepath}."
   ${DRY_RUN} curl "${src_url}" -o "${dest_filepath}"
+  echo "deployed: ${src_url} -> ${dest_filepath}"
 }
 
 function clone_git_repo() {
@@ -80,6 +86,7 @@ function clone_git_repo() {
   fi
   log INFO "clone ${repo_url} into ${dest_dirname}."
   ${DRY_RUN} git clone "${repo_url}" "${dest_dirname}"
+  echo "deployed: ${repo_url} -> ${dest_dirname}"
 }
 
 function download_external() {
@@ -106,6 +113,7 @@ function get_last_modified_in_unix_time() {
 
 function on_run_script_once_failed() {
   log ERROR "${script_filepath} failed."
+  echo "run script: ${script_filepath} failed."
   log INFO "delete lock file ${lock_filepath}"
   ${DRY_RUN} rm -f "${lock_filepath}" || true
 }
@@ -121,6 +129,7 @@ function run_script_once() {
 
   trap on_run_script_once_failed ERR
   log INFO "run ${script_filepath}."
+  echo "run script: ${script_filepath}."
   ${DRY_RUN} bash "${script_filepath}"
 }
 
@@ -137,8 +146,9 @@ function run_script_on_change() {
     fi
   fi
 
-  trap "log ERROR ${script_filepath} failed." ERR
+  trap "log ERROR ${script_filepath} failed.; echo run script: ${script_filepath} failed." ERR
   log INFO "run ${script_filepath}."
+  echo "run script: ${script_filepath}."
   ${DRY_RUN} bash "${script_filepath}"
 
   # FIXME: lockをtouchで作成しているのでアトミックじゃない
