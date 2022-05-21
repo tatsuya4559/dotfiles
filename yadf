@@ -319,7 +319,7 @@ function add() {
 
   if [[ -z "${add_fn}" ]]; then
     log ERROR 'specify option'
-    echo <<USAGE
+    cat <<USAGE
 usage: $0 add <filename> [OPTION]
   -c  --copy  Add a file distributed as a copy.
   -s  --symlink  Add a file distributed as a symlink.
