@@ -308,14 +308,13 @@ function add() {
   done
 
   if [[ -z "${add_fn}" ]]; then
-    # TODO:
     log ERROR 'specify option'
     echo <<USAGE
 usage: $0 add <filename> [OPTION]
-  -c  --copy
-  -s  --symlink
-  -e  --external-file URL
-  -g  --git-repo URL
+  -c  --copy  Add a file distributed as a copy.
+  -s  --symlink  Add a file distributed as a symlink.
+  -e  --external-file URL  Add an external file.
+  -g  --git-repo URL  Add a git repository.
 USAGE
     exit 1
   fi
