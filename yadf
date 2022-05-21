@@ -190,8 +190,16 @@ USAGE
 
 function status() {
   while read -r filename; do
-    if ! git diff --quiet "${SCRIPT_DIR}/dotfiles/${filename}"; then
-      echo "modified from committed: ${filename}"
+    if [[ -d "${SCRIPT_DIR}/dotfiles/${filename}" ]]; then
+      while read -r filepath; do
+        if ! git diff --quiet "${filepath}"; then
+          echo "modified from committed:" $(echo ${filepath} | sed "s@${SCRIPT_DIR}/dotfiles/@@")
+        fi
+      done < <(find "${SCRIPT_DIR}/dotfiles/${filename}" -type f)
+    else
+      if ! git diff --quiet "${SCRIPT_DIR}/dotfiles/${filename}"; then
+        echo "modified from committed: ${filename}"
+      fi
     fi
   done < "${SCRIPT_DIR}/symlink.conf"
 
