@@ -98,19 +98,6 @@ iabbrev improt import
 iabbrev flase false
 iabbrev Flase False
 
-augroup MyAutoCmd
-  let sql_keywords = [
-        \ 'select', 'from', 'where',
-        \ 'order', 'by', 'asc', 'desc',
-        \ 'insert', 'into', 'values',
-        \ 'update', 'delete', 'limit',
-        \ ]
-  for keyword in sql_keywords
-    exe printf('autocmd FileType sql iabbrev <buffer> %s %s', keyword, keyword->toupper())
-  endfor
-augroup END
-
-
 " clipboard (thanks to monaqa
 set clipboard=
 autocmd MyAutoCmd TextYankPost * call s:copy_unnamed_to_plus(v:event.operator)
@@ -232,6 +219,17 @@ command! CopyFullPath :let @+ = expand('%:p')
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:-
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 autocmd MyAutoCmd FileType yaml setlocal lisp
+augroup MyAutoCmd
+  let sql_keywords = [
+        \ 'select', 'from', 'where',
+        \ 'order', 'by', 'asc', 'desc',
+        \ 'insert', 'into', 'values',
+        \ 'update', 'delete', 'limit',
+        \ ]
+  for keyword in sql_keywords
+    exe printf('autocmd FileType sql iabbrev <buffer> %s %s', keyword, keyword->toupper())
+  endfor
+augroup END
 
 " vim-test
 let g:test#strategy = 'vimterminal'
