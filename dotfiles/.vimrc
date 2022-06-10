@@ -153,10 +153,6 @@ let g:grepper = {
       \ 'side_cmd': 'tabnew'
       \ }
 
-" filetype
-autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:-
-autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
-
 " fzf
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 nnoremap <c-p> :<c-u>Files<cr>
@@ -213,18 +209,6 @@ function! s:echoerr(msg, ...) abort
   echohl None
 endfunction
 
-" angular
-function! s:ng_goto_companion_file() abort
-  let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
-  let filename = expand('%:p:r') .. extension
-  if filereadable(filename)
-    exe 'edit' filename
-  else
-    call s:echoerr('Cannot open %s', filename)
-  endif
-endfunction
-nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
-
 " google
 function! s:google(...) abort
   if empty(a:000)
@@ -244,6 +228,10 @@ vnoremap <silent> <leader>gg "zy:Google <c-r>z<cr>
 command! CopyPath :let @+ = expand('%')
 command! CopyFullPath :let @+ = expand('%:p')
 
+" filetype
+autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:-
+autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
+
 " vim-test
 let g:test#strategy = 'vimterminal'
 let g:test#python#runner = 'pytest'
@@ -251,6 +239,18 @@ let g:test#python#pytest#executable = 'pytest -v --disable-warnings --no-migrati
 nnoremap <leader>tf <cmd>TestFile<cr>
 nnoremap <leader>tn <cmd>TestNearest<cr>
 nnoremap <leader>tt <cmd>TestLast<cr>
+
+" angular
+function! s:ng_goto_companion_file() abort
+  let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
+  let filename = expand('%:p:r') .. extension
+  if filereadable(filename)
+    exe 'edit' filename
+  else
+    call s:echoerr('Cannot open %s', filename)
+  endif
+endfunction
+nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
 
 " shellcheck
 autocmd MyAutoCmd BufWritePre *.sh ShellCheck!
