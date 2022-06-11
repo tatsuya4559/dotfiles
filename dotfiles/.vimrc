@@ -147,7 +147,7 @@ let g:grepper = {
 
 " fzf
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
-nnoremap <c-p> :<c-u>Files<cr>
+nnoremap <c-p> :<c-u>GFiles<cr>
 nnoremap <space>b :<c-u>Buffers<cr>
 nnoremap <space>l <cmd>BLines<cr>
 nnoremap <space>r :<c-u>Rg <c-r><c-w><cr>
