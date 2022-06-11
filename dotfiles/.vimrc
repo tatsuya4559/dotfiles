@@ -87,6 +87,7 @@ nnoremap <script> <SID>zl zl<SID>z
 nmap <SID>z <Nop>
 
 command! SepLineFeed :s/\\n/\r/g
+command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
 
 " colorscheme
 colorscheme shirotelin
