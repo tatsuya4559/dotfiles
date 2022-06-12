@@ -23,6 +23,7 @@ function symlink() {
   local filename=$1
   local src="${SCRIPT_DIR}/dotfiles/${filename}"
   local dest="${HOME}/${filename}"
+  ${DRY_RUN} mkdir -p $(dirname ${dest})
   if ${FORCED}; then
     log INFO "force symlink ${src} to ${dest}."
     ${DRY_RUN} ln -s -F "${src}" "${dest}"
@@ -41,6 +42,7 @@ function copy() {
   local filename=$1
   local src="${SCRIPT_DIR}/dotfiles/${filename}"
   local dest="${HOME}/${filename}"
+  ${DRY_RUN} mkdir -p $(dirname ${dest})
   if ${FORCED}; then
     log INFO "force copy ${src} to ${dest}."
     ${DRY_RUN} cp "${src}" "${dest}"
