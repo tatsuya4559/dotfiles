@@ -1,3 +1,4 @@
+# PS1
 __tf_workspace() {
   if [[ -d .terraform ]]; then
     local workspace="$(terraform workspace show)"
@@ -5,16 +6,8 @@ __tf_workspace() {
   fi
 }
 
-# PS1
 GIT_PS1_SHOWDIRTYSTATE=true
-NORMAL='\[\e[m\]'
-RED='\[\e[1;31m\]'
-GREEN='\[\e[1;32m\]'
-YELLOW='\[\e[1;33m\]'
-BLUE='\[\e[1;34m\]'
-MAGENTA='\[\e[1;35m\]'
-CYAN='\[\e[1;36m\]'
-export PS1="${BLUE}\w${MAGENTA}"'$(__git_ps1)'"${CYAN}"'$(__tf_workspace)'"${YELLOW}\n$ ${NORMAL}"
+export PS1='\w$(__git_ps1)$(__tf_workspace)\n$ '
 
 
 # alias
