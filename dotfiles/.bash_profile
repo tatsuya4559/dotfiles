@@ -9,6 +9,7 @@ export EDITOR='vim'
 
 HISTSIZE=10000
 HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
+export PROMPT_COMMAND='history -a'
 
 export PATH="$HOME/.local/bin:$PATH"
 export FZF_DEFAULT_COMMAND='fd --color never --type f'
