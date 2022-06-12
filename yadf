@@ -166,7 +166,7 @@ function run_scripts() {
     elif [[ "${filename}" =~ ^run_onchange ]]; then
       run_script_on_change "${filename}"
     fi
-  done < <(find "${SCRIPT_DIR}/scripts" -type f | xargs basename | sort)
+  done < <(find "${SCRIPT_DIR}/scripts" -type f | sed 's@^.*/@@' | sort)
 }
 
 function deploy() {
@@ -223,7 +223,7 @@ function status() {
     if [[ "${filename}" =~ ^run && ! -e "${SCRIPT_DIR}/.lock/${filename}" ]]; then
       echo "not executed: ${filename}"
     fi
-  done < <(find "${SCRIPT_DIR}/scripts" -type f | xargs basename)
+  done < <(find "${SCRIPT_DIR}/scripts" -type f | sed 's@^.*/@@')
 }
 
 function diff() {
