@@ -7,6 +7,7 @@ filetype plugin indent on
 syntax enable
 language C
 set smartindent
+set breakindent
 set expandtab tabstop=2 shiftwidth=2
 set hlsearch incsearch ignorecase smartcase wrapscan
 set shortmess-=S
