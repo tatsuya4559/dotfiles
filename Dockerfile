@@ -17,7 +17,7 @@ USER $USERNAME
 # setup environment
 COPY . /home/$USERNAME/dotfiles
 WORKDIR /home/$USERNAME/dotfiles
-RUN ./yadf deploy
+RUN bash -x yadf deploy
 # RUN cd ./plug && make install
 
 CMD ["bash"]
