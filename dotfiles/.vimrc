@@ -195,6 +195,9 @@ vnoremap <silent><leader>gh :Gina browse --exact : <cr>
 nnoremap <silent><leader>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
 vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
 
+" blamer
+nnoremap <leader>b <cmd>BlamerToggle<cr>
+
 " util
 function! s:echoerr(msg, ...) abort
   redraw
