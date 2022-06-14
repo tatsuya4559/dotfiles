@@ -15,7 +15,7 @@ RUN groupadd -g $GID $GROUPNAME && \
 USER $USERNAME
 
 # setup environment
-COPY . /home/$USERNAME/dotfiles
+COPY --chown=$USERNAME:$GROUPNAME . /home/$USERNAME/dotfiles
 WORKDIR /home/$USERNAME/dotfiles
 RUN bash -x yadf deploy
 # RUN cd ./plug && make install
