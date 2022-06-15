@@ -1,4 +1,5 @@
 #!/bin/bash
+source "$(brew --prefix asdf)/libexec/asdf.sh"
 
 asdf plugin add nodejs
 asdf install nodejs 16.14.2
