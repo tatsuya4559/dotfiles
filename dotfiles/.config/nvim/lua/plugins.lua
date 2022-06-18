@@ -60,16 +60,14 @@ return require("packer").startup(function()
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
-      "onsails/lspkind.nvim",
     },
     config = function()
       local cmp = require("cmp")
-      local lspkind = require("lspkind")
       cmp.setup {
         mapping = cmp.mapping.preset.insert({
           ["<c-b>"] = cmp.mapping.scroll_docs(-4),
           ["<c-f>"] = cmp.mapping.scroll_docs(4),
-          -- ["<c-;>"] = cmp.mapping.complete(),
+          ["<c-x><c-o>"] = cmp.mapping.complete({}),
           ["<c-e>"] = cmp.mapping.abort(),
           ["<cr>"] = cmp.mapping.confirm({ select = true }),
         }),
@@ -78,12 +76,6 @@ return require("packer").startup(function()
           { name = "nvim_lua" },
           { name = "buffer" },
           { name = "path" },
-        },
-        formatting = {
-          format = lspkind.cmp_format {
-            mode = "symbol",
-            maxwidth = 50,
-          }
         },
       }
       cmp.setup.cmdline("/", {
@@ -200,5 +192,5 @@ return require("packer").startup(function()
   use "rebelot/kanagawa.nvim"
 
   -- misc --------------------------------------------------
-  use "lukas-reineke/indent-blankline.nvim"
+  --use "lukas-reineke/indent-blankline.nvim"
 end)
