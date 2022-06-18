@@ -55,3 +55,6 @@ eval "$(gh completion -s bash)"
 source $HOME/.local/bin/bashmarks.sh
 
 source $HOME/.local/bin/plug_completion.sh
+
+# direnv
+eval "$(direnv hook bash)"

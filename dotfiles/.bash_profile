@@ -22,9 +22,6 @@ fi
 source "$(brew --prefix asdf)/libexec/asdf.sh"
 source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 
-# direnv
-eval "$(direnv hook bash)"
-
 # ocaml
 if [[ -n $(command -v opam) ]]; then
   eval $(opam env)
