@@ -269,7 +269,7 @@ function clear() {
 function add_copy() {
   local filepath="$1"
   local dir=$(dirname "${filepath}")
-  ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/${dir}"
+  ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/dotfiles/${dir}"
   ${DRY_RUN} cp -a "${HOME}/${filepath}" "${SCRIPT_DIR}/dotfiles/${filepath}"
   ${DRY_RUN} echo "${filepath}" >> "${SCRIPT_DIR}/copy.conf"
 }
@@ -277,7 +277,7 @@ function add_copy() {
 function add_symlink() {
   local filepath="$1"
   local dir=$(dirname "${filepath}")
-  ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/${dir}"
+  ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/dotfiles/${dir}"
   ${DRY_RUN} mv "${HOME}/${filepath}" "${SCRIPT_DIR}/dotfiles/${filepath}"
   ${DRY_RUN} ln -s "${SCRIPT_DIR}/dotfiles/${filepath}" "${HOME}/${filepath}"
   ${DRY_RUN} echo "${filepath}" >> "${SCRIPT_DIR}/symlink.conf"
@@ -333,7 +333,7 @@ USAGE
 
   for filepath in "${filepaths[@]}"; do
     log INFO "add ${filepath} under dotfiles management."
-    ${add_fn} "${filepath}" "${url}"
+    ${add_fn} "${filepath}" "${url:-}"
     ${DRY_RUN} git -C "${SCRIPT_DIR}" add "dotfiles/${filepath}"
   done
 }
