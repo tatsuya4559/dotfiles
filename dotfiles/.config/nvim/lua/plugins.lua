@@ -7,19 +7,16 @@ return require("packer").startup(function()
     { "williamboman/nvim-lsp-installer" },
     {
       "neovim/nvim-lspconfig",
+      requires = "folke/lua-dev.nvim",
       after = "nvim-lsp-installer",
       config = function()
         require("nvim-lsp-installer").setup {}
         local lspconfig = require("lspconfig")
-        lspconfig.sumneko_lua.setup {
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = { "vim", "use" }
-              }
-            }
-          }
+        local luadev = require("lua-dev").setup {}
+        luadev.settings.Lua.diagnostics = {
+          globals = { "use" }
         }
+        lspconfig.sumneko_lua.setup(luadev)
         lspconfig.pyright.setup {}
         lspconfig.gopls.setup {}
       end
@@ -87,7 +84,7 @@ return require("packer").startup(function()
             mode = "symbol",
             maxwidth = 50,
           }
-        }
+        },
       }
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
@@ -116,7 +113,9 @@ return require("packer").startup(function()
     end
   }
 
-  use "L3MON4D3/LuaSnip"
+  use "SirVer/ultisnips"
+
+  use "mattn/emmet-vim"
 
   -- use {
   --   "zbirenbaum/copilot.lua",
@@ -182,6 +181,7 @@ return require("packer").startup(function()
       vim.g.gitblame_enabled = 0
     end
   }
+  use "lambdalisue/gina.vim"
 
   -- colorscheme -------------------------------------------
   use {
