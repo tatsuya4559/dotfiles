@@ -272,6 +272,7 @@ function add_copy() {
   ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/dotfiles/${dir}"
   ${DRY_RUN} cp -a "${HOME}/${filepath}" "${SCRIPT_DIR}/dotfiles/${filepath}"
   ${DRY_RUN} echo "${filepath}" >> "${SCRIPT_DIR}/copy.conf"
+  ${DRY_RUN} git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}/copy.conf"
 }
 
 function add_symlink() {
@@ -281,13 +282,16 @@ function add_symlink() {
   ${DRY_RUN} mv "${HOME}/${filepath}" "${SCRIPT_DIR}/dotfiles/${filepath}"
   ${DRY_RUN} ln -s "${SCRIPT_DIR}/dotfiles/${filepath}" "${HOME}/${filepath}"
   ${DRY_RUN} echo "${filepath}" >> "${SCRIPT_DIR}/symlink.conf"
+  ${DRY_RUN} git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}/symlink.conf"
 }
 
 function add_external_file() {
   ${DRY_RUN} echo "$1 $2" >> "${SCRIPT_DIR}/external_files.conf"
+  ${DRY_RUN} git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}/external_files.conf"
 }
 function add_external_git_repo() {
   ${DRY_RUN} echo "$1 $2" >> "${SCRIPT_DIR}/external_repos.conf"
+  ${DRY_RUN} git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}/external_repos.conf"
 }
 
 function add() {
