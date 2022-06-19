@@ -49,7 +49,7 @@ function! PackInit() abort
   call minpac#add('machakann/vim-sandwich')
   call minpac#add('haya14busa/vim-asterisk')
   call minpac#add('tpope/vim-commentary')
-  call minpac#add('SirVer/ultisnips')
+  call minpac#add('hrsh7th/vim-vsnip')
   call minpac#add('lambdalisue/gina.vim')
   call minpac#add('APZelos/blamer.nvim')
   call minpac#add('prabirshrestha/vim-lsp')
@@ -213,6 +213,12 @@ vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
 
 " blamer
 nnoremap <leader>b <cmd>BlamerToggle<cr>
+
+" vsnip
+let g:vsnip_snippet_dir = '~/.vim/vsnip'
+imap <expr> <tab> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<tab>'
+imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
+imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 
 " util
 function! s:echoerr(msg, ...) abort
