@@ -61,7 +61,7 @@ set.ignorecase = true
 set.smartcase = true
 
 set.list = true
-set.listchars = [[tab:▸ ,trail:-]]
+set.listchars = [[tab:▸ ,trail:·]]
 
 set.undofile = true
 
@@ -124,7 +124,7 @@ autocmd("FileType", {
     setlocal.tabstop = 4
     setlocal.shiftwidth = 4
     setlocal.expandtab = false
-    setlocal.listchars = [[tab:\ \ ,trail:-]]
+    vim.wo.listchars = "tab:  ,trail:·"
   end
 })
 autocmd("FileType", {

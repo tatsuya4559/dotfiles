@@ -13,7 +13,7 @@ set hlsearch incsearch ignorecase smartcase wrapscan
 set shortmess-=S
 set backspace=2
 set wildmenu
-set list listchars=tab:▸\ ,trail:-
+set list listchars=tab:▸\ ,trail:·
 "set laststatus=2
 "set number
 "set relativenumber
@@ -149,11 +149,23 @@ let g:grepper = {
       \ }
 
 " fzf
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+      \ 'ctrl-q': function('s:build_quickfix_list'),
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit' }
+
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 nnoremap <c-p> :<c-u>GFiles<cr>
 nnoremap <space>b :<c-u>Buffers<cr>
 nnoremap <space>l <cmd>BLines<cr>
-nnoremap <space>r :<c-u>Rg <c-r><c-w><cr>
+nnoremap <space>r :<c-u>Rg<space>
 
 " lsp
 let g:lsp_document_highlight_enabled = 0
@@ -227,7 +239,7 @@ command! CopyPath :let @+ = expand('%')
 command! CopyFullPath :let @+ = expand('%:p')
 
 " filetype
-autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:-
+autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:·
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 autocmd MyAutoCmd FileType yaml setlocal lisp
 augroup MyAutoCmd
