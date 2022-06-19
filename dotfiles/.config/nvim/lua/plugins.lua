@@ -24,6 +24,22 @@ return require("packer").startup(function()
   }
 
   use {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup {
+        -- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+        sources = {
+          -- for sh
+          null_ls.builtins.code_actions.shellcheck,
+          null_ls.builtins.diagnostics.shellcheck,
+          null_ls.builtins.formatting.shfmt,
+        },
+      }
+    end
+  }
+
+  use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
@@ -31,18 +47,12 @@ return require("packer").startup(function()
     end
   }
 
-  -- use {
-  --   "glepnir/lspsaga.nvim",
-  --   config = function()
-  --     require("lspsaga").init_lsp_saga {
-  --       use_saga_diagnostic_sign = true,
-  --       error_sign = "",
-  --       warn_sign = "",
-  --       hint_sign = "",
-  --       infor_sign = "",
-  --     }
-  --   end
-  -- }
+  use {
+    "glepnir/lspsaga.nvim",
+    config = function()
+      require("lspsaga").init_lsp_saga {}
+    end
+  }
 
   use {
     "ray-x/lsp_signature.nvim",
@@ -51,7 +61,7 @@ return require("packer").startup(function()
     end
   }
 
-  -- completion --------------------------------------------
+  -- editing -----------------------------------------------
   use {
     "hrsh7th/nvim-cmp",
     requires = {
@@ -60,10 +70,16 @@ return require("packer").startup(function()
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
+      "saadparwaiz1/cmp_luasnip",
     },
     config = function()
       local cmp = require("cmp")
       cmp.setup {
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end
+        },
         mapping = cmp.mapping.preset.insert({
           ["<c-b>"] = cmp.mapping.scroll_docs(-4),
           ["<c-f>"] = cmp.mapping.scroll_docs(4),
@@ -74,6 +90,7 @@ return require("packer").startup(function()
         sources = {
           { name = "nvim_lsp" },
           { name = "nvim_lua" },
+          { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
         },
@@ -95,7 +112,6 @@ return require("packer").startup(function()
     end
   }
 
-  -- editing -----------------------------------------------
   use "machakann/vim-sandwich"
 
   use {
@@ -105,7 +121,14 @@ return require("packer").startup(function()
     end
   }
 
-  use "SirVer/ultisnips"
+  use {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip.loaders.from_snipmate").lazy_load {
+        paths = { vim.fn.stdpath("config") .. "/snipmate" }
+      }
+    end
+  }
 
   use "mattn/emmet-vim"
 
@@ -233,12 +256,23 @@ return require("packer").startup(function()
       }
     end
   }
+
   use {
     "rcarriga/nvim-dap-ui",
+    requires = "mfussenegger/nvim-dap",
     config = function()
-      require("dapui").setup {}
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup {}
+      dap.listeners.before.event_initialized.custom = function(session, body)
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.custom = function(session, body)
+        dapui.close()
+      end
     end
   }
+
   use {
     "theHamsta/nvim-dap-virtual-text",
     config = function()
@@ -264,4 +298,29 @@ return require("packer").startup(function()
 
   -- misc --------------------------------------------------
   --use "lukas-reineke/indent-blankline.nvim"
+
+  use {
+    "smjonas/snippet-converter.nvim",
+    config = function()
+      local template = {
+        sources = {
+          ultisnips = {
+            vim.fn.stdpath("config") .. "/ultisnips",
+          },
+        },
+        output = {
+          -- vscode_luasnip = {
+          --   vim.fn.stdpath("config") .. "/luasnip_snippets",
+          -- },
+          snipmate = {
+            vim.fn.stdpath("config") .. "/snipmate",
+          }
+        },
+      }
+      require("snippet_converter").setup {
+        templates = { template },
+      }
+    end
+  }
+
 end)

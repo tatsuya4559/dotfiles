@@ -28,6 +28,7 @@ end
 
 local map      = generate_mapfunc("", false)
 local nmap     = generate_mapfunc("n", false)
+local imap     = generate_mapfunc("i", false)
 local nnoremap = generate_mapfunc("n", true)
 local inoremap = generate_mapfunc("i", true)
 local vnoremap = generate_mapfunc("v", true)
@@ -39,8 +40,6 @@ local silent = { silent = true }
 local command = vim.api.nvim_create_user_command
 
 -- options -------------------------------------------------
-vim.g.python3_host_prog = "/usr/bin/python3"
-
 -- set.number = true
 
 set.wrap = false
@@ -62,7 +61,7 @@ set.ignorecase = true
 set.smartcase = true
 
 set.list = true
-set.listchars = [[tab:▸\ ,trail:-]]
+set.listchars = [[tab:▸ ,trail:-]]
 
 set.undofile = true
 
@@ -70,7 +69,7 @@ set.nrformats = "bin,hex,unsigned"
 
 vim.cmd "language C"
 
-vim.cmd "colorscheme kanagawa"
+vim.cmd "colorscheme tokyonight"
 
 vim.cmd [[
 iabbrev improt import
@@ -196,7 +195,6 @@ nnoremap("<c-w>g", "<c-w>sgg")
 nnoremap("yt", ":<c-u>tabedit %<cr>")
 tnoremap("<c-w>", [[<c-\><c-n><c-w>]])
 tnoremap("<esc><esc>", [[<c-\><c-n>]])
-nnoremap("<leader>s", [[:!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>]])
 
 -- submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
 -- out of work
@@ -214,8 +212,12 @@ nmap <SID>z <Nop>
 nnoremap("[d", vim.diagnostic.goto_prev, silent)
 nnoremap("]d", vim.diagnostic.goto_next, silent)
 nnoremap("<space>d", "<cmd>TroubleToggle<cr>")
-nnoremap("<space>rn", vim.lsp.buf.rename, silent)
-nnoremap("<space>a", vim.lsp.buf.code_action, silent)
+nnoremap("ga", require("lspsaga.codeaction").code_action)
+nnoremap("<f2>", require("lspsaga.rename").rename)
+
+nnoremap("<c-s>", require("lspsaga.floaterm").open_float_terminal, silent)
+tnoremap("<c-s>", [[<c-\><c-n>:lua require("lspsaga.floaterm").close_float_terminal()<cr>]], silent)
+nnoremap("<space>t", function() require("lspsaga.floaterm").open_float_terminal("tig") end, silent)
 
 local function on_hover()
   if vim.bo.filetype == "vim" then
@@ -239,12 +241,18 @@ nnoremap("gi", telescope.lsp_implementations)
 nnoremap("go", telescope.lsp_document_symbols)
 nnoremap("gs", telescope.lsp_dynamic_workspace_symbols)
 
+-- luasnip keymap
+vim.cmd [[
+imap <expr> <tab> luasnip#expandable() ? '<plug>luasnip-expand-snippet' : '<tab>'
+imap <c-j> <plug>luasnip-jump-next
+imap <c-k> <plug>luasnip-jump-prev
+]]
+
 -- nvim-tree keymap
 nnoremap("<space>e", "<cmd>NvimTreeToggle<cr>")
 
 -- toggleterm keymap
 nnoremap("<c-j>", "<cmd>ToggleTerm<cr>", silent)
-inoremap("<c-j>", "<esc><cmd>ToggleTerm<cr>", silent)
 
 -- quickrun keymap
 nmap("<leader>r", "<plug>(quickrun)")
@@ -283,13 +291,8 @@ command("NeoTestSummaryToggle", function() neotest.summary.toggle() end, {})
 
 ------------------------------------------------------------
 local dap = require("dap")
-local dapui = require("dapui")
-dap.listeners.before.event_initialized.custom = function(session, body)
-  dapui.open()
-end
-dap.listeners.before.event_terminated.custom = function(session, body)
-  dapui.close()
-end
 nnoremap("<leader>db", dap.toggle_breakpoint)
 nnoremap("<f5>", dap.continue)
 nnoremap("<f10>", dap.step_over)
+nnoremap("<f11>", dap.step_into)
+nnoremap("<f12>", dap.step_out)
