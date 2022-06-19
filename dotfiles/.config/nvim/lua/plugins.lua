@@ -175,6 +175,70 @@ return require("packer").startup(function()
   }
   use "lambdalisue/gina.vim"
 
+  -- test --------------------------------------------------
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-go",
+    },
+    config = function()
+      require("neotest").setup {
+        adapters = {
+          require("neotest-python") {
+            dap = { justMyCode = false },
+            runner = "pytest" -- can be a function to return dynamic value
+          },
+          require("neotest-go")
+        }
+      }
+    end
+  }
+
+  -- debug -------------------------------------------------
+  use {
+    "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require("dap")
+      local python_path = string.format("%s/bin/python", os.getenv("VIRTUAL_ENV"))
+      dap.adapters.python = {
+        type = "executable",
+        command = python_path,
+        args = { "-m", "debugpy.adapter" },
+      }
+      dap.configurations.python = {
+        {
+          type = "python",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          pythonPath = function()
+            if vim.fn.executable(python_path) then
+              return python_path
+            else
+              return "/usr/bin/python"
+            end
+          end
+        }
+      }
+    end
+  }
+  use {
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require("dapui").setup {}
+    end
+  }
+  use {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function()
+      require("nvim-dap-virtual-text").setup {}
+    end
+  }
+
   -- colorscheme -------------------------------------------
   use {
     -- Please consider the experience with this plug-in as experimental until Tree-Sitter support in Neovim is stable!
@@ -183,7 +247,7 @@ return require("packer").startup(function()
     config = function()
       require("nvim-treesitter.configs").setup {
         highlight = { enable = true },
-        indent = { enable = true },
+        --indent = { enable = true },
         ensure_installed = "all"
       }
     end

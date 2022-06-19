@@ -161,6 +161,10 @@ autocmd({ "FocusGained", "BufEnter" }, {
   end
 })
 
+vim.cmd [[
+autocmd MyVimrc FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:-
+autocmd MyVimrc FileType python setlocal tabstop=4 shiftwidth=4
+]]
 autocmd("FileType", {
   group = group_name,
   pattern = "yaml",
@@ -230,7 +234,27 @@ command! CopyPath :let @+ = expand('%')
 command! CopyFullPath :let @+ = expand('%:p')
 ]]
 
+local command = vim.api.nvim_create_user_command
+-- neotest
+local neotest = require("neotest")
+command("NeoTestFile", function() neotest.run.run(vim.fn.expand("%")) end, {})
+command("NeoTestNearest", function() neotest.run.run() end, {})
+command("NeoTestOutput", function() neotest.output.open() end, {})
+command("NeoTestSummaryToggle", function() neotest.summary.toggle() end, {})
+
 ------------------------------------------------------------
 
 
 vim.cmd "colorscheme tokyonight"
+
+local dap = require("dap")
+local dapui = require("dapui")
+dap.listeners.before.event_initialized.custom = function(session, body)
+  dapui.open()
+end
+dap.listeners.before.event_terminated.custom = function(session, body)
+  dapui.close()
+end
+nnoremap("<leader>db", dap.toggle_breakpoint)
+nnoremap("<f5>", dap.continue)
+nnoremap("<f10>", dap.step_over)
