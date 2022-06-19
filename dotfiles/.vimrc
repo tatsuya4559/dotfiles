@@ -32,6 +32,7 @@ augroup MyAutoCmd
 augroup END
 set autoread
 autocmd MyAutoCmd FocusGained,BufEnter * checktime
+packadd! matchit
 
 " plugins
 function! PackInit() abort
