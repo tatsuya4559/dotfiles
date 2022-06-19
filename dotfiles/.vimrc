@@ -88,6 +88,9 @@ nnoremap <script> <SID>zh zh<SID>z
 nnoremap <script> <SID>zl zl<SID>z
 nmap <SID>z <Nop>
 
+nnoremap H 20zh
+nnoremap L 20zl
+
 command! SepLineFeed :s/\\n/\r/g
 command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
 

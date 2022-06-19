@@ -195,18 +195,8 @@ nnoremap("<c-w>g", "<c-w>sgg")
 nnoremap("yt", ":<c-u>tabedit %<cr>")
 tnoremap("<c-w>", [[<c-\><c-n><c-w>]])
 tnoremap("<esc><esc>", [[<c-\><c-n>]])
-
--- submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
--- out of work
---[[
-vim.cmd [[
-nmap zh zh<SID>z
-nmap zl zl<SID>z
-nnoremap <script> <SID>zh zh<SID>z
-nnoremap <script> <SID>zl zl<SID>z
-nmap <SID>z <Nop>
-]]
---]]
+nnoremap("H", "20zh")
+nnoremap("L", "20zl")
 
 -- lsp keymap
 nnoremap("[d", vim.diagnostic.goto_prev, silent)
