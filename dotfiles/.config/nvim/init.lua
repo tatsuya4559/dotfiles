@@ -11,13 +11,21 @@ local function merge(table1, ...)
   return table1
 end
 
--- keymap --------------------------------------------------
+-- alias for set option
+local set = vim.o
+local setlocal = vim.bo
 
+-- alias for autocmd
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
+-- alias for mapping
 local function generate_mapfunc(mode, noremap)
   return function (before, after, ...)
     vim.keymap.set(mode, before, after, merge({ noremap = noremap }, ...))
   end
 end
+
 local map      = generate_mapfunc("", false)
 local nmap     = generate_mapfunc("n", false)
 local nnoremap = generate_mapfunc("n", true)
@@ -27,83 +35,13 @@ local tnoremap = generate_mapfunc("t", true)
 
 local silent = { silent = true }
 
-nnoremap("<f1>", "<nop>")
-nnoremap("Q", "<nop>")
-nnoremap("ZZ", "<nop>")
-nnoremap("ZQ", "<nop>")
-
-nnoremap("<leader>v", ":edit ~/.config/nvim/init.lua<cr>")
-nnoremap("<leader>p", ":edit ~/.config/nvim/lua/plugins.lua<cr>")
-nnoremap("vv", "vg_")
-tnoremap("<c-w>", [[<c-\><c-n><c-w>]])
-vnoremap(".",  ":normal .<cr>")
-nnoremap("Y", "y$")
--- nnoremap("<c-w>-", ":<c-u>sp %:h<cr>")
-nnoremap("<c-w>g", "<c-w>sgg")
-tnoremap("<esc><esc>", [[<c-\><c-n>]])
-nnoremap("yt", ":<c-u>tabedit %<cr>")
-
-nnoremap("<leader>s", [[:!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>]])
-nnoremap("<space>t", ":!tig status<cr>")
-
--- submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
--- out of work
--- vim.cmd [[
--- nmap zh zh<SID>z
--- nmap zl zl<SID>z
--- nnoremap <script> <SID>zh zh<SID>z
--- nnoremap <script> <SID>zl zl<SID>z
--- nmap <SID>z <Nop>
--- ]]
-
--- lsp keymap
-nnoremap("<space>e", vim.diagnostic.open_float, silent)
-nnoremap("[g", vim.diagnostic.goto_prev, silent)
-nnoremap("]g", vim.diagnostic.goto_next, silent)
-nnoremap("<space>d", "<cmd>TroubleToggle<cr>")
-
-nnoremap("K", vim.lsp.buf.hover)
-nnoremap("gd",  vim.lsp.buf.definition, silent)
-nnoremap("<space>rn", vim.lsp.buf.rename, silent)
-nnoremap("<space>a", vim.lsp.buf.code_action, silent)
-nnoremap("gr", vim.lsp.buf.references, silent)
-
--- telescope keymap
-local telescope = require("telescope.builtin")
-nnoremap("<c-p>", telescope.git_files)
-nnoremap("<space>ff", telescope.find_files)
-nnoremap("<space>b", telescope.buffers)
-nnoremap("<space>g", telescope.live_grep)
-
--- nvim-tree keymap
-nnoremap("<leader>t", "<cmd>NvimTreeToggle<cr>")
-
--- toggleterm keymap
-nnoremap("<c-j>", "<cmd>ToggleTerm<cr>", silent)
-inoremap("<c-j>", "<esc><cmd>ToggleTerm<cr>", silent)
-
--- quickrun keymap
-nmap("<leader>r", "<plug>(quickrun)")
-
--- git-blame keymap
-nnoremap("<leader>b", "<cmd>GitBlameToggle<cr>")
-
--- asterisk keymap
-map("*", "<plug>(asterisk-z*)")
-map("#", "<plug>(asterisk-z#)")
-
--- gina keymap
-nnoremap("<leader>gh", ":<c-u>Gina browse --exact : <cr>", silent)
-vnoremap("<leader>gh", ":Gina browse --exact : <cr>", silent)
-nnoremap("<leader>gy", ':<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>', silent)
-vnoremap("<leader>gy", ':Gina browse --exact --yank : <cr>:let @+ = @"<cr>', silent)
-
+-- alias for command
+local command = vim.api.nvim_create_user_command
 
 -- options -------------------------------------------------
-local set = vim.o
-local setlocal = vim.bo
--- set.number = true
 vim.g.python3_host_prog = "/usr/bin/python3"
+
+-- set.number = true
 
 set.wrap = false
 
@@ -132,10 +70,22 @@ set.nrformats = "bin,hex,unsigned"
 
 vim.cmd "language C"
 
+vim.cmd "colorscheme kanagawa"
+
+vim.cmd [[
+iabbrev improt import
+iabbrev flase false
+iabbrev Flase False
+iabbrev apn1 ap-northeast-1
+iabbrev apn2 ap-northeast-2
+iabbrev apn3 ap-northeast-3
+iabbrev use1 us-east-1
+iabbrev use2 us-east-2
+]]
+
 -- autocmd -------------------------------------------------
 local group_name = "MyVimrc"
-local autocmd = vim.api.nvim_create_autocmd
-vim.api.nvim_create_augroup(group_name, { clear = true })
+augroup(group_name, { clear = true })
 
 autocmd("BufWritePost", {
   group = group_name,
@@ -161,10 +111,6 @@ autocmd({ "FocusGained", "BufEnter" }, {
   end
 })
 
-vim.cmd [[
-autocmd MyVimrc FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:-
-autocmd MyVimrc FileType python setlocal tabstop=4 shiftwidth=4
-]]
 autocmd("FileType", {
   group = group_name,
   pattern = "yaml",
@@ -172,16 +118,36 @@ autocmd("FileType", {
     setlocal.lisp = true
   end
 })
+autocmd("FileType", {
+  group = group_name,
+  pattern = "go",
+  callback = function()
+    setlocal.tabstop = 4
+    setlocal.shiftwidth = 4
+    setlocal.expandtab = false
+    setlocal.listchars = [[tab:\ \ ,trail:-]]
+  end
+})
+autocmd("FileType", {
+  group = group_name,
+  pattern = "python",
+  callback = function()
+    setlocal.tabstop = 4
+    setlocal.shiftwidth = 4
+  end
+})
 
-vim.cmd [[
-function! Copy_unnamed_to_plus(opr)
-  if a:opr ==# 'y'
-    let @+ = @"
-  endif
-endfunction
-set clipboard=
-autocmd MyVimrc TextYankPost * call Copy_unnamed_to_plus(v:event.operator)
-]]
+-- copy to clipboard only when yanked
+set.clipboard = ""
+autocmd("TextYankPost", {
+  group = group_name,
+  pattern = "*",
+  callback = function()
+    if vim.v.event.operator == "y" then
+      vim.fn.setreg("+", vim.fn.getreg(""))
+    end
+  end
+})
 
 -- auto mkdir
 vim.cmd [[
@@ -211,21 +177,95 @@ autocmd MyVimrc QuickFixCmdPost *grep* cwindow
 packadd! cfilter
 ]]
 
+-- keymaps -------------------------------------------------
+-- disable dangerous keymaps
+nnoremap("<f1>", "<nop>")
+nnoremap("Q", "<nop>")
+nnoremap("ZZ", "<nop>")
+nnoremap("ZQ", "<nop>")
 
+-- open vimrc
+nnoremap("<leader>v", ":edit ~/.config/nvim/init.lua<cr>")
+nnoremap("<leader>p", ":edit ~/.config/nvim/lua/plugins.lua<cr>")
+
+-- utility
+nnoremap("vv", "vg_")
+vnoremap(".",  ":normal .<cr>")
+nnoremap("Y", "y$")
+nnoremap("<c-w>g", "<c-w>sgg")
+nnoremap("yt", ":<c-u>tabedit %<cr>")
+tnoremap("<c-w>", [[<c-\><c-n><c-w>]])
+tnoremap("<esc><esc>", [[<c-\><c-n>]])
+nnoremap("<leader>s", [[:!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>]])
+
+-- submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
+-- out of work
+--[[
+vim.cmd [[
+nmap zh zh<SID>z
+nmap zl zl<SID>z
+nnoremap <script> <SID>zh zh<SID>z
+nnoremap <script> <SID>zl zl<SID>z
+nmap <SID>z <Nop>
+]]
+--]]
+
+-- lsp keymap
+nnoremap("[d", vim.diagnostic.goto_prev, silent)
+nnoremap("]d", vim.diagnostic.goto_next, silent)
+nnoremap("<space>d", "<cmd>TroubleToggle<cr>")
+nnoremap("<space>rn", vim.lsp.buf.rename, silent)
+nnoremap("<space>a", vim.lsp.buf.code_action, silent)
+
+local function on_hover()
+  if vim.bo.filetype == "vim" then
+    local cword = vim.fn.expand("<cword>")
+    vim.cmd(string.format("help %s", cword))
+  end
+  vim.lsp.buf.hover()
+end
+nnoremap("K", on_hover)
+
+-- telescope keymap
+local telescope = require("telescope.builtin")
+nnoremap("<c-p>", telescope.git_files)
+nnoremap("<space>ff", telescope.find_files)
+nnoremap("<space>b", telescope.buffers)
+nnoremap("<space>g", telescope.live_grep)
+
+nnoremap("gd",  telescope.lsp_definitions)
+nnoremap("gr", telescope.lsp_references)
+nnoremap("gi", telescope.lsp_implementations)
+nnoremap("go", telescope.lsp_document_symbols)
+nnoremap("gs", telescope.lsp_dynamic_workspace_symbols)
+
+-- nvim-tree keymap
+nnoremap("<space>e", "<cmd>NvimTreeToggle<cr>")
+
+-- toggleterm keymap
+nnoremap("<c-j>", "<cmd>ToggleTerm<cr>", silent)
+inoremap("<c-j>", "<esc><cmd>ToggleTerm<cr>", silent)
+
+-- quickrun keymap
+nmap("<leader>r", "<plug>(quickrun)")
+
+-- git-blame keymap
+nnoremap("<leader>b", "<cmd>GitBlameToggle<cr>")
+
+-- asterisk keymap
+map("*", "<plug>(asterisk-z*)")
+map("#", "<plug>(asterisk-z#)")
+
+-- gina keymap
+nnoremap("<leader>gh", ":<c-u>Gina browse --exact : <cr>")
+vnoremap("<leader>gh", ":Gina browse --exact : <cr>")
+nnoremap("<leader>gy", ':<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>')
+vnoremap("<leader>gy", ':Gina browse --exact --yank : <cr>:let @+ = @"<cr>')
+
+-- commands ------------------------------------------------
 vim.cmd [[
 command! SepLineFeed :s/\\n/\r/g
 command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
-]]
-
-vim.cmd [[
-iabbrev improt import
-iabbrev flase false
-iabbrev Flase False
-iabbrev apn1 ap-northeast-1
-iabbrev apn2 ap-northeast-2
-iabbrev apn3 ap-northeast-3
-iabbrev use1 us-east-1
-iabbrev use2 us-east-2
 ]]
 
 -- copy path
@@ -234,7 +274,6 @@ command! CopyPath :let @+ = expand('%')
 command! CopyFullPath :let @+ = expand('%:p')
 ]]
 
-local command = vim.api.nvim_create_user_command
 -- neotest
 local neotest = require("neotest")
 command("NeoTestFile", function() neotest.run.run(vim.fn.expand("%")) end, {})
@@ -243,10 +282,6 @@ command("NeoTestOutput", function() neotest.output.open() end, {})
 command("NeoTestSummaryToggle", function() neotest.summary.toggle() end, {})
 
 ------------------------------------------------------------
-
-
-vim.cmd "colorscheme tokyonight"
-
 local dap = require("dap")
 local dapui = require("dapui")
 dap.listeners.before.event_initialized.custom = function(session, body)
