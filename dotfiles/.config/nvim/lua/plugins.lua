@@ -124,8 +124,8 @@ return require("packer").startup(function()
   use {
     "L3MON4D3/LuaSnip",
     config = function()
-      require("luasnip.loaders.from_snipmate").lazy_load {
-        paths = { vim.fn.stdpath("config") .. "/snipmate" }
+      require("luasnip.loaders.from_vscode").lazy_load {
+        paths = { vim.fn.stdpath("config") .. "/vscode" }
       }
     end
   }
@@ -297,7 +297,7 @@ return require("packer").startup(function()
   use "rebelot/kanagawa.nvim"
 
   -- misc --------------------------------------------------
-  --use "lukas-reineke/indent-blankline.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
 
   use {
     "smjonas/snippet-converter.nvim",
@@ -309,11 +309,8 @@ return require("packer").startup(function()
           },
         },
         output = {
-          -- vscode_luasnip = {
-          --   vim.fn.stdpath("config") .. "/luasnip_snippets",
-          -- },
-          snipmate = {
-            vim.fn.stdpath("config") .. "/snipmate",
+          vscode = {
+            vim.fn.stdpath("config") .. "/vscode",
           }
         },
       }

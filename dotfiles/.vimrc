@@ -94,6 +94,8 @@ nnoremap L 20zl
 command! SepLineFeed :s/\\n/\r/g
 command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
 
+command! ReloadVimrc :source $MYVIMRC
+
 " colorscheme
 colorscheme shirotelin
 let g:is_bash = v:true
@@ -289,6 +291,3 @@ function! s:ng_goto_companion_file() abort
   endif
 endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
-
-" shellcheck
-autocmd MyAutoCmd BufWritePre *.sh ShellCheck!
