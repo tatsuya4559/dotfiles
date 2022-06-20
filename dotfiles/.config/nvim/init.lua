@@ -221,7 +221,14 @@ nnoremap("K", on_hover)
 
 -- telescope keymap
 local telescope = require("telescope.builtin")
-nnoremap("<c-p>", telescope.git_files)
+local function ctrlp()
+  local ok, result = pcall(telescope.git_files)
+  if ok then
+    return result
+  end
+  return telescope.find_files()
+end
+nnoremap("<c-p>", ctrlp)
 nnoremap("<space>ff", telescope.find_files)
 nnoremap("<space>b", telescope.buffers)
 nnoremap("<space>g", telescope.live_grep)
