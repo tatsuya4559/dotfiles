@@ -10,6 +10,13 @@
       "}"
     ]
   },
+  "pack": {
+    "prefix": "pack",
+    "description": "package",
+    "body": [
+      "package ${TM_DIRECTORY}"
+    ]
+  },
   "fn": {
     "prefix": "fn",
     "description": "function",

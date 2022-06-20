@@ -7,6 +7,17 @@ main:
     func main() {
     	$1
     }
+pack:
+  prefix: pack
+  description: package
+  body: |
+    package ${TM_DIRECTORY}
+
+# ultisnipから移行できていない
+# sonictemplate使う？
+# snippet "([\w\.]+).append" "append" r
+# `!p snip.rv = match.group(1)` = append(`!p snip.rv = match.group(1)`, $1)
+
 fn:
   prefix: fn
   description: function

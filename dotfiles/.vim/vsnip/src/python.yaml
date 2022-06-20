@@ -34,6 +34,12 @@ nt:
   description: classic style namedtuple
   body: |
     $1 = namedtuple("$1", "$2")
+init:
+  prefix: init
+  description: __init__ method
+  body: |
+    def __init__(self, $1):
+      self.$1 = $1
 
 # unittest
 ut:
