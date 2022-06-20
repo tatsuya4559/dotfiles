@@ -239,9 +239,6 @@ imap <c-j> <plug>luasnip-jump-next
 imap <c-k> <plug>luasnip-jump-prev
 ]]
 
--- nvim-tree keymap
-nnoremap("<space>e", "<cmd>NvimTreeToggle<cr>")
-
 -- toggleterm keymap
 nnoremap("<c-j>", "<cmd>ToggleTerm<cr>", silent)
 
