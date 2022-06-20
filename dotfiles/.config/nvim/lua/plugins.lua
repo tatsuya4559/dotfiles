@@ -66,11 +66,9 @@ return require("packer").startup(function()
     "hrsh7th/nvim-cmp",
     requires = {
       "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
       "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-buffer",
     },
     config = function()
       local cmp = require("cmp")
@@ -92,22 +90,8 @@ return require("packer").startup(function()
           { name = "nvim_lua" },
           { name = "luasnip" },
           { name = "buffer" },
-          { name = "path" },
         },
       }
-      cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" }
-        }
-      })
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "cmdline" },
-          { name = "path" },
-        }
-      })
       -- local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
     end
   }
@@ -171,24 +155,7 @@ return require("packer").startup(function()
   }
 
   -- file explorer -----------------------------------------
-  use {
-    "kyazdani42/nvim-tree.lua",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("nvim-tree").setup {}
-    end
-  }
-
-  -- status line -------------------------------------------
-  use {
-    "nvim-lualine/lualine.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("lualine").setup {
-        options = { theme = "auto" }
-      }
-    end
-  }
+  use "tatsuya4559/filer.vim"
 
   -- git ---------------------------------------------------
   use {
