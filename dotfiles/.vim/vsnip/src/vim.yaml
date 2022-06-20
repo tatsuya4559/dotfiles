@@ -1,0 +1,6 @@
+fn:
+  prefix: fn
+  body: |
+    function! $1($2) abort
+    	$3
+    endfunction

@@ -1,0 +1,122 @@
+bash:
+  prefix: bash
+  description: bash shebang
+  body: |
+    #!/bin/bash
+    set -eu
+onexit:
+  prefix: onexit
+  description: on exit function
+  body: |
+    function on_exit() {
+    	$1
+    }
+
+    trap on_exit EXIT
+onerr:
+  prefix: onerr
+  description: on error function
+  body: |
+    function on_error() {
+    	$1
+    }
+
+    trap on_error ERR
+whileread:
+  prefix: whileread
+  description: while read
+  body: |
+    while read -r col1 col2; do
+    	$1
+    done <<EOF
+    $2
+    EOF
+if:
+  prefix: if
+  description: if statement
+  body: |
+    if [[ $1 ]]; then
+    	$2
+    fi
+case:
+  prefix: case
+  description: case statement
+  body: |
+    case "\${$1}" in
+    	*)
+    		$2
+    		;;
+    esac
+fn:
+  prefix: fn
+  description: function
+  body: |
+    function $1() {
+    	$2
+    }
+log:
+  prefix: log
+  description: logging function
+  body: |
+    function log() {
+    	local severity="\$1"
+    	local message="\${@:2}"
+    	echo "[\${severity}] \${message}" 1>&2
+    }
+retry:
+  prefix: retry
+  description: with retry function
+  body: |
+    function with_retry() {
+    	local -r max_retry="\$1"
+    	local -r cmd="\${@:2}"
+
+    	for retry_count in \$(seq 0 \${max_retry}); do
+    		log INFO \${cmd} "retry_count=\${retry_count}"
+    		\${cmd} && return 0
+    	done
+
+    	log ERROR "max retry exceeded: \${cmd}"
+    	return 1
+    }
+lock:
+  prefix: lock
+  description: lock file
+  body: |
+    # symlinkはすでに作成されている場合失敗するのでロックに使える
+    if ! ln -s \$\$ ./\$\$.lock; then
+    	echo locked
+    	exit 0
+    fi
+confirm:
+  prefix: confirm
+  description: confirm
+  body: |
+    read -p "Are you sure? (y/N): " YN
+    if [[ "\${YN}" != 'y' ]]; then
+    	echo 'abort.' 1>&2
+    	exit 1
+    fi
+opts:
+  prefix: opts
+  description: parse options
+  body: |
+    while [[ \$# -gt 0 ]]; do
+    	case "\$1" in
+    		-o | -o=*)
+    			if [[ \$1 =~ ^-o= ]]; then
+    				echo option o is \${1#*=}
+    			else
+    				echo option o is \$2
+    				shift
+    			fi
+    			;;
+    		-h)
+    			echo h
+    			;;
+    		*)
+    			echo \$1
+    			;;
+    	esac
+    	shift
+    done

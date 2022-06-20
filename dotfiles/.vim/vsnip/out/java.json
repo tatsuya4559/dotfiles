@@ -1,0 +1,16 @@
+{
+  "main": {
+    "prefix": "main",
+    "description": "main method",
+    "body": [
+      "import java.util.*;",
+      "",
+      "class Main {",
+      "\tpublic static void main(String... args) {",
+      "\t\t$1",
+      "\t\tSystem.out.println(\"hello java\");",
+      "\t}",
+      "}"
+    ]
+  }
+}

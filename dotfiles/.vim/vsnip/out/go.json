@@ -1,0 +1,132 @@
+{
+  "main": {
+    "prefix": "main",
+    "description": "main func",
+    "body": [
+      "package main",
+      "",
+      "func main() {",
+      "\t$1",
+      "}"
+    ]
+  },
+  "pack": {
+    "prefix": "pack",
+    "description": "package",
+    "body": [
+      "package ${TM_DIRECTORY}"
+    ]
+  },
+  "fn": {
+    "prefix": "fn",
+    "description": "function",
+    "body": [
+      "func $1 {",
+      "\t$2",
+      "}"
+    ]
+  },
+  "ife": {
+    "prefix": "ife",
+    "description": "if error",
+    "body": [
+      "if err != nil {",
+      "\t${1:return nil, err}",
+      "}"
+    ]
+  },
+  "ut.table": {
+    "prefix": "ut.table",
+    "description": "table driven test skelton",
+    "body": [
+      "func Test$1(t *testing.T) {",
+      "\ttests := []struct {",
+      "\t\tinput string",
+      "\t\twant string",
+      "\t}{",
+      "\t\t{input: \"hoge\", want: \"fuga\"},",
+      "\t}",
+      "",
+      "\tfor _, tt := range tests {",
+      "\t\tgot := Testee(tt.input)",
+      "\t\tif got != tt.want {",
+      "\t\t\tt.Errorf(error!\")\"",
+      "\t\t}",
+      "\t}",
+      "}"
+    ]
+  },
+  "ut": {
+    "prefix": "ut",
+    "description": "test function",
+    "body": [
+      "func Test$1(t *testing.T) {",
+      "\t$2",
+      "}"
+    ]
+  },
+  "open.file": {
+    "prefix": "open.file",
+    "description": "open file",
+    "body": [
+      "${1:file}, err := os.Open(${2:path})",
+      "if err != nil {",
+      "\t${3:panic(err)}",
+      "}",
+      "defer $1.Close()"
+    ]
+  },
+  "fori": {
+    "prefix": "fori",
+    "description": "for i:=0; i<n; i++ loop",
+    "body": [
+      "for i:=${1:0}; i<${2:n}; ${3:i++} {",
+      "\t$4",
+      "}"
+    ]
+  },
+  "fors": {
+    "prefix": "fors",
+    "description": "for select",
+    "body": [
+      "for {",
+      "\tselect {",
+      "\tcase $1:",
+      "\t}",
+      "}"
+    ]
+  },
+  "http.hf": {
+    "prefix": "http.hf",
+    "description": "handler function",
+    "body": [
+      "func ${1:handler}(w http.ResponseWriter, r *http.Request) {",
+      "\t$2",
+      "}"
+    ]
+  },
+  "filter": {
+    "prefix": "filter",
+    "description": "tipical filter",
+    "body": [
+      "var $1 []$2",
+      "for _, e := range $3 {",
+      "\tif $4 {",
+      "\t\t$1 = append($1, e)",
+      "\t}",
+      "}",
+      "return $1"
+    ]
+  },
+  "enum": {
+    "prefix": "enum",
+    "description": "enum",
+    "body": [
+      "type $1 int",
+      "const (",
+      "\t$3 $1 = iota",
+      "\t$4",
+      ")"
+    ]
+  }
+}
