@@ -19,6 +19,8 @@ return require("packer").startup(function()
         lspconfig.sumneko_lua.setup(luadev)
         lspconfig.pyright.setup {}
         lspconfig.gopls.setup {}
+        lspconfig.bashls.setup {}
+        lspconfig.terraformls.setup {}
       end
     }
   }
