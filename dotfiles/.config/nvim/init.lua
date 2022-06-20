@@ -225,6 +225,7 @@ nnoremap("<c-p>", telescope.git_files)
 nnoremap("<space>ff", telescope.find_files)
 nnoremap("<space>b", telescope.buffers)
 nnoremap("<space>g", telescope.live_grep)
+nnoremap("<space>w", telescope.grep_string)
 
 nnoremap("gd",  telescope.lsp_definitions)
 nnoremap("gr", telescope.lsp_references)
@@ -257,6 +258,9 @@ nnoremap("<leader>gh", ":<c-u>Gina browse --exact : <cr>")
 vnoremap("<leader>gh", ":Gina browse --exact : <cr>")
 nnoremap("<leader>gy", ':<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>')
 vnoremap("<leader>gy", ':Gina browse --exact --yank : <cr>:let @+ = @"<cr>')
+nnoremap("<leader>gs", ':<c-u>Gina status<cr>')
+nnoremap("<leader>gc", ':<c-u>Gina commit<cr>')
+nnoremap("<leader>gb", ':<c-u>Gina branch<cr>')
 
 -- commands ------------------------------------------------
 vim.cmd [[
