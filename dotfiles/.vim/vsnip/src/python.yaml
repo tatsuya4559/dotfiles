@@ -1,0 +1,153 @@
+decorator:
+  prefix: decorator
+  description: make a decorator
+  body: |
+    def $1(func):
+    	@functools.wraps(func)
+    	def wrapper(*args, **kwargs):
+    		$2
+    		return func(*args, **kwargs)
+    	return wrapper
+conman:
+  prefix: conman
+  description: context manager
+  body: |
+    @contextlib.contextmanager
+    def $1():
+    	# preprocess
+    	$2
+    	try:
+    		yield
+    		# postprocess
+    		$3
+    	except Exception as e:
+    		# error handle
+    		raise e
+main:
+  prefix: main
+  description: main script
+  body: |
+    if __name__ == '__main__':
+    	main()
+nt:
+  prefix: nt
+  description: classic style namedtuple
+  body: |
+    $1 = namedtuple("$1", "$2")
+
+# unittest
+ut:
+  prefix: ut
+  description: unittest
+  body: |
+    class $1Test(TestCase):
+    	def setUp(self):
+    		pass
+
+    	def _callFUT(self, args):
+    		return func(args)
+
+    	def test_ok(self):
+    		pass
+ut.table:
+  prefix: ut.table
+  description: table driven test
+  body: |
+    def test_${1:ok}(self):
+    	Case = namedtuple('Case', 'msg params expected')
+    	cases = [
+    		Case(),
+    	]
+    	for c in cases:
+    		with self.subTest(msg=c.msg):
+    			actual = self._callFUT(*c.params)
+    			self.assertEqual(actual, c.expected)
+ut.p:
+  prefix: ut.p
+  description: parametrized test
+  body: |
+    @pytest.mark.parametrize(
+    	"${2:f1, f2}",
+    	[
+    		($3),
+    	],
+    )
+    def test_$1(self, $2):
+    	$4
+ase:
+  prefix: ase
+  description: assertEqual
+  body: |
+    self.assertEqual($1)
+ast:
+  prefix: ast
+  description: assertTrue
+  body: |
+    self.assertTrue($1)
+asf:
+  prefix: asf
+  description: assertFalse
+  body: |
+    self.assertFalse($1)
+asr:
+  prefix: asr
+  description: assertRaises
+  body: |
+    with self.assertRaises($1):
+    	$2
+
+# django
+django.form:
+  prefix: django.form
+  description: django form
+  body: |
+    class $1Form(forms.Form):
+    	$2
+
+    	def clean(self):
+    		cleaned_data = super().clean()
+    		return cleaned_data
+django.form.clean:
+  prefix: django.form.clean
+  description: django form clean method
+  body: |
+    def clean_$1(self):
+    	$1 = self.cleaned_data.get("$1")
+    	if False:
+    		raise forms.ValidationError("fill error message")
+    	return $1
+django.middleware:
+  prefix: django.middleware
+  description: django middleware
+  body: |
+    # TODO: register this class to the MIDDLEWARE section of settings.py.
+    class $1Middleware:
+    	def __init__(self, get_response):
+    		self.get_response = get_response
+
+    	def __call__(self, request):
+    		response = self.get_response(request)
+    		return response
+
+    	def process_view(self, request, view_func, view_args, view_kwargs):
+    		pass
+django.qs:
+  prefix: django.qs
+  description: django custom queryset
+  body: |
+    class $1QuerySet(models.QuerySet):
+    	def $2(self):
+    		return self.filter($3)
+    # TODO: set `objects = $1QuerySet.as_manager()` in the model class
+db.fetch:
+  prefix: db.fetch
+  description: fetch rows
+  body: |
+    from contextlib import closing
+    from django.db import connection
+
+    sql = 'select * from table'
+
+    with closing(connection.cursor()) as cursor:
+    	cursor.execute(sql, [${1:param}])
+    	return dict_fetchall(cursor)

@@ -1,0 +1,183 @@
+{
+  "decorator": {
+    "prefix": "decorator",
+    "description": "make a decorator",
+    "body": [
+      "def $1(func):",
+      "\t@functools.wraps(func)",
+      "\tdef wrapper(*args, **kwargs):",
+      "\t\t$2",
+      "\t\treturn func(*args, **kwargs)",
+      "\treturn wrapper"
+    ]
+  },
+  "conman": {
+    "prefix": "conman",
+    "description": "context manager",
+    "body": [
+      "@contextlib.contextmanager",
+      "def $1():",
+      "\t# preprocess",
+      "\t$2",
+      "\ttry:",
+      "\t\tyield",
+      "\t\t# postprocess",
+      "\t\t$3",
+      "\texcept Exception as e:",
+      "\t\t# error handle",
+      "\t\traise e"
+    ]
+  },
+  "main": {
+    "prefix": "main",
+    "description": "main script",
+    "body": [
+      "if __name__ == '__main__':",
+      "\tmain()"
+    ]
+  },
+  "nt": {
+    "prefix": "nt",
+    "description": "classic style namedtuple",
+    "body": [
+      "$1 = namedtuple(\"$1\", \"$2\")"
+    ]
+  },
+  "ut": {
+    "prefix": "ut",
+    "description": "unittest",
+    "body": [
+      "class $1Test(TestCase):",
+      "\tdef setUp(self):",
+      "\t\tpass",
+      "",
+      "\tdef _callFUT(self, args):",
+      "\t\treturn func(args)",
+      "",
+      "\tdef test_ok(self):",
+      "\t\tpass"
+    ]
+  },
+  "ut.table": {
+    "prefix": "ut.table",
+    "description": "table driven test",
+    "body": [
+      "def test_${1:ok}(self):",
+      "\tCase = namedtuple('Case', 'msg params expected')",
+      "\tcases = [",
+      "\t\tCase(),",
+      "\t]",
+      "\tfor c in cases:",
+      "\t\twith self.subTest(msg=c.msg):",
+      "\t\t\tactual = self._callFUT(*c.params)",
+      "\t\t\tself.assertEqual(actual, c.expected)"
+    ]
+  },
+  "ut.p": {
+    "prefix": "ut.p",
+    "description": "parametrized test",
+    "body": [
+      "@pytest.mark.parametrize(",
+      "\t\"${2:f1, f2}\",",
+      "\t[",
+      "\t\t($3),",
+      "\t],",
+      ")",
+      "def test_$1(self, $2):",
+      "\t$4"
+    ]
+  },
+  "ase": {
+    "prefix": "ase",
+    "description": "assertEqual",
+    "body": [
+      "self.assertEqual($1)"
+    ]
+  },
+  "ast": {
+    "prefix": "ast",
+    "description": "assertTrue",
+    "body": [
+      "self.assertTrue($1)"
+    ]
+  },
+  "asf": {
+    "prefix": "asf",
+    "description": "assertFalse",
+    "body": [
+      "self.assertFalse($1)"
+    ]
+  },
+  "asr": {
+    "prefix": "asr",
+    "description": "assertRaises",
+    "body": [
+      "with self.assertRaises($1):",
+      "\t$2"
+    ]
+  },
+  "django.form": {
+    "prefix": "django.form",
+    "description": "django form",
+    "body": [
+      "class $1Form(forms.Form):",
+      "\t$2",
+      "",
+      "\tdef clean(self):",
+      "\t\tcleaned_data = super().clean()",
+      "\t\treturn cleaned_data"
+    ]
+  },
+  "django.form.clean": {
+    "prefix": "django.form.clean",
+    "description": "django form clean method",
+    "body": [
+      "def clean_$1(self):",
+      "\t$1 = self.cleaned_data.get(\"$1\")",
+      "\tif False:",
+      "\t\traise forms.ValidationError(\"fill error message\")",
+      "\treturn $1"
+    ]
+  },
+  "django.middleware": {
+    "prefix": "django.middleware",
+    "description": "django middleware",
+    "body": [
+      "# TODO: register this class to the MIDDLEWARE section of settings.py.",
+      "class $1Middleware:",
+      "\tdef __init__(self, get_response):",
+      "\t\tself.get_response = get_response",
+      "",
+      "\tdef __call__(self, request):",
+      "\t\tresponse = self.get_response(request)",
+      "\t\treturn response",
+      "",
+      "\tdef process_view(self, request, view_func, view_args, view_kwargs):",
+      "\t\tpass"
+    ]
+  },
+  "django.qs": {
+    "prefix": "django.qs",
+    "description": "django custom queryset",
+    "body": [
+      "class $1QuerySet(models.QuerySet):",
+      "\tdef $2(self):",
+      "\t\treturn self.filter($3)",
+      "# TODO: set `objects = $1QuerySet.as_manager()` in the model class"
+    ]
+  },
+  "db.fetch": {
+    "prefix": "db.fetch",
+    "description": "fetch rows",
+    "body": [
+      "from contextlib import closing",
+      "from django.db import connection",
+      "",
+      "sql = 'select * from table'",
+      "",
+      "with closing(connection.cursor()) as cursor:",
+      "\tcursor.execute(sql, [${1:param}])",
+      "\treturn dict_fetchall(cursor)"
+    ]
+  }
+}

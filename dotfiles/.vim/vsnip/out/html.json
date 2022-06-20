@@ -1,0 +1,69 @@
+{
+  "table": {
+    "prefix": "table",
+    "description": "table",
+    "body": [
+      "<table>",
+      "\t<thead>",
+      "\t\t<tr>",
+      "\t\t\t<th></th>",
+      "\t\t</tr>",
+      "\t</thead>",
+      "\t<tbody>",
+      "\t\t<tr>",
+      "\t\t\t<td></td>",
+      "\t\t</tr>",
+      "\t</tbody>",
+      "</table>"
+    ]
+  },
+  "select": {
+    "prefix": "select",
+    "description": "select",
+    "body": [
+      "<select id=\"\" name=\"\">",
+      "\t<option value=\"\"></option>",
+      "</select>"
+    ]
+  },
+  "ngfor": {
+    "prefix": "ngfor",
+    "description": "ngFor",
+    "body": [
+      "*ngFor=\"let $1 of $2\""
+    ]
+  },
+  "ngif": {
+    "prefix": "ngif",
+    "description": "ngIf",
+    "body": [
+      "*ngIf=\"$1\""
+    ]
+  },
+  "ngifelse": {
+    "prefix": "ngifelse",
+    "description": "ngIf else",
+    "body": [
+      "<ng-container *ngIf=\"$1; else $2\">",
+      "\t$3",
+      "</ng-container>",
+      "<ng-template #$2>",
+      "\t$4",
+      "</ng-template>"
+    ]
+  },
+  "ngswitch": {
+    "prefix": "ngswitch",
+    "description": "ngSwitch",
+    "body": [
+      "<ng-container [ngSwitch]=\"$1\">",
+      "\t<ng-container *ngSwitchCase=\"$2\">",
+      "\t\t$3",
+      "\t</ng-container>",
+      "\t<ng-container *ngSwitchDefault>",
+      "\t\t$4",
+      "\t</ng-container>",
+      "</ng-container>"
+    ]
+  }
+}
