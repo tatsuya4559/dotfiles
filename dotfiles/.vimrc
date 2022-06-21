@@ -42,8 +42,10 @@ function! PackInit() abort
   call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
   call minpac#add('jeffkreeftmeijer/vim-dim', {'type': 'opt'})
   call minpac#add('tatsuya4559/filer.vim')
-  call minpac#add('junegunn/fzf')
-  call minpac#add('junegunn/fzf.vim')
+  call minpac#add('ctrlpvim/ctrlp.vim')
+  call minpac#add('mattn/ctrlp-matchfuzzy')
+  call minpac#add('mattn/ctrlp-lsp')
+  call minpac#add('mattn/ctrlp-launcher')
   call minpac#add('mhinz/vim-grepper')
   call minpac#add('markonm/traces.vim')
   call minpac#add('machakann/vim-sandwich')
@@ -154,24 +156,14 @@ let g:grepper = {
       \ 'side_cmd': 'tabnew'
       \ }
 
-" fzf
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-      \ 'ctrl-q': function('s:build_quickfix_list'),
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-x': 'split',
-      \ 'ctrl-v': 'vsplit' }
-
-let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
-nnoremap <c-p> :<c-u>GFiles<cr>
-nnoremap <space>b :<c-u>Buffers<cr>
-nnoremap <space>l <cmd>BLines<cr>
-nnoremap <space>r :<c-u>Rg<space>
+" ctrlp
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files', 'fd %s --type f --hidden']
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
+nnoremap <space>c <cmd>CtrlPCurFile<cr>
+nnoremap <space>b <cmd>CtrlPBuffer<cr>
+nnoremap <space>l <cmd>CtrlPLine<cr>
+nnoremap <space>p <cmd>CtrlPLauncher<cr>
+nnoremap go <cmd>CtrlPLspDocumentSymbol<cr>
 
 " lsp
 let g:lsp_document_highlight_enabled = 0
@@ -188,18 +180,9 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer><silent> ]d <plug>(lsp-next-diagnostic)
   nmap <buffer> K <plug>(lsp-hover)
   nmap <buffer> ga <plug>(lsp-code-action)
-  nmap <buffer> go <plug>(lsp-document-symbol-search)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-
-if executable('ocamllsp')
-  autocmd MyAutoCmd User lsp_setup call lsp#register_server({
-        \ 'name': 'ocamllsp',
-        \ 'cmd': {server_info -> ['ocamllsp']},
-        \ 'allowlist': ['ocaml'],
-        \ })
-endif
 
 " quickrun
 nmap <leader>r <plug>(quickrun)
