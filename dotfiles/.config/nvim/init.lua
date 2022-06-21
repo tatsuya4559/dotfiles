@@ -229,7 +229,6 @@ local function ctrlp()
   return telescope.find_files()
 end
 nnoremap("<c-p>", ctrlp)
-nnoremap("<space>ff", telescope.find_files)
 nnoremap("<space>b", telescope.buffers)
 nnoremap("<space>g", telescope.live_grep)
 nnoremap("<space>w", telescope.grep_string)
