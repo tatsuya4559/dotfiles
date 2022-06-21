@@ -19,6 +19,7 @@ return require("packer").startup(function()
         lspconfig.sumneko_lua.setup(luadev)
         lspconfig.pyright.setup {}
         lspconfig.gopls.setup {}
+        lspconfig.ocamllsp.setup {}
         lspconfig.bashls.setup {}
         lspconfig.terraformls.setup {}
       end
@@ -259,8 +260,6 @@ return require("packer").startup(function()
   use "rebelot/kanagawa.nvim"
 
   -- misc --------------------------------------------------
-  use "lukas-reineke/indent-blankline.nvim"
-
   use {
     "smjonas/snippet-converter.nvim",
     config = function()
