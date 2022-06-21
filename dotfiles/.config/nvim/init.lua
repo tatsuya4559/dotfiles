@@ -80,6 +80,7 @@ iabbrev apn2 ap-northeast-2
 iabbrev apn3 ap-northeast-3
 iabbrev use1 us-east-1
 iabbrev use2 us-east-2
+cabbrev gina Gina
 ]]
 
 -- autocmd -------------------------------------------------
