@@ -50,13 +50,6 @@ return require("packer").startup(function()
   }
 
   use {
-    "glepnir/lspsaga.nvim",
-    config = function()
-      require("lspsaga").init_lsp_saga {}
-    end
-  }
-
-  use {
     "ray-x/lsp_signature.nvim",
     config = function()
       require("lsp_signature").setup {}
@@ -202,10 +195,10 @@ return require("packer").startup(function()
     "mfussenegger/nvim-dap",
     config = function()
       local dap = require("dap")
-      local python_path = string.format("%s/bin/python", os.getenv("VIRTUAL_ENV"))
+      local venv_python_path = string.format("%s/bin/python", os.getenv("VIRTUAL_ENV"))
       dap.adapters.python = {
         type = "executable",
-        command = python_path,
+        command = venv_python_path,
         args = { "-m", "debugpy.adapter" },
       }
       dap.configurations.python = {
@@ -215,8 +208,8 @@ return require("packer").startup(function()
           name = "Launch file",
           program = "${file}",
           pythonPath = function()
-            if vim.fn.executable(python_path) then
-              return python_path
+            if vim.fn.executable(venv_python_path) then
+              return venv_python_path
             else
               return "/usr/bin/python"
             end

@@ -204,12 +204,8 @@ nnoremap("L", "20zl")
 nnoremap("[d", vim.diagnostic.goto_prev, silent)
 nnoremap("]d", vim.diagnostic.goto_next, silent)
 nnoremap("<space>d", "<cmd>TroubleToggle<cr>")
-nnoremap("ga", require("lspsaga.codeaction").code_action)
-nnoremap("<f2>", require("lspsaga.rename").rename)
-
-nnoremap("<c-s>", require("lspsaga.floaterm").open_float_terminal, silent)
-tnoremap("<c-s>", [[<c-\><c-n>:lua require("lspsaga.floaterm").close_float_terminal()<cr>]], silent)
-nnoremap("<space>t", function() require("lspsaga.floaterm").open_float_terminal("tig") end, silent)
+nnoremap("ga", vim.lsp.buf.code_action)
+nnoremap("<f2>", vim.lsp.buf.rename)
 
 local function on_hover()
   if vim.bo.filetype == "vim" then
