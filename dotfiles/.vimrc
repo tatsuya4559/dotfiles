@@ -169,6 +169,14 @@ let g:lsp_settings = {
       \ 'efm-langserver': {'disabled': v:false}
       \ }
 
+function! s:on_hover() abort
+  if &filetype ==# 'vim'
+    exe 'help' expand('<cword>')
+  else
+    LspHover
+  endif
+endfunction
+
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal tagfunc=lsp#tagfunc
@@ -179,7 +187,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <f2> <plug>(lsp-rename)
   nmap <buffer><silent> [d <plug>(lsp-previous-diagnostic)
   nmap <buffer><silent> ]d <plug>(lsp-next-diagnostic)
-  nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <buffer> K :call <SID>on_hover()<cr>
   nmap <buffer> ga <plug>(lsp-code-action)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
   nnoremap <buffer> go <cmd>CtrlPLspDocumentSymbol<cr>
