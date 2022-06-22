@@ -45,9 +45,19 @@ return require("packer").startup(function()
 
   use {
     "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup {}
+      require("trouble").setup {
+        icons = false,
+        fold_open = "v",
+        fold_closed = ">",
+        signs = {
+          error = "E",
+          warning = "W",
+          hint = "H",
+          information = "I",
+          other = "?",
+        }
+      }
     end
   }
 
