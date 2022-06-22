@@ -56,7 +56,6 @@ function! PackInit() abort
   call minpac#add('APZelos/blamer.nvim')
   call minpac#add('prabirshrestha/vim-lsp')
   call minpac#add('mattn/vim-lsp-settings')
-  call minpac#add('itspriddle/vim-shellcheck')
   call minpac#add('thinca/vim-quickrun')
   call minpac#add('mattn/emmet-vim')
   call minpac#add('mattn/vim-goimports')
