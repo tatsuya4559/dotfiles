@@ -163,7 +163,6 @@ nnoremap <space>c <cmd>CtrlPCurFile<cr>
 nnoremap <space>b <cmd>CtrlPBuffer<cr>
 nnoremap <space>l <cmd>CtrlPLine<cr>
 nnoremap <space>p <cmd>CtrlPLauncher<cr>
-nnoremap go <cmd>CtrlPLspDocumentSymbol<cr>
 
 " lsp
 let g:lsp_document_highlight_enabled = 0
@@ -181,6 +180,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> K <plug>(lsp-hover)
   nmap <buffer> ga <plug>(lsp-code-action)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
+  nnoremap <buffer> go <cmd>CtrlPLspDocumentSymbol<cr>
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
