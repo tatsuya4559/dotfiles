@@ -1,5 +1,5 @@
 git add -p			:Gina!! add -p
-git commit			:Gina commit
+git commit			:Gina commit -v
 git push				:Gina! push
 git checkout		:Gina branch
 tig							!tig
