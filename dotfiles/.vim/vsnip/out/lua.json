@@ -1,0 +1,11 @@
+{
+  "fn": {
+    "prefix": "fn",
+    "description": "function",
+    "body": [
+      "function $1($2)",
+      "\t$3",
+      "end"
+    ]
+  }
+}
