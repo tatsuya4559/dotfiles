@@ -167,6 +167,10 @@ nnoremap <space>p <cmd>CtrlPLauncher<cr>
 " lsp
 let g:lsp_document_highlight_enabled = 0
 let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_settings = {
+      \ 'efm-langserver': {'disabled': v:false}
+      \ }
+
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal tagfunc=lsp#tagfunc
@@ -183,6 +187,14 @@ function! s:on_lsp_buffer_enabled() abort
   nnoremap <buffer> go <cmd>CtrlPLspDocumentSymbol<cr>
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+
+if executable('efm-langserver')
+  autocmd MyAutoCmd User lsp_setup call lsp#register_server({
+        \ 'name': 'efm-langserver',
+        \ 'cmd': {server_info->['efm-langserver', '-c=~/.config/efm-langserver/config.yaml']},
+        \ 'allowlist': ['sh'],
+        \ })
+endif
 
 " quickrun
 nmap <leader>r <plug>(quickrun)
