@@ -1,0 +1,9 @@
+git add -p			:Gina!! add -p
+git commit			:Gina commit
+git push				:Gina! push
+git checkout		:Gina branch
+tig							!tig
+create PR				!gh pr create -w
+view repo				!gh repo view -w
+reload .vimrc		:ReloadVimrc
+git add2				botright term ++close git add -p
