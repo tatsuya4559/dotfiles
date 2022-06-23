@@ -22,7 +22,7 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-set termguicolors
+"set termguicolors
 set updatetime=300
 set nrformats&
 set nrformats+=unsigned
@@ -98,7 +98,7 @@ command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
 command! ReloadVimrc :source $MYVIMRC
 
 " colorscheme
-colorscheme shirotelin
+colorscheme dim
 let g:is_bash = v:true
 
 " abbreviations
