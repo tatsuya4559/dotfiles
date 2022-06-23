@@ -211,8 +211,9 @@ local function on_hover()
   if vim.bo.filetype == "vim" then
     local cword = vim.fn.expand("<cword>")
     vim.cmd(string.format("help %s", cword))
+  else
+    vim.lsp.buf.hover()
   end
-  vim.lsp.buf.hover()
 end
 nnoremap("K", on_hover)
 
