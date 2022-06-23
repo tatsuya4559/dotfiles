@@ -13,14 +13,9 @@ set backspace=2
 set wildmenu
 set list listchars=tab:▸\ ,trail:-
 set ruler
-set nowrap
 set hidden
 
 " keymaps
-nnoremap <f1> <nop>
-nnoremap Q <nop>
-nnoremap ZZ <nop>
-nnoremap ZQ <nop>
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 vnoremap . :normal .<cr>
 nnoremap Y y$
