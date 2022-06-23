@@ -1,6 +1,7 @@
 #!/bin/bash
 set -eu
-readonly SCRIPT_DIR=$(cd $(dirname $0); pwd)
+SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd)
+readonly SCRIPT_DIR
 
 DEBUG=true
 # If DRY_RUN is set `echo`, commands that affect the filesystem will not
@@ -9,21 +10,21 @@ DRY_RUN=
 # If FORCED is set `true`, copy and symlink will overwrite existing files.
 FORCED=false
 
-function log() {
+log() {
   if ! ${DEBUG}; then
     return 0
   fi
 
   local severity="$1"
-  local message="${@:2}"
+  local message="${*:2}"
   echo "[${severity}] ${message}" >&2
 }
 
-function symlink() {
+symlink() {
   local filename=$1
   local src="${SCRIPT_DIR}/dotfiles/${filename}"
   local dest="${HOME}/${filename}"
-  ${DRY_RUN} mkdir -p $(dirname ${dest})
+  ${DRY_RUN} mkdir -p "$(dirname "${dest}")"
   if ${FORCED}; then
     log INFO "force symlink ${src} to ${dest}."
     ${DRY_RUN} ln -s -F "${src}" "${dest}"
@@ -38,11 +39,11 @@ function symlink() {
   echo "deployed: ${src} -> ${dest}"
 }
 
-function copy() {
+copy() {
   local filename=$1
   local src="${SCRIPT_DIR}/dotfiles/${filename}"
   local dest="${HOME}/${filename}"
-  ${DRY_RUN} mkdir -p $(dirname ${dest})
+  ${DRY_RUN} mkdir -p "$(dirname "${dest}")"
   if ${FORCED}; then
     log INFO "force copy ${src} to ${dest}."
     ${DRY_RUN} cp "${src}" "${dest}"
@@ -57,17 +58,17 @@ function copy() {
   echo "deployed: ${src} -> ${dest}"
 }
 
-function deploy_files() {
+deploy_files() {
   while read -r filename; do
-    symlink ${filename}
+    symlink "${filename}"
   done < "${SCRIPT_DIR}/symlink.conf"
 
   while read -r filename; do
-    copy ${filename}
+    copy "${filename}"
   done < "${SCRIPT_DIR}/copy.conf"
 }
 
-function download_file() {
+download_file() {
   local dest_filepath="${HOME}/$1"
   local src_url=$2
   if [[ -e "${dest_filepath}" ]]; then
@@ -79,7 +80,7 @@ function download_file() {
   echo "deployed: ${src_url} -> ${dest_filepath}"
 }
 
-function clone_git_repo() {
+clone_git_repo() {
   local dest_dirname="${HOME}/$1"
   local repo_url=$2
   if [[ -e "${dest_dirname}" ]]; then
@@ -91,7 +92,7 @@ function clone_git_repo() {
   echo "deployed: ${repo_url} -> ${dest_dirname}"
 }
 
-function download_external() {
+download_external() {
   local pid_array=()
 
   while read -r filename url; do
@@ -104,23 +105,23 @@ function download_external() {
     pid_array+=($!)
   done < "${SCRIPT_DIR}/external_repos.conf"
 
-  wait ${pid_array[@]}
+  wait "${pid_array[@]}"
 }
 
-function get_last_modified_in_unix_time() {
+get_last_modified_in_unix_time() {
   # FIXME: これだとsymlink自体の時間は取れないのでlockファイルを通常ファイルにしている
   local filepath="$1"
   date -r "${filepath}" +%s
 }
 
-function on_run_script_once_failed() {
+on_run_script_once_failed() {
   log ERROR "${script_filepath} failed."
   echo "run script: ${script_filepath} failed."
   log INFO "delete lock file ${lock_filepath}"
   ${DRY_RUN} rm -f "${lock_filepath}" || true
 }
 
-function run_script_once() {
+run_script_once() {
   local script_filepath="${SCRIPT_DIR}/scripts/$1"
   local lock_filepath="${SCRIPT_DIR}/.lock/$1"
 
@@ -135,20 +136,21 @@ function run_script_once() {
   ${DRY_RUN} bash "${script_filepath}"
 }
 
-function run_script_on_change() {
+run_script_on_change() {
   local script_filepath="${SCRIPT_DIR}/scripts/$1"
   local lock_filepath="${SCRIPT_DIR}/.lock/$1"
 
   if [[ -e "${lock_filepath}" ]]; then
-    local script_timestamp="$(get_last_modified_in_unix_time ${script_filepath})"
-    local lock_timestamp="$(get_last_modified_in_unix_time ${lock_filepath})"
+    local script_timestamp lock_timestamp
+    script_timestamp="$(get_last_modified_in_unix_time "${script_filepath}")"
+    lock_timestamp="$(get_last_modified_in_unix_time "${lock_filepath}")"
     if [[ "${lock_timestamp}" -gt "${script_timestamp}" ]]; then
       log INFO "${script_filepath} skipped."
       return 0
     fi
   fi
 
-  trap "log ERROR ${script_filepath} failed.; echo run script: ${script_filepath} failed." ERR
+  trap 'log ERROR ${script_filepath} failed.; echo run script: ${script_filepath} failed.' ERR
   log INFO "run ${script_filepath}."
   echo "run script: ${script_filepath}."
   ${DRY_RUN} bash "${script_filepath}"
@@ -157,7 +159,7 @@ function run_script_on_change() {
   ${DRY_RUN} touch "${lock_filepath}"
 }
 
-function run_scripts() {
+run_scripts() {
   if [[ ! -d "${SCRIPT_DIR}/.lock" ]]; then
     mkdir "${SCRIPT_DIR}/.lock"
   fi
@@ -171,12 +173,12 @@ function run_scripts() {
   done < <(find "${SCRIPT_DIR}/scripts" -type f | sed 's@^.*/@@' | sort)
 }
 
-function deploy() {
+deploy() {
   while [[ $# -gt 0 ]]; do
     case "$1" in
       -d|--dry-run)
         log INFO "set dry-run option."
-        DRY_RUN=echo
+        DRY_RUN='echo'
         ;;
       -f|--force)
         log INFO "set force option."
@@ -200,12 +202,12 @@ USAGE
   run_scripts
 }
 
-function status() {
+status() {
   while read -r filename; do
     if [[ -d "${SCRIPT_DIR}/dotfiles/${filename}" ]]; then
       while read -r filepath; do
         if ! git diff --quiet "${filepath}"; then
-          echo "modified from committed:" $(echo ${filepath} | sed "s@${SCRIPT_DIR}/dotfiles/@@")
+          echo "modified from committed:" "${filepath//${SCRIPT_DIR}\/dotfiles/}"
         fi
       done < <(find "${SCRIPT_DIR}/dotfiles/${filename}" -type f)
     else
@@ -228,7 +230,7 @@ function status() {
   done < <(find "${SCRIPT_DIR}/scripts" -type f | sed 's@^.*/@@')
 }
 
-function diff() {
+diff() {
   if [[ $# -lt 1 ]]; then
     echo 'Nothing specified.' >&2
     cat <<USAGE >&2
@@ -261,23 +263,25 @@ USAGE
   fi
 }
 
-function clear() {
+clear() {
   log INFO "clear lock files."
   ${DRY_RUN} rm -f "${SCRIPT_DIR}/.lock/*"
 }
 
-function add_copy() {
+add_copy() {
   local filepath="$1"
-  local dir=$(dirname "${filepath}")
+  local dir
+  dir=$(dirname "${filepath}")
   ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/dotfiles/${dir}"
   ${DRY_RUN} cp -a "${HOME}/${filepath}" "${SCRIPT_DIR}/dotfiles/${filepath}"
   ${DRY_RUN} echo "${filepath}" >> "${SCRIPT_DIR}/copy.conf"
   ${DRY_RUN} git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}/copy.conf"
 }
 
-function add_symlink() {
+add_symlink() {
   local filepath="$1"
-  local dir=$(dirname "${filepath}")
+  local dir
+  dir=$(dirname "${filepath}")
   ${DRY_RUN} mkdir -p "${SCRIPT_DIR}/dotfiles/${dir}"
   ${DRY_RUN} mv "${HOME}/${filepath}" "${SCRIPT_DIR}/dotfiles/${filepath}"
   ${DRY_RUN} ln -s "${SCRIPT_DIR}/dotfiles/${filepath}" "${HOME}/${filepath}"
@@ -285,16 +289,16 @@ function add_symlink() {
   ${DRY_RUN} git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}/symlink.conf"
 }
 
-function add_external_file() {
+add_external_file() {
   ${DRY_RUN} echo "$1 $2" >> "${SCRIPT_DIR}/external_files.conf"
   ${DRY_RUN} git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}/external_files.conf"
 }
-function add_external_git_repo() {
+add_external_git_repo() {
   ${DRY_RUN} echo "$1 $2" >> "${SCRIPT_DIR}/external_repos.conf"
   ${DRY_RUN} git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}/external_repos.conf"
 }
 
-function add() {
+add() {
   local filepaths=()
   local add_fn
   local url
@@ -342,7 +346,7 @@ USAGE
   done
 }
 
-function usage() {
+usage() {
   cat <<USAGE >&2
 usage: $0 SUBCOMMAND [OPTION]
   deploy  Distribute dotfiles.
@@ -361,7 +365,7 @@ fi
 readonly SUBCOMMAND="$1"; shift
 case "${SUBCOMMAND}" in
   deploy | status | diff | clear | add)
-    ${SUBCOMMAND} $@
+    ${SUBCOMMAND} "$@"
     ;;
   noop)
     :
