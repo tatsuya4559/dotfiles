@@ -22,6 +22,8 @@ fi
 source "$(brew --prefix asdf)/libexec/asdf.sh"
 source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 
+export PATH=$PATH:$(go env GOPATH)/bin
+
 # ocaml
 if [[ -n $(command -v opam) ]]; then
   eval $(opam env)
