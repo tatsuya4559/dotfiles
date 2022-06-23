@@ -49,6 +49,7 @@ function! PackInit() abort
   call minpac#add('markonm/traces.vim')
   call minpac#add('machakann/vim-sandwich')
   call minpac#add('haya14busa/vim-asterisk')
+  call minpac#add('AndrewRadev/linediff.vim')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('hrsh7th/vim-vsnip')
   call minpac#add('lambdalisue/gina.vim')
