@@ -15,15 +15,18 @@ _plug() {
     COMPREPLY=($(compgen -W "${subcommands}" -- "${cur}"))
     ;;
   uninstall)
-    local plugins=$(cat <(\ls ~/.vim/pack/plug/start) <(\ls ~/.vim/pack/plug/disabled))
+    local plugins
+    plugins=$(cat <(\ls ~/.vim/pack/plug/start) <(\ls ~/.vim/pack/plug/disabled))
     COMPREPLY=($(compgen -W "${plugins}" -- "${cur}"))
     ;;
   enable)
-    local plugins=$(\ls $HOME/.vim/pack/plug/disabled)
+    local plugins
+    plugins=$(\ls "$HOME/.vim/pack/plug/disabled")
     COMPREPLY=($(compgen -W "${plugins}" -- "${cur}"))
     ;;
   disable)
-    local plugins=$(\ls $HOME/.vim/pack/plug/start)
+    local plugins
+    plugins=$(\ls "$HOME/.vim/pack/plug/start")
     COMPREPLY=($(compgen -W "${plugins}" -- "${cur}"))
     ;;
   esac

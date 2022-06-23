@@ -1,17 +1,17 @@
 #!/bin/bash
 
-function _install() {
+_install() {
   local name=${1##*/}
   git clone --depth 1 "https://github.com/$1.git" "$HOME/.vim/pack/plug/start/${name}"
 }
 
-function _uninstall() {
+_uninstall() {
   local name=${1##*/}
   [[ -d "$HOME/.vim/pack/plug/start/${name}" ]] && rm -rf "$HOME/.vim/pack/plug/start/${name}"
   [[ -d "$HOME/.vim/pack/plug/disabled/${name}" ]] && rm -rf "$HOME/.vim/pack/plug/disabled/${name}"
 }
 
-function _list() {
+_list() {
   echo "*** active ***"
   \ls "$HOME/.vim/pack/plug/start/" | cat
   echo ""
@@ -19,7 +19,7 @@ function _list() {
   \ls "$HOME/.vim/pack/plug/disabled/" | cat
 }
 
-function _disable() {
+_disable() {
   local name=${1##*/}
   if [[ ! -d "$HOME/.vim/pack/plug/disabled" ]]; then
     mkdir "$HOME/.vim/pack/plug/disabled"
@@ -27,12 +27,12 @@ function _disable() {
   mv "$HOME/.vim/pack/plug/start/${name}" "$HOME/.vim/pack/plug/disabled/${name}"
 }
 
-function _enable() {
+_enable() {
   local name=${1##*/}
   mv "$HOME/.vim/pack/plug/disabled/${name}" "$HOME/.vim/pack/plug/start/${name}"
 }
 
-function _help() {
+_help() {
   cat <<EOF
 Plug - Simple vim plugin installer
 
@@ -56,13 +56,13 @@ EOF
 case "$1" in
 "install")
   for plugin in "${@:2}"; do
-    _install $plugin &
+    _install "${plugin}" &
   done
   wait
   ;;
 "uninstall")
   for plugin in "${@:2}"; do
-    _uninstall $plugin &
+    _uninstall "${plugin}" &
   done
   wait
   ;;
@@ -71,13 +71,13 @@ case "$1" in
   ;;
 "enable")
   for plugin in "${@:2}"; do
-    _enable $plugin &
+    _enable "${plugin}" &
   done
   wait
   ;;
 "disable")
   for plugin in "${@:2}"; do
-    _disable $plugin &
+    _disable "${plugin}" &
   done
   wait
   ;;
