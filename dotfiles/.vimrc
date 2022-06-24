@@ -13,6 +13,7 @@ set shortmess-=S
 set backspace=2
 set wildmenu
 set list listchars=tab:▸\ ,trail:·
+set cmdheight=2
 "set laststatus=2
 "set number
 "set relativenumber
