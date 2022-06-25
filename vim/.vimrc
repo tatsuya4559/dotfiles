@@ -23,7 +23,11 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-"set termguicolors
+if $COLORTERM ==# 'truecolor'
+  set termguicolors
+else
+  set notermguicolors
+endif
 set updatetime=300
 set nrformats&
 set nrformats+=unsigned
