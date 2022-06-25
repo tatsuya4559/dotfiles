@@ -44,6 +44,16 @@ function mkdircd() {
   cd $1
 }
 
+gg() {
+  local search_words
+  search_words=$(tr ' ' '+' <<< "$*")
+  if [[ $(uname) == 'Darwin' ]]; then
+    open "https://www.google.com/search?q=${search_words}"
+  else
+    xdg-open "https://www.google.com/search?q=${search_words}"
+  fi
+}
+
 # apps
 source $HOME/.fzf.bash
 
