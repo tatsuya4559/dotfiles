@@ -116,7 +116,7 @@ return require("packer").startup(function()
     "L3MON4D3/LuaSnip",
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load {
-        paths = { vim.fn.stdpath("config") .. "/vscode" }
+        paths = { vim.fn.stdpath("config") .. "/luasnip" }
       }
     end
   }
@@ -276,13 +276,13 @@ return require("packer").startup(function()
     config = function()
       local template = {
         sources = {
-          ultisnips = {
-            vim.fn.stdpath("config") .. "/ultisnips",
+          vscode = {
+            vim.fn.stdpath("config") .. "/vscode",
           },
         },
         output = {
           vscode = {
-            vim.fn.stdpath("config") .. "/vscode",
+            vim.fn.stdpath("config") .. "/luasnip",
           }
         },
       }
