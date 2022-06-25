@@ -1,15 +1,16 @@
 #!/bin/bash
 set -eu
 
-function transpile() {
-  local -r filepath="$1"
-  local -r outputpath="$2"
-  cat "${filepath}" | yq -o json | jq 'map_values(.body |= (rtrimstr("\n") | split("\n")))' > "${outputpath}"
+SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
+
+transpile() {
+  local -r src="$1"
+  local -r out="$2"
+  yq "${src}" -o json | jq 'map_values(.body |= (rtrimstr("\n") | split("\n")))' > "${out}"
 }
 
-for filepath in $(find ~/.vim/vsnip/src/ -type f); do
-  dir=$(dirname ${filepath})
-  base=$(basename ${filepath})
-  outputpath="${dir}/../out/${base%.*}.json"
-  transpile "${filepath}" "${outputpath}"
-done
+while read -r src; do
+  base=$(basename "${src}")
+  out="${SCRIPT_DIR}/out/${base%.*}.json"
+  transpile "${src}" "${out}"
+done < <(find "${SCRIPT_DIR}/src/" -type f)
