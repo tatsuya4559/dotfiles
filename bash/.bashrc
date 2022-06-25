@@ -1,8 +1,7 @@
 # PS1
 __tf_workspace() {
   if [[ -d .terraform ]]; then
-    local workspace="$(terraform workspace show)"
-    echo -n "[${workspace}]"
+    echo -n "[$(terraform workspace show)]"
   fi
 }
 
@@ -35,13 +34,13 @@ if [[ $(uname) == 'Linux' ]]; then
 fi
 
 # functions
-function col() {
+col() {
   awk -v col=$1 '{print $col}'
 }
 
-function mkdircd() {
-  mkdir -p $1
-  cd $1
+mkdircd() {
+  mkdir -p "$1"
+  cd "$1"
 }
 
 gg() {
