@@ -1,26 +1,12 @@
-# Dotfiles
-
-## Usage
-
-
-### yadf
+# Installation
+## dotfiles
 ```sh
-yadf deploy
-yadf status
-yadf diff
+make all
+make link # make symlinks only
 ```
 
-### plug
+## plug
 ```sh
 cd plug
 make install
-```
-
-### asdf
-```sh
-asdf plugin add python
-asdf install python 3.9.11
-asdf local python 3.9.11
-
-asdf list
 ```
