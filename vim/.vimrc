@@ -22,11 +22,7 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-if $COLORTERM ==# 'truecolor'
-  set termguicolors
-else
-  set notermguicolors
-endif
+"set termguicolors
 set updatetime=300
 set nrformats&
 set nrformats+=unsigned
@@ -42,7 +38,7 @@ function! PackInit() abort
   packadd! minpac
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
-  call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
+  call minpac#add('yasukotelin/notelight', {'type': 'opt'})
   call minpac#add('jeffkreeftmeijer/vim-dim', {'type': 'opt'})
   call minpac#add('tatsuya4559/filer.vim')
   call minpac#add('ctrlpvim/ctrlp.vim')
