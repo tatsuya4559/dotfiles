@@ -50,7 +50,7 @@ Commands:
   enable      Enable plugins
   disable     Disable plugins
 EOF
-  exit 1
+  exit 0
 }
 
 case "$1" in
