@@ -1,0 +1,21 @@
+var:
+  prefix: var
+  description: variable block
+  body: |
+    variable "$1" {
+    	type = $2
+    }
+res:
+  prefix: res
+  description: resource block
+  body: |
+    resource "$1" "$2" {
+    	$3
+    }
+mod:
+  prefix: mod
+  description: module block
+  body: |
+    module "$1" {
+    	$2
+    }
