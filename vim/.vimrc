@@ -199,7 +199,7 @@ if executable('efm-langserver')
   autocmd MyAutoCmd User lsp_setup call lsp#register_server({
         \ 'name': 'efm-langserver',
         \ 'cmd': {server_info->['efm-langserver', '-c=~/.config/efm-langserver/config.yaml']},
-        \ 'allowlist': ['sh'],
+        \ 'allowlist': ['dockerfile', 'sh'],
         \ })
 endif
 

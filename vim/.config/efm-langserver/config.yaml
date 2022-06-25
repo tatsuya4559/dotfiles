@@ -3,6 +3,11 @@ root-markers:
   - .git/
 
 tools:
+  dockerfile-hadolint: &dockerfile-hadolint
+    lint-command: 'hadolint'
+    lint-formats:
+      - '%f:%l %m'
+
   sh-shellcheck: &sh-shellcheck
     lint-command: 'shellcheck -f gcc -x'
     lint-source: 'shellcheck'
@@ -16,6 +21,9 @@ tools:
     format-stdin: true
 
 languages:
+  dockerfile:
+    - <<: *dockerfile-hadolint
+
   sh:
     - <<: *sh-shellcheck
     - <<: *sh-shfmt
