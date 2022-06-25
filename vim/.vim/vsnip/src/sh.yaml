@@ -4,6 +4,11 @@ bash:
   body: |
     #!/bin/bash
     set -eu
+dir:
+  prefix: dir
+  description: script dir
+  body: |
+    SCRIPT_DIR="\$(cd \$(dirname "\$0"); pwd)"
 onexit:
   prefix: onexit
   description: on exit function
