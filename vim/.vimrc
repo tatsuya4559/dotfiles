@@ -225,12 +225,13 @@ imap <expr> <tab> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<tab>'
 imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
 imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 
-function! s:edit_vsnip_src() abort
-  let snip_src = printf('~/.vim/vsnip/src/%s.yaml', &filetype)
+function! s:edit_vsnip_src(filetype) abort
+  let filetype = empty(a:filetype) ? &filetype : a:filetype
+  let snip_src = printf('~/.vim/vsnip/src/%s.yaml', filetype)
   exe printf('autocmd MyAutoCmd BufWritePost %s call system("~/.vim/vsnip/transpile_vsnip.sh")', snip_src)
   exe 'edit' snip_src
 endfunction
-command! VsnipEdit :call s:edit_vsnip_src()
+command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
 " util
 function! s:echoerr(msg, ...) abort
