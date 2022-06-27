@@ -2,3 +2,4 @@
 .envrc
 .tool-versions
 .direnv
+Session.vim
