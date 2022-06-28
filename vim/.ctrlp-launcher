@@ -1,10 +1,10 @@
-git add -p			:Gina!! add -p
-git commit			:Gina commit -v
-git push				:Gina! push -u
+git add -p		:Gina!! add -p
+git commit		:Gina commit -v
+git push		:Gina! push -u
 git checkout		:Gina branch
-tig							!tig
-create PR				!gh pr create -w
-view repo				!gh repo view -w
+tig			!tig
+create PR		!gh pr create -w
+view repo		!gh repo view -w
 reload .vimrc		:ReloadVimrc
-git add2				botright term ++close git add -p
+git add2		botright term ++close git add -p
 open circleci		!open https://app.circleci.com/pipelines/github/$(git config --get remote.origin.url | awk -F/ '{print $4"/"substr($5, 0, index($5, ".")-1)}')

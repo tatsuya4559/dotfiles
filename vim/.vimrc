@@ -264,6 +264,7 @@ command! CopyFullPath :let @+ = expand('%:p')
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:·
 autocmd MyAutoCmd FileType python setlocal tabstop=4 shiftwidth=4
 autocmd MyAutoCmd FileType yaml setlocal lisp
+autocmd MyAutoCmd BufReadPost .ctrlp-launcher setlocal tabstop=8 shiftwidth=8 noexpandtab
 augroup MyAutoCmd
   let sql_keywords = [
         \ 'select', 'from', 'where',
