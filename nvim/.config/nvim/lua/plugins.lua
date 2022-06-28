@@ -268,7 +268,6 @@ return require("packer").startup(function()
     end
   }
   use "folke/tokyonight.nvim"
-  use "rebelot/kanagawa.nvim"
 
   -- misc --------------------------------------------------
   use {
