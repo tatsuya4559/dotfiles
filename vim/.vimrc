@@ -30,7 +30,7 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 set autoread
-autocmd MyAutoCmd FocusGained,BufEnter * checktime
+autocmd MyAutoCmd WinEnter * checktime
 packadd! matchit
 
 " plugins
