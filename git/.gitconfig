@@ -1,6 +1,8 @@
 [user]
   name = tatsuya4559
   email = tatsuya.k1029@gmail.com
+[github]
+  user = tatsuya4559
 [core]
   editor = vim
   pager = diff-highlight | less
