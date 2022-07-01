@@ -158,8 +158,10 @@ let g:grepper = {
       \ }
 
 " ctrlp
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files', 'fd %s --type f --hidden']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files', 'fd --hidden --type f --color never "" %s']
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
+let g:ctrlp_reuse_window = 'filer'
+let g:ctrlp_switch_buffer = ''
 nnoremap <space>c <cmd>CtrlPCurFile<cr>
 nnoremap <space>b <cmd>CtrlPBuffer<cr>
 nnoremap <space>l <cmd>CtrlPLine<cr>
