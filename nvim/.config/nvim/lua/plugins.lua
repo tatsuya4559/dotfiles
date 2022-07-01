@@ -74,17 +74,12 @@ return require("packer").startup(function()
     requires = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
-      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-vsnip",
       "hrsh7th/cmp-buffer",
     },
     config = function()
       local cmp = require("cmp")
       cmp.setup {
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end
-        },
         mapping = cmp.mapping.preset.insert({
           ["<c-b>"] = cmp.mapping.scroll_docs(-4),
           ["<c-f>"] = cmp.mapping.scroll_docs(4),
@@ -95,7 +90,7 @@ return require("packer").startup(function()
         sources = {
           { name = "nvim_lsp" },
           { name = "nvim_lua" },
-          { name = "luasnip" },
+          { name = "vsnip" },
           { name = "buffer" },
         },
       }
@@ -112,14 +107,7 @@ return require("packer").startup(function()
     end
   }
 
-  use {
-    "L3MON4D3/LuaSnip",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load {
-        paths = { vim.fn.stdpath("config") .. "/luasnip" }
-      }
-    end
-  }
+  use "hrsh7th/vim-vsnip"
 
   use "mattn/emmet-vim"
 
@@ -268,27 +256,8 @@ return require("packer").startup(function()
     end
   }
   use "folke/tokyonight.nvim"
+  use "projekt0n/github-nvim-theme"
 
   -- misc --------------------------------------------------
-  use {
-    "smjonas/snippet-converter.nvim",
-    config = function()
-      local template = {
-        sources = {
-          vscode = {
-            vim.fn.stdpath("config") .. "/vscode",
-          },
-        },
-        output = {
-          vscode = {
-            vim.fn.stdpath("config") .. "/luasnip",
-          }
-        },
-      }
-      require("snippet_converter").setup {
-        templates = { template },
-      }
-    end
-  }
 
 end)

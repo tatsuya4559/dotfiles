@@ -237,11 +237,12 @@ nnoremap("gi", telescope.lsp_implementations)
 nnoremap("go", telescope.lsp_document_symbols)
 nnoremap("gs", telescope.lsp_dynamic_workspace_symbols)
 
--- luasnip keymap
+-- vsnip keymap
 vim.cmd [[
-imap <expr> <tab> luasnip#expandable() ? '<plug>luasnip-expand-snippet' : '<tab>'
-imap <c-j> <plug>luasnip-jump-next
-imap <c-k> <plug>luasnip-jump-prev
+let g:vsnip_snippet_dir = '~/.vim/vsnip/out'
+imap <expr> <tab> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<tab>'
+imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
+imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 ]]
 
 -- toggleterm keymap
