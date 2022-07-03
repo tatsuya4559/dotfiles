@@ -110,3 +110,10 @@ enum:
     	$3 $1 = iota
     	$4
     )
+st:
+  prefix: st
+  description: struct
+  body: |
+    type $1 struct {
+    	$2
+    }

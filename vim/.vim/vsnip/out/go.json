@@ -128,5 +128,14 @@
       "\t$4",
       ")"
     ]
+  },
+  "st": {
+    "prefix": "st",
+    "description": "struct",
+    "body": [
+      "type $1 struct {",
+      "\t$2",
+      "}"
+    ]
   }
 }
