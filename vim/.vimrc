@@ -40,7 +40,6 @@ function! PackInit() abort
   call minpac#add('k-takata/minpac', {'type': 'opt'})
   call minpac#add('tatsuya4559/shirotelin', {'type': 'opt'})
   call minpac#add('cormacrelf/vim-colors-github', {'type': 'opt'})
-  call minpac#add('jeffkreeftmeijer/vim-dim', {'type': 'opt'})
   call minpac#add('tatsuya4559/filer.vim')
   call minpac#add('ctrlpvim/ctrlp.vim')
   call minpac#add('mattn/ctrlp-matchfuzzy')
