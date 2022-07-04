@@ -38,7 +38,7 @@ function! PackInit() abort
   packadd! minpac
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
-  call minpac#add('yasukotelin/notelight', {'type': 'opt'})
+  call minpac#add('yasukotelin/shirotelin', {'type': 'opt'})
   call minpac#add('cormacrelf/vim-colors-github', {'type': 'opt'})
   call minpac#add('jeffkreeftmeijer/vim-dim', {'type': 'opt'})
   call minpac#add('tatsuya4559/filer.vim')
