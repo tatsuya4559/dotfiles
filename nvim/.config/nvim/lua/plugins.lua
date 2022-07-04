@@ -81,8 +81,6 @@ return require("packer").startup(function()
       local cmp = require("cmp")
       cmp.setup {
         mapping = cmp.mapping.preset.insert({
-          ["<c-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<c-f>"] = cmp.mapping.scroll_docs(4),
           ["<c-x><c-o>"] = cmp.mapping.complete({}),
           ["<c-e>"] = cmp.mapping.abort(),
           ["<cr>"] = cmp.mapping.confirm({ select = true }),
@@ -110,17 +108,6 @@ return require("packer").startup(function()
   use "hrsh7th/vim-vsnip"
 
   use "mattn/emmet-vim"
-
-  -- use {
-  --   "zbirenbaum/copilot.lua",
-  --   requires = "github/copilot.vim",
-  --   event = { "VimEnter" },
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require("copilot").setup {}
-  --     end, 100)
-  --   end
-  -- }
 
   -- movement ----------------------------------------------
   use "haya14busa/vim-asterisk"
@@ -256,7 +243,6 @@ return require("packer").startup(function()
     end
   }
   use "folke/tokyonight.nvim"
-  use "projekt0n/github-nvim-theme"
 
   -- misc --------------------------------------------------
 
