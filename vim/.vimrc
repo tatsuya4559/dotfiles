@@ -45,7 +45,7 @@ function! PackInit() abort
   call minpac#add('mattn/ctrlp-matchfuzzy')
   call minpac#add('mattn/ctrlp-lsp')
   call minpac#add('mattn/ctrlp-launcher')
-  call minpac#add('mhinz/vim-grepper')
+  call minpac#add('tatsuya4559/qrep.vim')
   call minpac#add('markonm/traces.vim')
   call minpac#add('machakann/vim-sandwich')
   call minpac#add('haya14busa/vim-asterisk')
@@ -147,14 +147,10 @@ nnoremap <silent> [q :<c-u>cp<cr>
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 packadd! cfilter
 
-" grepper
-nnoremap <space>g <cmd>Grepper<cr>
-nmap gs  <plug>(GrepperOperator)
-xmap gs  <plug>(GrepperOperator)
-let g:grepper = {
-      \ 'highlight': v:true,
-      \ 'side_cmd': 'tabnew'
-      \ }
+" qrep
+let &grepprg = 'rg --vimgrep --hidden --glob "!.git"'
+set grepformat=%f:%l:%c:%m
+nnoremap <space>g :<c-u>Qrep<space>
 
 " ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files', 'fd --hidden --type f --color never "" %s']
@@ -165,6 +161,7 @@ nnoremap <space>c <cmd>CtrlPCurFile<cr>
 nnoremap <space>b <cmd>CtrlPBuffer<cr>
 nnoremap <space>l <cmd>CtrlPLine<cr>
 nnoremap <space>p <cmd>CtrlPLauncher<cr>
+nnoremap <c-q> <cmd>CtrlPQuickfix<cr>
 
 " lsp
 let g:lsp_document_highlight_enabled = 0
