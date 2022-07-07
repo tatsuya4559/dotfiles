@@ -234,13 +234,6 @@ endfunction
 command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
 " util
-function! s:echoerr(msg, ...) abort
-  redraw
-  echohl Error
-  echomsg call(function('printf', [a:msg]), a:000)
-  echohl None
-endfunction
-
 " google
 function! s:google(...) abort
   if empty(a:000)
@@ -281,7 +274,7 @@ function! s:ng_goto_companion_file() abort
   if filereadable(filename)
     exe 'edit' filename
   else
-    call s:echoerr('Cannot open %s', filename)
+    echom 'Cannot open ' .. filename
   endif
 endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
