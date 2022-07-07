@@ -1,1 +1,1 @@
-nnoremap <buffer> <space>g :Grepper -dir file<cr>
+nnoremap <buffer> <space>g :Qrep  <c-r>%<home><right><right><right><right><right>
