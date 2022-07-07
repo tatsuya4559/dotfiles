@@ -22,7 +22,7 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-"set termguicolors
+set termguicolors
 set updatetime=300
 set nrformats&
 set nrformats+=unsigned
@@ -266,18 +266,8 @@ command! CopyFullPath :let @+ = expand('%:p')
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:·
 autocmd MyAutoCmd FileType yaml setlocal lisp
+autocmd MyAutoCmd FileType gitcommit setlocal spell
 autocmd MyAutoCmd BufReadPost .ctrlp-launcher setlocal tabstop=8 shiftwidth=8 noexpandtab
-augroup MyAutoCmd
-  let sql_keywords = [
-        \ 'select', 'from', 'where',
-        \ 'order', 'by', 'asc', 'desc',
-        \ 'insert', 'into', 'values',
-        \ 'update', 'delete', 'limit',
-        \ ]
-  for keyword in sql_keywords
-    exe printf('autocmd FileType sql iabbrev <buffer> %s %s', keyword, keyword->toupper())
-  endfor
-augroup END
 
 " vim-test
 let g:test#strategy = 'vimterminal'
