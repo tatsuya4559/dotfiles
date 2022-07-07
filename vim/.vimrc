@@ -263,7 +263,7 @@ command! CopyFullPath :let @+ = expand('%:p')
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:·
 autocmd MyAutoCmd FileType yaml setlocal lisp
-autocmd MyAutoCmd FileType gitcommit setlocal spell
+autocmd MyAutoCmd FileType gitcommit setlocal spell textwidth=0
 autocmd MyAutoCmd BufReadPost .ctrlp-launcher setlocal tabstop=8 shiftwidth=8 noexpandtab
 
 " vim-test
