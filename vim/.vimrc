@@ -96,8 +96,6 @@ nnoremap L 20zl
 command! SepLineFeed :s/\\n/\r/g
 command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
 
-command! ReloadVimrc :source $MYVIMRC
-
 " colorscheme
 colorscheme shirotelin_nobold
 let g:is_bash = v:true
@@ -134,10 +132,9 @@ autocmd MyAutoCmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
 
 " quickfix
 function! s:toggle_quickfix()
-  let l:nr = winnr('$')
+  let nr = winnr('$')
   cwindow
-  let l:nr2 = winnr('$')
-  if l:nr == l:nr2
+  if nr == winnr('$')
     cclose
   endif
 endfunction
@@ -164,7 +161,6 @@ nnoremap <space>p <cmd>CtrlPLauncher<cr>
 nnoremap <c-q> <cmd>CtrlPQuickfix<cr>
 
 " lsp
-let g:lsp_document_highlight_enabled = 0
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_settings = {'efm-langserver': {'disabled': v:false}}
 
@@ -173,6 +169,14 @@ function! s:on_hover() abort
     exe 'help' expand('<cword>')
   else
     LspHover
+  endif
+endfunction
+
+function! s:toggle_diagnostics() abort
+  let nr = winnr('$')
+  LspDocumentDiagnostics
+  if nr == winnr('$')
+    lclose
   endif
 endfunction
 
@@ -186,9 +190,10 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <f2> <plug>(lsp-rename)
   nmap <buffer><silent> [d <plug>(lsp-previous-diagnostic)
   nmap <buffer><silent> ]d <plug>(lsp-next-diagnostic)
-  nnoremap <buffer> K :call <SID>on_hover()<cr>
+  nnoremap <buffer> K <scriptcmd>call <SID>on_hover()<cr>
   nmap <buffer> ga <plug>(lsp-code-action)
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> <space>d <scriptcmd>call <SID>toggle_diagnostics()<cr>
   nnoremap <buffer> go <cmd>CtrlPLspDocumentSymbol<cr>
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
@@ -223,7 +228,6 @@ function! s:edit_vsnip_src(filetype) abort
 endfunction
 command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
-" util
 " google
 function! s:google(...) abort
   if empty(a:000)

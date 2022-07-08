@@ -1,4 +1,4 @@
-reload .vimrc		ReloadVimrc
+reload .vimrc		source $MYVIMRC
 git checkout		Gina branch
 git add -p		Gina!! add -p
 git commit		Gina commit -v
