@@ -166,9 +166,7 @@ nnoremap <c-q> <cmd>CtrlPQuickfix<cr>
 " lsp
 let g:lsp_document_highlight_enabled = 0
 let g:lsp_diagnostics_float_cursor = 1
-let g:lsp_settings = {
-      \ 'efm-langserver': {'disabled': v:false}
-      \ }
+let g:lsp_settings = {'efm-langserver': {'disabled': v:false}}
 
 function! s:on_hover() abort
   if &filetype ==# 'vim'
@@ -194,14 +192,6 @@ function! s:on_lsp_buffer_enabled() abort
   nnoremap <buffer> go <cmd>CtrlPLspDocumentSymbol<cr>
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-
-if executable('efm-langserver')
-  autocmd MyAutoCmd User lsp_setup call lsp#register_server({
-        \ 'name': 'efm-langserver',
-        \ 'cmd': {server_info->['efm-langserver', '-c=~/.config/efm-langserver/config.yaml']},
-        \ 'allowlist': ['dockerfile', 'sh'],
-        \ })
-endif
 
 " quickrun
 nmap <leader>r <plug>(quickrun)

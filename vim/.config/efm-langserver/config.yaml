@@ -3,6 +3,24 @@ root-markers:
   - .git/
 
 tools:
+  python-black: &python-black
+    format-command: 'black --quiet -'
+    format-stdin: true
+
+  python-isort: &python-isort
+    format-command: 'isort --quiet -'
+    format-stdin: true
+
+  go-staticcheck: &go-staticcheck
+    lint-command: 'staticcheck'
+    lint-formats:
+      - '%f:%l:%c: %m'
+
+  go-errcheck: &go-errcheck
+    lint-command: 'errcheck'
+    lint-formats:
+      - '%f:%l:%c:%m'
+
   dockerfile-hadolint: &dockerfile-hadolint
     lint-command: 'hadolint'
     lint-formats:
@@ -21,6 +39,14 @@ tools:
     format-stdin: true
 
 languages:
+  python:
+    # - <<: *python-black
+    # - <<: *python-isort
+
+  go:
+    - <<: *go-staticcheck
+    - <<: *go-errcheck
+
   dockerfile:
     - <<: *dockerfile-hadolint
 
