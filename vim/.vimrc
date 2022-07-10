@@ -55,6 +55,8 @@ function! PackInit() abort
   call minpac#add('lambdalisue/gina.vim')
   call minpac#add('APZelos/blamer.nvim')
   call minpac#add('prabirshrestha/vim-lsp')
+  call minpac#add('prabirshrestha/asyncomplete.vim')
+  call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
   call minpac#add('mattn/vim-lsp-settings')
   call minpac#add('thinca/vim-quickrun')
   call minpac#add('mattn/emmet-vim')
