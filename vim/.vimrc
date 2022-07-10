@@ -38,27 +38,40 @@ function! PackInit() abort
   packadd! minpac
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+  " colorscheme
   call minpac#add('tatsuya4559/shirotelin', {'type': 'opt'})
   call minpac#add('cormacrelf/vim-colors-github', {'type': 'opt'})
+
+  " filer & fuzzy finder
   call minpac#add('tatsuya4559/filer.vim')
   call minpac#add('ctrlpvim/ctrlp.vim')
   call minpac#add('mattn/ctrlp-matchfuzzy')
   call minpac#add('mattn/ctrlp-lsp')
   call minpac#add('mattn/ctrlp-launcher')
-  call minpac#add('tatsuya4559/qrep.vim')
-  call minpac#add('markonm/traces.vim')
-  call minpac#add('machakann/vim-sandwich')
-  call minpac#add('haya14busa/vim-asterisk')
-  call minpac#add('AndrewRadev/linediff.vim')
-  call minpac#add('tpope/vim-commentary')
-  call minpac#add('hrsh7th/vim-vsnip')
+
+  " git
   call minpac#add('lambdalisue/gina.vim')
   call minpac#add('APZelos/blamer.nvim')
+
+  " lsp
   call minpac#add('prabirshrestha/vim-lsp')
   call minpac#add('prabirshrestha/asyncomplete.vim')
   call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
   call minpac#add('mattn/vim-lsp-settings')
+
+  " others
+  call minpac#add('tatsuya4559/qrep.vim')
+  call minpac#add('markonm/traces.vim')
+  call minpac#add('cohama/lexima.vim')
+  call minpac#add('machakann/vim-sandwich')
+  call minpac#add('haya14busa/vim-asterisk')
+  call minpac#add('tpope/vim-commentary')
+  call minpac#add('hrsh7th/vim-vsnip')
   call minpac#add('thinca/vim-quickrun')
+  call minpac#add('AndrewRadev/linediff.vim')
+
+  " language specific
   call minpac#add('mattn/emmet-vim')
   call minpac#add('mattn/vim-goimports')
   call minpac#add('hashivim/vim-terraform')
