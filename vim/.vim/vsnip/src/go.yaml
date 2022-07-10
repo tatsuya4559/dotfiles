@@ -41,13 +41,15 @@ ut.table:
     		input string
     		want string
     	}{
-    		{input: "hoge", want: "fuga"},
+    		{"hoge", "fuga"},
     	}
 
     	for _, tt := range tests {
-    		got := Testee(tt.input)
-    		if got != tt.want {
-    			t.Errorf(error!")"
+    		t.Run(fmt.Sprintf("%s", tt.input), func(t *testing.T) {
+    			got := Testee(tt.input)
+    			if got != tt.want {
+    				t.Errorf("error!")
+    			}
     		}
     	}
     }
@@ -67,6 +69,19 @@ open.file:
     	${3:panic(err)}
     }
     defer $1.Close()
+create.file:
+  prefix: create.file
+  description: create file
+  body: |
+    f, err := os.Create($1)
+    if err != nil {
+    	${2:panic(err)}
+    }
+    defer func() {
+    	if err := f.Close(); err != nil {
+    		panic(err)
+    	}
+    }
 fori:
   prefix: fori
   description: for i:=0; i<n; i++ loop
@@ -117,3 +132,25 @@ st:
     type $1 struct {
     	$2
     }
+recover:
+  prefix: recover
+  description: recover
+  body: |
+    defer func() {
+    	if r := recover(); r != nil {
+    		$1
+    	}
+    }()
+mkdir:
+  prefix: mkdir
+  description: make directory
+  body: |
+    err := os.Mkdir($1, os.ModePerm)
+exist:
+  prefix: exist
+  description: check file or dir exists
+  body: |
+    if _, err := os.Stat($1); os.IsNotExist(err) {
+    	$2
+    }
+

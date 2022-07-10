@@ -44,13 +44,15 @@
       "\t\tinput string",
       "\t\twant string",
       "\t}{",
-      "\t\t{input: \"hoge\", want: \"fuga\"},",
+      "\t\t{\"hoge\", \"fuga\"},",
       "\t}",
       "",
       "\tfor _, tt := range tests {",
-      "\t\tgot := Testee(tt.input)",
-      "\t\tif got != tt.want {",
-      "\t\t\tt.Errorf(error!\")\"",
+      "\t\tt.Run(fmt.Sprintf(\"%s\", tt.input), func(t *testing.T) {",
+      "\t\t\tgot := Testee(tt.input)",
+      "\t\t\tif got != tt.want {",
+      "\t\t\t\tt.Errorf(\"error!\")",
+      "\t\t\t}",
       "\t\t}",
       "\t}",
       "}"
@@ -74,6 +76,21 @@
       "\t${3:panic(err)}",
       "}",
       "defer $1.Close()"
+    ]
+  },
+  "create.file": {
+    "prefix": "create.file",
+    "description": "create file",
+    "body": [
+      "f, err := os.Create($1)",
+      "if err != nil {",
+      "\t${2:panic(err)}",
+      "}",
+      "defer func() {",
+      "\tif err := f.Close(); err != nil {",
+      "\t\tpanic(err)",
+      "\t}",
+      "}"
     ]
   },
   "fori": {
@@ -134,6 +151,33 @@
     "description": "struct",
     "body": [
       "type $1 struct {",
+      "\t$2",
+      "}"
+    ]
+  },
+  "recover": {
+    "prefix": "recover",
+    "description": "recover",
+    "body": [
+      "defer func() {",
+      "\tif r := recover(); r != nil {",
+      "\t\t$1",
+      "\t}",
+      "}()"
+    ]
+  },
+  "mkdir": {
+    "prefix": "mkdir",
+    "description": "make directory",
+    "body": [
+      "err := os.Mkdir($1, os.ModePerm)"
+    ]
+  },
+  "exist": {
+    "prefix": "exist",
+    "description": "check file or dir exists",
+    "body": [
+      "if _, err := os.Stat($1); os.IsNotExist(err) {",
       "\t$2",
       "}"
     ]

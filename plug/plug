@@ -2,7 +2,11 @@
 
 _install() {
   local name=${1##*/}
-  git clone --depth 1 "https://github.com/$1.git" "$HOME/.vim/pack/plug/start/${name}"
+  if grep ^https <<<$1; then
+    git clone --depth 1 "$1.git" "$HOME/.vim/pack/plug/start/${name}"
+  else
+    git clone --depth 1 "https://github.com/$1.git" "$HOME/.vim/pack/plug/start/${name}"
+  fi
 }
 
 _uninstall() {
