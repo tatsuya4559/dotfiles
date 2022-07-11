@@ -56,9 +56,9 @@ function! PackInit() abort
 
   " lsp
   call minpac#add('prabirshrestha/vim-lsp')
+  call minpac#add('mattn/vim-lsp-settings')
   call minpac#add('prabirshrestha/asyncomplete.vim')
   call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
-  call minpac#add('mattn/vim-lsp-settings')
 
   " others
   call minpac#add('tatsuya4559/qrep.vim')
