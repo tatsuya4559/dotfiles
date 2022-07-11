@@ -287,3 +287,11 @@ function! s:ng_goto_companion_file() abort
   endif
 endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
+
+" lexima
+command! ToggleLexima let b:lexima_disabled = !get(b:, 'lexima_disabled', 0)
+call lexima#add_rule({'char': "'", 'at': '\%#\w', 'input': "'"})
+call lexima#add_rule({'char': '"', 'at': '\%#\w', 'input': '"'})
+call lexima#add_rule({'char': '(', 'at': '\%#\w', 'input': '('})
+call lexima#add_rule({'char': '{', 'at': '\%#\w', 'input': '{'})
+call lexima#add_rule({'char': '[', 'at': '\%#\w', 'input': '['})
