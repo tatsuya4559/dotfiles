@@ -240,6 +240,7 @@ function! s:edit_vsnip_src(filetype) abort
   let snip_src = printf('~/.vim/vsnip/src/%s.yaml', filetype)
   exe printf('autocmd MyAutoCmd BufWritePost %s call system("~/.vim/vsnip/transpile_vsnip.sh")', snip_src)
   exe 'edit' snip_src
+  inoremap <buffer> <tab> <c-v><tab>
 endfunction
 command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
