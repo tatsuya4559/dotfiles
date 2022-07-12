@@ -85,6 +85,8 @@ nnoremap <f1> <nop>
 nnoremap Q <nop>
 nnoremap ZZ <nop>
 nnoremap ZQ <nop>
+nmap s <nop>
+xmap s <nop>
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 vnoremap . :normal .<cr>
 nnoremap Y y$
@@ -97,6 +99,8 @@ nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap yt :<c-u>tabedit %<cr>
 nnoremap <leader>s :!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>
 nnoremap <space>t :!tig status<cr>
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 " submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap zh zh<SID>z
