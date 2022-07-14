@@ -1,7 +1,7 @@
 {
   "main": {
     "prefix": "main",
-    "description": "main func",
+    "description": "main function",
     "body": [
       "package main",
       "",
@@ -35,8 +35,8 @@
       "}"
     ]
   },
-  "ut.table": {
-    "prefix": "ut.table",
+  "utt": {
+    "prefix": "utt",
     "description": "table driven test skelton",
     "body": [
       "func Test$1(t *testing.T) {",
@@ -60,15 +60,18 @@
   },
   "ut": {
     "prefix": "ut",
-    "description": "test function",
+    "description": "unit test",
     "body": [
       "func Test$1(t *testing.T) {",
       "\t$2",
       "}"
     ]
   },
-  "open.file": {
-    "prefix": "open.file",
+  "open_file": {
+    "prefix": [
+      "file.open",
+      "open.file"
+    ],
     "description": "open file",
     "body": [
       "${1:file}, err := os.Open(${2:path})",
@@ -78,8 +81,11 @@
       "defer $1.Close()"
     ]
   },
-  "create.file": {
-    "prefix": "create.file",
+  "create_file": {
+    "prefix": [
+      "file.create",
+      "create.file"
+    ],
     "description": "create file",
     "body": [
       "f, err := os.Create($1)",
@@ -95,7 +101,7 @@
   },
   "fori": {
     "prefix": "fori",
-    "description": "for i:=0; i<n; i++ loop",
+    "description": "for loop",
     "body": [
       "for i:=${1:0}; i<${2:n}; ${3:i++} {",
       "\t$4",
@@ -113,9 +119,9 @@
       "}"
     ]
   },
-  "http.hf": {
-    "prefix": "http.hf",
-    "description": "handler function",
+  "hf": {
+    "prefix": "hf",
+    "description": "http handler func",
     "body": [
       "func ${1:handler}(w http.ResponseWriter, r *http.Request) {",
       "\t$2",
@@ -168,13 +174,16 @@
   },
   "mkdir": {
     "prefix": "mkdir",
-    "description": "make directory",
+    "description": "mkdir",
     "body": [
       "err := os.Mkdir($1, os.ModePerm)"
     ]
   },
   "exist": {
-    "prefix": "exist",
+    "prefix": [
+      "exist",
+      "exists"
+    ],
     "description": "check file or dir exists",
     "body": [
       "if _, err := os.Stat($1); os.IsNotExist(err) {",

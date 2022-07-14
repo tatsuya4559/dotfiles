@@ -1,9 +1,0 @@
-snip:
-  prefix: snip
-  description: snippet of snippet
-  body: |
-    $1:
-    	prefix: $1
-    	description: $2
-    	body: |
-    		$3

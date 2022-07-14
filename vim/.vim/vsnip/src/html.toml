@@ -1,0 +1,66 @@
+[table]
+prefix = "table"
+description = "table"
+body = '''
+<table>
+	<thead>
+		<tr>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+'''
+
+[select]
+prefix = "select"
+description = "select"
+body = '''
+<select id="" name="">
+	<option value=""></option>
+</select>
+'''
+
+[ngfor]
+prefix = "ngfor"
+description = "ngFor"
+body = '''
+*ngFor="let $1 of $2"
+'''
+
+[ngif]
+prefix = "ngif"
+description = "ngIf"
+body = '''
+*ngIf="$1"
+'''
+
+[ngifelse]
+prefix = "ngifelse"
+description = "ngIf else"
+body = '''
+<ng-container *ngIf="$1; else $2">
+	$3
+</ng-container>
+<ng-template #$2>
+	$4
+</ng-template>
+'''
+
+[ngswitch]
+prefix = "ngswitch"
+description = "ngSwitch"
+body = '''
+<ng-container [ngSwitch]="$1">
+	<ng-container *ngSwitchCase="$2">
+		$3
+	</ng-container>
+	<ng-container *ngSwitchDefault>
+		$4
+	</ng-container>
+</ng-container>
+'''

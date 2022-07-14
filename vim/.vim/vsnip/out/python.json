@@ -66,7 +66,7 @@
       "\t\tpass"
     ]
   },
-  "ut.table": {
+  "utt": {
     "prefix": "ut.table",
     "description": "table driven test",
     "body": [
@@ -81,7 +81,7 @@
       "\t\t\tself.assertEqual(actual, c.expected)"
     ]
   },
-  "ut.p": {
+  "utp": {
     "prefix": "ut.p",
     "description": "parametrized test",
     "body": [
@@ -124,7 +124,7 @@
       "\t$2"
     ]
   },
-  "django.form": {
+  "django_form": {
     "prefix": "django.form",
     "description": "django form",
     "body": [
@@ -136,7 +136,7 @@
       "\t\treturn cleaned_data"
     ]
   },
-  "django.form.clean": {
+  "django_form_clean": {
     "prefix": "django.form.clean",
     "description": "django form clean method",
     "body": [
@@ -147,7 +147,7 @@
       "\treturn $1"
     ]
   },
-  "django.middleware": {
+  "django_middleware": {
     "prefix": "django.middleware",
     "description": "django middleware",
     "body": [
@@ -164,7 +164,7 @@
       "\t\tpass"
     ]
   },
-  "django.qs": {
+  "django_qs": {
     "prefix": "django.qs",
     "description": "django custom queryset",
     "body": [
@@ -174,7 +174,7 @@
       "# TODO: set `objects = $1QuerySet.as_manager()` in the model class"
     ]
   },
-  "db.fetch": {
+  "db_fetch": {
     "prefix": "db.fetch",
     "description": "fetch rows",
     "body": [

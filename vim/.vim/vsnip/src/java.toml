@@ -1,0 +1,13 @@
+[main]
+prefix = "main"
+description = "main method"
+body = '''
+import java.util.*;
+
+class Main {
+	public static void main(String... args) {
+		$1
+		System.out.println("hello java");
+	}
+}
+'''

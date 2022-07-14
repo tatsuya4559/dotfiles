@@ -1,7 +1,0 @@
-fn:
-  prefix: fn
-  description: function
-  body: |
-    function $1($2)
-    	$3
-    end

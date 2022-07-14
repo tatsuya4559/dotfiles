@@ -1,0 +1,16 @@
+[fn]
+prefix = "fn"
+body = '''
+function! $1($2) abort
+	$3
+endfunction
+'''
+
+[def]
+prefix = "def"
+description = "vim9 script function"
+body = '''
+def $1($2): $3
+	$4
+enddef
+'''

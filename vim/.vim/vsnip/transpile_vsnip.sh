@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 transpile() {
   local -r src="$1"
   local -r out="$2"
-  yq "${src}" -o json | jq 'map_values(.body |= (rtrimstr("\n") | split("\n")))' > "${out}"
+  yj -tj < "${src}" | jq 'map_values(.body |= (rtrimstr("\n") | split("\n")))' > "${out}"
 }
 
 while read -r src; do

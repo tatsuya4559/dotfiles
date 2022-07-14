@@ -242,7 +242,7 @@ imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 
 function! s:edit_vsnip_src(filetype) abort
   let filetype = empty(a:filetype) ? &filetype : a:filetype
-  let snip_src = printf('~/.vim/vsnip/src/%s.yaml', filetype)
+  let snip_src = printf('~/.vim/vsnip/src/%s.toml', filetype)
   exe printf('autocmd MyAutoCmd BufWritePost %s call system("~/.vim/vsnip/transpile_vsnip.sh")', snip_src)
   exe 'edit' snip_src
   inoremap <buffer> <tab> <c-v><tab>
@@ -301,3 +301,12 @@ call lexima#add_rule({'char': '"', 'at': '\%#\w', 'input': '"'})
 call lexima#add_rule({'char': '(', 'at': '\%#\w', 'input': '('})
 call lexima#add_rule({'char': '{', 'at': '\%#\w', 'input': '{'})
 call lexima#add_rule({'char': '[', 'at': '\%#\w', 'input': '['})
+
+let g:gist_show_privates = 1
+
+command! -range JsonToGo :<line1>,<line2>!gojson
+
+let g:vimhelpgenerator_defaultlanguage = 'en'
+let g:vimhelpgenerator_author = 'tatsuya4559'
+let g:vimhelpgenerator_uri = 'https://github.com/tatsuya4559/'
+

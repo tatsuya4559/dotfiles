@@ -1,0 +1,94 @@
+[var]
+prefix = "var"
+description = "variable block"
+body = '''
+variable "$1" {
+	type = $2
+}
+'''
+
+[res]
+prefix = "res"
+description = "resource block"
+body = '''
+resource "$1" "$2" {
+	$3
+}
+'''
+
+[mod]
+prefix = "mod"
+description = "module block"
+body = '''
+module "$1" {
+	$2
+}
+'''
+
+[out]
+prefix = "out"
+description = "output"
+body = '''
+output "$1" {
+	value = $2
+}
+'''
+
+[loc]
+prefix = "loc"
+description = "locals"
+body = '''
+locals {
+	$1
+}
+'''
+
+[provider]
+prefix = "provider"
+description = "provider"
+body = '''
+provider "aws" {
+	region  = $1
+	profile = $2
+	assume_role {
+		role_arn = $3
+	}
+	default_tags {
+		tags = {
+			Environment = $4
+			Service     = $5
+		}
+	}
+}
+'''
+
+[version]
+prefix = "version"
+description = "version"
+body = '''
+terraform {
+	required_version = "$1"
+	required_providers {
+		aws = {
+			source  = "hashicorp/aws"
+			version = "$2"
+		}
+	}
+}
+'''
+
+[backend]
+prefix = "backend"
+description = "backend"
+body = '''
+terraform {
+	backend "s3" {
+		region                  = "$1"
+		encrypt                 = true
+		bucket                  = "$2"
+		key                     = "$3"
+		shared_credentials_file = "$4"
+		profile                 = "$5"
+	}
+}
+'''
