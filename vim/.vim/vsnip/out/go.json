@@ -67,11 +67,8 @@
       "}"
     ]
   },
-  "open_file": {
-    "prefix": [
-      "file.open",
-      "open.file"
-    ],
+  "file.open": {
+    "prefix": "file.open",
     "description": "open file",
     "body": [
       "${1:file}, err := os.Open(${2:path})",
@@ -81,11 +78,8 @@
       "defer $1.Close()"
     ]
   },
-  "create_file": {
-    "prefix": [
-      "file.create",
-      "create.file"
-    ],
+  "file.create": {
+    "prefix": "file.create",
     "description": "create file",
     "body": [
       "f, err := os.Create($1)",
@@ -179,11 +173,8 @@
       "err := os.Mkdir($1, os.ModePerm)"
     ]
   },
-  "exist": {
-    "prefix": [
-      "exist",
-      "exists"
-    ],
+  "exists": {
+    "prefix": "exists",
     "description": "check file or dir exists",
     "body": [
       "if _, err := os.Stat($1); os.IsNotExist(err) {",

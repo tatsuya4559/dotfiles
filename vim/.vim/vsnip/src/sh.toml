@@ -1,21 +1,21 @@
-[bash]
-prefix = "bash"
-description = "bash shebang"
+[[snippet]]
+prefix = 'bash'
+description = 'bash shebang'
 body = '''
 #!/bin/bash
 set -eu
 '''
 
-[dir]
-prefix = "dir"
-description = "script dir"
+[[snippet]]
+prefix = 'dir'
+description = 'script dir'
 body = '''
 SCRIPT_DIR="\$(cd \$(dirname "\$0"); pwd)"
 '''
 
-[onexit]
-prefix = "onexit"
-description = "on exit function"
+[[snippet]]
+prefix = 'onexit'
+description = 'on exit function'
 body = '''
 function on_exit() {
 	$1
@@ -24,9 +24,9 @@ function on_exit() {
 trap on_exit EXIT
 '''
 
-[onerr]
-prefix = "onerr"
-description = "on error function"
+[[snippet]]
+prefix = 'onerr'
+description = 'on error function'
 body = '''
 function on_error() {
 	$1
@@ -35,9 +35,9 @@ function on_error() {
 trap on_error ERR
 '''
 
-[whileread]
-prefix = "whileread"
-description = "while read"
+[[snippet]]
+prefix = 'whileread'
+description = 'while read'
 body = '''
 while read -r col1 col2; do
 	$1
@@ -46,18 +46,18 @@ $2
 EOF
 '''
 
-[if]
-prefix = "if"
-description = "if statement"
+[[snippet]]
+prefix = 'if'
+description = 'if statement'
 body = '''
 if [[ $1 ]]; then
 	$2
 fi
 '''
 
-[case]
-prefix = "case"
-description = "case statement"
+[[snippet]]
+prefix = 'case'
+description = 'case statement'
 body = '''
 case "\${$1}" in
 	*)
@@ -66,18 +66,18 @@ case "\${$1}" in
 esac
 '''
 
-[fn]
-prefix = "fn"
-description = "function"
+[[snippet]]
+prefix = 'fn'
+description = 'function'
 body = '''
 function $1() {
 	$2
 }
 '''
 
-[log]
-prefix = "log"
-description = "logging function"
+[[snippet]]
+prefix = 'log'
+description = 'logging function'
 body = '''
 function log() {
 	local severity="\$1"
@@ -86,9 +86,9 @@ function log() {
 }
 '''
 
-[retry]
-prefix = "retry"
-description = "with retry function"
+[[snippet]]
+prefix = 'retry'
+description = 'with retry function'
 body = '''
 function with_retry() {
 	local -r max_retry="\$1"
@@ -104,9 +104,9 @@ function with_retry() {
 }
 '''
 
-[lock]
-prefix = "lock"
-description = "lock file"
+[[snippet]]
+prefix = 'lock'
+description = 'lock file'
 body = '''
 # symlinkはすでに作成されている場合失敗するのでロックに使える
 if ! ln -s \$\$ ./\$\$.lock; then
@@ -115,9 +115,9 @@ if ! ln -s \$\$ ./\$\$.lock; then
 fi
 '''
 
-[confirm]
-prefix = "confirm"
-description = "confirm"
+[[snippet]]
+prefix = 'confirm'
+description = 'confirm'
 body = '''
 read -p "Are you sure? (y/N): " YN
 if [[ "\${YN}" != 'y' ]]; then
@@ -126,9 +126,9 @@ if [[ "\${YN}" != 'y' ]]; then
 fi
 '''
 
-[opts]
-prefix = "opts"
-description = "parse options"
+[[snippet]]
+prefix = 'opts'
+description = 'parse options'
 body = '''
 while [[ \$# -gt 0 ]]; do
 	case "\$1" in

@@ -1,51 +1,51 @@
-[var]
-prefix = "var"
-description = "variable block"
+[[snippet]]
+prefix = 'var'
+description = 'variable block'
 body = '''
 variable "$1" {
 	type = $2
 }
 '''
 
-[res]
-prefix = "res"
-description = "resource block"
+[[snippet]]
+prefix = 'res'
+description = 'resource block'
 body = '''
 resource "$1" "$2" {
 	$3
 }
 '''
 
-[mod]
-prefix = "mod"
-description = "module block"
+[[snippet]]
+prefix = 'mod'
+description = 'module block'
 body = '''
 module "$1" {
 	$2
 }
 '''
 
-[out]
-prefix = "out"
-description = "output"
+[[snippet]]
+prefix = 'out'
+description = 'output'
 body = '''
 output "$1" {
 	value = $2
 }
 '''
 
-[loc]
-prefix = "loc"
-description = "locals"
+[[snippet]]
+prefix = 'loc'
+description = 'locals'
 body = '''
 locals {
 	$1
 }
 '''
 
-[provider]
-prefix = "provider"
-description = "provider"
+[[snippet]]
+prefix = 'provider'
+description = 'provider'
 body = '''
 provider "aws" {
 	region  = $1
@@ -62,9 +62,9 @@ provider "aws" {
 }
 '''
 
-[version]
-prefix = "version"
-description = "version"
+[[snippet]]
+prefix = 'version'
+description = 'version'
 body = '''
 terraform {
 	required_version = "$1"
@@ -77,9 +77,9 @@ terraform {
 }
 '''
 
-[backend]
-prefix = "backend"
-description = "backend"
+[[snippet]]
+prefix = 'backend'
+description = 'backend'
 body = '''
 terraform {
 	backend "s3" {

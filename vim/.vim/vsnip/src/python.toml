@@ -1,6 +1,6 @@
-[decorator]
-prefix = "decorator"
-description = "make a decorator"
+[[snippet]]
+prefix = 'decorator'
+description = 'make a decorator'
 body = '''
 def $1(func):
 	@functools.wraps(func)
@@ -10,9 +10,9 @@ def $1(func):
 	return wrapper
 '''
 
-[conman]
-prefix = "conman"
-description = "context manager"
+[[snippet]]
+prefix = 'conman'
+description = 'context manager'
 body = '''
 @contextlib.contextmanager
 def $1():
@@ -27,32 +27,32 @@ def $1():
 		raise e
 '''
 
-[main]
-prefix = "main"
-description = "main script"
+[[snippet]]
+prefix = 'main'
+description = 'main script'
 body = '''
 if __name__ == '__main__':
 	main()
 '''
 
-[nt]
-prefix = "nt"
-description = "classic style namedtuple"
+[[snippet]]
+prefix = 'nt'
+description = 'classic style namedtuple'
 body = '''
 $1 = namedtuple("$1", "$2")
 '''
 
-[init]
-prefix = "init"
-description = "__init__ method"
+[[snippet]]
+prefix = 'init'
+description = '__init__ method'
 body = '''
 def __init__(self, $1):
 	self.$1 = $1
 '''
 
-[ut]
-prefix = "ut"
-description = "unittest"
+[[snippet]]
+prefix = 'ut'
+description = 'unittest'
 body = '''
 class $1Test(TestCase):
 	def setUp(self):
@@ -65,9 +65,9 @@ class $1Test(TestCase):
 		pass
 '''
 
-[utt]
-prefix = "ut.table"
-description = "table driven test"
+[[snippet]]
+prefix = 'ut.table'
+description = 'table driven test'
 body = '''
 def test_${1:ok}(self):
 	Case = namedtuple('Case', 'msg params expected')
@@ -80,9 +80,9 @@ def test_${1:ok}(self):
 			self.assertEqual(actual, c.expected)
 '''
 
-[utp]
-prefix = "ut.p"
-description = "parametrized test"
+[[snippet]]
+prefix = 'ut.p'
+description = 'parametrized test'
 body = '''
 @pytest.mark.parametrize(
 	"${2:f1, f2}",
@@ -94,38 +94,38 @@ def test_$1(self, $2):
 	$4
 '''
 
-[ase]
-prefix = "ase"
-description = "assertEqual"
+[[snippet]]
+prefix = 'ase'
+description = 'assertEqual'
 body = '''
 self.assertEqual($1)
 '''
 
-[ast]
-prefix = "ast"
-description = "assertTrue"
+[[snippet]]
+prefix = 'ast'
+description = 'assertTrue'
 body = '''
 self.assertTrue($1)
 '''
 
-[asf]
-prefix = "asf"
-description = "assertFalse"
+[[snippet]]
+prefix = 'asf'
+description = 'assertFalse'
 body = '''
 self.assertFalse($1)
 '''
 
-[asr]
-prefix = "asr"
-description = "assertRaises"
+[[snippet]]
+prefix = 'asr'
+description = 'assertRaises'
 body = '''
 with self.assertRaises($1):
 	$2
 '''
 
-[django_form]
-prefix = "django.form"
-description = "django form"
+[[snippet]]
+prefix = 'django.form'
+description = 'django form'
 body = '''
 class $1Form(forms.Form):
 	$2
@@ -135,9 +135,9 @@ class $1Form(forms.Form):
 		return cleaned_data
 '''
 
-[django_form_clean]
-prefix = "django.form.clean"
-description = "django form clean method"
+[[snippet]]
+prefix = 'django.form.clean'
+description = 'django form clean method'
 body = '''
 def clean_$1(self):
 	$1 = self.cleaned_data.get("$1")
@@ -146,9 +146,9 @@ def clean_$1(self):
 	return $1
 '''
 
-[django_middleware]
-prefix = "django.middleware"
-description = "django middleware"
+[[snippet]]
+prefix = 'django.middleware'
+description = 'django middleware'
 body = '''
 # TODO: register this class to the MIDDLEWARE section of settings.py.
 class $1Middleware:
@@ -163,9 +163,9 @@ class $1Middleware:
 		pass
 '''
 
-[django_qs]
-prefix = "django.qs"
-description = "django custom queryset"
+[[snippet]]
+prefix = 'django.qs'
+description = 'django custom queryset'
 body = '''
 class $1QuerySet(models.QuerySet):
 	def $2(self):
@@ -173,9 +173,9 @@ class $1QuerySet(models.QuerySet):
 # TODO: set `objects = $1QuerySet.as_manager()` in the model class
 '''
 
-[db_fetch]
-prefix = "db.fetch"
-description = "fetch rows"
+[[snippet]]
+prefix = 'db.fetch'
+description = 'fetch rows'
 body = '''
 from contextlib import closing
 from django.db import connection

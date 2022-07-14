@@ -3,9 +3,9 @@
 # snippet "([\w\.]+).append" "append" r
 # `!p snip.rv = match.group(1)` = append(`!p snip.rv = match.group(1)`, $1)
 
-[main]
-prefix = "main"
-description = "main function"
+[[snippet]]
+prefix = 'main'
+description = 'main function'
 body = '''
 package main
 
@@ -14,34 +14,34 @@ func main() {
 }
 '''
 
-[pack]
-prefix = "pack"
-description = "package"
+[[snippet]]
+prefix = 'pack'
+description = 'package'
 body = '''
 package ${TM_DIRECTORY}
 '''
 
-[fn]
-prefix = "fn"
-description = "function"
+[[snippet]]
+prefix = 'fn'
+description = 'function'
 body = '''
 func $1 {
 	$2
 }
 '''
 
-[ife]
-prefix = "ife"
-description = "if error"
+[[snippet]]
+prefix = 'ife'
+description = 'if error'
 body = '''
 if err != nil {
 	${1:return nil, err}
 }
 '''
 
-[utt]
-prefix = "utt"
-description = "table driven test skelton"
+[[snippet]]
+prefix = 'utt'
+description = 'table driven test skelton'
 body = '''
 func Test$1(t *testing.T) {
 	tests := []struct {
@@ -62,18 +62,18 @@ func Test$1(t *testing.T) {
 }
 '''
 
-[ut]
-prefix = "ut"
-description = "unit test"
+[[snippet]]
+prefix = 'ut'
+description = 'unit test'
 body = '''
 func Test$1(t *testing.T) {
 	$2
 }
 '''
 
-[open_file]
-prefix = ["file.open", "open.file"]
-description = "open file"
+[[snippet]]
+prefix = 'file.open'
+description = 'open file'
 body = '''
 ${1:file}, err := os.Open(${2:path})
 if err != nil {
@@ -82,9 +82,9 @@ if err != nil {
 defer $1.Close()
 '''
 
-[create_file]
-prefix = ["file.create", "create.file"]
-description = "create file"
+[[snippet]]
+prefix = 'file.create'
+description = 'create file'
 body = '''
 f, err := os.Create($1)
 if err != nil {
@@ -97,18 +97,18 @@ defer func() {
 }
 '''
 
-[fori]
-prefix = "fori"
-description = "for loop"
+[[snippet]]
+prefix = 'fori'
+description = 'for loop'
 body = '''
 for i:=${1:0}; i<${2:n}; ${3:i++} {
 	$4
 }
 '''
 
-[fors]
-prefix = "fors"
-description = "for select"
+[[snippet]]
+prefix = 'fors'
+description = 'for select'
 body = '''
 for {
 	select {
@@ -117,18 +117,18 @@ for {
 }
 '''
 
-[hf]
-prefix = "hf"
-description = "http handler func"
+[[snippet]]
+prefix = 'hf'
+description = 'http handler func'
 body = '''
 func ${1:handler}(w http.ResponseWriter, r *http.Request) {
 	$2
 }
 '''
 
-[filter]
-prefix = "filter"
-description = "tipical filter"
+[[snippet]]
+prefix = 'filter'
+description = 'tipical filter'
 body = '''
 var $1 []$2
 for _, e := range $3 {
@@ -139,9 +139,9 @@ for _, e := range $3 {
 return $1
 '''
 
-[enum]
-prefix = "enum"
-description = "enum"
+[[snippet]]
+prefix = 'enum'
+description = 'enum'
 body = '''
 type $1 int
 const (
@@ -150,18 +150,18 @@ const (
 )
 '''
 
-[st]
-prefix = "st"
-description = "struct"
+[[snippet]]
+prefix = 'st'
+description = 'struct'
 body = '''
 type $1 struct {
 	$2
 }
 '''
 
-[recover]
-prefix = "recover"
-description = "recover"
+[[snippet]]
+prefix = 'recover'
+description = 'recover'
 body = '''
 defer func() {
 	if r := recover(); r != nil {
@@ -170,16 +170,16 @@ defer func() {
 }()
 '''
 
-[mkdir]
-prefix = "mkdir"
-description = "mkdir"
+[[snippet]]
+prefix = 'mkdir'
+description = 'mkdir'
 body = '''
 err := os.Mkdir($1, os.ModePerm)
 '''
 
-[exist]
-prefix = ["exist", "exists"]
-description = "check file or dir exists"
+[[snippet]]
+prefix = 'exists'
+description = 'check file or dir exists'
 body = '''
 if _, err := os.Stat($1); os.IsNotExist(err) {
 	$2

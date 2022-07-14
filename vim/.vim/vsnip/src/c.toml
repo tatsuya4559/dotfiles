@@ -1,6 +1,6 @@
-[main]
-prefix = "main"
-description = "main"
+[[snippet]]
+prefix = 'main'
+description = 'main'
 body = '''
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,9 +13,9 @@ int main(int argc, const char **argv)
 }
 '''
 
-[fori]
-prefix = "fori"
-description = "for loop"
+[[snippet]]
+prefix = 'fori'
+description = 'for loop'
 body = '''
 for (int i=0; i<$1; i++) {
 	$2

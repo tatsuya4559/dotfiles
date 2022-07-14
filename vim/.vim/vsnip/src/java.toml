@@ -1,6 +1,6 @@
-[main]
-prefix = "main"
-description = "main method"
+[[snippet]]
+prefix = 'main'
+description = 'main method'
 body = '''
 import java.util.*;
 

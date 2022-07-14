@@ -1,6 +1,6 @@
-[fn]
-prefix = "fn"
-description = "function"
+[[snippet]]
+prefix = 'fn'
+description = 'function'
 body = '''
 function $1($2)
 	$3

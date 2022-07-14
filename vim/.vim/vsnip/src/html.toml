@@ -1,6 +1,6 @@
-[table]
-prefix = "table"
-description = "table"
+[[snippet]]
+prefix = 'table'
+description = 'table'
 body = '''
 <table>
 	<thead>
@@ -16,32 +16,32 @@ body = '''
 </table>
 '''
 
-[select]
-prefix = "select"
-description = "select"
+[[snippet]]
+prefix = 'select'
+description = 'select'
 body = '''
 <select id="" name="">
 	<option value=""></option>
 </select>
 '''
 
-[ngfor]
-prefix = "ngfor"
-description = "ngFor"
+[[snippet]]
+prefix = 'ngfor'
+description = 'ngFor'
 body = '''
 *ngFor="let $1 of $2"
 '''
 
-[ngif]
-prefix = "ngif"
-description = "ngIf"
+[[snippet]]
+prefix = 'ngif'
+description = 'ngIf'
 body = '''
 *ngIf="$1"
 '''
 
-[ngifelse]
-prefix = "ngifelse"
-description = "ngIf else"
+[[snippet]]
+prefix = 'ngifelse'
+description = 'ngIf else'
 body = '''
 <ng-container *ngIf="$1; else $2">
 	$3
@@ -51,9 +51,9 @@ body = '''
 </ng-template>
 '''
 
-[ngswitch]
-prefix = "ngswitch"
-description = "ngSwitch"
+[[snippet]]
+prefix = 'ngswitch'
+description = 'ngSwitch'
 body = '''
 <ng-container [ngSwitch]="$1">
 	<ng-container *ngSwitchCase="$2">

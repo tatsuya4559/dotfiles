@@ -1,58 +1,58 @@
-[doc]
-prefix = "/**"
-description = "typedoc"
+[[snippet]]
+prefix = '/**'
+description = 'typedoc'
 body = '''
 /**
  * $1
  */
 '''
 
-[imp]
-prefix = "imp"
-description = "import"
+[[snippet]]
+prefix = 'imp'
+description = 'import'
 body = '''
 import ${2:module} from '${1:path}';
 '''
 
-[caf]
-prefix = "caf"
-description = "const arrow function"
+[[snippet]]
+prefix = 'caf'
+description = 'const arrow function'
 body = '''
 const ${1:func} = (${2:args}) => {
 	$3
 };
 '''
 
-[fn]
-prefix = "fn"
-description = "function"
+[[snippet]]
+prefix = 'fn'
+description = 'function'
 body = '''
 function $1($2) {
 	$3
 }
 '''
 
-[afn]
-prefix = "afn"
-description = "arrow function"
+[[snippet]]
+prefix = 'afn'
+description = 'arrow function'
 body = '''
 ($1) => {
 	$2
 }
 '''
 
-[uef]
-prefix = "uef"
-description = "useEffect"
+[[snippet]]
+prefix = 'uef'
+description = 'useEffect'
 body = '''
 useEffect(() => {
 	$1
 }, []);
 '''
 
-[jest]
-prefix = "jest"
-description = "jest"
+[[snippet]]
+prefix = 'jest'
+description = 'jest'
 body = '''
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
@@ -65,9 +65,9 @@ afterEach(cleanup);
 $1
 '''
 
-[snap]
-prefix = "snap"
-description = "snapshot test"
+[[snippet]]
+prefix = 'snap'
+description = 'snapshot test'
 body = '''
 test('snapshot', () => {
 	const { asFragment } = render($1);
@@ -75,18 +75,18 @@ test('snapshot', () => {
 });
 '''
 
-[it]
-prefix = "it"
-description = "test case"
+[[snippet]]
+prefix = 'it'
+description = 'test case'
 body = '''
 test('$1', () => {
 	$2
 });
 '''
 
-[desc]
-prefix = "desc"
-description = "describe"
+[[snippet]]
+prefix = 'desc'
+description = 'describe'
 body = '''
 describe('$1', () => {
 	$2
