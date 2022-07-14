@@ -186,3 +186,5 @@ with closing(connection.cursor()) as cursor:
 	cursor.execute(sql, [${1:param}])
 	return dict_fetchall(cursor)
 '''
+
+# vim: ts=4

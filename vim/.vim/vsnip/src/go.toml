@@ -185,3 +185,5 @@ if _, err := os.Stat($1); os.IsNotExist(err) {
 	$2
 }
 '''
+
+# vim: ts=4
