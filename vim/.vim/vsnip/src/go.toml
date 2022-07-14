@@ -186,4 +186,4 @@ if _, err := os.Stat($1); os.IsNotExist(err) {
 }
 '''
 
-# vim: ts=4
+# vim: ts=4 noexpandtab

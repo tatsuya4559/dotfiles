@@ -64,3 +64,5 @@ body = '''
 	</ng-container>
 </ng-container>
 '''
+
+# vim: ts=2 noexpandtab

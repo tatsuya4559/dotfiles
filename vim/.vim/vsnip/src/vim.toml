@@ -14,3 +14,5 @@ def $1($2): $3
 	$4
 enddef
 '''
+
+# vim: ts=2 noexpandtab

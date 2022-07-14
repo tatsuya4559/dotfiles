@@ -8,3 +8,5 @@ body = '''
 $3
 '''
 """
+
+# vim: ts=2 noexpandtab

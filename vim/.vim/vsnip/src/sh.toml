@@ -150,3 +150,5 @@ while [[ \$# -gt 0 ]]; do
 	shift
 done
 '''
+
+# vim: ts=2 noexpandtab

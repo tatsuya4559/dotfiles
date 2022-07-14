@@ -92,3 +92,5 @@ terraform {
 	}
 }
 '''
+
+# vim: ts=2 noexpandtab

@@ -6,3 +6,5 @@ function $1($2)
 	$3
 end
 '''
+
+# vim: ts=2 noexpandtab

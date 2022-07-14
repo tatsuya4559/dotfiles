@@ -187,4 +187,4 @@ with closing(connection.cursor()) as cursor:
 	return dict_fetchall(cursor)
 '''
 
-# vim: ts=4
+# vim: ts=4 noexpandtab

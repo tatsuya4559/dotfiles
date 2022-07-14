@@ -16,3 +16,5 @@ body = '''
 $1:
 	$2
 '''
+
+# vim: ts=2 noexpandtab
