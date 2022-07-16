@@ -57,13 +57,10 @@ function! PackInit() abort
   " lsp
   call minpac#add('prabirshrestha/vim-lsp')
   call minpac#add('mattn/vim-lsp-settings')
-  call minpac#add('prabirshrestha/asyncomplete.vim')
-  call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 
   " others
   call minpac#add('tatsuya4559/qrep.vim')
   call minpac#add('markonm/traces.vim')
-  call minpac#add('cohama/lexima.vim')
   call minpac#add('machakann/vim-sandwich')
   call minpac#add('haya14busa/vim-asterisk')
   call minpac#add('tpope/vim-commentary')
@@ -292,14 +289,6 @@ function! s:ng_goto_companion_file() abort
   endif
 endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
-
-" lexima
-command! ToggleLexima let b:lexima_disabled = !get(b:, 'lexima_disabled', 0)
-call lexima#add_rule({'char': "'", 'at': '\%#\w', 'input': "'"})
-call lexima#add_rule({'char': '"', 'at': '\%#\w', 'input': '"'})
-call lexima#add_rule({'char': '(', 'at': '\%#\w', 'input': '('})
-call lexima#add_rule({'char': '{', 'at': '\%#\w', 'input': '{'})
-call lexima#add_rule({'char': '[', 'at': '\%#\w', 'input': '['})
 
 let g:gist_show_privates = 1
 
