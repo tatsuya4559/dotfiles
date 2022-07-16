@@ -1,0 +1,12 @@
+version: '3'
+services:
+  dev:
+    container_name: devcontainer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/home/user/workspaces
+    tty: true
