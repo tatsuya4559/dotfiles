@@ -1,8 +1,3 @@
-# ultisnipから移行できていない
-# sonictemplate使う？
-# snippet "([\w\.]+).append" "append" r
-# `!p snip.rv = match.group(1)` = append(`!p snip.rv = match.group(1)`, $1)
-
 [[snippet]]
 prefix = 'main'
 description = 'main function'
@@ -12,6 +7,13 @@ package main
 func main() {
 	$1
 }
+'''
+
+[[snippet]]
+prefix = 'append'
+description = 'append to slice'
+body = '''
+$1 = append($1, $2)
 '''
 
 [[snippet]]

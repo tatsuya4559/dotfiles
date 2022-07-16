@@ -10,6 +10,13 @@
       "}"
     ]
   },
+  "append": {
+    "prefix": "append",
+    "description": "append to slice",
+    "body": [
+      "$1 = append($1, $2)"
+    ]
+  },
   "pack": {
     "prefix": "pack",
     "description": "package",
