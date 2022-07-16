@@ -289,12 +289,3 @@ function! s:ng_goto_companion_file() abort
   endif
 endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
-
-let g:gist_show_privates = 1
-
-command! -range JsonToGo :<line1>,<line2>!gojson
-
-let g:vimhelpgenerator_defaultlanguage = 'en'
-let g:vimhelpgenerator_author = 'tatsuya4559'
-let g:vimhelpgenerator_uri = 'https://github.com/tatsuya4559/'
-
