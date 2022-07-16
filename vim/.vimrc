@@ -114,7 +114,7 @@ command! SepLineFeed :s/\\n/\r/g
 command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
 
 " colorscheme
-colorscheme shirotelin_nobold
+colorscheme evening
 let g:is_bash = v:true
 
 " abbreviations

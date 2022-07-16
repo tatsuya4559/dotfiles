@@ -8,7 +8,7 @@ STOW_PACKAGES := bash git homebrew nvim tig tmux vim
 # Rules
 ################################################################################
 .PHONY: all
-all: run link bundle ## Run all setup commands
+all: run link bundle minpac ## Run all setup commands
 
 .PHONY: run
 run: ## Run run_once.sh
@@ -24,7 +24,11 @@ unlink: ## Unlink dotfiles
 
 .PHONY: bundle
 bundle: ## Bundle .Brewfile
-	brew bundle --global
+	@brew bundle --global
+
+.PHONY: minpac
+minpac: ## Install vim plugins
+	@vim -c "call PackInit() | call minpac#update('', {'do': 'quitall'})"
 
 .PHONY: help
 help: ## Display this help
