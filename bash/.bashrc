@@ -54,16 +54,17 @@ gg() {
 }
 
 # apps
-source $HOME/.fzf.bash
-
-source $HOME/.git-completion.bash
-source $HOME/.git-prompt.sh
+load() {
+  local filepath="$1"
+  if [[ -e "${filepath}" ]]; then
+    source "${filepath}"
+  fi
+}
+load "$HOME/.fzf.bash"
+load "$HOME/.git-completion.bash"
+load "$HOME/.git-prompt.sh"
+load "$HOME/.local/bin/bashmarks.sh"
+load "$HOME/.local/bin/plug_completion.sh"
 
 eval "$(gh completion -s bash)"
-
-source $HOME/.local/bin/bashmarks.sh
-
-source $HOME/.local/bin/plug_completion.sh
-
-# direnv
 eval "$(direnv hook bash)"
