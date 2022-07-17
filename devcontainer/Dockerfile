@@ -3,8 +3,9 @@ FROM golang:1.18-bullseye
 RUN apt-get update && apt-get install -y \
     vim \
     stow \
-    fzf \
+    tmux \
     ripgrep \
+    fzf \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
