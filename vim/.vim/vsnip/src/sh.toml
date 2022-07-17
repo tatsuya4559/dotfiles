@@ -10,7 +10,7 @@ set -eu
 prefix = 'dir'
 description = 'script dir'
 body = '''
-SCRIPT_DIR="\$(cd \$(dirname "\$0"); pwd)"
+SCRIPT_DIR="\$(cd "\$(dirname "\$0")"; pwd)"
 '''
 
 [[snippet]]
