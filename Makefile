@@ -12,7 +12,7 @@ all: run link bundle minpac ## Run all setup commands
 
 .PHONY: run
 run: ## Run run_once.sh
-	$(CURDIR)/scripts/run_once.sh
+	@$(CURDIR)/scripts/download_git_scripts.sh
 
 .PHONY: link
 link: ## Link dotfiles
@@ -24,6 +24,7 @@ unlink: ## Unlink dotfiles
 
 .PHONY: bundle
 bundle: ## Bundle .Brewfile
+	@$(CURDIR)/scripts/install_brew.sh
 	@brew bundle --global
 
 .PHONY: minpac
