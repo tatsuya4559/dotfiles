@@ -8,10 +8,7 @@ ok() {
 }
 
 err() {
-  if [[ -z $TERM ]]; then
-    export TERM=xterm
-  fi
-  tput setaf 1
+  tput -T xterm setaf 1
   echo "$@"
-  tput sgr0
+  tput -T xterm sgr0
 }
