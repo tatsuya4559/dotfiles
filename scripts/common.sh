@@ -2,12 +2,9 @@
 set -eu
 
 ok() {
-  if [[ -z $TERM ]]; then
-    export TERM=xterm
-  fi
-  tput setaf 2
+  tput -T xterm setaf 2
   echo "$@"
-  tput sgr0
+  tput -T xterm sgr0
 }
 
 err() {
