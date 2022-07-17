@@ -11,7 +11,7 @@ STOW_PACKAGES := bash git homebrew nvim tig tmux vim
 all: run link bundle minpac ## Run all setup commands
 
 .PHONY: run
-run: ## Run run_once.sh
+run: ## Run scripts
 	@$(CURDIR)/scripts/download_git_scripts.sh
 
 .PHONY: link
