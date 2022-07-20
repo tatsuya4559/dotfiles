@@ -7,3 +7,4 @@ tig			!tig
 create PR		!gh pr create -w
 view repo		!gh repo view -w
 open circleci		!open https://app.circleci.com/pipelines/github/$(git config --get remote.origin.url | awk -F/ '{print $4"/"substr($5, 0, index($5, ".")-1)}')
+format			LspDocumentFormat
