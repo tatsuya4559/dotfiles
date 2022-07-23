@@ -60,7 +60,7 @@
       "\t\t\tif got != tt.want {",
       "\t\t\t\tt.Errorf(\"error!\")",
       "\t\t\t}",
-      "\t\t}",
+      "\t\t})",
       "\t}",
       "}"
     ]
