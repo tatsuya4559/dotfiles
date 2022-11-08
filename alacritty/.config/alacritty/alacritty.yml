@@ -1,0 +1,13 @@
+font:
+  normal:
+    family: 'Monaco'
+    style: Regular
+  bold:
+    family: 'Monaco'
+    style: Bold
+  size: 14.0
+key_bindings:
+  - { key: N, mods: Command, chars: "\x1bn" }
+  - { key: P, mods: Command, chars: "\x1bp" }
+  - { key: N, mods: Alt, chars: "\x1bn" }
+  - { key: P, mods: Alt, chars: "\x1bp" }
