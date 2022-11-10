@@ -32,6 +32,7 @@
   mt = mergetool
   sw = !git branch -vv | grep -v '^\\s*\\*' | fzf | awk '{print $1}' | xargs git switch
   mf = !git branch -vv | grep -v '^\\s*\\*' | fzf | awk '{print $1}' | xargs git merge
+  gone = !git branch -v | grep [gone] -F | awk '{print $1}' | xargs git branch -d
 [ghq]
   root = ~/git
 [delta]
