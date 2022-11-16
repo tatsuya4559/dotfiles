@@ -7,7 +7,12 @@ font:
     style: Bold
   size: 14.0
 key_bindings:
-  - { key: N, mods: Command, chars: "\x1bn" }
-  - { key: P, mods: Command, chars: "\x1bp" }
+  - { key: N, mods: Command|Shift, action: SpawnNewInstance }
   - { key: N, mods: Alt, chars: "\x1bn" }
   - { key: P, mods: Alt, chars: "\x1bp" }
+  - { key: N, mods: Command, chars: "\x1bn" }
+  - { key: P, mods: Command, chars: "\x1bp" }
+  - { key: H, mods: Command, chars: "\x1bh" }
+  - { key: J, mods: Command, chars: "\x1bj" }
+  - { key: K, mods: Command, chars: "\x1bk" }
+  - { key: L, mods: Command, chars: "\x1bl" }
