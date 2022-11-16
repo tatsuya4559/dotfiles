@@ -181,6 +181,7 @@ nnoremap <space>f <cmd>CtrlPCurWD<cr>
 " lsp
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_settings = {'efm-langserver': {'disabled': v:false}}
+let g:lsp_document_highlight_enabled = v:false
 
 function! s:on_hover() abort
   if &filetype ==# 'vim'
