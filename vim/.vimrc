@@ -249,15 +249,19 @@ endfunction
 command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
 " google
+function! s:open_url(url) abort
+  " I don't have windows
+  let openprg = has('mac') ? 'open' : 'xdg-open'
+  call system(printf('%s %s', openprg, a:url))
+endfunction
+
 function! s:google(...) abort
   if empty(a:000)
     return
   endif
   let l:url = shellescape('https://www.google.com/search?q='
       \ .. join(a:000, '+'))
-  " I don't have windows
-  let l:openprg = has('mac') ? 'open' : 'xdg-open'
-  call system(printf('%s %s', l:openprg, l:url))
+  call s:open_url(l:url)
 endfunction
 command! -nargs=* Google call s:google(<f-args>)
 nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
@@ -292,3 +296,36 @@ function! s:ng_goto_companion_file() abort
   endif
 endfunction
 nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
+
+" terraform
+let g:terraform_fmt_on_save = v:true
+
+function! s:open_aws_provider_document()
+  let type = substitute(getline('.'), ' .*', '', '')
+  let url_type = {
+        \ 'resource': 'resources',
+        \ 'data': 'data-sources',
+        \ }[type]
+  let name = substitute(expand('<cword>'), '^aws_', '', '')
+  let pv = trim(system('ls .terraform/providers/registry.terraform.io/hashicorp/aws/'))
+  if v:shell_error == '1'
+    let pv = 'latest'
+  endif
+
+  let url = printf(
+        \ 'https://registry.terraform.io/providers/hashicorp/aws/%s/docs/%s/%s',
+        \ pv, url_type, name)
+  call s:open_url(url)
+endfunction
+nnoremap <silent> <leader>d :call <SID>open_aws_provider_document()<cr>
+
+function! s:open_ext_module() abort
+  let line = getline('.')
+  let repo = substitute(line, '.*\(github\.com.*\)\/\/\(.*\)\?ref=\(.*\)"', '\1', '')
+  let path = substitute(line, '.*\(github\.com.*\/\)\/\(.*\)\?ref=\(.*\)"', '\2', '')
+  let tag = substitute(line, '.*\(github\.com.*\/\)\/\(.*\)\?ref=\(.*\)"', '\3', '')
+
+  let url = printf('https://%s/tree/%s/%s', repo, tag, path)
+  call s:open_url(url)
+endfunction
+nnoremap <silent> <leader>m :call <SID>open_ext_module()<cr>
