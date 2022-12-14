@@ -8,6 +8,7 @@ font:
   size: 14.0
 key_bindings:
   - { key: N, mods: Command|Shift, action: SpawnNewInstance }
+  - { key: Key6, mods: Control, chars: "\x1e" }
   - { key: N, mods: Alt, chars: "\x1bn" }
   - { key: P, mods: Alt, chars: "\x1bp" }
   - { key: N, mods: Command, chars: "\x1bn" }
