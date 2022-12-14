@@ -38,6 +38,11 @@ tools:
     format-command: 'shfmt -ci -s -bn'
     format-stdin: true
 
+  tflint: &tflint
+    lint-command: 'tflint --config .tflint.hcl --format compact'
+    lint-fomats:
+      - '%f:%l:%c: %m'
+
 languages:
   python:
     # - <<: *python-black
@@ -54,3 +59,5 @@ languages:
     - <<: *sh-shellcheck
     - <<: *sh-shfmt
 
+  terraform:
+    - <<: *tflint
