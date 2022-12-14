@@ -281,10 +281,6 @@ nnoremap <leader>tf <cmd>TestFile<cr>
 nnoremap <leader>tn <cmd>TestNearest<cr>
 nnoremap <leader>tt <cmd>TestLast<cr>
 
-" markdown preview
-" https://github.com/yusukebe/gh-markdown-preview
-command! PreviewMD :terminal ++close gh markdown-preview %
-
 " angular
 function! s:ng_goto_companion_file() abort
   let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'

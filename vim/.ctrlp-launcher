@@ -1,4 +1,10 @@
+# Utility
 reload .vimrc		source $MYVIMRC
+format			LspDocumentFormat
+# https://github.com/yusukebe/gh-markdown-preview
+preview md		terminal ++close gh markdown-preview %
+
+# Git command
 git checkout		Gina branch
 git add -p		Gina!! add -p
 git commit		Gina commit -v
@@ -6,5 +12,6 @@ git push		Gina! push -u
 tig			!tig
 create PR		!gh pr create -w
 view repo		!gh repo view -w
+
+# CI
 open circleci		!open https://app.circleci.com/pipelines/github/$(git config --get remote.origin.url | awk -F/ '{print $4"/"substr($5, 0, index($5, ".")-1)}')
-format			LspDocumentFormat
