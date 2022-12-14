@@ -1,5 +1,6 @@
 # Utility
 reload .vimrc		source $MYVIMRC
+edit alacritty.yaml	edit ~/.config/alacritty/alacritty.yml
 format			LspDocumentFormat
 # https://github.com/yusukebe/gh-markdown-preview
 preview md		terminal ++close gh markdown-preview %

@@ -94,7 +94,6 @@ nnoremap vv vg_
 tnoremap <esc><esc> <c-\><c-n>
 nnoremap <leader>w <cmd>setlocal wrap!<cr>
 nnoremap <leader>v :e $MYVIMRC<cr>
-nnoremap <leader>a :e ~/.config/alacritty/alacritty.yml<cr>
 nnoremap yt :<c-u>tabedit %<cr>
 nnoremap <leader>s :!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>
 nnoremap <space>t :!tig status<cr>
