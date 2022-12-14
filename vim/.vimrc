@@ -172,12 +172,12 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files', 'fd --hidden --type
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 let g:ctrlp_reuse_window = 'filer'
 let g:ctrlp_switch_buffer = ''
-nnoremap <space>c <cmd>CtrlPCurFile<cr>
+nnoremap <space>w <cmd>CtrlPCurWD<cr>
+nnoremap <space>f <cmd>CtrlPCurFile<cr>
 nnoremap <space>b <cmd>CtrlPBuffer<cr>
 nnoremap <space>l <cmd>CtrlPLine<cr>
 nnoremap <space>p <cmd>CtrlPLauncher<cr>
 nnoremap <c-q> <cmd>CtrlPQuickfix<cr>
-nnoremap <space>f <cmd>CtrlPCurWD<cr>
 
 " lsp
 let g:lsp_diagnostics_float_cursor = 1
