@@ -23,7 +23,7 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-set termguicolors
+" set termguicolors
 set updatetime=300
 set nrformats& nrformats+=unsigned
 augroup MyAutoCmd
@@ -41,7 +41,6 @@ function! PackInit() abort
 
   " colorscheme
   call minpac#add('tatsuya4559/shirotelin', {'type': 'opt'})
-  call minpac#add('cormacrelf/vim-colors-github', {'type': 'opt'})
 
   " filer & fuzzy finder
   call minpac#add('tatsuya4559/filer.vim')
@@ -72,7 +71,6 @@ function! PackInit() abort
   call minpac#add('mattn/emmet-vim')
   call minpac#add('mattn/vim-goimports')
   call minpac#add('hashivim/vim-terraform')
-  call minpac#add('tatsuya4559/tfplan.vim')
   call minpac#add('vim-test/vim-test')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
