@@ -297,6 +297,14 @@ nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
 " terraform
 let g:terraform_fmt_on_save = v:true
 
+function! s:on_save_terraform_file() abort
+  if getenv('USE_PRE_COMMIT') != '1'
+    return
+  endif
+  !pre-commit run terraform_docs --files %
+endfunction
+autocmd MyAutoCmd BufWritePost *.tf call s:on_save_terraform_file()
+
 function! s:open_aws_provider_document()
   let type = substitute(getline('.'), ' .*', '', '')
   let url_type = {
