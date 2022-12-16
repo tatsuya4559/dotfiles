@@ -43,7 +43,7 @@ function! PackInit() abort
   call minpac#add('tatsuya4559/shirotelin', {'type': 'opt'})
 
   " filer & fuzzy finder
-  call minpac#add('tatsuya4559/filer.vim')
+  call minpac#add('tatsuya4559/filer.vim', {'branch': 'vim9script'})
   call minpac#add('ctrlpvim/ctrlp.vim')
   call minpac#add('mattn/ctrlp-matchfuzzy')
   call minpac#add('mattn/ctrlp-lsp')
@@ -334,3 +334,6 @@ function! s:open_ext_module() abort
   call s:open_url(url)
 endfunction
 nnoremap <silent> <leader>m :call <SID>open_ext_module()<cr>
+
+" brew install iam-policy-json-to-terraform
+command! -range IamPolicyJsonToHcl :<line1>,<line2>!iam-policy-json-to-terraform
