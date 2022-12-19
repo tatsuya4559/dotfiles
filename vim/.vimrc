@@ -95,8 +95,6 @@ nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap yt :<c-u>tabedit %<cr>
 nnoremap <leader>s :!tmux popup -w90\% -h90\% -d '\#{pane_current_path}' -E<cr>
 nnoremap <space>t :!tig status<cr>
-cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
-cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 " submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap zh zh<SID>z
@@ -296,14 +294,7 @@ nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
 
 " terraform
 let g:terraform_fmt_on_save = v:true
-
-function! s:on_save_terraform_file() abort
-  if getenv('USE_PRE_COMMIT') != '1'
-    return
-  endif
-  !pre-commit run terraform_docs --files %
-endfunction
-autocmd MyAutoCmd BufWritePost *.tf call s:on_save_terraform_file()
+autocmd MyAutoCmd BufWritePost *.tf !pre-commit run terraform_docs --files %
 
 function! s:open_aws_provider_document()
   let type = substitute(getline('.'), ' .*', '', '')
