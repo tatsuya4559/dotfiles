@@ -116,6 +116,7 @@ let g:is_bash = v:true
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %
 cabbrev gina Gina
+cabbrev te term ++close
 iabbrev improt import
 iabbrev flase false
 iabbrev Flase False
