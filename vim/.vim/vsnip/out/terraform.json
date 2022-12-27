@@ -4,7 +4,8 @@
     "description": "variable block",
     "body": [
       "variable \"$1\" {",
-      "\ttype = $2",
+      "\tdescription = \"$2\"",
+      "\ttype = $3",
       "}"
     ]
   },
@@ -17,12 +18,26 @@
       "}"
     ]
   },
+  "data": {
+    "prefix": "data",
+    "description": "data source",
+    "body": [
+      "data \"$1\" \"$2\" {",
+      "\t$3",
+      "}"
+    ]
+  },
   "mod": {
     "prefix": "mod",
     "description": "module block",
     "body": [
       "module \"$1\" {",
-      "\t$2",
+      "\tsource = \"$2\"",
+      "",
+      "\t$3",
+      "\tproviders = {",
+      "\t\t$4",
+      "\t}",
       "}"
     ]
   },
@@ -31,7 +46,8 @@
     "description": "output",
     "body": [
       "output \"$1\" {",
-      "\tvalue = $2",
+      "\tdescription = \"$2\"",
+      "\tvalue = $3",
       "}"
     ]
   },
@@ -50,7 +66,6 @@
     "body": [
       "provider \"aws\" {",
       "\tregion  = $1",
-      "\tprofile = $2",
       "\tassume_role {",
       "\t\trole_arn = $3",
       "\t}",
@@ -88,8 +103,6 @@
       "\t\tencrypt                 = true",
       "\t\tbucket                  = \"$2\"",
       "\t\tkey                     = \"$3\"",
-      "\t\tshared_credentials_file = \"$4\"",
-      "\t\tprofile                 = \"$5\"",
       "\t}",
       "}"
     ]

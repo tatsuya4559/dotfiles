@@ -3,7 +3,8 @@ prefix = 'var'
 description = 'variable block'
 body = '''
 variable "$1" {
-	type = $2
+	description = "$2"
+	type = $3
 }
 '''
 
@@ -17,11 +18,25 @@ resource "$1" "$2" {
 '''
 
 [[snippet]]
+prefix = 'data'
+description = 'data source'
+body = '''
+data "$1" "$2" {
+	$3
+}
+'''
+
+[[snippet]]
 prefix = 'mod'
 description = 'module block'
 body = '''
 module "$1" {
-	$2
+	source = "$2"
+
+	$3
+	providers = {
+		$4
+	}
 }
 '''
 
@@ -30,7 +45,8 @@ prefix = 'out'
 description = 'output'
 body = '''
 output "$1" {
-	value = $2
+	description = "$2"
+	value = $3
 }
 '''
 
@@ -49,7 +65,6 @@ description = 'provider'
 body = '''
 provider "aws" {
 	region  = $1
-	profile = $2
 	assume_role {
 		role_arn = $3
 	}
@@ -87,8 +102,6 @@ terraform {
 		encrypt                 = true
 		bucket                  = "$2"
 		key                     = "$3"
-		shared_credentials_file = "$4"
-		profile                 = "$5"
 	}
 }
 '''
