@@ -68,3 +68,11 @@ load "$HOME/.local/bin/plug_completion.sh"
 
 eval "$(gh completion -s bash)"
 eval "$(direnv hook bash)"
+
+gcd() {
+  local root dir
+  root=$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)
+  dir=$(cd "${root}"; fd --hidden --type d --color never "" | fzf)
+  dir="${root}/${dir}"
+  cd "${dir}" || true
+}
