@@ -53,6 +53,31 @@ gg() {
   fi
 }
 
+z() {
+  local root dir
+  root=$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)
+
+  case "$1" in
+    '-h' | '--help')
+      cat <<EOF
+Usage: z
+z => cd to any dir in repo
+z . => cd to repo root
+EOF
+      return 0
+      ;;
+    '.')
+      cd "${root}" || true
+      return 0
+      ;;
+    *)
+      dir=$(cd "${root}" || true; fd --hidden --type d --color never "" | fzf)
+      dir="${root}/${dir}"
+      cd "${dir}" || true
+      ;;
+  esac
+}
+
 # apps
 load() {
   local filepath="$1"
@@ -68,11 +93,3 @@ load "$HOME/.local/bin/plug_completion.sh"
 
 eval "$(gh completion -s bash)"
 eval "$(direnv hook bash)"
-
-gcd() {
-  local root dir
-  root=$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)
-  dir=$(cd "${root}"; fd --hidden --type d --color never "" | fzf)
-  dir="${root}/${dir}"
-  cd "${dir}" || true
-}
