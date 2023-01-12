@@ -151,4 +151,11 @@ while [[ \$# -gt 0 ]]; do
 done
 '''
 
+[[snippet]]
+prefix = '$'
+description = 'variable'
+body = '''
+"\${$1}"
+'''
+
 # vim: ts=2 noexpandtab

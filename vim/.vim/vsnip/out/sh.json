@@ -151,5 +151,12 @@
       "\tshift",
       "done"
     ]
+  },
+  "$": {
+    "prefix": "$",
+    "description": "variable",
+    "body": [
+      "\"\\${$1}\""
+    ]
   }
 }
