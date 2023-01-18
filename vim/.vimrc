@@ -23,7 +23,7 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-" set termguicolors
+set termguicolors
 set updatetime=300
 set nrformats& nrformats+=unsigned
 augroup MyAutoCmd
@@ -110,7 +110,7 @@ command! SepLineFeed :s/\\n/\r/g
 command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
 
 " colorscheme
-colorscheme evening
+colorscheme habamax
 let g:is_bash = v:true
 
 " abbreviations
