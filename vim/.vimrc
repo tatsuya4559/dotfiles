@@ -121,10 +121,8 @@ iabbrev improt import
 iabbrev flase false
 iabbrev Flase False
 iabbrev apn1 ap-northeast-1
-iabbrev apn2 ap-northeast-2
 iabbrev apn3 ap-northeast-3
 iabbrev use1 us-east-1
-iabbrev use2 us-east-2
 
 " clipboard (thanks to monaqa
 set clipboard=
