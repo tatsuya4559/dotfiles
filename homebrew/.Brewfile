@@ -39,7 +39,6 @@ brew "universal-ctags"
 brew "vim"
 brew "watch"
 brew "wget"
-
 cask "alacritty"
 cask "alt-tab"
 cask "dbeaver-community"

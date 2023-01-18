@@ -4,7 +4,6 @@ fi
 
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=en_US.UTF-8
-export TERM=xterm-256color
 export EDITOR='vim'
 
 HISTSIZE=10000

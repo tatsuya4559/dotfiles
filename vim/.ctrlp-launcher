@@ -10,7 +10,6 @@ git checkout		Gina branch
 git add -p		Gina!! add -p
 git commit		Gina commit -v
 git push		Gina! push -u
-tig			!tig
 create PR		!gh pr create -w
 view repo		!gh repo view -w
 
