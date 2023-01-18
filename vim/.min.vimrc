@@ -11,7 +11,7 @@ set hlsearch incsearch ignorecase smartcase wrapscan
 set shortmess-=S
 set backspace=2
 set wildmenu
-set list listchars=tab:▸\ ,trail:-
+set list
 set ruler
 set hidden
 
