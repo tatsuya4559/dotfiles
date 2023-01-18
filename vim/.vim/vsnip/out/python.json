@@ -32,7 +32,7 @@
     "prefix": "main",
     "description": "main script",
     "body": [
-      "if __name__ == '__main__':",
+      "if __name__ == \"__main__\":",
       "\tmain()"
     ]
   },

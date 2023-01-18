@@ -158,4 +158,25 @@ body = '''
 "\${$1}"
 '''
 
+[[snippet]]
+prefix = 'reg'
+description = 'region option'
+body = '''
+--region $1
+'''
+
+[[snippet]]
+prefix = 'pro'
+description = 'profile option'
+body = '''
+--profile $1
+'''
+
+[[snippet]]
+prefix = 'tex'
+description = 'output text option'
+body = '''
+--output text
+'''
+
 # vim: ts=2 noexpandtab

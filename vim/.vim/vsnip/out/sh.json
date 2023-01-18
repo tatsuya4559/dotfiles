@@ -158,5 +158,26 @@
     "body": [
       "\"\\${$1}\""
     ]
+  },
+  "reg": {
+    "prefix": "reg",
+    "description": "region option",
+    "body": [
+      "--region $1"
+    ]
+  },
+  "pro": {
+    "prefix": "pro",
+    "description": "profile option",
+    "body": [
+      "--profile $1"
+    ]
+  },
+  "tex": {
+    "prefix": "tex",
+    "description": "output text option",
+    "body": [
+      "--output text"
+    ]
   }
 }
