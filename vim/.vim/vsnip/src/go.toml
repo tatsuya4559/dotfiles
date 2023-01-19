@@ -28,7 +28,6 @@ prefix = 'fn'
 description = 'function'
 body = '''
 func $1 {
-	$2
 }
 '''
 
