@@ -6,7 +6,7 @@ format			LspDocumentFormat
 preview md		terminal ++close gh markdown-preview %
 
 # Git command
-git pull		Gina pull
+git pull		Gina! pull
 git checkout		Gina branch
 git add -p		Gina!! add -p
 git commit		Gina commit -v
