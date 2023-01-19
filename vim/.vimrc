@@ -110,6 +110,7 @@ command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
 
 " colorscheme
 colorscheme habamax
+hi! MatchParen cterm=NONE
 let g:is_bash = v:true
 
 " abbreviations
