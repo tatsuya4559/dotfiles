@@ -224,6 +224,7 @@ nnoremap <silent><leader>gh :<c-u>Gina browse --exact : <cr>
 vnoremap <silent><leader>gh :Gina browse --exact : <cr>
 nnoremap <silent><leader>gy :<c-u>Gina browse --exact --yank :<cr>:let @+ = @"<cr>
 vnoremap <silent><leader>gy :Gina browse --exact --yank : <cr>:let @+ = @"<cr>
+command! -nargs=1 OpenInBranch exe printf('Gina show %s:%s', <f-args>, expand('%'))
 
 " blamer
 nnoremap <leader>b <cmd>BlamerToggle<cr>
