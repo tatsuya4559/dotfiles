@@ -48,7 +48,7 @@
     "description": "__init__ method",
     "body": [
       "def __init__(self, $1):",
-      "\tself.$1 = $1"
+      "\t$2"
     ]
   },
   "ut": {

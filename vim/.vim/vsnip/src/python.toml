@@ -47,7 +47,7 @@ prefix = 'init'
 description = '__init__ method'
 body = '''
 def __init__(self, $1):
-	self.$1 = $1
+	$2
 '''
 
 [[snippet]]
