@@ -50,7 +50,7 @@ languages:
 
   go:
     - <<: *go-staticcheck
-    - <<: *go-errcheck
+    # - <<: *go-errcheck
 
   dockerfile:
     - <<: *dockerfile-hadolint
