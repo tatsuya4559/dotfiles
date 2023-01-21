@@ -253,9 +253,13 @@ function! s:google(...) abort
   if empty(a:000)
     return
   endif
-  let l:url = shellescape('https://www.google.com/search?q='
-      \ .. join(a:000, '+'))
-  call s:open_url(l:url)
+  let q = join(a:000, '+')
+  if q =~# '^https\?://'
+    call s:open_url(shellescape(q))
+  else
+    let url = shellescape('https://www.google.com/search?q=' .. q)
+    call s:open_url(url)
+  endif
 endfunction
 command! -nargs=* Google call s:google(<f-args>)
 nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
