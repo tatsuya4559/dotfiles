@@ -15,4 +15,24 @@ def $1($2): $3
 enddef
 '''
 
+[[snippet]]
+prefix = 'test'
+description = 'test'
+body = '''
+def Test$1(): void
+  const tests = [
+    {input: [''], want: true},
+  ]
+
+  for tt in tests
+    const got = call($1, tt.input)
+    const msg = printf(
+      '$1("%s") want %s, but got %s',
+      tt.input, tt.want, got)
+    assert.equals(got, tt.want, msg)
+  endfor
+enddef
+suite.Test$1 = Test$1
+'''
+
 # vim: ts=2 noexpandtab
