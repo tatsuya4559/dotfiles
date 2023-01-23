@@ -165,6 +165,7 @@ let g:ctrlp_user_command = 'fd --hidden --type f --color never "" %s'
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 let g:ctrlp_reuse_window = 'filer'
 let g:ctrlp_switch_buffer = ''
+let g:ctrlp_clear_cache_on_exit = 0
 nnoremap <space>w <cmd>CtrlPCurWD<cr>
 nnoremap <space>f <cmd>CtrlPCurFile<cr>
 nnoremap <space>b <cmd>CtrlPBuffer<cr>
