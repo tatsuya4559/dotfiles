@@ -16,22 +16,33 @@
       "enddef"
     ]
   },
-  "test": {
-    "prefix": "test",
+  "utt": {
+    "prefix": "utt",
+    "description": "table driven test",
+    "body": [
+      "def Test$1(): void",
+      "\tconst tests = [",
+      "\t\t{input: [$2], want: $3},",
+      "\t]",
+      "",
+      "\tfinal child = themis#suite('Test$1')",
+      "\tfor tt in tests",
+      "\t\tconst description = printf('$1(%s)', tt.input)",
+      "\t\tchild[description] = function((input, want) => {",
+      "\t\t\tconst got = call($1, input)",
+      "\t\t\tassert.equals(got, want)",
+      "\t\t}, [tt.input, tt.want])",
+      "\tendfor",
+      "enddef",
+      "suite.__Test$1__ = Test$1"
+    ]
+  },
+  "ut": {
+    "prefix": "ut",
     "description": "test",
     "body": [
       "def Test$1(): void",
-      "  const tests = [",
-      "    {input: [''], want: true},",
-      "  ]",
-      "",
-      "  for tt in tests",
-      "    const got = call($1, tt.input)",
-      "    const msg = printf(",
-      "      '$1(\"%s\") want %s, but got %s',",
-      "      tt.input, tt.want, got)",
-      "    assert.equals(got, tt.want, msg)",
-      "  endfor",
+      "\tassert.equals(got, want)",
       "enddef",
       "suite.Test$1 = Test$1"
     ]

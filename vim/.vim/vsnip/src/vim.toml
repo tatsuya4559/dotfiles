@@ -16,21 +16,32 @@ enddef
 '''
 
 [[snippet]]
-prefix = 'test'
+prefix = 'utt'
+description = 'table driven test'
+body = '''
+def Test$1(): void
+	const tests = [
+		{input: [$2], want: $3},
+	]
+
+	final child = themis#suite('Test$1')
+	for tt in tests
+		const description = printf('$1(%s)', tt.input)
+		child[description] = function((input, want) => {
+			const got = call($1, input)
+			assert.equals(got, want)
+		}, [tt.input, tt.want])
+	endfor
+enddef
+suite.__Test$1__ = Test$1
+'''
+
+[[snippet]]
+prefix = 'ut'
 description = 'test'
 body = '''
 def Test$1(): void
-  const tests = [
-    {input: [''], want: true},
-  ]
-
-  for tt in tests
-    const got = call($1, tt.input)
-    const msg = printf(
-      '$1("%s") want %s, but got %s',
-      tt.input, tt.want, got)
-    assert.equals(got, tt.want, msg)
-  endfor
+	assert.equals(got, want)
 enddef
 suite.Test$1 = Test$1
 '''
