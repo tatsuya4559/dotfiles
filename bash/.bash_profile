@@ -21,6 +21,10 @@ fi
 source "$(brew --prefix asdf)/libexec/asdf.sh"
 source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 
+# volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # ocaml

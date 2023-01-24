@@ -1,7 +1,4 @@
 #!/bin/bash
-asdf plugin add nodejs
-asdf install nodejs latest
-
 asdf plugin add python
 asdf install python latest
 
