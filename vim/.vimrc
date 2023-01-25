@@ -262,7 +262,7 @@ nnoremap <leader>tt <cmd>TestLast<cr>
 function! s:open_url(url) abort
   " I don't have windows
   let openprg = has('mac') ? 'open' : 'xdg-open'
-  call system(printf('%s %s', openprg, a:url))
+  call system(printf('%s %s', openprg, shellescape(a:url)))
 endfunction
 
 function! s:google(...) abort
@@ -271,10 +271,9 @@ function! s:google(...) abort
   endif
   let q = join(a:000, '+')
   if q =~# '^https\?://'
-    call s:open_url(shellescape(q))
+    call s:open_url(q)
   else
-    let url = shellescape('https://www.google.com/search?q=' .. q)
-    call s:open_url(url)
+    call s:open_url('https://www.google.com/search?q=' .. q)
   endif
 endfunction
 command! -nargs=* Google call s:google(<f-args>)
@@ -332,4 +331,3 @@ command! -range IamPolicyJsonToHcl :<line1>,<line2>!iam-policy-json-to-terraform
 
 command! SepLineFeed :s/\\n/\r/g
 command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
-
