@@ -2,7 +2,7 @@
 # Variables
 ################################################################################
 .DEFAULT_GOAL := help
-STOW_PACKAGES := alacritty bash fd git gh homebrew nvim tig tmux vim
+STOW_PACKAGES := alacritty bash fd git gh homebrew tig tmux vim
 
 ################################################################################
 # Rules
