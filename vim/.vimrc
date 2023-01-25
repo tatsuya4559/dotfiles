@@ -30,9 +30,94 @@ augroup MyAutoCmd
 augroup END
 set autoread
 autocmd MyAutoCmd WinEnter * checktime
-packadd! matchit
+
+" keymaps
+nnoremap <f1> <nop>
+nnoremap Q <nop>
+nnoremap ZZ <nop>
+nnoremap ZQ <nop>
+nmap s <nop>
+xmap s <nop>
+nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
+vnoremap . :normal .<cr>
+nnoremap Y y$
+nnoremap <c-w>- :<c-u>sp %:h<cr>
+nnoremap <c-w>g <c-w>sgg
+nnoremap vv vg_
+tnoremap <esc><esc> <c-\><c-n>
+nnoremap <leader>w <cmd>setlocal wrap!<cr>
+nnoremap <leader>v :e $MYVIMRC<cr>
+nnoremap yt :<c-u>tabedit %<cr>
+nnoremap <space>t :!tig status<cr>
+nnoremap H 20zh
+nnoremap L 20zl
+" submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
+nmap zh zh<SID>z
+nmap zl zl<SID>z
+nnoremap <script> <SID>zh zh<SID>z
+nnoremap <script> <SID>zl zl<SID>z
+nmap <SID>z <Nop>
+
+" colorscheme
+colorscheme habamax
+hi! MatchParen cterm=NONE
+let g:is_bash = v:true
+
+" abbreviations
+cabbrev w!! w !sudo tee > /dev/null %
+cabbrev gina Gina
+cabbrev te term ++close
+iabbrev improt import
+iabbrev flase false
+iabbrev Flase False
+iabbrev apn1 ap-northeast-1
+iabbrev apn3 ap-northeast-3
+iabbrev use1 us-east-1
+
+" clipboard (thanks to monaqa
+set clipboard=
+autocmd MyAutoCmd TextYankPost * call s:copy_unnamed_to_plus(v:event.operator)
+function! s:copy_unnamed_to_plus(opr)
+  if a:opr ==# 'y'
+    let @+ = @"
+  endif
+endfunction
+
+" auto mkdir
+function! s:auto_mkdir(dir) abort
+  if !isdirectory(a:dir) &&
+        \ input(printf('"%s" does not exist. Should it be created? (y/N)', a:dir)) =~? '^y\%[es]$'
+    call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+  endif
+endfunction
+autocmd MyAutoCmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
+
+" copy path
+command! CopyPath :let @+ = expand('%')
+command! CopyFullPath :let @+ = expand('%:p')
+
+" quickfix
+function! s:toggle_quickfix()
+  let nr = winnr('$')
+  cwindow
+  if nr == winnr('$')
+    cclose
+  endif
+endfunction
+nnoremap <silent><script> <space>q :<c-u>call <SID>toggle_quickfix()<cr>
+nnoremap <silent> ]q :<c-u>cn<cr>
+nnoremap <silent> [q :<c-u>cp<cr>
+autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
+
+" filetype
+autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:·
+autocmd MyAutoCmd FileType yaml setlocal lisp
+autocmd MyAutoCmd FileType gitcommit setlocal spell textwidth=0
+autocmd MyAutoCmd BufReadPost .ctrlp-launcher setlocal tabstop=8 shiftwidth=8 noexpandtab
 
 " plugins
+packadd! matchit
+packadd! cfilter
 function! PackInit() abort
   packadd! minpac
   call minpac#init()
@@ -76,86 +161,7 @@ endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
 
-" keymaps
-nnoremap <f1> <nop>
-nnoremap Q <nop>
-nnoremap ZZ <nop>
-nnoremap ZQ <nop>
-nmap s <nop>
-xmap s <nop>
-nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
-vnoremap . :normal .<cr>
-nnoremap Y y$
-nnoremap <c-w>- :<c-u>sp %:h<cr>
-nnoremap <c-w>g <c-w>sgg
-nnoremap vv vg_
-tnoremap <esc><esc> <c-\><c-n>
-nnoremap <leader>w <cmd>setlocal wrap!<cr>
-nnoremap <leader>v :e $MYVIMRC<cr>
-nnoremap yt :<c-u>tabedit %<cr>
-nnoremap <space>t :!tig status<cr>
-
-" submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
-nmap zh zh<SID>z
-nmap zl zl<SID>z
-nnoremap <script> <SID>zh zh<SID>z
-nnoremap <script> <SID>zl zl<SID>z
-nmap <SID>z <Nop>
-
-nnoremap H 20zh
-nnoremap L 20zl
-
-command! SepLineFeed :s/\\n/\r/g
-command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
-
-" colorscheme
-colorscheme habamax
-hi! MatchParen cterm=NONE
-let g:is_bash = v:true
-
-" abbreviations
-cabbrev w!! w !sudo tee > /dev/null %
-cabbrev gina Gina
-cabbrev te term ++close
-iabbrev improt import
-iabbrev flase false
-iabbrev Flase False
-iabbrev apn1 ap-northeast-1
-iabbrev apn3 ap-northeast-3
-iabbrev use1 us-east-1
-
-" clipboard (thanks to monaqa
-set clipboard=
-autocmd MyAutoCmd TextYankPost * call s:copy_unnamed_to_plus(v:event.operator)
-function! s:copy_unnamed_to_plus(opr)
-  if a:opr ==# 'y'
-    let @+ = @"
-  endif
-endfunction
-
-" auto mkdir
-function! s:auto_mkdir(dir) abort
-  if !isdirectory(a:dir) &&
-        \ input(printf('"%s" does not exist. Should it be created? (y/N)', a:dir)) =~? '^y\%[es]$'
-    call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-  endif
-endfunction
-autocmd MyAutoCmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
-
-" quickfix
-function! s:toggle_quickfix()
-  let nr = winnr('$')
-  cwindow
-  if nr == winnr('$')
-    cclose
-  endif
-endfunction
-nnoremap <silent><script> <space>q :<c-u>call <SID>toggle_quickfix()<cr>
-nnoremap <silent> ]q :<c-u>cn<cr>
-nnoremap <silent> [q :<c-u>cp<cr>
-autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
-packadd! cfilter
-
+" plugin settings
 " qrep
 let &grepprg = 'rg --vimgrep --hidden --glob "!.git"'
 set grepformat=%f:%l:%c:%m
@@ -244,6 +250,14 @@ function! s:edit_vsnip_src(filetype) abort
 endfunction
 command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
+" vim-test
+let g:test#strategy = 'vimterminal'
+let g:test#python#runner = 'pytest'
+let g:test#python#pytest#executable = 'pytest -v --disable-warnings --no-migrations --reuse-db'
+nnoremap <leader>tf <cmd>TestFile<cr>
+nnoremap <leader>tn <cmd>TestNearest<cr>
+nnoremap <leader>tt <cmd>TestLast<cr>
+
 " google
 function! s:open_url(url) abort
   " I don't have windows
@@ -266,24 +280,6 @@ endfunction
 command! -nargs=* Google call s:google(<f-args>)
 nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
 vnoremap <silent> <leader>gg "zy:Google <c-r>z<cr>
-
-" copy path
-command! CopyPath :let @+ = expand('%')
-command! CopyFullPath :let @+ = expand('%:p')
-
-" filetype
-autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:·
-autocmd MyAutoCmd FileType yaml setlocal lisp
-autocmd MyAutoCmd FileType gitcommit setlocal spell textwidth=0
-autocmd MyAutoCmd BufReadPost .ctrlp-launcher setlocal tabstop=8 shiftwidth=8 noexpandtab
-
-" vim-test
-let g:test#strategy = 'vimterminal'
-let g:test#python#runner = 'pytest'
-let g:test#python#pytest#executable = 'pytest -v --disable-warnings --no-migrations --reuse-db'
-nnoremap <leader>tf <cmd>TestFile<cr>
-nnoremap <leader>tn <cmd>TestNearest<cr>
-nnoremap <leader>tt <cmd>TestLast<cr>
 
 " angular
 function! s:ng_goto_companion_file() abort
@@ -333,3 +329,7 @@ nnoremap <silent> <leader>m :call <SID>open_ext_module()<cr>
 
 " brew install iam-policy-json-to-terraform
 command! -range IamPolicyJsonToHcl :<line1>,<line2>!iam-policy-json-to-terraform
+
+command! SepLineFeed :s/\\n/\r/g
+command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
+
