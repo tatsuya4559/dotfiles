@@ -27,6 +27,7 @@ alias h='clear && tldr'
 alias dc='docker compose'
 alias dw='diff2html -i stdin'
 alias tf='terraform'
+alias gg='git grep --heading --break'
 
 if [[ $(uname) == 'Linux' ]]; then
   alias pbcopy='xclip -selection c'
@@ -43,7 +44,7 @@ mkdircd() {
   cd "$1"
 }
 
-gg() {
+ggl() {
   local search_words
   search_words=$(tr ' ' '+' <<< "$*")
   if [[ $(uname) == 'Darwin' ]]; then

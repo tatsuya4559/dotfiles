@@ -17,7 +17,7 @@
   default = current
 [grep]
   lineNumber = true
-  column = true
+  column = false
   fallbackToNoIndex = true
 [diff]
   colorMoved = dimmed-zebra
