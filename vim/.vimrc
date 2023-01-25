@@ -70,6 +70,7 @@ function! PackInit() abort
   call minpac#add('mattn/emmet-vim')
   call minpac#add('mattn/vim-goimports')
   call minpac#add('hashivim/vim-terraform')
+  call minpac#add('jeetsukumaran/vim-python-indent-black')
   call minpac#add('vim-test/vim-test')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
