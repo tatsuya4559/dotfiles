@@ -1,4 +1,9 @@
 #!/bin/bash
+
+### volta ###
+volta install node@18
+
+### asdf ###
 asdf plugin add python
 asdf install python latest
 
@@ -22,3 +27,6 @@ asdf global shfmt latest
 asdf plugin add shellcheck
 asdf install shellcheck latest
 asdf global shellcheck latest
+
+### npm ###
+npm install -g diff2html-cli
