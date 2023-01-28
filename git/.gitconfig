@@ -7,8 +7,10 @@
   editor = vim
   pager = diff-highlight | less
 [delta]
-  plus-style = "syntax darkgreen"
-  minus-style = "syntax darkred"
+  plus-emph-style = "syntax darkgreen"
+  plus-non-emph-style = "syntax olivedrab"
+  minus-emph-style = "syntax darkred"
+  minus-non-emph-style = "syntax red"
   navigate = true
 [diff]
   colorMoved = dimmed-zebra
