@@ -6,9 +6,16 @@
 [core]
   editor = vim
   pager = diff-highlight | less
+[delta]
+  plus-style = "syntax darkgreen"
+  minus-style = "syntax darkred"
+  navigate = true
+[diff]
+  colorMoved = dimmed-zebra
 [merge]
   tool = vimdiff
   ff = false
+  conflictstyle = diff3
 [fetch]
   prune = true
 [pull]
@@ -19,21 +26,19 @@
   lineNumber = true
   column = false
   fallbackToNoIndex = true
-[diff]
-  colorMoved = dimmed-zebra
 [alias]
   st = status
   co = checkout
+  ap = add -p
   cm = commit -v
   fe = fetch --all
   br = branch
   di = diff
+  ds = diff --staged
+  dd = !git diff | delta
   dt = difftool
   mt = mergetool
   sw = !git branch -vv | grep -v '^\\s*\\*' | fzf | awk '{print $1}' | xargs git switch
-  mf = !git branch -vv | grep -v '^\\s*\\*' | fzf | awk '{print $1}' | xargs git merge
   gone = !git branch -v | grep [gone] -F | awk '{print $1}' | xargs git branch -d
 [ghq]
   root = ~/git
-[delta]
-  # syntax-theme = GitHub
