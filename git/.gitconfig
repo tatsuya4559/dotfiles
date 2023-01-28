@@ -8,7 +8,7 @@
   pager = diff-highlight | less
 [delta]
   plus-emph-style = "syntax darkgreen"
-  plus-non-emph-style = "syntax olivedrab"
+  plus-non-emph-style = "syntax olive"
   minus-emph-style = "syntax darkred"
   minus-non-emph-style = "syntax red"
   navigate = true
@@ -42,5 +42,7 @@
   mt = mergetool
   sw = !git branch -vv | grep -v '^\\s*\\*' | fzf | awk '{print $1}' | xargs git switch
   gone = !git branch -v | grep [gone] -F | awk '{print $1}' | xargs git branch -d
+  pr = !gh pr create --web
+  view = !gh repo view --web
 [ghq]
   root = ~/git
