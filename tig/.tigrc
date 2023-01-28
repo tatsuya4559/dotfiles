@@ -1,5 +1,6 @@
 set vertical-split = no
 set ignore-case = true
+set diff-highlight = true
 
 bind main    g  move-first-line
 bind generic g  move-first-line
