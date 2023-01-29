@@ -106,5 +106,12 @@
       "\t}",
       "}"
     ]
+  },
+  "caller": {
+    "prefix": "caller",
+    "description": "aws caller identity",
+    "body": [
+      "data \"aws_caller_identity\" \"self\" {}"
+    ]
   }
 }
