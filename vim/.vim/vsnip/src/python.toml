@@ -191,6 +191,13 @@ shutil.copytree($1, $2)
 '''
 
 [[snippet]]
+prefix = 'touch'
+description = 'touch'
+body = '''
+pathlib.Path($1).touch()
+'''
+
+[[snippet]]
 prefix = 'mv'
 description = 'mv'
 body = '''
@@ -259,6 +266,27 @@ prefix = 'glob'
 description = 'glob'
 body = '''
 glob.glob($1, recursive=True)
+'''
+
+[[snippet]]
+prefix = 'dirname'
+description = 'dirname'
+body = '''
+os.path.dirname($1)
+'''
+
+[[snippet]]
+prefix = 'basename'
+description = 'basename'
+body = '''
+os.path.basename($1)
+'''
+
+[[snippet]]
+prefix = 'expand'
+description = 'expand vars'
+body = '''
+os.path.expandvars($1)
 '''
 
 [[snippet]]
