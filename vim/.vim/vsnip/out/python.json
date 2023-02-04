@@ -249,5 +249,15 @@
     "body": [
       "glob.glob($1, recursive=True)"
     ]
+  },
+  "curl": {
+    "prefix": "curl",
+    "description": "curl",
+    "body": [
+      "from urllib.request import urlopen",
+      "with urlopen($1) as response:",
+      "\tstatus = response.getcode()",
+      "\tbody = response.read()"
+    ]
   }
 }

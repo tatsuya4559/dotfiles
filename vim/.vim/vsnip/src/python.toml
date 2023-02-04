@@ -261,4 +261,14 @@ body = '''
 glob.glob($1, recursive=True)
 '''
 
+[[snippet]]
+prefix = 'curl'
+description = 'curl'
+body = '''
+from urllib.request import urlopen
+with urlopen($1) as response:
+	status = response.getcode()
+	body = response.read()
+'''
+
 # vim: ts=4 noexpandtab
