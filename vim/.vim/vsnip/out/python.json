@@ -44,18 +44,6 @@
       "\t$2"
     ]
   },
-  "ut": {
-    "prefix": "ut",
-    "description": "unittest",
-    "body": [
-      "class $1Test(TestCase):",
-      "\tdef setUp(self):",
-      "\t\tpass",
-      "",
-      "\tdef test_ok(self):",
-      "\t\tpass"
-    ]
-  },
   "ut.table": {
     "prefix": "ut.table",
     "description": "table driven test",

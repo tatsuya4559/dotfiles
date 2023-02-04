@@ -248,7 +248,7 @@ function! s:edit_vsnip_src(filetype) abort
   exe printf('autocmd MyAutoCmd BufWritePost %s call system("~/.vim/vsnip/transpile.sh %s")', snip_src, snip_src)
   exe 'edit' snip_src
 endfunction
-command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<f-args>)
+command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
 " vim-test
 let g:test#strategy = 'vimterminal'

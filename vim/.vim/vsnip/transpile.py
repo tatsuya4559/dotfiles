@@ -2,7 +2,7 @@ import json
 import sys
 import tomllib
 
-content = ''.join(sys.stdin.readlines())
+content = sys.stdin.read()
 toml = tomllib.loads(content)
 
 result = {}

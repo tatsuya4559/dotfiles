@@ -44,18 +44,6 @@ def __init__(self, $1):
 '''
 
 [[snippet]]
-prefix = 'ut'
-description = 'unittest'
-body = '''
-class $1Test(TestCase):
-	def setUp(self):
-		pass
-
-	def test_ok(self):
-		pass
-'''
-
-[[snippet]]
 prefix = 'ut.table'
 description = 'table driven test'
 body = '''
