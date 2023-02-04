@@ -36,13 +36,6 @@
       "\tmain()"
     ]
   },
-  "nt": {
-    "prefix": "nt",
-    "description": "classic style namedtuple",
-    "body": [
-      "$1 = namedtuple(\"$1\", \"$2\")"
-    ]
-  },
   "init": {
     "prefix": "init",
     "description": "__init__ method",
@@ -58,9 +51,6 @@
       "class $1Test(TestCase):",
       "\tdef setUp(self):",
       "\t\tpass",
-      "",
-      "\tdef _callFUT(self, args):",
-      "\t\treturn func(args)",
       "",
       "\tdef test_ok(self):",
       "\t\tpass"
@@ -93,35 +83,6 @@
       ")",
       "def test_$1(self, $2):",
       "\t$4"
-    ]
-  },
-  "ase": {
-    "prefix": "ase",
-    "description": "assertEqual",
-    "body": [
-      "self.assertEqual($1)"
-    ]
-  },
-  "ast": {
-    "prefix": "ast",
-    "description": "assertTrue",
-    "body": [
-      "self.assertTrue($1)"
-    ]
-  },
-  "asf": {
-    "prefix": "asf",
-    "description": "assertFalse",
-    "body": [
-      "self.assertFalse($1)"
-    ]
-  },
-  "asr": {
-    "prefix": "asr",
-    "description": "assertRaises",
-    "body": [
-      "with self.assertRaises($1):",
-      "\t$2"
     ]
   },
   "django.form": {

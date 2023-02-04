@@ -36,13 +36,6 @@ if __name__ == "__main__":
 '''
 
 [[snippet]]
-prefix = 'nt'
-description = 'classic style namedtuple'
-body = '''
-$1 = namedtuple("$1", "$2")
-'''
-
-[[snippet]]
 prefix = 'init'
 description = '__init__ method'
 body = '''
@@ -57,9 +50,6 @@ body = '''
 class $1Test(TestCase):
 	def setUp(self):
 		pass
-
-	def _callFUT(self, args):
-		return func(args)
 
 	def test_ok(self):
 		pass
@@ -92,35 +82,6 @@ body = '''
 )
 def test_$1(self, $2):
 	$4
-'''
-
-[[snippet]]
-prefix = 'ase'
-description = 'assertEqual'
-body = '''
-self.assertEqual($1)
-'''
-
-[[snippet]]
-prefix = 'ast'
-description = 'assertTrue'
-body = '''
-self.assertTrue($1)
-'''
-
-[[snippet]]
-prefix = 'asf'
-description = 'assertFalse'
-body = '''
-self.assertFalse($1)
-'''
-
-[[snippet]]
-prefix = 'asr'
-description = 'assertRaises'
-body = '''
-with self.assertRaises($1):
-	$2
 '''
 
 [[snippet]]
