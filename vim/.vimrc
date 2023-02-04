@@ -245,10 +245,10 @@ imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 function! s:edit_vsnip_src(filetype) abort
   let filetype = empty(a:filetype) ? &filetype : a:filetype
   let snip_src = printf('~/.vim/vsnip/src/%s.toml', filetype)
-  exe printf('autocmd MyAutoCmd BufWritePost %s call system("~/.vim/vsnip/transpile_vsnip.sh")', snip_src)
+  exe printf('autocmd MyAutoCmd BufWritePost %s call system("~/.vim/vsnip/transpile.sh %s")', snip_src, snip_src)
   exe 'edit' snip_src
 endfunction
-command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
+command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<f-args>)
 
 " vim-test
 let g:test#strategy = 'vimterminal'
@@ -331,3 +331,5 @@ command! -range IamPolicyJsonToHcl :<line1>,<line2>!iam-policy-json-to-terraform
 
 command! SepLineFeed :s/\\n/\r/g
 command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
+
+" nmap ,h <scriptcmd>Vim9Function()<cr>
