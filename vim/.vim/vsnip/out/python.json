@@ -122,5 +122,132 @@
       "\t\treturn self.filter($3)",
       "# TODO: set `objects = $1QuerySet.as_manager()` in the model class"
     ]
+  },
+  "pwd": {
+    "prefix": "pwd",
+    "description": "pwd",
+    "body": [
+      "os.getcwd()"
+    ]
+  },
+  "cd": {
+    "prefix": "cd",
+    "description": "cd",
+    "body": [
+      "os.chdir($1)"
+    ]
+  },
+  "ls": {
+    "prefix": "ls",
+    "description": "ls",
+    "body": [
+      "os.listdir($1)"
+    ]
+  },
+  "mkdir": {
+    "prefix": "mkdir",
+    "description": "mkdir",
+    "body": [
+      "os.mkdir($1)"
+    ]
+  },
+  "mkdirp": {
+    "prefix": "mkdirp",
+    "description": "mkdir -p",
+    "body": [
+      "os.mkdirs($1)"
+    ]
+  },
+  "exists": {
+    "prefix": "exists",
+    "description": "file or directory exists",
+    "body": [
+      "os.path.exists($1)"
+    ]
+  },
+  "cp": {
+    "prefix": "cp",
+    "description": "cp",
+    "body": [
+      "shutil.copy($1, $2)"
+    ]
+  },
+  "cpr": {
+    "prefix": "cpr",
+    "description": "cp -r",
+    "body": [
+      "shutil.copytree($1, $2)"
+    ]
+  },
+  "mv": {
+    "prefix": "mv",
+    "description": "mv",
+    "body": [
+      "shutil.move($1, $2)",
+      "# os.rename($1, $2)"
+    ]
+  },
+  "rm": {
+    "prefix": "rm",
+    "description": "rm",
+    "body": [
+      "os.remove($1)"
+    ]
+  },
+  "rmdir": {
+    "prefix": "rmdir",
+    "description": "rmdir",
+    "body": [
+      "os.rmdir($1)"
+    ]
+  },
+  "rmr": {
+    "prefix": "rmr",
+    "description": "rm -r",
+    "body": [
+      "shutil.rmtree($1)"
+    ]
+  },
+  "which": {
+    "prefix": "which",
+    "description": "which",
+    "body": [
+      "shutil.which($1)"
+    ]
+  },
+  "chmod": {
+    "prefix": "chmod",
+    "description": "chmod",
+    "body": [
+      "os.chmod($1, ${2:0o755})"
+    ]
+  },
+  "uname": {
+    "prefix": "uname",
+    "description": "uname",
+    "body": [
+      "os.uname()"
+    ]
+  },
+  "export": {
+    "prefix": "export",
+    "description": "export environment variable",
+    "body": [
+      "os.putenv($1, $2)"
+    ]
+  },
+  "run": {
+    "prefix": "run",
+    "description": "subprocess run",
+    "body": [
+      "subprocess.run($1)"
+    ]
+  },
+  "glob": {
+    "prefix": "glob",
+    "description": "glob",
+    "body": [
+      "glob.glob($1, recursive=True)"
+    ]
   }
 }

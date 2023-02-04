@@ -43,6 +43,10 @@ def __init__(self, $1):
 	$2
 '''
 
+################################################################################
+# Testing
+################################################################################
+
 [[snippet]]
 prefix = 'ut.table'
 description = 'table driven test'
@@ -71,6 +75,10 @@ body = '''
 def test_$1(self, $2):
 	$4
 '''
+
+################################################################################
+# Django
+################################################################################
 
 [[snippet]]
 prefix = 'django.form'
@@ -120,6 +128,137 @@ class $1QuerySet(models.QuerySet):
 	def $2(self):
 		return self.filter($3)
 # TODO: set `objects = $1QuerySet.as_manager()` in the model class
+'''
+
+################################################################################
+# Shell like
+################################################################################
+
+[[snippet]]
+prefix = 'pwd'
+description = 'pwd'
+body = '''
+os.getcwd()
+'''
+
+[[snippet]]
+prefix = 'cd'
+description = 'cd'
+body = '''
+os.chdir($1)
+'''
+
+[[snippet]]
+prefix = 'ls'
+description = 'ls'
+body = '''
+os.listdir($1)
+'''
+
+[[snippet]]
+prefix = 'mkdir'
+description = 'mkdir'
+body = '''
+os.mkdir($1)
+'''
+
+[[snippet]]
+prefix = 'mkdirp'
+description = 'mkdir -p'
+body = '''
+os.mkdirs($1)
+'''
+
+[[snippet]]
+prefix = 'exists'
+description = 'file or directory exists'
+body = '''
+os.path.exists($1)
+'''
+
+[[snippet]]
+prefix = 'cp'
+description = 'cp'
+body = '''
+shutil.copy($1, $2)
+'''
+
+[[snippet]]
+prefix = 'cpr'
+description = 'cp -r'
+body = '''
+shutil.copytree($1, $2)
+'''
+
+[[snippet]]
+prefix = 'mv'
+description = 'mv'
+body = '''
+shutil.move($1, $2)
+# os.rename($1, $2)
+'''
+
+[[snippet]]
+prefix = 'rm'
+description = 'rm'
+body = '''
+os.remove($1)
+'''
+
+[[snippet]]
+prefix = 'rmdir'
+description = 'rmdir'
+body = '''
+os.rmdir($1)
+'''
+
+[[snippet]]
+prefix = 'rmr'
+description = 'rm -r'
+body = '''
+shutil.rmtree($1)
+'''
+
+[[snippet]]
+prefix = 'which'
+description = 'which'
+body = '''
+shutil.which($1)
+'''
+
+[[snippet]]
+prefix = 'chmod'
+description = 'chmod'
+body = '''
+os.chmod($1, ${2:0o755})
+'''
+
+[[snippet]]
+prefix = 'uname'
+description = 'uname'
+body = '''
+os.uname()
+'''
+
+[[snippet]]
+prefix = 'export'
+description = 'export environment variable'
+body = '''
+os.putenv($1, $2)
+'''
+
+[[snippet]]
+prefix = 'run'
+description = 'subprocess run'
+body = '''
+subprocess.run($1)
+'''
+
+[[snippet]]
+prefix = 'glob'
+description = 'glob'
+body = '''
+glob.glob($1, recursive=True)
 '''
 
 # vim: ts=4 noexpandtab
