@@ -173,18 +173,4 @@ class $1QuerySet(models.QuerySet):
 # TODO: set `objects = $1QuerySet.as_manager()` in the model class
 '''
 
-[[snippet]]
-prefix = 'db.fetch'
-description = 'fetch rows'
-body = '''
-from contextlib import closing
-from django.db import connection
-
-sql = 'select * from table'
-
-with closing(connection.cursor()) as cursor:
-	cursor.execute(sql, [${1:param}])
-	return dict_fetchall(cursor)
-'''
-
 # vim: ts=4 noexpandtab

@@ -91,11 +91,7 @@ f, err := os.Create($1)
 if err != nil {
 	${2:panic(err)}
 }
-defer func() {
-	if err := f.Close(); err != nil {
-		panic(err)
-	}
-}
+defer f.Close()
 '''
 
 [[snippet]]

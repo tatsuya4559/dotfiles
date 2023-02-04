@@ -92,11 +92,7 @@
       "if err != nil {",
       "\t${2:panic(err)}",
       "}",
-      "defer func() {",
-      "\tif err := f.Close(); err != nil {",
-      "\t\tpanic(err)",
-      "\t}",
-      "}"
+      "defer f.Close()"
     ]
   },
   "fori": {

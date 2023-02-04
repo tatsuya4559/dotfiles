@@ -173,19 +173,5 @@
       "\t\treturn self.filter($3)",
       "# TODO: set `objects = $1QuerySet.as_manager()` in the model class"
     ]
-  },
-  "db.fetch": {
-    "prefix": "db.fetch",
-    "description": "fetch rows",
-    "body": [
-      "from contextlib import closing",
-      "from django.db import connection",
-      "",
-      "sql = 'select * from table'",
-      "",
-      "with closing(connection.cursor()) as cursor:",
-      "\tcursor.execute(sql, [${1:param}])",
-      "\treturn dict_fetchall(cursor)"
-    ]
   }
 }
