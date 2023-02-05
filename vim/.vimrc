@@ -290,78 +290,8 @@ nnoremap <leader>tf <cmd>TestFile<cr>
 nnoremap <leader>tn <cmd>TestNearest<cr>
 nnoremap <leader>tt <cmd>TestLast<cr>
 
-" google
-function! s:open_url(url) abort
-  " I don't have windows
-  let openprg = has('mac') ? 'open' : 'xdg-open'
-  call system(printf('%s %s', openprg, shellescape(a:url)))
-endfunction
-
-function! s:google(...) abort
-  if empty(a:000)
-    return
-  endif
-  let q = join(a:000, '+')
-  if q =~# '^https\?://'
-    call s:open_url(q)
-  else
-    call s:open_url('https://www.google.com/search?q=' .. q)
-  endif
-endfunction
-command! -nargs=* Google call s:google(<f-args>)
-nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
-vnoremap <silent> <leader>gg "zy:Google <c-r>z<cr>
-
-" angular
-function! s:ng_goto_companion_file() abort
-  let extension = expand('%:e') ==# 'ts' ? '.html' : '.ts'
-  let filename = expand('%:p:r') .. extension
-  if filereadable(filename)
-    exe 'edit' filename
-  else
-    echom 'Cannot open ' .. filename
-  endif
-endfunction
-nnoremap <leader>t :<c-u>call <SID>ng_goto_companion_file()<cr>
-
 " terraform
 let g:terraform_fmt_on_save = v:true
 autocmd MyAutoCmd BufWritePost *.tf !pre-commit run terraform_docs --files %
 
-function! s:open_aws_provider_document()
-  let type = substitute(getline('.'), ' .*', '', '')
-  let url_type = {
-        \ 'resource': 'resources',
-        \ 'data': 'data-sources',
-        \ }[type]
-  let name = substitute(expand('<cword>'), '^aws_', '', '')
-  let pv = trim(system('ls .terraform/providers/registry.terraform.io/hashicorp/aws/'))
-  if v:shell_error == '1'
-    let pv = 'latest'
-  endif
-
-  let url = printf(
-        \ 'https://registry.terraform.io/providers/hashicorp/aws/%s/docs/%s/%s',
-        \ pv, url_type, name)
-  call s:open_url(url)
-endfunction
-nnoremap <silent> <leader>d :call <SID>open_aws_provider_document()<cr>
-
-function! s:open_ext_module() abort
-  let line = getline('.')
-  let repo = substitute(line, '.*\(github\.com.*\)\/\/\(.*\)\?ref=\(.*\)"', '\1', '')
-  let path = substitute(line, '.*\(github\.com.*\/\)\/\(.*\)\?ref=\(.*\)"', '\2', '')
-  let tag = substitute(line, '.*\(github\.com.*\/\)\/\(.*\)\?ref=\(.*\)"', '\3', '')
-
-  let url = printf('https://%s/tree/%s/%s', repo, tag, path)
-  call s:open_url(url)
-endfunction
-nnoremap <silent> <leader>m :call <SID>open_ext_module()<cr>
-
-" brew install iam-policy-json-to-terraform
-command! -range IamPolicyJsonToHcl :<line1>,<line2>!iam-policy-json-to-terraform
-
-command! SepLineFeed :s/\\n/\r/g
-command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
-
-" nmap ,h <scriptcmd>Vim9Function()<cr>
+runtime! rc/*.vim
