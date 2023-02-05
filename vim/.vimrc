@@ -92,6 +92,36 @@ function! s:auto_mkdir(dir) abort
 endfunction
 autocmd MyAutoCmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
 
+" auto paste mode
+autocmd MyAutoCmd InsertLeave * {
+  if &paste
+    set nopaste
+    echom 'nopaste'
+  endif
+}
+
+function! s:wrap_for_tmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+  let tmux_start = "\<esc>Ptmux;"
+  let tmux_end = "\<esc>\\"
+  return tmux_start .. substitute(a:s, "\<esc>", "\<esc>\<esc>", 'g') .. tmux_end
+endfunction
+
+let &t_SI ..= "\<esc>[?2004h"
+let &t_EI ..= "\<esc>[?2004l"
+let &t_SI ..= s:wrap_for_tmux("\<esc>[?2004h")
+let &t_EI ..= s:wrap_for_tmux("\<esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special><expr> <esc>[200~ XTermPasteBegin()
+
 " copy path
 command! CopyPath :let @+ = expand('%')
 command! CopyFullPath :let @+ = expand('%:p')
