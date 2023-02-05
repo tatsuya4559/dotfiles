@@ -44,6 +44,16 @@
       "\t$2"
     ]
   },
+  "argparse": {
+    "prefix": "argparse",
+    "description": "argument parser",
+    "body": [
+      "import argparse",
+      "parser = argparse.ArgumentParser()",
+      "parser.add_argument($1)",
+      "args = parser.parse_args()"
+    ]
+  },
   "ut.table": {
     "prefix": "ut.table",
     "description": "table driven test",
