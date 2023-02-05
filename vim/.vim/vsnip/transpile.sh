@@ -1,11 +1,11 @@
 #!/bin/bash
 set -eu
 
-SRC="$1"
 SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
-docker build -t transpile "${SCRIPT_DIR}"
+BASE=$(basename "$1")
+SRC="src/${BASE}"
+DEST="out/${BASE%.*}.json"
 
-base=$(basename "${SRC}")
-dest="${SCRIPT_DIR}/out/${base%.*}.json"
-cat "${SRC}" | docker run -i transpile > "${dest}"
+docker build -t transpile "${SCRIPT_DIR}"
+docker run -v "${SCRIPT_DIR}:/app" transpile "$SRC" -o "$DEST"
