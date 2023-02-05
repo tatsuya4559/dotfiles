@@ -173,6 +173,7 @@ function! PackInit() abort
 
   " others
   call minpac#add('tatsuya4559/qrep.vim')
+  call minpac#add('tatsuya4559/convertcase.vim')
   call minpac#add('markonm/traces.vim')
   call minpac#add('machakann/vim-sandwich')
   call minpac#add('haya14busa/vim-asterisk')
