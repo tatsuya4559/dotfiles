@@ -212,6 +212,7 @@ nnoremap <c-q> <cmd>CtrlPQuickfix<cr>
 
 " lsp
 let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_settings = {'efm-langserver': {'disabled': v:false}}
 let g:lsp_document_highlight_enabled = v:false
 
