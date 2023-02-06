@@ -167,11 +167,36 @@ defer func() {
 }()
 '''
 
+################################################################################
+# Shell like
+################################################################################
+
+[[snippet]]
+prefix = 'pwd'
+description = 'pwd'
+body = '''
+cwd, err := os.Getwd()
+'''
+
+[[snippet]]
+prefix = 'cd'
+description = 'cd'
+body = '''
+err := os.Chdir($1)
+'''
+
 [[snippet]]
 prefix = 'mkdir'
 description = 'mkdir'
 body = '''
 err := os.Mkdir($1, os.ModePerm)
+'''
+
+[[snippet]]
+prefix = 'mkdirp'
+description = 'mkdir -p'
+body = '''
+err := os.MkdirAll($1, os.ModePerm)
 '''
 
 [[snippet]]
@@ -182,5 +207,49 @@ if _, err := os.Stat($1); os.IsNotExist(err) {
 	$2
 }
 '''
+
+[[snippet]]
+prefix = 'rm'
+description = 'rm'
+body = '''
+err := os.Remove($1)
+'''
+
+[[snippet]]
+prefix = 'rmr'
+description = 'rm -r'
+body = '''
+err := os.RemoveAll($1)
+'''
+
+[[snippet]]
+prefix = 'mv'
+description = 'mv'
+body = '''
+err := os.Rename($1, $2)
+'''
+
+[[snippet]]
+prefix = 'export'
+description = 'export'
+body = '''
+err := os.Setenv($1, $2)
+'''
+
+[[snippet]]
+prefix = 'env'
+description = 'env var'
+body = '''
+$1 := os.Getenv($2)
+'''
+
+[[snippet]]
+prefix = 'run'
+description = 'run command'
+body = '''
+cmd := exec.Command(${1:"ls", "-l"})
+err := cmd.Run()
+'''
+
 
 # vim: ts=4 noexpandtab

@@ -168,11 +168,32 @@
       "}()"
     ]
   },
+  "pwd": {
+    "prefix": "pwd",
+    "description": "pwd",
+    "body": [
+      "cwd, err := os.Getwd()"
+    ]
+  },
+  "cd": {
+    "prefix": "cd",
+    "description": "cd",
+    "body": [
+      "err := os.Chdir($1)"
+    ]
+  },
   "mkdir": {
     "prefix": "mkdir",
     "description": "mkdir",
     "body": [
       "err := os.Mkdir($1, os.ModePerm)"
+    ]
+  },
+  "mkdirp": {
+    "prefix": "mkdirp",
+    "description": "mkdir -p",
+    "body": [
+      "err := os.MkdirAll($1, os.ModePerm)"
     ]
   },
   "exists": {
@@ -182,6 +203,49 @@
       "if _, err := os.Stat($1); os.IsNotExist(err) {",
       "\t$2",
       "}"
+    ]
+  },
+  "rm": {
+    "prefix": "rm",
+    "description": "rm",
+    "body": [
+      "err := os.Remove($1)"
+    ]
+  },
+  "rmr": {
+    "prefix": "rmr",
+    "description": "rm -r",
+    "body": [
+      "err := os.RemoveAll($1)"
+    ]
+  },
+  "mv": {
+    "prefix": "mv",
+    "description": "mv",
+    "body": [
+      "err := os.Rename($1, $2)"
+    ]
+  },
+  "export": {
+    "prefix": "export",
+    "description": "export",
+    "body": [
+      "err := os.Setenv($1, $2)"
+    ]
+  },
+  "env": {
+    "prefix": "env",
+    "description": "env var",
+    "body": [
+      "$1 := os.Getenv($2)"
+    ]
+  },
+  "run": {
+    "prefix": "run",
+    "description": "run command",
+    "body": [
+      "cmd := exec.Command(${1:\"ls\", \"-l\"})",
+      "err := cmd.Run()"
     ]
   }
 }
