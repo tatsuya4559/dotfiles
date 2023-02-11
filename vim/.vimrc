@@ -46,7 +46,7 @@ nnoremap <c-w>g <c-w>sgg
 nnoremap vv vg_
 tnoremap <esc><esc> <c-\><c-n>
 nnoremap <leader>w <cmd>setlocal wrap!<cr>
-nnoremap <leader>v :e $MYVIMRC<cr>
+nnoremap <leader>v :exe 'edit' resolve($MYVIMRC)<cr>
 nnoremap yt :<c-u>tabedit %<cr>
 nnoremap <space>t :!tig status<cr>
 nnoremap H 20zh
