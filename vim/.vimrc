@@ -70,9 +70,9 @@ cabbrev te term ++close
 iabbrev improt import
 iabbrev flase false
 iabbrev Flase False
-iabbrev apn1 ap-northeast-1
-iabbrev apn3 ap-northeast-3
-iabbrev use1 us-east-1
+iabbrev apn1x ap-northeast-1
+iabbrev apn3x ap-northeast-3
+iabbrev use1x us-east-1
 
 " clipboard (thanks to monaqa
 set clipboard=
