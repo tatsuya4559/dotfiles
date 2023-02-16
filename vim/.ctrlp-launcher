@@ -17,4 +17,4 @@ gh pr create		!gh pr create -w
 gh repo view		!gh repo view -w
 
 # CI
-open circleci		!open https://app.circleci.com/pipelines/github/$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1 | awk -F/ '{print $(NF-1)"/"$NF}')
+circleci open 		!circleci open
