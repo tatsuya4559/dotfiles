@@ -3,5 +3,11 @@
   become: no
   gather_facts: yes
   roles:
-    - downloads
-    - homebrew
+    - role: homebrew
+      tags: homebrew
+
+    - role: downloads
+      tags: downloads
+
+    - role: asdf
+      tags: asdf

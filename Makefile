@@ -10,9 +10,6 @@ STOW_PACKAGES := alacritty bash fd git tig tmux vim
 .PHONY: all
 all: run link bundle minpac ## Run all setup commands
 
-.PHONY: run
-run: ## Run scripts
-	@$(CURDIR)/scripts/download_git_scripts.sh
 
 .PHONY: link
 link: ## Link dotfiles
