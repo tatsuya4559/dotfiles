@@ -1,0 +1,7 @@
+- name: local setup
+  hosts: localhost
+  become: no
+  gather_facts: yes
+  roles:
+    - downloads
+    - homebrew

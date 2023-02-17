@@ -2,7 +2,7 @@
 # Variables
 ################################################################################
 .DEFAULT_GOAL := help
-STOW_PACKAGES := alacritty bash fd git homebrew tig tmux vim
+STOW_PACKAGES := alacritty bash fd git tig tmux vim
 
 ################################################################################
 # Rules
@@ -21,11 +21,6 @@ link: ## Link dotfiles
 .PHONY: unlink
 unlink: ## Unlink dotfiles
 	@stow -v --target $(HOME) --delete $(STOW_PACKAGES)
-
-.PHONY: bundle
-bundle: ## Bundle .Brewfile
-	@$(CURDIR)/scripts/install_brew.sh
-	@brew bundle --global
 
 .PHONY: minpac
 minpac: ## Install vim plugins
