@@ -1,0 +1,13 @@
+- name: local setup
+  hosts: localhost
+  become: no
+  gather_facts: yes
+  roles:
+    - role: homebrew
+      tags: homebrew
+
+    - role: downloads
+      tags: downloads
+
+    - role: asdf
+      tags: asdf

@@ -1,0 +1,9 @@
+plugins:
+  - python
+  - golang
+  - terraform
+
+versions:
+  - { prog: python, version: 3.9.11 }
+  - { prog: golang, version: 1.18 }
+  - { prog: terraform, version: 1.1.5 }

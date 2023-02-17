@@ -2,17 +2,21 @@
 # Variables
 ################################################################################
 .DEFAULT_GOAL := help
-STOW_PACKAGES := alacritty bash fd git homebrew tig tmux vim
+STOW_PACKAGES := alacritty bash fd git tig tmux vim
+DEVBOX := /usr/local/bin/devbox
 
 ################################################################################
 # Rules
 ################################################################################
 .PHONY: all
-all: run link bundle minpac ## Run all setup commands
+all: ansible link minpac ## Run all setup commands
 
-.PHONY: run
-run: ## Run scripts
-	@$(CURDIR)/scripts/download_git_scripts.sh
+$(DEVBOX):
+	curl -fsSL https://get.jetpack.io/devbox | bash
+
+.PHONY: ansible
+ansible: $(DEVBOX) ## Run playbook
+	@cd ansible && devbox run play
 
 .PHONY: link
 link: ## Link dotfiles
@@ -21,11 +25,6 @@ link: ## Link dotfiles
 .PHONY: unlink
 unlink: ## Unlink dotfiles
 	@stow -v --target $(HOME) --delete $(STOW_PACKAGES)
-
-.PHONY: bundle
-bundle: ## Bundle .Brewfile
-	@$(CURDIR)/scripts/install_brew.sh
-	@brew bundle --global
 
 .PHONY: minpac
 minpac: ## Install vim plugins

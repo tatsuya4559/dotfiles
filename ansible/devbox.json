@@ -1,0 +1,18 @@
+{
+  "packages": [
+    "ansible"
+  ],
+  "shell": {
+    "init_hook": [
+      "export PROMPT_DIRTRIM=2",
+      "export PS1='📦 \\w$(__git_ps1)$ '"
+    ],
+    "scripts": {
+      "lint": "ansible-playbook --syntax-check setup.yml",
+      "play": "ansible-playbook setup.yml"
+    }
+  },
+  "nixpkgs": {
+    "commit": "f80ac848e3d6f0c12c52758c0f25c10c97ca3b62"
+  }
+}
