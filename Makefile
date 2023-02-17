@@ -3,13 +3,21 @@
 ################################################################################
 .DEFAULT_GOAL := help
 STOW_PACKAGES := alacritty bash fd git tig tmux vim
+DEVBOX := /usr/local/bin/devbox
 
 ################################################################################
 # Rules
 ################################################################################
 .PHONY: all
-all: run link bundle minpac ## Run all setup commands
+all: ansible link minpac ## Run all setup commands
 
+$(DEVBOX):
+	curl -fsSL https://get.jetpack.io/devbox | bash
+
+.PHONY: ansible
+ansible: $(DEVBOX) ## Run playbook
+	@cd ansible
+	@devbox run play
 
 .PHONY: link
 link: ## Link dotfiles
