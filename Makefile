@@ -16,8 +16,7 @@ $(DEVBOX):
 
 .PHONY: ansible
 ansible: $(DEVBOX) ## Run playbook
-	@cd ansible
-	@devbox run play
+	@cd ansible && devbox run play
 
 .PHONY: link
 link: ## Link dotfiles
