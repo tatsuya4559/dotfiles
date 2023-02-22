@@ -51,6 +51,10 @@ nnoremap yt :<c-u>tabedit %<cr>
 nnoremap <space>t :!tig status<cr>
 nnoremap H 20zh
 nnoremap L 20zl
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 " submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap zh zh<SID>z
 nmap zl zl<SID>z
