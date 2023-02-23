@@ -34,6 +34,7 @@ packages:
   - tmux
   - tree
   - universal-ctags
+  - vegeta
   - vim
   - volta
   - watch
