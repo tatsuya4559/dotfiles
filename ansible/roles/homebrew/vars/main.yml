@@ -25,6 +25,7 @@ packages:
   - pre-commit
   - ripgrep
   - rlwrap
+  - sd
   - stow
   - task-spooler
   - telnet
