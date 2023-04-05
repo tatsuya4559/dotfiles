@@ -9,3 +9,10 @@
     url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
     dest: "{{ ansible_env.HOME }}/.git-prompt.sh"
     force: false
+
+- name: download git-jump
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/git/git/master/contrib/git-jump/git-jump
+    dest: "{{ ansible_env.HOME }}/.local/bin/git-jump"
+    mode: 0755
+    force: false
