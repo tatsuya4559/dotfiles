@@ -170,6 +170,7 @@ function! PackInit() abort
   " git
   call minpac#add('lambdalisue/gina.vim')
   call minpac#add('APZelos/blamer.nvim')
+  call minpac#add('mhinz/vim-signify')
 
   " lsp
   call minpac#add('prabirshrestha/vim-lsp')
