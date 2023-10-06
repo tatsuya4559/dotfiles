@@ -28,6 +28,7 @@ alias dc='docker compose'
 alias dw='diff2html -i stdin'
 alias tf='terraform'
 alias gg='git grep --heading --break'
+alias gj='git jump grep'
 
 if [[ $(uname) == 'Linux' ]]; then
   alias pbcopy='xclip -selection c'

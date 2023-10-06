@@ -64,6 +64,7 @@ nmap <SID>z <Nop>
 
 " colorscheme
 colorscheme habamax
+" 対応するカッコのほうがカーソル下より強調されてしまうのを抑制
 hi! MatchParen cterm=NONE
 let g:is_bash = v:true
 
@@ -104,6 +105,7 @@ autocmd MyAutoCmd InsertLeave * {
   endif
 }
 
+" paste in tmux
 function! s:wrap_for_tmux(s)
   if !exists('$TMUX')
     return a:s
