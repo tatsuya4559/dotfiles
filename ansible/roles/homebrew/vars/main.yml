@@ -36,6 +36,7 @@ packages:
   - tree
   - universal-ctags
   - vegeta
+  - vifm
   - vim
   - volta
   - watch
