@@ -188,6 +188,9 @@ function! PackInit() abort
   call minpac#add('hrsh7th/vim-vsnip')
   call minpac#add('thinca/vim-quickrun')
   call minpac#add('AndrewRadev/linediff.vim')
+  call minpac#add('bkad/CamelCaseMotion')
+  call minpac#add('kana/vim-smartword')
+  call minpac#add('itchyny/vim-qfedit')
 
   " language specific
   call minpac#add('mattn/emmet-vim')
@@ -288,6 +291,19 @@ function! s:edit_vsnip_src(filetype) abort
   exe 'edit' snip_src
 endfunction
 command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
+
+" CamelCaseMotion
+let g:camelcasemotion_key = '<leader>'
+
+" smartword
+nmap w  <plug>(smartword-w)
+nmap b  <plug>(smartword-b)
+nmap e  <plug>(smartword-e)
+nmap ge  <plug>(smartword-ge)
+vmap w  <plug>(smartword-w)
+vmap b  <plug>(smartword-b)
+vmap e  <plug>(smartword-e)
+vmap ge  <plug>(smartword-ge)
 
 " vim-test
 let g:test#strategy = 'vimterminal'
