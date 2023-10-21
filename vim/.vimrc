@@ -23,7 +23,6 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
-set updatetime=300
 set nrformats& nrformats+=unsigned
 augroup MyAutoCmd
   autocmd!
