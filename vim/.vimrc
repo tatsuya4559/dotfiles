@@ -187,7 +187,6 @@ nnoremap <space>f <cmd>CtrlPCurFile<cr>
 nnoremap <space>b <cmd>CtrlPBuffer<cr>
 nnoremap <space>l <cmd>CtrlPLine<cr>
 nnoremap <space>p <cmd>CtrlPLauncher<cr>
-nnoremap <c-q> <cmd>CtrlPQuickfix<cr>
 
 " lsp
 let g:lsp_diagnostics_float_cursor = 1
