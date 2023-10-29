@@ -248,6 +248,13 @@ command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
 " terraform
 let g:terraform_fmt_on_save = v:true
-autocmd MyAutoCmd BufWritePost *.tf !pre-commit run terraform_docs --files %
+
+let s:job = {}
+function! s:async_run_tfdocs(filename) abort
+  let cmd = printf('pre-commit run terraform_docs --files %s', a:filename)
+  " jobがkillされないように参照をscript local scopeに残しておく
+  let s:job[a:filename] = job_start(cmd, {"in_io": "null", "out_io": "null", "err_io": "null"})
+endfunction
+autocmd MyAutoCmd BufWritePost *.tf call s:async_run_tfdocs(expand('%'))
 
 runtime! rc/*.vim
