@@ -13,7 +13,6 @@ return require('packer').startup(function(use)
         require('mason').setup()
         require('mason-lspconfig').setup()
         local lspconfig = require("lspconfig")
-        lspconfig.lua_ls.setup {}
         lspconfig.pyright.setup {}
         lspconfig.gopls.setup {}
         lspconfig.tsserver.setup {}
@@ -269,30 +268,6 @@ return require('packer').startup(function(use)
 
   use 'itchyny/vim-qfedit'
 
-  -- motion ------------------------------------------------
-  use {
-    'haya14busa/vim-edgemotion',
-    config = function()
-      vim.keymap.set('n', '<c-j>', '<plug>(edgemotion-j)')
-      vim.keymap.set('n', '<c-k>', '<plug>(edgemotion-k)')
-    end
-  }
-
-  use {
-    'tkmpypy/chowcho.nvim',
-    config = function()
-      local function auto_chowcho()
-        if vim.fn.winnr('$') <= 2 then
-          vim.cmd 'wincmd w'
-        else
-          require('chowcho').run()
-        end
-      end
-      vim.keymap.set('n', '<c-w><c-w>', auto_chowcho, { noremap = true })
-      vim.keymap.set('n', '<c-w>w', auto_chowcho, { noremap = true })
-    end
-  }
-
   -- utility -----------------------------------------------
   use 'jghauser/mkdir.nvim'
 
@@ -313,8 +288,24 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    'tkmpypy/chowcho.nvim',
+    config = function()
+      local function auto_chowcho()
+        if vim.fn.winnr('$') <= 2 then
+          vim.cmd 'wincmd w'
+        else
+          require('chowcho').run()
+        end
+      end
+      vim.keymap.set('n', '<c-w><c-w>', auto_chowcho, { noremap = true })
+      vim.keymap.set('n', '<c-w>w', auto_chowcho, { noremap = true })
+    end
+  }
+
   -- language specific -------------------------------------
   use 'mattn/emmet-vim'
+
   use 'mattn/vim-goimports'
 
   -- test --------------------------------------------------
