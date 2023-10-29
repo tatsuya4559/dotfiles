@@ -2,7 +2,7 @@
 # Variables
 ################################################################################
 .DEFAULT_GOAL := help
-STOW_PACKAGES := alacritty bash fd git tig tmux vim
+STOW_PACKAGES := alacritty bash fd git tig tmux vim nvim
 DEVBOX := /usr/local/bin/devbox
 
 ################################################################################

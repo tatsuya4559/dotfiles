@@ -162,7 +162,6 @@ function! PackInit() abort
   call minpac#add('mattn/vim-goimports')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('jeetsukumaran/vim-python-indent-black')
-  call minpac#add('vim-test/vim-test')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
@@ -255,14 +254,6 @@ function! s:edit_vsnip_src(filetype) abort
   exe 'edit' snip_src
 endfunction
 command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
-
-" vim-test
-let g:test#strategy = 'vimterminal'
-let g:test#python#runner = 'pytest'
-let g:test#python#pytest#executable = 'pytest -v --disable-warnings --no-migrations --reuse-db'
-nnoremap <leader>tf <cmd>TestFile<cr>
-nnoremap <leader>tn <cmd>TestNearest<cr>
-nnoremap <leader>tt <cmd>TestLast<cr>
 
 " terraform
 let g:terraform_fmt_on_save = v:true

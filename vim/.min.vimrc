@@ -18,7 +18,6 @@ set hidden
 " keymaps
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 vnoremap . :normal .<cr>
-nnoremap Y y$
 
 " abbreviations
 cabbrev w!! w !sudo tee > /dev/null %

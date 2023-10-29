@@ -34,4 +34,3 @@ nnoremap <silent> <leader>m :call <SID>OpenExternalModule()<cr>
 
 # brew install iam-policy-json-to-terraform
 command! -range IamPolicyJsonToHcl :<line1>,<line2>!iam-policy-json-to-terraform
-
