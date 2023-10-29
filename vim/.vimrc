@@ -52,12 +52,6 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-" submode(https://zenn.dev/mattn/articles/83c2d4c7645faa)
-nmap zh zh<SID>z
-nmap zl zl<SID>z
-nnoremap <script> <SID>zh zh<SID>z
-nnoremap <script> <SID>zl zl<SID>z
-nmap <SID>z <Nop>
 
 " colorscheme
 colorscheme habamax
