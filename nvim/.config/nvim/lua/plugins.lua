@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
         lspconfig.ocamllsp.setup {}
         lspconfig.bashls.setup {}
         lspconfig.terraformls.setup {}
+        lspconfig.zls.setup {}
 
         local function on_hover()
           if vim.bo.filetype == 'vim' or vim.bo.filetype == 'lua' then
@@ -70,7 +71,6 @@ return require('packer').startup(function(use)
 
   -- fuzzy finder ------------------------------------------
   use {
-    -- TODO: 上下移動のmappingをctrlpに合わせてc-j, c-kにする
     'nvim-telescope/telescope.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function()
@@ -193,6 +193,7 @@ return require('packer').startup(function(use)
   -- git ---------------------------------------------------
   use {
     'lambdalisue/gina.vim',
+    cmd = 'Gina',
     config = function()
       vim.keymap.set({'n', 'v'}, '<leader>gh', ':Gina browse --exact : <cr>')
       vim.keymap.set({'n', 'v'}, '<leader>gy', ':Gina browse --exact --yank : <cr>:let @+ = @"<cr>')
@@ -201,6 +202,7 @@ return require('packer').startup(function(use)
 
   use {
     'f-person/git-blame.nvim',
+    cmd = 'GitBlameToggle',
     config = function()
       require('gitblame').setup {
         enabled = false,
@@ -269,7 +271,10 @@ return require('packer').startup(function(use)
   use 'itchyny/vim-qfedit'
 
   -- utility -----------------------------------------------
-  use 'jghauser/mkdir.nvim'
+  use {
+    'jghauser/mkdir.nvim',
+    event = 'BufWritePre',
+  }
 
   use {
     'thinca/vim-quickrun',
@@ -278,10 +283,14 @@ return require('packer').startup(function(use)
     end
   }
 
-  use 'AndrewRadev/linediff.vim'
+  use {
+    'AndrewRadev/linediff.vim',
+    cmd = 'Linediff',
+  }
 
   use {
     'akinsho/toggleterm.nvim',
+    keys = { 'n', '<c-t>' },
     config = function()
       require('toggleterm').setup()
       vim.keymap.set({'n', 't'}, '<c-t>', '<cmd>ToggleTerm size=30 direction=horizontal name=desktop<cr>', { noremap = true })
@@ -306,7 +315,10 @@ return require('packer').startup(function(use)
   -- language specific -------------------------------------
   use 'mattn/emmet-vim'
 
-  use 'mattn/vim-goimports'
+  use {
+    'mattn/vim-goimports',
+    ft = 'go',
+  }
 
   -- test --------------------------------------------------
   use {

@@ -62,6 +62,14 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
   end
 })
 
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  group = mygroup,
+  pattern = 'term://*',
+  callback = function()
+    vim.fn.feedkeys('i')
+  end
+})
+
 vim.o.clipboard = ''
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = mygroup,

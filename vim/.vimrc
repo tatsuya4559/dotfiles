@@ -21,7 +21,6 @@ set ruler
 set noswapfile
 set nowrap
 set hidden
-set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
 set nrformats& nrformats+=unsigned
 augroup MyAutoCmd
@@ -139,8 +138,6 @@ function! PackInit() abort
   call minpac#add('mattn/vim-lsp-settings')
 
   " others
-  call minpac#add('tatsuya4559/qrep.vim')
-  call minpac#add('tatsuya4559/convertcase.vim')
   call minpac#add('markonm/traces.vim')
   call minpac#add('machakann/vim-sandwich')
   call minpac#add('haya14busa/vim-asterisk')
@@ -160,11 +157,11 @@ endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
 
-" plugin settings
-" qrep
+" grep
 let &grepprg = 'rg --vimgrep --hidden --glob "!.git"'
 set grepformat=%f:%l:%c:%m
-nnoremap <space>g :<c-u>Qrep<space>
+
+" plugin settings
 
 " ctrlp
 let g:ctrlp_user_command = 'fd --hidden --type f --color never "" %s'
