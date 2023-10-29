@@ -17,6 +17,3 @@ enddef
 command! -nargs=* Google Google(<f-args>)
 nnoremap <silent> <leader>gg :Google <c-r><c-w><cr><cr>
 vnoremap <silent> <leader>gg "zy:Google <c-r>z<cr>
-
-command! SepLineFeed :s/\\n/\r/g
-command! -range AlignTable :<line1>,<line2>!pandoc -t gfm
