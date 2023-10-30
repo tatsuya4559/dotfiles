@@ -113,5 +113,49 @@
     "body": [
       "data \"aws_caller_identity\" \"self\" {}"
     ]
+  },
+  "role": {
+    "prefix": "role",
+    "description": "iam role",
+    "body": [
+      "resource \"aws_iam_role\" \"$1\" {",
+      "\tname               = \"\"",
+      "\tassume_role_policy = data.aws_iam_policy_document.$2.json",
+      "}",
+      "",
+      "data \"aws_iam_policy_document\" \"$3\" {",
+      "\tstatement {",
+      "\t\teffect    = \"Allow\"",
+      "\t\tactions   = []",
+      "\t\tresources = []",
+      "\t}",
+      "}",
+      "",
+      "resource \"aws_iam_policy\" \"$4\" {",
+      "\tname   = \"\"",
+      "\tpolicy = data.aws_iam_policy_document.$3.json",
+      "}",
+      "",
+      "resource \"aws_iam_role_policy_attachment\" \"$5\" {",
+      "\tpolicy_arn = aws_iam_policy.$4.arn",
+      "\trole       = aws_iam_role.$1.name",
+      "}"
+    ]
+  },
+  "st": {
+    "prefix": "st",
+    "description": "policy statement",
+    "body": [
+      "statement {",
+      "\tsid       = \"$1\"",
+      "\teffect    = \"Allow\"",
+      "\tactions   = [",
+      "\t\t$2",
+      "\t]",
+      "\tresources = [",
+      "\t\t$3",
+      "\t]",
+      "}"
+    ]
   }
 }
