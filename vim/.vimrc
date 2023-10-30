@@ -54,8 +54,6 @@ nnoremap gk k
 
 " colorscheme
 colorscheme habamax
-" 対応するカッコのほうがカーソル下より強調されてしまうのを抑制
-hi! MatchParen cterm=NONE
 let g:is_bash = v:true
 
 " abbreviations
@@ -138,6 +136,7 @@ function! PackInit() abort
   call minpac#add('mattn/vim-lsp-settings')
 
   " others
+  call minpac#add('tatsuya4559/qrep.vim')
   call minpac#add('markonm/traces.vim')
   call minpac#add('machakann/vim-sandwich')
   call minpac#add('haya14busa/vim-asterisk')
@@ -160,8 +159,10 @@ command! PackClean call PackInit() | call minpac#clean()
 " grep
 let &grepprg = 'rg --vimgrep --hidden --glob "!.git"'
 set grepformat=%f:%l:%c:%m
+nnoremap <space>v :<c-u>vimgrep /<c-r><c-w>/j %<cr>
 
 " plugin settings
+nnoremap <space>g :<c-u>Qrep<space>
 
 " ctrlp
 let g:ctrlp_user_command = 'fd --hidden --type f --color never "" %s'
@@ -178,7 +179,7 @@ nnoremap <space>p <cmd>CtrlPLauncher<cr>
 " lsp
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
-let g:lsp_settings = {'efm-langserver': {'disabled': v:false}}
+" let g:lsp_settings = {'efm-langserver': {'disabled': v:false}}
 let g:lsp_document_highlight_enabled = v:false
 
 function! s:on_hover() abort
@@ -253,7 +254,7 @@ let s:job = {}
 function! s:async_run_tfdocs(filename) abort
   let cmd = printf('pre-commit run terraform_docs --files %s', a:filename)
   " jobがkillされないように参照をscript local scopeに残しておく
-  let s:job[a:filename] = job_start(cmd, {"in_io": "null", "out_io": "null", "err_io": "null"})
+  let s:job[cmd] = job_start(cmd, {"in_io": "null", "out_io": "null", "err_io": "null"})
 endfunction
 autocmd MyAutoCmd BufWritePost *.tf call s:async_run_tfdocs(expand('%'))
 
