@@ -201,7 +201,8 @@ endfunction
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal tagfunc=lsp#tagfunc
-  nmap <buffer><silent> gd <plug>(lsp-definition)
+  " popup windowが残らないようにjkしてからジャンプする
+  nmap <buffer><silent> gd jk<plug>(lsp-definition)
   nmap <buffer><silent> gr <plug>(lsp-references)
   nmap <buffer><silent> gi <plug>(lsp-implementation)
   nmap <buffer><silent> gy <plug>(lsp-type-definition)
