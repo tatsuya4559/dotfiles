@@ -242,6 +242,7 @@ let g:vsnip_snippet_dir = '~/.vim/vsnip/out'
 imap <expr> <tab> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<tab>'
 imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
 imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
+nnoremap <leader>s <cmd>VsnipEditTOML<cr>
 
 " terraform
 let g:terraform_fmt_on_save = v:true
