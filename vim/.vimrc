@@ -142,10 +142,12 @@ function! PackInit() abort
   call minpac#add('haya14busa/vim-asterisk')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('hrsh7th/vim-vsnip')
+  call minpac#add('tatsuya4559/vim-vsnip-toml')
   call minpac#add('thinca/vim-quickrun')
   call minpac#add('AndrewRadev/linediff.vim')
   call minpac#add('itchyny/vim-qfedit')
   call minpac#add('ConradIrwin/vim-bracketed-paste')
+  call minpac#add('vim-jp/vital.vim', {'type': 'opt'})
 
   " language specific
   call minpac#add('mattn/emmet-vim')
@@ -235,18 +237,11 @@ command! -nargs=1 OpenInBranch exe printf('Gina show %s:%s', <f-args>, expand('%
 nnoremap <leader>b <cmd>BlamerToggle<cr>
 
 " vsnip
+let g:vsnip_snippet_src_dir = '~/.vim/vsnip/src'
 let g:vsnip_snippet_dir = '~/.vim/vsnip/out'
 imap <expr> <tab> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<tab>'
 imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
 imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
-
-function! s:edit_vsnip_src(filetype) abort
-  let filetype = empty(a:filetype) ? &filetype : a:filetype
-  let snip_src = printf('~/.vim/vsnip/src/%s.toml', filetype)
-  exe printf('autocmd MyAutoCmd BufWritePost %s call system("~/.vim/vsnip/transpile.sh %s")', snip_src, snip_src)
-  exe 'edit' snip_src
-endfunction
-command! -nargs=? VsnipEdit :call s:edit_vsnip_src(<q-args>)
 
 " terraform
 let g:terraform_fmt_on_save = v:true
