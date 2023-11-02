@@ -186,7 +186,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 nnoremap <space>w <cmd>CtrlPCurWD<cr>
 nnoremap <space>f <cmd>CtrlPCurFile<cr>
 nnoremap <space>b <cmd>CtrlPBuffer<cr>
-nnoremap <space>l <cmd>CtrlPLine<cr>
+nnoremap <space>l <cmd>CtrlPLine %<cr>
 nnoremap <space>p <cmd>CtrlPLauncher<cr>
 
 " lsp
