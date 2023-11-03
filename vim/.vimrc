@@ -50,13 +50,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-
-function! s:clear() abort
-  call quickhl#manual#reset()
-  nohlsearch
-  redraw
-endfunction
-nnoremap <silent> <c-l> <scriptcmd>call <SID>clear()<cr>
+nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 
 " colorscheme
 colorscheme habamax
@@ -157,7 +151,6 @@ function! PackInit() abort
   " others
   call minpac#add('thinca/vim-quickrun')
   call minpac#add('AndrewRadev/linediff.vim')
-  call minpac#add('t9md/vim-quickhl')
   call minpac#add('vim-jp/vital.vim', {'type': 'opt'})
 
   " language specific
@@ -254,10 +247,6 @@ imap <expr> <tab> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<tab>'
 imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
 imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 nnoremap <leader>s <cmd>VsnipEditTOML<cr>
-
-" quickhl
-nmap <space>m <plug>(quickhl-manual-this)
-xmap <space>m <plug>(quickhl-manual-this)
 
 " terraform
 let g:terraform_fmt_on_save = v:true
