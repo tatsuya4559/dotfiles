@@ -1,0 +1,46 @@
+[[snippet]]
+prefix = 'inc<'
+description = 'include'
+body = '''
+#include <$1>
+'''
+
+[[snippet]]
+prefix = 'inc"'
+description = 'include'
+body = '''
+#include "$1"
+'''
+
+[[snippet]]
+prefix = 'main'
+description = 'main'
+body = '''
+int main(int argc, char **argv)
+{
+	$1
+}
+'''
+
+[[snippet]]
+prefix = 'fopen'
+description = 'file open'
+body = '''
+FILE *fp = fopen(${1:filename}, ${2:mode});
+if (fp == NULL) {
+  fprintf(stderr, "cannot open %s\n", $1);
+  exit(1);
+}
+fclose(fp);
+'''
+
+[[snippet]]
+prefix = 'va'
+description = 'variadic argument'
+body = '''
+#include <stdarg.h>
+va_list ap;
+va_start(ap, ${1:arg});
+va_arg(ap, <type>);
+va_end;
+'''

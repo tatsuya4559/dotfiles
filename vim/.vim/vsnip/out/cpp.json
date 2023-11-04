@@ -1,0 +1,1 @@
+{"g":{"description":"include guard","body":["#ifndef ${VIM:printf('_%s_H_', expand('%:t:r')->toupper())}","#define ${VIM:printf('_%s_H_', expand('%:t:r')->toupper())}","$1","#endif /* ${VIM:printf('_%s_H_', expand('%:t:r')->toupper())} */"],"prefix":"g"}}
