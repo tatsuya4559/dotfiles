@@ -21,6 +21,7 @@ set ruler
 set noswapfile
 set nowrap
 set hidden
+set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
 set nrformats& nrformats+=unsigned
 augroup MyAutoCmd
