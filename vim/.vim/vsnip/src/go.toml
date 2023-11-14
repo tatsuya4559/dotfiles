@@ -244,6 +244,13 @@ $1 := os.Getenv($2)
 '''
 
 [[snippet]]
+prefix = 'glob'
+description = 'glob'
+body = '''
+files, err := filepath.Glob("$1")
+'''
+
+[[snippet]]
 prefix = 'run'
 description = 'run command'
 body = '''
