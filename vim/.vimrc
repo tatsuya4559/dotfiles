@@ -90,6 +90,9 @@ autocmd MyAutoCmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
 command! CopyPath :let @+ = expand('%')
 command! CopyFullPath :let @+ = expand('%:p')
 
+" align column
+command! -range=% Align :<line1>,<line2>!column -t
+
 " quickfix
 function! s:toggle_quickfix()
   let nr = winnr('$')
