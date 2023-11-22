@@ -122,6 +122,7 @@ function! PackInit() abort
 
   " colorscheme
   call minpac#add('tatsuya4559/shirotelin', {'type': 'opt'})
+  call minpac#add('junegunn/seoul256.vim', {'type': 'opt'})
 
   " filer & fuzzy finder
   call minpac#add('tatsuya4559/filer.vim', {'branch': 'vim9script'})
@@ -162,6 +163,7 @@ function! PackInit() abort
   call minpac#add('mattn/vim-goimports')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('jeetsukumaran/vim-python-indent-black')
+  call minpac#add('lepture/vim-jinja')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
