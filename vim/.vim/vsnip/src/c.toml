@@ -1,15 +1,15 @@
 [[snippet]]
-prefix = 'inc<'
+prefix = 'i'
 description = 'include'
 body = '''
-#include <$1>
+#include <$1.h>
 '''
 
 [[snippet]]
-prefix = 'inc"'
+prefix = 'i"'
 description = 'include'
 body = '''
-#include "$1"
+#include "$1.h"
 '''
 
 [[snippet]]
@@ -43,4 +43,13 @@ va_list ap;
 va_start(ap, ${1:arg});
 va_arg(ap, <type>);
 va_end;
+'''
+
+[[snippet]]
+prefix = 'sprintf'
+description = 'secure sprintf'
+body = '''
+size_t size = snprintf(NULL, 0, "$1", $2) + 1;
+char *$3 = malloc(sizeof(char) * size);
+snprintf($3, size, "$1", $2);
 '''
