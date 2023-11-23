@@ -265,4 +265,6 @@ function! s:async_run_tfdocs(filename) abort
 endfunction
 autocmd MyAutoCmd BufWritePost *.tf call s:async_run_tfdocs(expand('%'))
 
-runtime! rc/*.vim
+if has('vim9script')
+  runtime! rc/*.vim
+endif

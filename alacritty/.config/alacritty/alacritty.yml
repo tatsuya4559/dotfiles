@@ -1,9 +1,9 @@
 font:
   normal:
-    family: 'Monaco'
+    family: 'Monaspace Krypton'
     style: Regular
   bold:
-    family: 'Monaco'
+    family: 'Monaspace Krypton'
     style: Bold
   size: 14.0
 key_bindings:

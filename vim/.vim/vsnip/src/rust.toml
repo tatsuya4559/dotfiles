@@ -1,0 +1,13 @@
+[[snippet]]
+prefix = 'pr'
+description = 'println'
+body = '''
+println!($1);
+'''
+
+[[snippet]]
+prefix = 'd'
+description = 'debug print'
+body = '''
+dbg!($1);
+'''
