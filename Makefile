@@ -9,14 +9,22 @@ DEVBOX := /usr/local/bin/devbox
 # Rules
 ################################################################################
 .PHONY: all
-all: ansible link minpac ## Run all setup commands
+all: brew download link asdf minpac ## Run all setup commands
 
 $(DEVBOX):
 	curl -fsSL https://get.jetpack.io/devbox | bash
 
-.PHONY: ansible
-ansible: $(DEVBOX) ## Run playbook
-	@cd ansible && devbox run play
+.PHONY: brew
+brew: ## Install homebrew
+	./scripts/brew.sh
+
+.PHONY: download
+download:
+	./scripts/download.sh
+
+.PHONY: asdf
+asdf:
+	./scripts/asdf.sh
 
 .PHONY: link
 link: ## Link dotfiles

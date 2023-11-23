@@ -1,0 +1,7 @@
+cask "alacritty"
+cask "alt-tab"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "raycast"
+cask "slack"
+cask "visual-studio-code"
