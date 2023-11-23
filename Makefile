@@ -2,7 +2,8 @@
 # Variables
 ################################################################################
 .DEFAULT_GOAL := help
-STOW_PACKAGES := alacritty bash fd git tig tmux vim nvim
+# do not link .bashrc and .bash_profile. they are just a reference
+STOW_PACKAGES := alacritty readline fd git tig tmux vim
 DEVBOX := /usr/local/bin/devbox
 
 ################################################################################
