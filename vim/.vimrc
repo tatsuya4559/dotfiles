@@ -7,7 +7,7 @@ filetype plugin indent on
 syntax enable
 language C
 set smartindent breakindent
-set expandtab tabstop=2 shiftwidth=2
+set expandtab tabstop=4 shiftwidth=4
 set hlsearch incsearch ignorecase smartcase wrapscan
 set shortmess-=S
 set showcmd
@@ -15,8 +15,8 @@ set backspace=2
 set wildmenu
 set list listchars=tab:▸\ ,trail:·
 set laststatus=2
-"set number
-"set relativenumber
+set number
+set relativenumber
 set ruler
 set noswapfile
 set nowrap
