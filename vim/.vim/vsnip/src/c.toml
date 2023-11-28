@@ -92,3 +92,38 @@ $1
 clock_gettime(CLOCK_MONOTONIC, &end);
 int64_t elapsed_ns = (end.tv_sec - start.tv_sec) * BILLION + (end.tv_nsec - start.tv_nsec);
 '''
+
+[[snippet]]
+prefix = 'cunit'
+description = 'scaffold cunit'
+body = '''
+#include <CUnit/Basic.h>
+
+#define len(array) sizeof(array) / sizeof(array[0])
+#define TEST_CASE(test_func) { .name = #test_func, .func = test_func }
+
+typedef struct {
+  char *name;
+  CU_TestFunc func;
+} TestCase;
+
+TestCase tests[] = {
+  TEST_CASE(some_test_function),
+};
+
+int main(int argc, char **argv)
+{
+  CU_pSuite suite;
+  CU_initialize_registry();
+
+  suite = CU_add_suite("$1", NULL, NULL);
+  for (int i=0; i<len(tests); i++) {
+    CU_add_test(suite, tests[i].name, tests[i].func);
+  }
+
+  CU_basic_run_tests();
+  CU_cleanup_registry();
+
+  return CU_get_error();
+}
+'''
