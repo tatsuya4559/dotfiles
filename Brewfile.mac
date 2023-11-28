@@ -1,5 +1,6 @@
 cask "alacritty"
 cask "alt-tab"
+cask "brave-browser"
 cask "google-chrome"
 cask "google-japanese-ime"
 cask "raycast"
