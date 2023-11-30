@@ -20,11 +20,11 @@ brew: ## Install homebrew
 	./scripts/brew.sh
 
 .PHONY: download
-download:
+download: ## Download files
 	./scripts/download.sh
 
 .PHONY: asdf
-asdf:
+asdf: ## Prepare asdf
 	./scripts/asdf.sh
 
 .PHONY: link
