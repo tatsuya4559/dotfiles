@@ -2,7 +2,7 @@
 
 .PHONY: install
 install: ## Install plug
-	ln -s $(CURDIR)/plug /usr/local/bin/plug
+	sudo ln -s $(CURDIR)/plug /usr/local/bin/plug
 	mkdir -p ~/.local/bin
 	ln -s $(CURDIR)/plug_completion.sh ~/.local/bin/plug_completion.sh
 	@echo ""
@@ -10,7 +10,7 @@ install: ## Install plug
 
 .PHONY: uninstall
 uninstall: ## Uninstall plug
-	rm /usr/local/bin/plug
+	sudo rm /usr/local/bin/plug
 	rm ~/.local/bin/plug_completion.sh
 
 .PHONY: help

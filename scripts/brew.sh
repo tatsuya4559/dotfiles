@@ -10,6 +10,7 @@ insall() {
       git clone --depth 1 https://github.com/Homebrew/brew "$HOME/.linuxbrew/Homebrew"
       mkdir "$HOME/.linuxbrew/bin"
       ln -s "$HOME/.linuxbrew/Homebrew/bin/brew" "$HOME/.linuxbrew/bin"
+      echo 'eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"' >> ~/.bashrc
       eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
       ;;
     *)

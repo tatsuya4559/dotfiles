@@ -23,6 +23,9 @@ set nowrap
 set hidden
 set ttimeoutlen=10
 set undolevels=1000 undodir=~/.vim/undo undofile
+if !isdirectory(expand('~/.vim/undo'))
+  call mkdir(expand('~/.vim/undo'), "p")
+endif
 set nrformats& nrformats+=unsigned
 augroup MyAutoCmd
   autocmd!
@@ -68,12 +71,18 @@ iabbrev apn1x ap-northeast-1
 iabbrev apn3x ap-northeast-3
 iabbrev use1x us-east-1
 
+let s:is_wsl = isdirectory('/mnt/c')
+
 " clipboard (thanks to monaqa
 set clipboard=
 autocmd MyAutoCmd TextYankPost * call s:copy_unnamed_to_plus(v:event.operator)
 function! s:copy_unnamed_to_plus(opr)
   if a:opr ==# 'y'
-    let @+ = @"
+    if s:is_wsl
+      call system('clip.exe', @")
+    else
+      let @+ = @"
+    endif
   endif
 endfunction
 
