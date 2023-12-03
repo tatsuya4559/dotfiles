@@ -5,7 +5,6 @@
   user = tatsuya4559
 [core]
   editor = vim
-  pager = diff-highlight | less
 [delta]
   plus-emph-style = "syntax darkgreen"
   plus-non-emph-style = "syntax olive"
