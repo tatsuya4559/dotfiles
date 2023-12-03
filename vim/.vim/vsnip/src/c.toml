@@ -67,6 +67,18 @@ snprintf($3, size, "$1", $2);
 '''
 
 [[snippet]]
+prefix = 'getopt'
+description = 'getopt'
+body = '''
+#include <getopt.h>
+
+int opt;
+while ((opt = getopt(argc, argv, "$1")) != -1) {
+	$2
+}
+'''
+
+[[snippet]]
 prefix = 'mmap'
 description = 'mmap'
 body = '''
