@@ -5,16 +5,9 @@
   user = tatsuya4559
 [core]
   editor = vim
-[delta]
-  plus-emph-style = "syntax darkgreen"
-  plus-non-emph-style = "syntax olive"
-  minus-emph-style = "syntax darkred"
-  minus-non-emph-style = "syntax red"
-  navigate = true
+  pager = diff-highlight | less
 [diff]
   colorMoved = dimmed-zebra
-[interactive]
-  ; diffFilter = delta --color-only
 [merge]
   tool = vimdiff
   ff = false
