@@ -74,7 +74,10 @@ body = '''
 
 int opt;
 while ((opt = getopt(argc, argv, "$1")) != -1) {
-	$2
+    switch (opt) {
+	case '$2':
+		$3
+	}
 }
 '''
 
