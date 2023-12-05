@@ -55,6 +55,7 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
+cnoremap <c-p> <up>
 
 " colorscheme
 colorscheme habamax
