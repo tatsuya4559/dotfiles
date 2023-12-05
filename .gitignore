@@ -1,2 +1,5 @@
 .netrwhist
 .DS_Store
+
+vim/.vim/pack
+vim/.vim/undo
