@@ -22,6 +22,7 @@ set noswapfile
 set nowrap
 set hidden
 set ttimeoutlen=10
+set diffopt=internal,filler,algorithm:histogram,indent-heuristic,closeoff
 set undolevels=1000 undodir=~/.vim/undo undofile
 if !isdirectory(expand('~/.vim/undo'))
   call mkdir(expand('~/.vim/undo'), "p")
