@@ -185,7 +185,7 @@ defer func() {
 prefix = 'wr'
 description = 'wraps error'
 body = '''
-fmt.Errorf("%1: %w", err)
+fmt.Errorf("$1: %w", err)
 '''
 
 ################################################################################
