@@ -1,1 +1,1 @@
-{"pr":{"description":"println","body":["println!($1);"],"prefix":"pr"},"d":{"description":"debug print","body":["dbg!($1);"],"prefix":"d"}}
+{"testm":{"description":"tests module","body":["#[cfg(test)]","mod tests {","\tuse super::*;","","\t$1","}"],"prefix":"testm"},"pr":{"description":"println","body":["println!($1);"],"prefix":"pr"},"d":{"description":"debug print","body":["dbg!($1);"],"prefix":"d"},"testf":{"description":"test function","body":["#[test]","fn $1() {","\t$2","}"],"prefix":"testf"}}

@@ -1,0 +1,17 @@
+[[snippet]]
+prefix = 'test'
+description = 'test'
+body = '''
+test "$1" {
+	$2
+}
+'''
+
+[[snippet]]
+prefix = 'sw'
+description = 'switch'
+body = '''
+switch ($1) {
+  $2
+}
+'''

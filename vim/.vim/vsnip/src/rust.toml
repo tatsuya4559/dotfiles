@@ -11,3 +11,25 @@ description = 'debug print'
 body = '''
 dbg!($1);
 '''
+
+[[snippet]]
+prefix = 'testm'
+description = 'tests module'
+body = '''
+#[cfg(test)]
+mod tests {
+	use super::*;
+
+	$1
+}
+'''
+
+[[snippet]]
+prefix = 'testf'
+description = 'test function'
+body = '''
+#[test]
+fn $1() {
+	$2
+}
+'''
