@@ -237,6 +237,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <space>s <plug>(lsp-workspace-symbol-search)
   nmap <buffer> <space>d <scriptcmd>call <SID>toggle_diagnostics()<cr>
   nnoremap <buffer> go <cmd>CtrlPLspDocumentSymbol<cr>
+  nnoremap <buffer> <leader>f <cmd>LspDocumentFormat<cr>
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
