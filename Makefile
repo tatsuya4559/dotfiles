@@ -10,7 +10,7 @@ DEVBOX := /usr/local/bin/devbox
 # Rules
 ################################################################################
 .PHONY: all
-all: brew download link asdf minpac ## Run all setup commands
+all: brew download link minpac ## Run all setup commands
 
 $(DEVBOX):
 	curl -fsSL https://get.jetpack.io/devbox | bash
@@ -22,10 +22,6 @@ brew: ## Install homebrew
 .PHONY: download
 download: ## Download files
 	./scripts/download.sh
-
-.PHONY: asdf
-asdf: ## Prepare asdf
-	./scripts/asdf.sh
 
 .PHONY: link
 link: ## Link dotfiles

@@ -17,10 +17,6 @@ if [[ $(uname) == 'Linux' ]]; then
   eval $("$HOME/.linuxbrew/bin/brew" shellenv)
 fi
 
-# asdf
-source "$(brew --prefix asdf)/libexec/asdf.sh"
-source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
-
 # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
