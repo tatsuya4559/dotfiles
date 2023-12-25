@@ -59,6 +59,7 @@ nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
 
 " macro
+" @e turns `fn()` into `if err := fn(); err != nil { return err }`
 let @e = 'Iif err := A; err != nil {}Oreturn err'
 
 " colorscheme
