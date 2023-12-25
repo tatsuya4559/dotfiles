@@ -64,6 +64,32 @@ func Test$1(t *testing.T) {
 '''
 
 [[snippet]]
+prefix = 'utm'
+description = 'table driven test skelton(map ver.)'
+body = '''
+func Test$1(t *testing.T) {
+	t.Parallel()
+
+	tests := map[string]struct {
+		input string
+		want string
+	}{
+		"name": {"hoge", "fuga"},
+	}
+
+	for name, tt := range tests {
+		t.Run(fmt.Sprintf(name), func(t *testing.T) {
+			t.Parallel()
+			got := Testee(tt.input)
+			if got != tt.want {
+				t.Errorf("want %v, but got %v", tt.want, got)
+			}
+		})
+	}
+}
+'''
+
+[[snippet]]
 prefix = 'ut'
 description = 'unit test'
 body = '''
@@ -277,6 +303,27 @@ description = 'run command'
 body = '''
 cmd := exec.Command(${1:"ls", "-l"})
 err := cmd.Run()
+'''
+
+[[snippet]]
+prefix = 'fnopt'
+description = 'functional option pattern'
+body = '''
+type Option func(*$1)
+
+func WithX(x string) Option {
+	return func(f *$1) {
+		f.x = x
+	}
+}
+
+func New$1(options ...Option) {
+	$2 := $1{}
+	for _, opt := range options {
+		opt(&$2)
+	}
+	return &$2
+}
 '''
 
 
