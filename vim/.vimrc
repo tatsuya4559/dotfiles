@@ -58,6 +58,9 @@ nnoremap gk k
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
 
+" macro
+let @e = 'Iif err := A; err != nil {}Oreturn err'
+
 " colorscheme
 colorscheme habamax
 let g:is_bash = v:true
