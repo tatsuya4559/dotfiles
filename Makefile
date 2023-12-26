@@ -4,16 +4,12 @@
 .DEFAULT_GOAL := help
 # do not link .bashrc and .bash_profile. they are just a reference
 STOW_PACKAGES := alacritty readline fd git tig tmux vim
-DEVBOX := /usr/local/bin/devbox
 
 ################################################################################
 # Rules
 ################################################################################
 .PHONY: all
 all: brew download link minpac ## Run all setup commands
-
-$(DEVBOX):
-	curl -fsSL https://get.jetpack.io/devbox | bash
 
 .PHONY: brew
 brew: ## Install homebrew
