@@ -17,6 +17,9 @@ if [[ $(uname) == 'Linux' ]]; then
   eval $("$HOME/.linuxbrew/bin/brew" shellenv)
 fi
 
+# rtx
+eval "$(rtx activate)"
+
 # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
