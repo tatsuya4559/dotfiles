@@ -105,8 +105,10 @@ autocmd MyAutoCmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
 command! CopyPath :let @+ = expand('%')
 command! CopyFullPath :let @+ = expand('%:p')
 
-" align column
+" align column, table
 command! -range=% Align :<line1>,<line2>!column -t
+command! -range=% AlignTable :<line1>,<line2>!pandoc -t commonmark_x
+command! -range=% TableFromCsv :<line1>,<line2>!pandoc -f csv -t commonmark_x
 
 " quickfix
 function! s:toggle_quickfix()
