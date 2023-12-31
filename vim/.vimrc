@@ -142,7 +142,7 @@ function! PackInit() abort
   call minpac#add('junegunn/seoul256.vim', {'type': 'opt'})
 
   " filer & fuzzy finder
-  call minpac#add('tatsuya4559/filer.vim', {'branch': 'vim9script'})
+  call minpac#add('tatsuya4559/filer.vim')
   call minpac#add('ctrlpvim/ctrlp.vim')
   call minpac#add('mattn/ctrlp-matchfuzzy')
   call minpac#add('mattn/ctrlp-lsp')
