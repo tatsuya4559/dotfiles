@@ -21,6 +21,7 @@ set ruler
 set noswapfile
 set nowrap
 set hidden
+set wildoptions=fuzzy,pum
 set ttimeoutlen=10
 set diffopt=internal,filler,algorithm:histogram,indent-heuristic,closeoff
 set undolevels=1000 undodir=~/.vim/undo undofile
