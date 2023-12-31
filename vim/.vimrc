@@ -287,3 +287,5 @@ autocmd MyAutoCmd BufWritePost *.tf call s:async_run_tfdocs(expand('%'))
 if has('vim9script')
   runtime! rc/*.vim
 endif
+
+" vim: tabstop=2 shiftwidth=2
