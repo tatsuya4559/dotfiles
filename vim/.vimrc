@@ -179,6 +179,7 @@ function! PackInit() abort
   " language specific
   call minpac#add('mattn/emmet-vim')
   call minpac#add('mattn/vim-goimports')
+  call minpac#add('sebdah/vim-delve')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('jeetsukumaran/vim-python-indent-black')
   call minpac#add('lepture/vim-jinja')
@@ -272,6 +273,10 @@ imap <expr> <tab> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<tab>'
 imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
 imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 nnoremap <leader>s <cmd>VsnipEditTOML<cr>
+
+" delve
+let g:delve_new_command = 'new'
+nnoremap gb <cmd>DlvToggleBreakpoint<cr>
 
 " terraform
 let g:terraform_fmt_on_save = v:true
