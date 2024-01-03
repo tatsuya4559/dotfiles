@@ -129,6 +129,7 @@ autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listch
 autocmd MyAutoCmd FileType yaml setlocal lisp
 autocmd MyAutoCmd FileType gitcommit setlocal spell textwidth=0
 autocmd MyAutoCmd BufReadPost .ctrlp-launcher setlocal tabstop=8 shiftwidth=8 noexpandtab
+autocmd BufWritePre *.go call execute('LspDocumentFormatSync') | call execute('LspCodeActionSync source.organizeImports')
 
 " plugins
 packadd! matchit
@@ -178,7 +179,6 @@ function! PackInit() abort
 
   " language specific
   call minpac#add('mattn/emmet-vim')
-  call minpac#add('mattn/vim-goimports')
   call minpac#add('sebdah/vim-delve')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('jeetsukumaran/vim-python-indent-black')
