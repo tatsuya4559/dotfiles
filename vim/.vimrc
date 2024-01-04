@@ -180,6 +180,7 @@ function! PackInit() abort
   " language specific
   call minpac#add('mattn/emmet-vim')
   call minpac#add('sebdah/vim-delve')
+  call minpac#add('tatsuya4559/pdb.vim')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('jeetsukumaran/vim-python-indent-black')
   call minpac#add('lepture/vim-jinja')
@@ -274,9 +275,27 @@ imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
 imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 nnoremap <leader>s <cmd>VsnipEditTOML<cr>
 
-" delve
+" delve & pdb
 let g:delve_new_command = 'new'
-nnoremap gb <cmd>DlvToggleBreakpoint<cr>
+
+function! s:toggle_breakpoint() abort
+  if &filetype ==# 'python'
+    PdbToggleBreakpoint
+  elseif &filetype ==# 'go'
+    DlvToggleBreakpoint
+  endif
+endfunction
+
+function! s:start_debug() abort
+  if &filetype ==# 'python'
+    PdbDebug
+  elseif &filetype ==# 'go'
+    DlvDebug
+  endif
+endfunction
+
+nnoremap gb <scriptcmd>call <SID>toggle_breakpoint()<cr>
+command! StartDebug call s:start_debug()
 
 " terraform
 let g:terraform_fmt_on_save = v:true
