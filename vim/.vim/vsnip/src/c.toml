@@ -47,6 +47,19 @@ close(fd);
 '''
 
 [[snippet]]
+prefix = 'stat'
+description = 'stat'
+body = '''
+struct stat file_info;
+if (stat(${1:path}, &file_info) != 0) {
+    perror("stat");
+}
+if (S_ISREG(file_info.st_mode)) {
+    // ...
+}
+'''
+
+[[snippet]]
 prefix = 'va'
 description = 'variadic argument'
 body = '''
