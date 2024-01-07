@@ -141,7 +141,6 @@ function! PackInit() abort
 
   " colorscheme
   call minpac#add('tatsuya4559/shirotelin', {'type': 'opt'})
-  call minpac#add('junegunn/seoul256.vim', {'type': 'opt'})
 
   " filer & fuzzy finder
   call minpac#add('tatsuya4559/filer.vim')
