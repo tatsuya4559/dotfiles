@@ -139,9 +139,6 @@ function! PackInit() abort
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-  " colorscheme
-  call minpac#add('tatsuya4559/shirotelin', {'type': 'opt'})
-
   " filer & fuzzy finder
   call minpac#add('tatsuya4559/filer.vim')
   call minpac#add('ctrlpvim/ctrlp.vim')
