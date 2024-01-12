@@ -179,7 +179,6 @@ function! PackInit() abort
   call minpac#add('tatsuya4559/pdb.vim')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('jeetsukumaran/vim-python-indent-black')
-  call minpac#add('lepture/vim-jinja')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
