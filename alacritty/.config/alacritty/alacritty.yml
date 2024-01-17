@@ -1,9 +1,9 @@
 font:
   normal:
-    family: 'Monaspace Krypton'
+    family: 'Ubuntu Mono'
     style: Regular
   bold:
-    family: 'Monaspace Krypton'
+    family: 'Ubuntu Mono'
     style: Bold
   size: 14.0
 key_bindings:
