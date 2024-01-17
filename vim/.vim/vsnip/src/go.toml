@@ -99,6 +99,30 @@ func Test$1(t *testing.T) {
 '''
 
 [[snippet]]
+prefix = 'fuzz'
+description = 'fuzzing test'
+body = '''
+func Fuzz$1(f *testing.F) {
+	f.Add($2)
+	f.Fuzz(func(t *testing.T, $3) {
+		$4
+	})
+}
+'''
+
+[[snippet]]
+prefix = 'bench'
+description = 'benchmark'
+body = '''
+func Benchmark$1(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		$2
+	}
+}
+'''
+
+[[snippet]]
 prefix = 'terr'
 description = 't.Errorf'
 body = '''
