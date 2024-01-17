@@ -3,7 +3,7 @@ prefix = 'bash'
 description = 'bash shebang'
 body = '''
 #!/bin/bash
-set -eu
+set -euo pipefail
 '''
 
 [[snippet]]
