@@ -1,13 +1,7 @@
-################################################################################
-# Variables
-################################################################################
 .DEFAULT_GOAL := help
 # do not link .bashrc and .bash_profile. they are just a reference
 STOW_PACKAGES := alacritty readline fd git tig tmux vim
 
-################################################################################
-# Rules
-################################################################################
 .PHONY: all
 all: brew download link minpac ## Run all setup commands
 
