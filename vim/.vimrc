@@ -124,6 +124,14 @@ nnoremap <silent> ]q :<c-u>cn<cr>
 nnoremap <silent> [q :<c-u>cp<cr>
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
+" open terminal in buffer's dir
+function! s:open_term_bufdir() abort
+  let sh = getenv('SHELL')
+  call term_start(sh, {'cwd': expand('%:h'), 'term_finish': 'close'})
+endfunction
+
+nnoremap <leader>t <scriptcmd>call <SID>open_term_bufdir()<cr>
+
 " filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:·
 autocmd MyAutoCmd FileType yaml setlocal lisp
