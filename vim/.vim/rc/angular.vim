@@ -9,4 +9,3 @@ def NgGotoCompanionFile(): void
     echom 'Cannot open ' .. filename
   endif
 enddef
-nnoremap <leader>t :<c-u>call <SID>NgGotoCompanionFile()<cr>
