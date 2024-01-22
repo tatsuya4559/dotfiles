@@ -43,6 +43,11 @@ tools:
     lint-fomats:
       - '%f:%l:%c: %m'
 
+  # npm install -g sql-formatter
+  sql-formatter: &sql-formatter
+    format-command: 'sql-formatter'
+    format-stdin: true
+
 languages:
   # python:
     # - <<: *python-black
@@ -61,3 +66,6 @@ languages:
 
   # terraform:
   #   - <<: *tflint
+
+  sql:
+    - <<: *sql-formatter
