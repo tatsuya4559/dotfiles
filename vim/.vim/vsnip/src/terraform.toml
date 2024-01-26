@@ -60,6 +60,18 @@ locals {
 '''
 
 [[snippet]]
+prefix = 'check'
+description = 'check block'
+body = '''
+check "$1" {
+	assert {
+		condition = $2
+		error_message = "$3"
+	}
+}
+'''
+
+[[snippet]]
 prefix = 'provider'
 description = 'provider'
 body = '''
