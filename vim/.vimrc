@@ -168,6 +168,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-commentary')
   call minpac#add('hrsh7th/vim-vsnip')
   call minpac#add('tatsuya4559/vim-vsnip-toml')
+  call minpac#add('github/copilot.vim')
 
   " enhance default features
   call minpac#add('tatsuya4559/qrep.vim')
@@ -314,5 +315,13 @@ autocmd MyAutoCmd BufWritePost *.tf call s:async_run_tfdocs(expand('%'))
 if has('vim9script')
   runtime! rc/*.vim
 endif
+
+" copilot
+" let g:copilot_filetypes = {
+"       \ '*': v:false,
+"       \ }
+imap <c-b> <plug>(copilot-previous)
+imap <c-f> <plug>(copilot-next)
+imap <c-x><c-x> <plug>(copilot-suggest)
 
 " vim: tabstop=2 shiftwidth=2
