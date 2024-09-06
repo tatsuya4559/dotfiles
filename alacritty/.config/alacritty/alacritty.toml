@@ -1,0 +1,33 @@
+[font]
+size = 16.0
+
+[font.bold]
+family = "MonacoB"
+style = "Bold"
+
+[font.normal]
+family = "MonacoB"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+# Ctrl-6 to Ctrl-^
+chars = "\u001E"
+key = "Key6"
+mods = "Control"
+
+[[keyboard.bindings]]
+# Command-N to Option-N
+chars = "\u001Bn"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+# Command-P to Option-P
+chars = "\u001Bp"
+key = "P"
+mods = "Command"
