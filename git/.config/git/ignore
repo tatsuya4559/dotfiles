@@ -4,3 +4,5 @@
 .mise.toml
 .direnv
 Session.vim
+.venv
+*.pyc
