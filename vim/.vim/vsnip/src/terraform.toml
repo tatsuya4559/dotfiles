@@ -9,6 +9,16 @@ variable "$1" {
 '''
 
 [[snippet]]
+prefix = 'validation'
+description = 'validation'
+body = '''
+validation {
+	condition = $1
+	error_message = "$2"
+}
+'''
+
+[[snippet]]
 prefix = 'res'
 description = 'resource block'
 body = '''
