@@ -1,6 +1,6 @@
 # Utility
 reload .vimrc		source $MYVIMRC
-edit alacritty.yaml	edit ~/.config/alacritty/alacritty.yml
+edit alacritty.yaml	edit ~/.config/alacritty/alacritty.toml
 edit .tmux.conf		edit ~/.tmux.conf
 edit .aws/config	edit ~/.aws/config
 format			LspDocumentFormat
