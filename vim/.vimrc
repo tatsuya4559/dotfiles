@@ -58,6 +58,7 @@ nnoremap gj j
 nnoremap gk k
 nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
+inoremap <c-g><c-u> <esc>gUiwgi
 
 " macro
 " @e turns `fn()` into `if err := fn(); err != nil { return err }`
