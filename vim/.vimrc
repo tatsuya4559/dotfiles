@@ -175,7 +175,6 @@ function! PackInit() abort
   call minpac#add('markonm/traces.vim')
   call minpac#add('haya14busa/vim-asterisk')
   call minpac#add('itchyny/vim-qfedit')
-  call minpac#add('ConradIrwin/vim-bracketed-paste')
 
   " others
   call minpac#add('thinca/vim-quickrun')
