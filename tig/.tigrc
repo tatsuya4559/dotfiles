@@ -6,6 +6,7 @@ bind main    g  move-first-line
 bind generic g  move-first-line
 bind main    G  move-last-line
 bind generic G  move-last-line
+bind status C  !git commit -v
 
 color cursor black green
 color title-focus black blue
