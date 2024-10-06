@@ -17,4 +17,71 @@ $1:
 	$2
 '''
 
+[[snippet]]
+prefix = 'tmpl'
+description = 'template for small project'
+body = '''
+# プロジェクト名
+PROJECT_NAME = ${1:YourProjectName}
+
+# ソースコードのディレクトリ
+SRC_DIR = src
+# テストコードのディレクトリ
+TEST_DIR = test
+# ビルドディレクトリ
+BUILD_DIR = build
+# バイナリの出力先
+BIN_DIR = bin
+
+# コンパイラとコンパイルオプション
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c11 -I$(SRC_DIR) -I$(TEST_DIR)
+
+# ライブラリリンクオプション
+LIBS = -lcunit
+
+# ソースコードとテストコードのファイルを取得
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+TEST_SRCS = $(wildcard $(TEST_DIR)/*.c)
+
+# オブジェクトファイルの生成
+OBJS = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRCS))
+TEST_OBJS = $(patsubst $(TEST_DIR)/%.c,$(BUILD_DIR)/%.o,$(TEST_SRCS))
+
+# テスト実行ファイルの名前
+TEST_EXEC = $(BIN_DIR)/test_$(PROJECT_NAME)
+
+# メインターゲット
+all: $(BIN_DIR) $(TEST_EXEC)
+
+# テスト実行ファイルのビルド
+$(TEST_EXEC): $(OBJS) $(TEST_OBJS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+
+# オブジェクトファイルのビルド
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BUILD_DIR)/%.o: $(TEST_DIR)/%.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# ビルドディレクトリとバイナリ出力ディレクトリの作成
+$(BIN_DIR):
+	mkdir -p $@
+
+$(BUILD_DIR):
+	mkdir -p $@
+
+# テストの実行
+test: $(TEST_EXEC)
+	./$(TEST_EXEC)
+
+# クリーンアップ
+clean:
+	rm -rf $(BUILD_DIR) $(BIN_DIR)
+
+# デフォルトターゲットの指定
+.DEFAULT_GOAL := all
+'''
+
 # vim: ts=2 noexpandtab
