@@ -274,7 +274,7 @@ nnoremap <leader>b <cmd>BlamerToggle<cr>
 " vsnip
 let g:vsnip_snippet_src_dir = '~/.vim/vsnip/src'
 let g:vsnip_snippet_dir = '~/.vim/vsnip/out'
-imap <expr> <c-x><space> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<c-x><space>'
+imap <expr> <c-g><c-g> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<c-g><c-g>'
 imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
 imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 nnoremap <leader>s <cmd>VsnipEditTOML<cr>
