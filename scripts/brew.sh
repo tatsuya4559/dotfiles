@@ -4,7 +4,7 @@ set -eu
 insall() {
   case $(uname) in
     Darwin)
-      curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       ;;
     Linux)
       git clone --depth 1 https://github.com/Homebrew/brew "$HOME/.linuxbrew/Homebrew"
