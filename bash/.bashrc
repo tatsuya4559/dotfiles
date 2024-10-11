@@ -80,6 +80,56 @@ EOF
   esac
 }
 
+edit_current_line() {
+    local tmpfile=$(mktemp)
+    echo "$READLINE_LINE" > $tmpfile
+    vim $tmpfile -c 'normal $' -c 'set filetype=sh'
+    READLINE_LINE="$(cat $tmpfile)"
+    READLINE_POINT=${#READLINE_LINE}
+    rm $tmpfile
+}
+bind -m emacs-standard -x '"\C-t": edit_current_line'
+
+complete -C /.../awscli/latest/bin/aws_completer aws
+
+awslogin() {
+  saml2aws login --skip-prompt
+}
+
+# Terraform
+tfinit() {
+  terraform init -backend-config="profile=***"
+}
+
+tfdoc() {
+  pre-commit run terraform_docs
+}
+
+pr() {
+  git push -u
+  git pr
+}
+
+# Misc
+sound() {
+  afplay /System/Library/Sounds/Funk.aiff
+  # afplay /System/Library/Sounds/Glass.aiff
+}
+
+genkeypair() {
+  openssl genrsa -out key.pem
+  openssl rsa -pubout -in key.pem -out pubkey.pem
+}
+
+checkmyip() {
+  curl http://checkip.amazonaws.com/
+}
+
+set_docker_host() {
+  export DOCKER_HOST=$(docker context inspect $(docker context show) | jq -r '.[0].Endpoints.docker.Host')
+}
+
+
 # apps
 source "$HOME/.fzf.bash"
 source "$HOME/.git-completion.bash"

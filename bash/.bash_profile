@@ -17,8 +17,8 @@ if [[ $(uname) == 'Linux' ]]; then
   eval $("$HOME/.linuxbrew/bin/brew" shellenv)
 fi
 
-# rtx
-eval "$(rtx activate)"
+# mise
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # volta
 export VOLTA_HOME="$HOME/.volta"
