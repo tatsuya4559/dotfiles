@@ -2,9 +2,15 @@
 set -eu
 
 insall() {
+  if command -v brew; then
+    return 0
+  fi
   case $(uname) in
     Darwin)
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo >> /Users/tatsu/.bash_profile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/tatsu/.bash_profile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
       ;;
     Linux)
       git clone --depth 1 https://github.com/Homebrew/brew "$HOME/.linuxbrew/Homebrew"
