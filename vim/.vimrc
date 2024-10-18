@@ -251,6 +251,8 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <space>d <scriptcmd>call <SID>toggle_diagnostics()<cr>
   nnoremap <buffer> go <cmd>CtrlPLspDocumentSymbol<cr>
   nnoremap <buffer> <leader>f <cmd>LspDocumentFormat<cr>
+  nnoremap <buffer> <expr>[k lsp#scroll(-4)
+  nnoremap <buffer> <expr>]k lsp#scroll(+4)
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
