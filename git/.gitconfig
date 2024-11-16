@@ -30,6 +30,7 @@
   cm = commit -v
   fe = fetch --all
   br = branch
+  ri = rebase -i
   di = diff
   ds = diff --staged
   dt = difftool
