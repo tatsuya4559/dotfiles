@@ -193,7 +193,7 @@ command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
 
 " grep
-let &grepprg = 'rg --vimgrep --hidden --glob "!.git"'
+let &grepprg = 'git grep --line --column --no-color'
 set grepformat=%f:%l:%c:%m
 nnoremap <space>v :<c-u>vimgrep /<c-r><c-w>/j %<cr>
 
