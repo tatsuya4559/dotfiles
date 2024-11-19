@@ -181,4 +181,22 @@ statement {
 }
 '''
 
+[[snippet]]
+prefix = 's3bucket'
+description = 's3 bucket'
+body = '''
+resource "aws_s3_bucket" "this" {
+	bucket = $1
+}
+
+resource "aws_s3_bucket_public_access_block" "this" {
+	bucket = aws_s3_bucket.this.id
+
+	block_public_acls       = true
+	block_public_policy     = true
+	ignore_public_acls      = true
+	restrict_public_buckets = true
+}
+'''
+
 # vim: ts=2 noexpandtab
