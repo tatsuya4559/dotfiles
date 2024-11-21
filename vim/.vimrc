@@ -237,6 +237,10 @@ function! s:toggle_diagnostics() abort
   endif
 endfunction
 
+function! s:is_document_hover_visible() abort
+  return lsp#document_hover_preview_winid() != v:null
+endfunction
+
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal tagfunc=lsp#tagfunc
@@ -254,8 +258,8 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <space>d <scriptcmd>call <SID>toggle_diagnostics()<cr>
   nnoremap <buffer> go <cmd>CtrlPLspDocumentSymbol<cr>
   nnoremap <buffer> <leader>f <cmd>LspDocumentFormat<cr>
-  nnoremap <buffer> <expr>[k lsp#scroll(-4)
-  nnoremap <buffer> <expr>]k lsp#scroll(+4)
+  nmap <buffer><expr> <c-y> <SID>is_document_hover_visible() ? lsp#scroll(-1) : '<c-y>'
+  nmap <buffer><expr> <c-e> <SID>is_document_hover_visible() ? lsp#scroll(+1) : '<c-e>'
 endfunction
 autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
