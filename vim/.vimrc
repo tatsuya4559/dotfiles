@@ -200,6 +200,9 @@ nnoremap <space>v :<c-u>vimgrep /<c-r><c-w>/j %<cr>
 " plugin settings
 nnoremap <space>g :<c-u>Qrep<space>
 
+" emmet
+let g:user_emmet_mode = 'i'
+
 " ctrlp
 let g:ctrlp_user_command = 'fd --hidden --type f --color never "" %s'
 let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
