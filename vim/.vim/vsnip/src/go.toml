@@ -45,16 +45,19 @@ prefix = 'utt'
 description = 'table driven test skelton'
 body = '''
 func Test$1(t *testing.T) {
-	tests := []struct {
+	tests := map[string]struct {
 		input string
 		want string
 	}{
-		{"hoge", "fuga"},
+		"Summary": {
+		  input: "",
+		  want: "",
+		},
 	}
 
-	for _, tt := range tests {
-		t.Run(fmt.Sprintf("%s", tt.input), func(t *testing.T) {
-			got := Testee(tt.input)
+	for summary, tt := range tests {
+		t.Run(summary, func(t *testing.T) {
+			got := FUT(tt.input)
 			if got != tt.want {
 				t.Errorf("want %v, but got %v", tt.want, got)
 			}
