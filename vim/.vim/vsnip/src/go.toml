@@ -67,32 +67,6 @@ func Test$1(t *testing.T) {
 '''
 
 [[snippet]]
-prefix = 'utm'
-description = 'table driven test skelton(map ver.)'
-body = '''
-func Test$1(t *testing.T) {
-	t.Parallel()
-
-	tests := map[string]struct {
-		input string
-		want string
-	}{
-		"name": {"hoge", "fuga"},
-	}
-
-	for name, tt := range tests {
-		t.Run(fmt.Sprintf(name), func(t *testing.T) {
-			t.Parallel()
-			got := Testee(tt.input)
-			if got != tt.want {
-				t.Errorf("want %v, but got %v", tt.want, got)
-			}
-		})
-	}
-}
-'''
-
-[[snippet]]
 prefix = 'ut'
 description = 'unit test'
 body = '''
@@ -126,28 +100,14 @@ func Benchmark$1(b *testing.B) {
 '''
 
 [[snippet]]
-prefix = 'terr'
-description = 't.Errorf'
-body = '''
-t.Errorf("want %v, but got %v", $1, $2)
-'''
-
-[[snippet]]
-prefix = 'tfatal'
-description = 't.Fatalf'
-body = '''
-t.Fatalf("want %v, but got %v", $1, $2)
-'''
-
-[[snippet]]
 prefix = 'file.open'
 description = 'open file'
 body = '''
-${1:file}, err := os.Open(${2:path})
+f, err := os.Open($1)
 if err != nil {
-	${3:panic(err)}
+	return err
 }
-defer $1.Close()
+defer f.Close()
 '''
 
 [[snippet]]
@@ -156,18 +116,9 @@ description = 'create file'
 body = '''
 f, err := os.Create($1)
 if err != nil {
-	${2:panic(err)}
+	return err
 }
 defer f.Close()
-'''
-
-[[snippet]]
-prefix = 'fori'
-description = 'for loop'
-body = '''
-for i:=${1:0}; i<${2:n}; ${3:i++} {
-	$4
-}
 '''
 
 [[snippet]]
@@ -191,19 +142,6 @@ func ${1:handler}(w http.ResponseWriter, r *http.Request) {
 '''
 
 [[snippet]]
-prefix = 'filter'
-description = 'tipical filter'
-body = '''
-var $1 []$2
-for _, e := range $3 {
-	if $4 {
-		$1 = append($1, e)
-	}
-}
-return $1
-'''
-
-[[snippet]]
 prefix = 'enum'
 description = 'enum'
 body = '''
@@ -215,15 +153,6 @@ const (
 '''
 
 [[snippet]]
-prefix = 'st'
-description = 'struct'
-body = '''
-type $1 struct {
-	$2
-}
-'''
-
-[[snippet]]
 prefix = 'recover'
 description = 'recover'
 body = '''
@@ -232,13 +161,6 @@ defer func() {
 		$1
 	}
 }()
-'''
-
-[[snippet]]
-prefix = 'w'
-description = 'wraps error'
-body = '''
-fmt.Errorf("$1: %w", err)
 '''
 
 ################################################################################
