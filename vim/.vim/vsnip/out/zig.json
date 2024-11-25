@@ -1,1 +1,0 @@
-{"test":{"description":"test","body":["test \"$1\" {","\t$2","}"],"prefix":"test"},"sw":{"description":"switch","body":["switch ($1) {","  $2","}"],"prefix":"sw"}}

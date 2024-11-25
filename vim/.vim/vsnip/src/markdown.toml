@@ -1,6 +1,0 @@
-[[snippet]]
-prefix = 'task'
-description = 'task box'
-body = '''
-- [ ] $1
-'''
