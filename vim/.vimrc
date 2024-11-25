@@ -35,7 +35,7 @@ augroup END
 set autoread
 autocmd MyAutoCmd WinEnter * checktime
 
-" keymaps
+" Keymaps
 nnoremap <f1> <nop>
 nnoremap Q <nop>
 nnoremap ZZ <nop>
@@ -60,15 +60,15 @@ nnoremap <silent> <c-l> :<c-u>nohlsearch<cr><c-l>
 cnoremap <c-p> <up>
 inoremap <c-g><c-u> <esc>gUiwgi
 
-" macro
+" Macro
 " @e turns `fn()` into `if err := fn(); err != nil { return err }`
 let @e = 'Iif err := A; err != nil {}Oreturn err'
 
-" colorscheme
+" Colorscheme
 colorscheme habamax
 let g:is_bash = v:true
 
-" abbreviations
+" Abbreviations
 cabbrev w!! w !sudo tee > /dev/null %
 cabbrev gina Gina
 cabbrev te term ++close
@@ -78,6 +78,8 @@ iabbrev Flase False
 iabbrev apn1x ap-northeast-1
 iabbrev apn3x ap-northeast-3
 iabbrev use1x us-east-1
+
+" Utilities
 
 let s:is_wsl = isdirectory('/mnt/c')
 
@@ -112,7 +114,15 @@ command! -range=% Align :<line1>,<line2>!column -t
 command! -range=% AlignTable :<line1>,<line2>!pandoc -t commonmark_x
 command! -range=% TableFromCsv :<line1>,<line2>!pandoc -f csv -t commonmark_x
 
-" quickfix
+" open terminal in buffer's dir
+function! s:open_term_bufdir() abort
+  let sh = getenv('SHELL')
+  call term_start(sh, {'cwd': expand('%:h'), 'term_finish': 'close'})
+endfunction
+
+nnoremap <leader>t <scriptcmd>call <SID>open_term_bufdir()<cr>
+
+" Quickfix
 function! s:toggle_quickfix()
   let nr = winnr('$')
   cwindow
@@ -125,22 +135,14 @@ nnoremap <silent> ]q :<c-u>cn<cr>
 nnoremap <silent> [q :<c-u>cp<cr>
 autocmd MyAutoCmd QuickFixCmdPost *grep* cwindow
 
-" open terminal in buffer's dir
-function! s:open_term_bufdir() abort
-  let sh = getenv('SHELL')
-  call term_start(sh, {'cwd': expand('%:h'), 'term_finish': 'close'})
-endfunction
-
-nnoremap <leader>t <scriptcmd>call <SID>open_term_bufdir()<cr>
-
-" filetype
+" Filetype
 autocmd MyAutoCmd FileType go setlocal tabstop=4 shiftwidth=4 noexpandtab listchars=tab:\ \ ,trail:·
 autocmd MyAutoCmd FileType yaml setlocal lisp
 autocmd MyAutoCmd FileType gitcommit setlocal spell textwidth=0
 autocmd MyAutoCmd BufReadPost .ctrlp-launcher setlocal tabstop=8 shiftwidth=8 noexpandtab
 autocmd MyAutoCmd BufWritePre *.go call execute('LspDocumentFormatSync') | call execute('LspCodeActionSync source.organizeImports')
 
-" plugins
+" Plugins
 packadd! matchit
 packadd! cfilter
 function! PackInit() abort
@@ -184,20 +186,18 @@ function! PackInit() abort
 
   " language specific
   call minpac#add('mattn/emmet-vim')
-  call minpac#add('sebdah/vim-delve')
-  call minpac#add('tatsuya4559/pdb.vim')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('jeetsukumaran/vim-python-indent-black')
 endfunction
 command! PackUpdate call PackInit() | call minpac#update()
 command! PackClean call PackInit() | call minpac#clean()
 
-" grep
+" Plugin settings
+
+" qrep and grep
 let &grepprg = 'git grep --line --column --no-color'
 set grepformat=%f:%l:%c:%m
 nnoremap <space>v :<c-u>vimgrep /<c-r><c-w>/j %<cr>
-
-" plugin settings
 nnoremap <space>g :<c-u>Qrep<space>
 
 " emmet
@@ -288,28 +288,6 @@ imap <expr> <c-j> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'
 imap <expr> <c-k> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-k>'
 nnoremap <leader>s <cmd>VsnipEditTOML<cr>
 
-" delve & pdb
-let g:delve_new_command = 'new'
-
-function! s:toggle_breakpoint() abort
-  if &filetype ==# 'python'
-    PdbToggleBreakpoint
-  elseif &filetype ==# 'go'
-    DlvToggleBreakpoint
-  endif
-endfunction
-
-function! s:start_debug() abort
-  if &filetype ==# 'python'
-    PdbDebug
-  elseif &filetype ==# 'go'
-    DlvDebug
-  endif
-endfunction
-
-nnoremap gb <scriptcmd>call <SID>toggle_breakpoint()<cr>
-command! StartDebug call s:start_debug()
-
 " terraform
 let g:terraform_fmt_on_save = v:true
 
@@ -321,10 +299,6 @@ function! s:async_run_tfdocs(filename) abort
 endfunction
 autocmd MyAutoCmd BufWritePost *.tf call s:async_run_tfdocs(expand('%'))
 
-if has('vim9script')
-  runtime! rc/*.vim
-endif
-
 " copilot
 " let g:copilot_filetypes = {
 "       \ '*': v:false,
@@ -332,5 +306,10 @@ endif
 imap <c-b> <plug>(copilot-previous)
 imap <c-f> <plug>(copilot-next)
 imap <c-x><c-x> <plug>(copilot-suggest)
+
+" Additional scripts
+if has('vim9script')
+  runtime! rc/*.vim
+endif
 
 " vim: tabstop=2 shiftwidth=2
