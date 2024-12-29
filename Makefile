@@ -3,7 +3,7 @@
 ##############################################################################
 .DEFAULT_GOAL := help
 DEVBOX := /usr/local/bin/devbox
-STOW_PACKAGES := alacritty readline fd git tig tmux vim
+STOW_PACKAGES := alacritty ghostty readline fd git tig tmux vim
 
 ##############################################################################
 #  Rules
