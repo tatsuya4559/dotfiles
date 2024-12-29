@@ -5,15 +5,16 @@
   loop:
     - awscli
     - bash
-    - docker
     - direnv
+    - docker
     - entr
     - fd
     - fzf
-    - git
     - gh
     - ghq
+    - git
     - jq
+    - lima
     - mise
     - stow
     - tig
