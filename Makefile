@@ -1,17 +1,15 @@
+##############################################################################
+# Variables
+##############################################################################
 .DEFAULT_GOAL := help
-# do not link .bashrc and .bash_profile. they are just a reference
+DEVBOX := /usr/local/bin/devbox
 STOW_PACKAGES := alacritty readline fd git tig tmux vim
 
+##############################################################################
+#  Rules
+##############################################################################
 .PHONY: all
-all: brew download link minpac ## Run all setup commands
-
-.PHONY: brew
-brew: ## Install homebrew
-	./scripts/brew.sh
-
-.PHONY: download
-download: ## Download files
-	./scripts/download.sh
+all: ansible link minpac ## Run all setup commands
 
 .PHONY: link
 link: ## Link dotfiles
@@ -24,6 +22,17 @@ unlink: ## Unlink dotfiles
 .PHONY: minpac
 minpac: ## Install vim plugins
 	@vim -c "call PackInit() | call minpac#update('', {'do': 'quitall'})"
+
+.PHONY: ansible
+ansible: $(DEVBOX) ## Run ansbile
+	devbox run ansible-playbook
+
+$(DEVBOX):
+	curl -fsSL https://get.jetify.com/devbox | bash
+
+.PHONY: lint-ansible
+lint-ansible: $(DEVBOX) ## Lint ansible
+	devbox run ansible-lint
 
 .PHONY: help
 help: ## Display this help

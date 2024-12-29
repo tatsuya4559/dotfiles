@@ -1,0 +1,19 @@
+---
+- name: Autohide the Dock
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+
+- name: Use F1, F2, etc. keys as standard function keys
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.keyboard.fnState
+    type: bool
+    value: true
+
+- name: Change the default shell to bash
+  user:
+    name: "{{ ansible_env.USER }}"
+    shell: /bin/bash

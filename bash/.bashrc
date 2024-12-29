@@ -131,7 +131,7 @@ set_docker_host() {
 
 
 # apps
-source "$HOME/.fzf.bash"
+source "$HOME/.fzf-key-bindings.bash"
 source "$HOME/.git-completion.bash"
 source "$HOME/.git-prompt.sh"
 source "$HOME/.local/bin/bashmarks.sh"

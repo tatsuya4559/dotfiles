@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
+  "packages": [
+    "ansible@latest",
+    "ansible-lint@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null"
+    ],
+    "scripts": {
+      "ansible-lint": [
+        "ansible-lint --fix"
+      ],
+      "ansible-playbook": [
+        "cd provisioning",
+        "ansible-playbook setup.yml"
+      ],
+      "ansible-playbook-for-job": [
+        "ansible-playbook setup.yml --tags 'all,job'"
+      ]
+    }
+  }
+}

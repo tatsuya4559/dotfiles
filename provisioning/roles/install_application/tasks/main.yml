@@ -1,0 +1,54 @@
+---
+- name: Install applications with Homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop:
+    - awscli
+    - bash
+    - docker
+    - direnv
+    - entr
+    - fd
+    - fzf
+    - git
+    - gh
+    - ghq
+    - jq
+    - mise
+    - stow
+    - tig
+    - tldr
+    - tmux
+    - tree
+    - universal-ctags
+    - vim
+    - volta
+
+- name: Install applications with Homebrew Cask
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  loop:
+    - 1password
+    - 1password-cli
+    - alacritty
+    - brave-browser
+    - ghostty
+    - google-chrome
+    - raycast
+    - shottr
+    - visual-studio-code
+    # - google-japanese-ime # M3 Macだとうまくインストールできない
+
+- name: Install applications for my job with Homebrew Cask
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  loop:
+    - docker
+    - meetingbar
+    - miro
+    - slack
+    - trailer
+    - zoom
+  tags:
+    - never
+    - job

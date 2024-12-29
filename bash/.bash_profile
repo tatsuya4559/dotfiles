@@ -13,10 +13,6 @@ export PROMPT_COMMAND='history -a'
 export PATH="$HOME/.local/bin:$PATH"
 export FZF_DEFAULT_COMMAND='fd --color never --type f'
 
-if [[ $(uname) == 'Linux' ]]; then
-  eval $("$HOME/.linuxbrew/bin/brew" shellenv)
-fi
-
 # mise
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
