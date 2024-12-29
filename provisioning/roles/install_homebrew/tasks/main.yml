@@ -1,0 +1,48 @@
+---
+- name: Check if Homebrew is installed
+  command: brew --version
+  register: brew_installed
+  ignore_errors: yes
+
+- name: Install Homebrew on Mac
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  when:
+    - brew_installed.rc != 0
+    - ansible_os_family == "Darwin"
+
+- name: Install Homebrew on Linux
+  shell: |
+    git clone --depth 1 https://github.com/Homebrew/brew "$HOME/.linuxbrew/Homebrew"
+    mkdir "$HOME/.linuxbrew/bin"
+    ln -s "$HOME/.linuxbrew/Homebrew/bin/brew" "$HOME/.linuxbrew/bin"
+  when:
+    - brew_installed.rc != 0
+    - ansible_os_family == "Linux"
+
+- name: Add Homebrew to PATH on Mac
+  ansible.builtin.blockinfile:
+    path: ~/.bash_profile
+    insertbefore: BOF
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    block: |
+      # homebrew
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+  when:
+    - brew_installed.rc != 0
+    - ansible_os_family == "Darwin"
+
+- name: Add Homebrew to PATH on Linux
+  ansible.builtin.blockinfile:
+    path: ~/.bash_profile
+    insertbefore: BOF
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    block: |
+      # homebrew
+      eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
+  when:
+    - brew_installed.rc != 0
+    - ansible_os_family == "Linux"
+
+- name: Source bash profile
+  shell: source ~/.bash_profile
+  when: brew_installed.rc != 0

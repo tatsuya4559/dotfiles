@@ -2,15 +2,15 @@
 
 .PHONY: install
 install: ## Install plug
-	sudo ln -s $(CURDIR)/plug /usr/local/bin/plug
 	mkdir -p ~/.local/bin
+	sudo ln -s $(CURDIR)/plug $(HOME)/.local/bin/plug
 	ln -s $(CURDIR)/plug_completion.sh ~/.local/bin/plug_completion.sh
 	@echo ""
 	@echo "Please add 'source ~/.local/bin/plug_completion.sh' to your .bashrc"
 
 .PHONY: uninstall
 uninstall: ## Uninstall plug
-	sudo rm /usr/local/bin/plug
+	sudo rm $(HOME)/.local/bin/plug
 	rm ~/.local/bin/plug_completion.sh
 
 .PHONY: help
