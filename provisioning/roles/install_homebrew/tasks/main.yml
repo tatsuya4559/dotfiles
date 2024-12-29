@@ -1,17 +1,18 @@
 ---
 - name: Check if Homebrew is installed
-  command: brew --version
+  ansible.builtin.command: brew --version
   register: brew_installed
-  ignore_errors: yes
+  ignore_errors: true
+  changed_when: false
 
 - name: Install Homebrew on Mac
-  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when:
     - brew_installed.rc != 0
     - ansible_os_family == "Darwin"
 
 - name: Install Homebrew on Linux
-  shell: |
+  ansible.builtin.shell: |
     git clone --depth 1 https://github.com/Homebrew/brew "$HOME/.linuxbrew/Homebrew"
     mkdir "$HOME/.linuxbrew/bin"
     ln -s "$HOME/.linuxbrew/Homebrew/bin/brew" "$HOME/.linuxbrew/bin"
@@ -44,5 +45,5 @@
     - ansible_os_family == "Linux"
 
 - name: Source bash profile
-  shell: source ~/.bash_profile
+  ansible.builtin.command: source ~/.bash_profile
   when: brew_installed.rc != 0

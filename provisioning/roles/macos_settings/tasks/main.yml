@@ -14,6 +14,6 @@
     value: true
 
 - name: Change the default shell to bash
-  user:
+  ansible.builtin.user:
     name: "{{ ansible_env.USER }}"
     shell: /bin/bash

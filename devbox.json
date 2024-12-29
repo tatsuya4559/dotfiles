@@ -10,6 +10,7 @@
     ],
     "scripts": {
       "ansible-lint": [
+        "cd provisioning",
         "ansible-lint --fix"
       ],
       "ansible-playbook": [
@@ -17,6 +18,7 @@
         "ansible-playbook setup.yml"
       ],
       "ansible-playbook-for-job": [
+        "cd provisioning",
         "ansible-playbook setup.yml --tags 'all,job'"
       ]
     }
