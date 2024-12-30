@@ -2,7 +2,7 @@
 - name: Provision the local machine
   hosts: local
   roles:
-    - role: macos_settings
     - role: download_files
     - role: install_homebrew
     - role: install_application
+    - role: macos_settings

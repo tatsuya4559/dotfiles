@@ -13,7 +13,12 @@
     type: bool
     value: true
 
+- name: Enable to use installed bash as a login shell
+  ansible.builtin.lineinfile:
+    path: /etc/shells
+    line: /opt/homebrew/bin/bash
+
 - name: Change the default shell to bash
   ansible.builtin.user:
     name: "{{ ansible_env.USER }}"
-    shell: /bin/bash
+    shell: /opt/homebrew/bin/bash
