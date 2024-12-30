@@ -139,3 +139,8 @@ source "$HOME/.local/bin/plug_completion.sh"
 
 eval "$(gh completion -s bash)"
 eval "$(direnv hook bash)"
+
+# kubectl
+source <(kubectl completion bash)
+alias k=kubectl
+complete -o default -F __start_kubectl k
