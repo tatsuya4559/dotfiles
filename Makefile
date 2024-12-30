@@ -25,14 +25,14 @@ minpac: ## Install vim plugins
 
 .PHONY: ansible
 ansible: $(DEVBOX) ## Run ansbile
-	devbox run ansible-playbook
+	$(DEVBOX) run ansible-playbook
 
 $(DEVBOX):
 	curl -fsSL https://get.jetify.com/devbox | bash
 
 .PHONY: lint-ansible
 lint-ansible: $(DEVBOX) ## Lint ansible
-	devbox run ansible-lint
+	$(DEVBOX) run ansible-lint
 
 .PHONY: help
 help: ## Display this help
