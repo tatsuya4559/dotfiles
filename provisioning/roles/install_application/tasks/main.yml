@@ -5,8 +5,10 @@
   loop:
     - awscli
     - bash
+    - derailed/k9s/k9s
     - direnv
     - docker
+    - docker-compose
     - entr
     - fd
     - fzf
@@ -16,8 +18,10 @@
     - jq
     - kind
     - kubectl
+    - kubectx
     - lima
     - mise
+    - stern
     - stow
     - tig
     - tldr
