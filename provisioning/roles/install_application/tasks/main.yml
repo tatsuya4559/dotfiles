@@ -5,6 +5,7 @@
   loop:
     - awscli
     - bash
+    - colima
     - derailed/k9s/k9s
     - direnv
     - docker
@@ -19,7 +20,6 @@
     - kind
     - kubectl
     - kubectx
-    - lima
     - mise
     - stern
     - stow

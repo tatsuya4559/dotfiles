@@ -8,6 +8,8 @@ __tf_workspace() {
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\w$(__git_ps1)$(__tf_workspace)\n$ '
 
+# colima docker
+export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
 
 # alias
 alias cp='cp -i'
@@ -78,6 +80,10 @@ EOF
       cd "${dir}" || true
       ;;
   esac
+}
+
+start_colima() {
+  colima start --cpu 4 --memory 4 --disk 100
 }
 
 edit_current_line() {
