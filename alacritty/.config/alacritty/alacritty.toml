@@ -1,12 +1,15 @@
+[terminal]
+shell = { program = "/opt/homebrew/bin/bash", args = ["-l"] }
+
 [font]
-size = 16.0
+size = 14.0
 
 [font.bold]
-family = "MonacoB"
+family = "Monaco"
 style = "Bold"
 
 [font.normal]
-family = "MonacoB"
+family = "Monaco"
 style = "Regular"
 
 [[keyboard.bindings]]
