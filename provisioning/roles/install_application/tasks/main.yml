@@ -16,6 +16,7 @@
     - gh
     - ghq
     - git
+    - go-to-k/tap/delstack
     - jq
     - kind
     - kubectl
