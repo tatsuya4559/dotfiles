@@ -23,6 +23,7 @@
     - kubectx
     - marp-cli
     - mise
+    - ripgrep
     - stern
     - stow
     - tig
