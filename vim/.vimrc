@@ -145,6 +145,7 @@ autocmd MyAutoCmd BufWritePre *.go call execute('LspDocumentFormatSync') | call 
 " Plugins
 packadd! matchit
 packadd! cfilter
+packadd! editorconfig
 function! PackInit() abort
   packadd! minpac
   call minpac#init()
