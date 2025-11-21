@@ -32,7 +32,6 @@
     - tree
     - universal-ctags
     - vim
-    - volta
 
 - name: Install applications with Homebrew Cask
   community.general.homebrew_cask:

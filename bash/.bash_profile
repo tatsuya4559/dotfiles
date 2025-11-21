@@ -16,10 +16,6 @@ export FZF_DEFAULT_COMMAND='fd --color never --type f'
 # mise
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
-# volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 # golang
 export PATH=$PATH:$(go env GOPATH)/bin
 
